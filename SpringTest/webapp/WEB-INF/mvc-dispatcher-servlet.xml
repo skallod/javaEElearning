@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+       <context:component-scan base-package="ru.galuzin.springshit"/>
+
+       <bean id="viewResolver" class=
+               "org.springframework.web.servlet.view.UrlBasedViewResolver">
+              <property name="viewClass"
+                        value="org.springframework.web.servlet.view.JstlView"/>
+              <property name="prefix" value="/WEB-INF/views/" />
+              <property name="suffix" value=".jsp" />
+       </bean>
+
+       <bean class=
+                     "org.springframework.web.servlet.view.tiles3.TilesConfigurer">
+              <property name="definitions">
+                     <list>
+                            <value>/WEB-INF/views/**/views.xml</value>
+                     </list>
+              </property>
+       </bean>
+
+
+       <bean class="org.springframework.web.servlet.view.tiles3.TilesViewResolver"/>
+
+
+       <bean name="leo" class="ru.galuzin.springshit.Spitter">
+              <property name="id" value="1" />
+              <property name="email" value="leo@bk.ru"/>
+              <property name="fullName" value="leonid"/>
+              <property name="password" value="april"/>
+              <property name="updateByEmail" value="false"/>
+              <property name="username" value="leon"/>
+              <property name="spittles">
+                     <list>
+                            <bean id="spittle1"
+                                  class="ru.galuzin.springshit.Spittle"
+                                  p:id="1"
+                                  p:spitter-ref="leo"
+                                  p:text="i m lukcy leo 11.01"
+                                  p:when="2010-010-31"/>
+
+                            <bean id="spittle2"
+                                  class="ru.galuzin.springshit.Spittle"
+                                  p:id="2"
+                                  p:spitter-ref="leo"
+                                  p:text="i m looser leo 20.51"
+                                  p:when="2010-010-30"/>
+
+                             </list>
+              </property>
+       </bean>
+
+    <bean id="jdbcTemplate"
+          class="org.springframework.jdbc.core.simple.SimpleJdbcTemplate">
+        <constructor-arg ref="dataSource" />
+    </bean>
+
+</beans>
