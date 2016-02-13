@@ -29,7 +29,7 @@ public class MainStudentTest {
         student.setAge(30L);
 
         Student student2 = new Student();
-        student2.setName("Dimon6");
+        student2.setName("Dimon6"); 2
         student2.setAge(35L);
 
         try {
