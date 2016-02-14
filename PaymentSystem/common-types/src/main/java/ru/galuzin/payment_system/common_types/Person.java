@@ -25,7 +25,7 @@ public class Person {
         this.personID = personID;
     }
 
-    @Column(name="NAME",unique = false, nullable = false)
+    @Column(name="NAME",unique = false, nullable = true)
     public String getName() {
         return name;
     }
@@ -33,7 +33,7 @@ public class Person {
     public void setName(String name) {
         this.name = name;
     }
-    @Column(name = "LAST_NAME", unique = false, nullable = false)
+    @Column(name = "LAST_NAME", unique = false, nullable = true)
     public String getLastName() {
         return lastName;
     }
@@ -41,7 +41,7 @@ public class Person {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
-    //todo one to many
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "person")
     public Set<Account> getAccounts() {
         return accounts;
     }

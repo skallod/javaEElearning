@@ -1,4 +1,4 @@
-package ru.galuzin.bank_system.common_types;
+package ru.galuzin.payment_system.common_types;
 
 /**
  * Hello world!

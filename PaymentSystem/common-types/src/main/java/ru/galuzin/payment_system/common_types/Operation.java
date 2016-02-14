@@ -42,7 +42,7 @@ public class Operation {
     public void setDestAccount(Account destAccount) {
         this.destAccount = destAccount;
     }
-    @Column(name="OPERATION_TYPE", unique = false, nullable = false)
+    @Column(name="OPERATION_TYPE", unique = false, nullable = true)
     public String getOperationType() {
         return operationType;
     }
@@ -51,7 +51,7 @@ public class Operation {
         this.operationType = operationType;
     }
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "TERMINAL_ID", nullable = false)
+    @JoinColumn(name = "TERMINAL_ID", nullable = true)
     public Terminal getTerminal() {
         return terminal;
     }
@@ -59,7 +59,7 @@ public class Operation {
     public void setTerminal(Terminal terminal) {
         this.terminal = terminal;
     }
-    @Column(name = "MONEY", unique = false, nullable = false)
+    @Column(name = "MONEY", unique = false, nullable = true)
     public Double getMoney() {
         return money;
     }
@@ -68,7 +68,7 @@ public class Operation {
         this.money = money;
     }
     @Temporal(TemporalType.DATE)
-    @Column(name="DATE", unique = false, nullable = false)
+    @Column(name="DATE", unique = false, nullable = true)
     public Date getDate() {
         return date;
     }

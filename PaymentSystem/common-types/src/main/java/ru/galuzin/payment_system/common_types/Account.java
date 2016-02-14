@@ -12,7 +12,8 @@ public class Account {
     private Long accountID;
     private Double money;
     private Person person;
-    private Set<Operation> operations;
+    private Set<Operation> operationsSrcAccount;
+    private Set<Operation> operationsDestAccount;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name="ACCOUNT_ID", unique = true, nullable = false)
@@ -23,7 +24,7 @@ public class Account {
     public void setAccountID(Long accountID) {
         this.accountID = accountID;
     }
-    @Column(name = "MONEY", unique = false, nullable = false)
+    @Column(name = "MONEY", unique = false, nullable = true)
     public Double getMoney() {
         return money;
     }
@@ -32,7 +33,7 @@ public class Account {
         this.money = money;
     }
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="PERSON",unique = false, nullable = false)
+    @JoinColumn(name="PERSON",unique = false, nullable = true)
     public Person getPerson() {
         return person;
     }
@@ -41,11 +42,19 @@ public class Account {
         this.person = person;
     }
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "srcAccount")
-    public Set<Operation> getOperations() {
-        return operations;
+    public Set<Operation> getOperationsSrcAccount() {
+        return operationsSrcAccount;
     }
 
-    public void setOperations(Set<Operation> operations) {
-        this.operations = operations;
+    public void setOperationsSrcAccount(Set<Operation> operations) {
+        this.operationsSrcAccount = operations;
+    }
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "destAccount")
+    public Set<Operation> getOperationsDestAccount() {
+        return operationsDestAccount;
+    }
+
+    public void setOperationsDestAccount(Set<Operation> operationsDestAccount) {
+        this.operationsDestAccount = operationsDestAccount;
     }
 }

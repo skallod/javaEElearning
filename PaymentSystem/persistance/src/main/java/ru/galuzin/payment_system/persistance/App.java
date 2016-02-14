@@ -1,4 +1,4 @@
-package ru.galuzin.bank_system.persistance;
+package ru.galuzin.payment_system.persistance;
 
 /**
  * Hello world!
