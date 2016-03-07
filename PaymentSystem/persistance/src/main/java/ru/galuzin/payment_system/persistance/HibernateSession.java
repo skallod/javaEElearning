@@ -12,15 +12,15 @@ public class HibernateSession {
     private static SessionFactory sf = null;
     private static ServiceRegistry serviceRegistry = null;
     static {
-        try{
+//        try{
 //            sf = new Configuration().configure().buildSessionFactory();
             Configuration configuration = new Configuration();
             configuration.configure();
             serviceRegistry = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties()).build();
             sf = configuration.buildSessionFactory(serviceRegistry);
-        }catch(Exception e){
-            e.printStackTrace();
-        }
+//        }catch(Exception e){
+//            e.printStackTrace();
+//        }
     }
 
     public static SessionFactory getSessionFactory() {

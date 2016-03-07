@@ -9,7 +9,15 @@ import java.util.Date;
 @Entity
 public class Operation {
     private Long operationID;
+    /**
+     * аккаунт, с которого "уходят" деньги.
+     * когда operationType = PUT_MONEY , srcAccount=null.
+     */
     private Account srcAccount;
+    /**
+     * аккаунт, на который "приходят" деньги.
+     * когда operationType = GET_MONEY , destAccount=null.
+     */
     private Account destAccount;
     private String operationType;
     private Terminal terminal;

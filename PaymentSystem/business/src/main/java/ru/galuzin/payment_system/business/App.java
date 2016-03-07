@@ -1,4 +1,4 @@
-package ru.galuzin.bank_system.business;
+package ru.galuzin.payment_system.business;
 
 /**
  * Hello world!

@@ -4,15 +4,21 @@
 
 <hibernate-configuration>
     <session-factory>
-        <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQL82Dialect</property>
+        <!--<property name="hibernate.dialect">org.hibernate.dialect.PostgreSQL82Dialect</property>-->
+        <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQL9Dialect</property>
         <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
         <property name="hibernate.connection.username">postgres</property>
-        <property name="hibernate.connection.password">manager</property>
+        <property name="hibernate.connection.password">12345678</property>
+        <!--<property name="hibernate.connection.password">manager</property>-->
         <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/db1</property>
+
+        <!-- Enable Hibernate's automatic session context management -->
+        <property name="current_session_context_class">thread</property>
 
         <property name="connection_pool_size">1</property>
 
         <property name="hbm2ddl.auto">create</property>
+        <!--<property name="hbm2ddl.auto">update</property>-->
 
         <property name="show_sql">true</property>
 

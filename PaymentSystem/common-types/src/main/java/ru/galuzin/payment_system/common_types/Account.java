@@ -14,33 +14,38 @@ public class Account {
     private Person person;
     private Set<Operation> operationsSrcAccount;
     private Set<Operation> operationsDestAccount;
+
+
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO, generator="account_gen")
+    @SequenceGenerator(name = "account_gen", sequenceName = "account_id_seq")
     @Column(name="ACCOUNT_ID", unique = true, nullable = false)
     public Long getAccountID() {
         return accountID;
     }
-
     public void setAccountID(Long accountID) {
         this.accountID = accountID;
     }
+
+
     @Column(name = "MONEY", unique = false, nullable = true)
     public Double getMoney() {
         return money;
     }
-
     public void setMoney(Double money) {
         this.money = money;
     }
+
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="PERSON",unique = false, nullable = true)
     public Person getPerson() {
         return person;
     }
-
     public void setPerson(Person person) {
         this.person = person;
     }
+
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "srcAccount")
     public Set<Operation> getOperationsSrcAccount() {
         return operationsSrcAccount;
