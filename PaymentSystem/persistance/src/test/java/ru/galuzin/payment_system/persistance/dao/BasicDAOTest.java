@@ -94,7 +94,10 @@ public class BasicDAOTest {
 
     @Test
     public void testUpdateEntity() throws Exception {
-
+        BasicDAO basicDAO = new BasicDAO();
+        Account account = (Account)basicDAO.getEntity(Account.class, 1L);
+        account.setMoney(33.3D);
+        basicDAO.updateEntity(account);
     }
 
     @Test
