@@ -13,12 +13,12 @@
         <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/db1</property>
 
         <!-- Enable Hibernate's automatic session context management -->
-        <property name="current_session_context_class">thread</property>
+        <!--<property name="current_session_context_class">thread</property>-->
 
         <property name="connection_pool_size">1</property>
 
-        <property name="hbm2ddl.auto">create</property>
-        <!--<property name="hbm2ddl.auto">update</property>-->
+        <!--<property name="hbm2ddl.auto">create</property>-->
+        <property name="hbm2ddl.auto">update</property>
 
         <property name="show_sql">true</property>
 

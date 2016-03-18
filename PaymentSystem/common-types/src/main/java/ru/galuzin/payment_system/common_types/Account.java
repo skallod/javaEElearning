@@ -1,19 +1,20 @@
 package ru.galuzin.payment_system.common_types;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Set;
 
 /**
  * Created by LEONID on 14.02.2016.
- * счет
+ * счет - аля банковский
  */
 @Entity
 public class Account {
     private Long accountID;
     private Double money;
     private Person person;
-    private Set<Operation> operationsSrcAccount;
-    private Set<Operation> operationsDestAccount;
+    private List<Operation> operationsSrcAccount;
+    private List<Operation> operationsDestAccount;
 
 
     @Id
@@ -28,7 +29,7 @@ public class Account {
     }
 
 
-    @Column(name = "MONEY", unique = false, nullable = true)
+    @Column(name = "MONEY", unique = false, nullable = false)
     public Double getMoney() {
         return money;
     }
@@ -38,7 +39,7 @@ public class Account {
 
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="PERSON",unique = false, nullable = true)
+    @JoinColumn(name="PERSON",unique = false, nullable = false)
     public Person getPerson() {
         return person;
     }
@@ -46,20 +47,30 @@ public class Account {
         this.person = person;
     }
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "srcAccount")
-    public Set<Operation> getOperationsSrcAccount() {
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "srcAccount")
+    public List<Operation> getOperationsSrcAccount() {
         return operationsSrcAccount;
     }
-
-    public void setOperationsSrcAccount(Set<Operation> operations) {
+    public void setOperationsSrcAccount(List<Operation> operations) {
         this.operationsSrcAccount = operations;
     }
+
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "destAccount")
-    public Set<Operation> getOperationsDestAccount() {
+    public List<Operation> getOperationsDestAccount() {
         return operationsDestAccount;
     }
-
-    public void setOperationsDestAccount(Set<Operation> operationsDestAccount) {
+    public void setOperationsDestAccount(List<Operation> operationsDestAccount) {
         this.operationsDestAccount = operationsDestAccount;
+    }
+
+    @Override
+    public String toString() {
+        return "Account{" +
+                "accountID=" + accountID +
+                ", money=" + money +
+                ", person=" + person +
+                ", operationsSrcAccount=" + operationsSrcAccount +
+                ", operationsDestAccount=" + operationsDestAccount +
+                '}';
     }
 }

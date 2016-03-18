@@ -1,6 +1,7 @@
 package ru.galuzin.payment_system.persistance.dao;
 
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ru.galuzin.payment_system.persistance.HibernateSession;
@@ -15,40 +16,102 @@ public class BasicDAO {
     private static final Logger LOG = LoggerFactory.getLogger(BasicDAO.class);
 
     public Serializable addEntity(Object entity){
-        Session session = HibernateSession.getSessionFactory().getCurrentSession();
-        session.beginTransaction();
-        Serializable id =session.save(entity);
-        session.getTransaction().commit();
+
+        Session sess = HibernateSession.getSessionFactory().openSession();
+        Transaction tx=null;
+        Serializable id=null;
+        try {
+            tx = sess.beginTransaction();
+            id =sess.save(entity);
+            tx.commit();
+        }
+        catch (Exception e) {
+            if (tx!=null) tx.rollback();
+            throw new RuntimeException(e);
+        }
+        finally {
+            sess.close();
+        }
+
         return id;
     }
 
     public void updateEntity(Object entity){
-        Session session = HibernateSession.getSessionFactory().getCurrentSession();
-        session.beginTransaction();
-        session.saveOrUpdate(entity);
-        session.getTransaction().commit();
+
+        Session sess = HibernateSession.getSessionFactory().openSession();
+        Transaction tx=null;
+        Serializable id=null;
+        try {
+            tx = sess.beginTransaction();
+            sess.saveOrUpdate(entity);
+            tx.commit();
+        }
+        catch (Exception e) {
+            if (tx!=null) tx.rollback();
+            throw new RuntimeException(e);
+        }
+        finally {
+            sess.close();
+        }
+
     }
 
     public void deleteEtity(Object etitty){
-        Session session = HibernateSession.getSessionFactory().getCurrentSession();
-        session.beginTransaction();
-        session.delete(etitty);
-        session.getTransaction().commit();
+
+        Session sess = HibernateSession.getSessionFactory().openSession();
+        Transaction tx=null;
+        Serializable id=null;
+        try {
+            tx = sess.beginTransaction();
+            sess.delete(etitty);
+            tx.commit();
+        }
+        catch (Exception e) {
+            if (tx!=null) tx.rollback();
+            throw new RuntimeException(e);
+        }
+        finally {
+            sess.close();
+        }
+
     }
 
     public Object getEntity (Class clazz, Serializable entityId){
-        Session session = HibernateSession.getSessionFactory().getCurrentSession();
-        session.beginTransaction();
-        Object entity = session.get(clazz, entityId);
-        session.getTransaction().commit();
+        Session sess = HibernateSession.getSessionFactory().openSession();
+        Transaction tx=null;
+        Object entity;
+        try {
+            tx = sess.beginTransaction();
+            entity = sess.get(clazz, entityId);
+            tx.commit();
+        }
+        catch (Exception e) {
+            if (tx!=null) tx.rollback();
+            throw new RuntimeException(e);
+        }
+        finally {
+            sess.close();
+        }
         return entity;
     }
 
     public java.util.Collection getAllEntities (Class clazz){
-        Session session = HibernateSession.getSessionFactory().getCurrentSession();
-        session.beginTransaction();
-        List entities = session.createCriteria(clazz).list();
-        session.getTransaction().commit();
+        Session sess = HibernateSession.getSessionFactory().openSession();
+        Transaction tx=null;
+        List entities = null;
+        try {
+            tx = sess.beginTransaction();
+            entities = sess.createCriteria(clazz).list();
+            tx.commit();
+        }
+        catch (Exception e) {
+            if (tx!=null) tx.rollback();
+            throw new RuntimeException(e);
+        }
+        finally {
+            sess.close();
+        }
+
         return entities;
     }
 }
