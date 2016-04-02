@@ -27,7 +27,7 @@ public class BasicDAOTest {
 //        HibernateSession.quit();
 //    }
 
-    @Test
+//    @Test
     public void testAddEntity() throws Exception {
 
         BasicDAO basicDAO = new BasicDAO();
@@ -92,7 +92,7 @@ public class BasicDAOTest {
 
     }
 
-    @Test
+//    @Test
     public void testUpdateEntity() throws Exception {
         BasicDAO basicDAO = new BasicDAO();
         Account account = (Account)basicDAO.getEntity(Account.class, 1L);
@@ -100,12 +100,12 @@ public class BasicDAOTest {
         basicDAO.updateEntity(account);
     }
 
-    @Test
+//    @Test
     public void testDeleteEtity() throws Exception {
 
     }
 
-    @Test
+//    @Test
     public void testGetEntity() throws Exception {
         BasicDAO basicDAO = new BasicDAO();
         Account account = (Account)basicDAO.getEntity(Account.class, 1L);
@@ -136,7 +136,7 @@ public class BasicDAOTest {
 
     }
 
-    @Test
+//    @Test
     public void testGetAllEntities() throws Exception {
 
     }
