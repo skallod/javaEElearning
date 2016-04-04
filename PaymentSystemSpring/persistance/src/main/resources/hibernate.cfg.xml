@@ -22,10 +22,10 @@
 
         <property name="show_sql">true</property>
 
-        <mapping class="ru.galuzin.payment_system.common_types.Account"/>
-        <mapping class="ru.galuzin.payment_system.common_types.Operation"/>
-        <mapping class="ru.galuzin.payment_system.common_types.Person"/>
-        <mapping class="ru.galuzin.payment_system.common_types.Terminal"/>
+        <mapping class="ru.galuzin.payment_system.spring.common_types.Account"/>
+        <mapping class="ru.galuzin.payment_system.spring.common_types.Operation"/>
+        <mapping class="ru.galuzin.payment_system.spring.common_types.Person"/>
+        <mapping class="ru.galuzin.payment_system.spring.common_types.Terminal"/>
 
     </session-factory>
 </hibernate-configuration>

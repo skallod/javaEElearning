@@ -11,12 +11,12 @@
 
     <context:annotation-config/>
 
-    <bean name="basicDAO" class="ru.galuzin.payment_system.persistance.dao.BasicDAO">
+    <bean name="basicDAO" class="ru.galuzin.payment_system.spring.persistance.dao.BasicDAO">
         <property name="template" ref="hibernateTemplate" />
     </bean>
 
-    <bean name="accountService" class="ru.galuzin.payment_system.business.service.AccountService">
-        <!--<property name="dao" ref="regionDAO" />-->
+    <bean name="accountService" class="ru.galuzin.payment_system.spring.business.service.AccountService">
     </bean>
+    <!--<property name="dao" ref="regionDAO" />-->
 
 </beans>

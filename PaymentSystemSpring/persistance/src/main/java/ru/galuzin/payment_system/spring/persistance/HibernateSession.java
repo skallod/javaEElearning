@@ -1,4 +1,4 @@
-package ru.galuzin.payment_system.persistance;
+package ru.galuzin.payment_system.spring.persistance;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;

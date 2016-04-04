@@ -2,7 +2,7 @@
 <project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>ru.galuzin.payment_system</groupId>
+  <groupId>ru.galuzin.payment_system.spring</groupId>
   <artifactId>parent</artifactId>
   <version>1.0</version>
   <name>parent</name>
@@ -28,7 +28,7 @@
     <dependency>
       <groupId>org.hibernate</groupId>
       <artifactId>hibernate-core</artifactId>
-      <version>4.3.7.Final</version>
+      <version>5.1.0.Final</version>
     </dependency>
     <dependency>
       <groupId>javassist</groupId>
@@ -50,11 +50,11 @@
       <artifactId>spring-context</artifactId>
       <version>4.2.4.RELEASE</version>
     </dependency>
-    <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-tx</artifactId>
-      <version>4.2.4.RELEASE</version>
-    </dependency>
+    <!--<dependency>-->
+      <!--<groupId>org.springframework</groupId>-->
+      <!--<artifactId>spring-tx</artifactId>-->
+      <!--<version>4.2.4.RELEASE</version>-->
+    <!--</dependency>-->
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-orm</artifactId>

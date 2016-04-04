@@ -3,11 +3,11 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
   <!--<parent>-->
-    <!--<groupId>ru.galuzin.payment_system</groupId>-->
+    <!--<groupId>ru.galuzin.payment_system.spring</groupId>-->
     <!--<artifactId>base</artifactId>-->
     <!--<version>1.0</version>-->
   <!--</parent>-->
-  <groupId>ru.galuzin.payment_system</groupId>
+  <groupId>ru.galuzin.payment_system.spring</groupId>
   <artifactId>web-ui</artifactId>
   <version>1.0</version>
   <packaging>war</packaging>

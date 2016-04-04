@@ -1,4 +1,4 @@
-package ru.galuzin.payment_system.common_types;
+package ru.galuzin.payment_system.spring.common_types;
 
 import javax.persistence.*;
 import java.util.List;
@@ -9,6 +9,7 @@ import java.util.Set;
  * счет - аля банковский
  */
 @Entity
+@Table(name = "account")
 public class Account {
     private Long accountID;
     private Double money;

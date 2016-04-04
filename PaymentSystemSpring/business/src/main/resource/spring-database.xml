@@ -26,7 +26,7 @@
         <!--<aop:advisor pointcut-ref="transactional" advice-ref="txAdvice" />-->
     <!--</aop:config>-->
 
-    <!--<tx:annotation-driven transaction-manager="txManager"/>-->
+    <tx:annotation-driven transaction-manager="txManager"/>
 
     <bean name="regionDS" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="org.postgresql.Driver" />
@@ -39,17 +39,19 @@
         <property name="dataSource" ref="regionDS" />
         <property name="annotatedClasses">
             <list>
-                <value>ru.galuzin.payment_system.common_types.Account</value>
-                <value>ru.galuzin.payment_system.common_types.Operation</value>
-                <value>ru.galuzin.payment_system.common_types.Person</value>
-                <value>ru.galuzin.payment_system.common_types.Terminal</value>
+                <value>ru.galuzin.payment_system.spring.common_types.Account</value>
+                <value>ru.galuzin.payment_system.spring.common_types.Operation</value>
+                <value>ru.galuzin.payment_system.spring.common_types.Person</value>
+                <value>ru.galuzin.payment_system.spring.common_types.Terminal</value>
             </list>
         </property>
         <property name="hibernateProperties">
-            <value>
-                hibernate.dialect=org.hibernate.dialect.PostgreSQL94Dialect
-                hibernate.show_sql=true
-            </value>
+            <props>
+                <prop key="hibernate.dialect">org.hibernate.dialect.PostgreSQL9Dialect</prop>
+                <prop key="connection_pool_size">1</prop>
+                <prop key="hbm2ddl.auto">update</prop>
+                <prop key="hibernate.show_sql">true</prop>
+            </props>
         </property>
     </bean>
 

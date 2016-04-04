@@ -1,4 +1,4 @@
-package ru.galuzin.payment_system.persistance;
+package ru.galuzin.payment_system.spring.persistance;
 
 import junit.framework.Test;
 import junit.framework.TestCase;

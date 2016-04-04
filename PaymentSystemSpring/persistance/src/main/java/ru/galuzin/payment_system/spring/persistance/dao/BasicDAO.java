@@ -1,4 +1,4 @@
-package ru.galuzin.payment_system.persistance.dao;
+package ru.galuzin.payment_system.spring.persistance.dao;
 
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -6,7 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate5.HibernateTemplate;
-import ru.galuzin.payment_system.persistance.HibernateSession;
+import ru.galuzin.payment_system.spring.persistance.HibernateSession;
 
 import java.io.Serializable;
 import java.util.List;
@@ -105,23 +105,23 @@ public class BasicDAO {
     }
 
     public java.util.Collection getAllEntities (Class clazz){
-        return template.findByExample(clazz);
-//        Session sess = HibernateSession.getSessionFactory().openSession();
-//        Transaction tx=null;
-//        List entities = null;
-//        try {
-//            tx = sess.beginTransaction();
-//            entities = sess.createCriteria(clazz).list();
-//            tx.commit();
-//        }
-//        catch (Exception e) {
-//            if (tx!=null) tx.rollback();
-//            throw new RuntimeException(e);
-//        }
-//        finally {
-//            sess.close();
-//        }
-//
-//        return entities;
+//        return template.findByExample(clazz);
+        Session sess = HibernateSession.getSessionFactory().openSession();
+        Transaction tx=null;
+        List entities = null;
+        try {
+            tx = sess.beginTransaction();
+            entities = sess.createCriteria(clazz).list();
+            tx.commit();
+        }
+        catch (Exception e) {
+            if (tx!=null) tx.rollback();
+            throw new RuntimeException(e);
+        }
+        finally {
+            sess.close();
+        }
+
+        return entities;
     }
 }

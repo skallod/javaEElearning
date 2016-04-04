@@ -1,4 +1,4 @@
-//package ru.galuzin.payment_system.persistance.dao;
+//package ru.galuzin.payment_system.spring.persistance.dao;
 //
 //import org.hibernate.Session;
 //import ru.galuzin.payment_system.common_types.Account;

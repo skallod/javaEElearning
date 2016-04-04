@@ -1,4 +1,4 @@
-package ru.galuzin.payment_system.persistance;
+package ru.galuzin.payment_system.spring.common_types;
 
 /**
  * Hello world!

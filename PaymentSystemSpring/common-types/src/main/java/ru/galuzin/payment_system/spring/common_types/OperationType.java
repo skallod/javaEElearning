@@ -1,4 +1,4 @@
-package ru.galuzin.payment_system.common_types;
+package ru.galuzin.payment_system.spring.common_types;
 
 /**
  * Created by LEONID on 14.02.2016.

@@ -1,4 +1,4 @@
-package ru.galuzin.payment_system.common_types;
+package ru.galuzin.payment_system.spring.common_types;
 
 import javax.persistence.*;
 import java.util.Date;

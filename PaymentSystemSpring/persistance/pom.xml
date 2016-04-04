@@ -3,12 +3,12 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
   <parent>
-    <groupId>ru.galuzin.payment_system</groupId>
+    <groupId>ru.galuzin.payment_system.spring</groupId>
     <artifactId>parent</artifactId>
     <version>1.0</version>
     <relativePath>../parent</relativePath>
   </parent>
-  <groupId>ru.galuzin.payment_system</groupId>
+  <groupId>ru.galuzin.payment_system.spring</groupId>
   <artifactId>persistance</artifactId>
   <version>1.0</version>
   <name>persistance</name>
@@ -16,7 +16,7 @@
   <dependencies>
 
     <dependency>
-      <groupId>ru.galuzin.payment_system</groupId>
+      <groupId>ru.galuzin.payment_system.spring</groupId>
       <artifactId>common-types</artifactId>
       <version>1.0</version>
     </dependency>
