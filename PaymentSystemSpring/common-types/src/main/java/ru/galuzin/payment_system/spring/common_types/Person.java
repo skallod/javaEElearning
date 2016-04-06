@@ -15,7 +15,7 @@ public class Person {
     private String address;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="PERSON_ID", unique = true, nullable = false)
     public Long getPersonID() {
         return personID;
@@ -41,14 +41,15 @@ public class Person {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
+
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "person")
     public Set<Account> getAccounts() {
         return accounts;
     }
-
     public void setAccounts(Set<Account> accounts) {
         this.accounts = accounts;
     }
+
     @Column(name="ADDRESS", unique = false, nullable = true)
     public String getAddress() {
         return address;

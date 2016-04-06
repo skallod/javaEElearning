@@ -3,13 +3,17 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:aop="http://www.springframework.org/schema/aop"
        xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="
         http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/aop
         http://www.springframework.org/schema/aop/spring-aop.xsd
         http://www.springframework.org/schema/tx
-        http://www.springframework.org/schema/tx/spring-tx.xsd">
+        http://www.springframework.org/schema/tx/spring-tx.xsd
+        http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd
+        ">
 
     <!--<tx:advice id="txAdvice" transaction-manager="txManager">-->
         <!--<tx:attributes>-->
@@ -25,41 +29,48 @@
         <!--<aop:pointcut id="transactional" expression="execution(* edu.javacourse.spring.facade.*Facade.*(..))" />-->
         <!--<aop:advisor pointcut-ref="transactional" advice-ref="txAdvice" />-->
     <!--</aop:config>-->
+    <context:annotation-config/>
+    <!--<tx:annotation-driven transaction-manager="txManager"/>-->
 
-    <tx:annotation-driven transaction-manager="txManager"/>
+    <bean name="basicDAO" class="ru.galuzin.payment_system.spring.persistance.dao.BasicDAO">
+        <!--<property name="template" ref="hibernateTemplate" />-->
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
 
-    <bean name="regionDS" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+    <bean name="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="org.postgresql.Driver" />
-        <property name="url" value="jdbc:postgresql://localhost:5432/db1" />
+        <property name="url" value="jdbc:postgresql://localhost:5432/db2" />
         <property name="username" value="postgres" />
         <property name="password" value="12345678" />
     </bean>
 
-    <bean name="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
-        <property name="dataSource" ref="regionDS" />
-        <property name="annotatedClasses">
-            <list>
-                <value>ru.galuzin.payment_system.spring.common_types.Account</value>
-                <value>ru.galuzin.payment_system.spring.common_types.Operation</value>
-                <value>ru.galuzin.payment_system.spring.common_types.Person</value>
-                <value>ru.galuzin.payment_system.spring.common_types.Terminal</value>
-            </list>
-        </property>
+    <bean name="sessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+    <!--<bean name="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">-->
+        <property name="dataSource" ref="dataSource" />
+        <property name="packagesToScan" value="ru.galuzin.payment_system.spring.common_types"/>
+        <!--<property name="annotatedClasses">-->
+            <!--<list>-->
+                <!--<value>ru.galuzin.payment_system.spring.common_types.Account</value>-->
+                <!--<value>ru.galuzin.payment_system.spring.common_types.Operation</value>-->
+                <!--<value>ru.galuzin.payment_system.spring.common_types.Person</value>-->
+                <!--<value>ru.galuzin.payment_system.spring.common_types.Terminal</value>-->
+            <!--</list>-->
+        <!--</property>-->
         <property name="hibernateProperties">
             <props>
-                <prop key="hibernate.dialect">org.hibernate.dialect.PostgreSQL9Dialect</prop>
-                <prop key="connection_pool_size">1</prop>
-                <prop key="hbm2ddl.auto">update</prop>
+                <prop key="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</prop>
+                <prop key="hibernate.connection_pool_size">1</prop>
+                <prop key="hibernate.hbm2ddl.auto">create</prop>
                 <prop key="hibernate.show_sql">true</prop>
             </props>
         </property>
     </bean>
 
-    <bean name="txManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
-        <property name="sessionFactory" ref="sessionFactory" />
-    </bean>
+    <!--<bean name="txManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">-->
+        <!--<property name="sessionFactory" ref="sessionFactory" />-->
+    <!--</bean>-->
 
-    <bean name="hibernateTemplate" class="org.springframework.orm.hibernate5.HibernateTemplate">
+    <bean name="hibernateTemplate" class="org.springframework.orm.hibernate3.HibernateTemplate">
         <property name="sessionFactory" ref="sessionFactory" />
     </bean>
 
