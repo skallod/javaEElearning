@@ -1,0 +1,214 @@
+<?xml version="1.0" ?>
+<!DOCTYPE plugin PUBLIC "-//JPF//Java Plug-in Manifest 1.0" "http://jpf.sourceforge.net/plugin_1_0.dtd">
+<plugin id="org.jpf.demo.toolbox.dbbrowser.mysql" version="0.0.1">
+	<requires>
+		<import plugin-id="org.jpf.demo.toolbox.dbbrowser" />
+	</requires>
+	<runtime>
+		<library id="mysqlDbDriver"
+			path="lib/mysql-connector-java-3.1.7-bin.jar" type="code" />
+		<library id="mysqlDbHandler" path="classes/" type="code" />
+	</runtime>
+	<extension plugin-id="org.jpf.demo.toolbox.dbbrowser"
+		point-id="Database" id="mysqlDatabase">
+		<doc caption="MySQL Connector/J URL Format Notes">
+			<doc-text>
+				<![CDATA[<p>The JDBC URL format for MySQL Connector/J is as follows, with
+        items in square brackets ([, ]) being optional:<pre>jdbc:mysql://[host][,failoverhost...][:port]/[database][?propertyName1][=propertyValue1][&amp;propertyName2][=propertyValue2]...</pre></p><p>If the hostname is not specified, it defaults to '127.0.0.1'. If
+        the port is not specified, it defaults to '3306', the default port
+        number for MySQL servers.</p><p>Starting with version 3.0.12 and 3.1.2, Connector/J supports
+        multiple hosts with ports, separated by commas:</p><pre>jdbc:mysql://[host:port],[host:port].../[database][?propertyName1][=propertyValue1][&amp;propertyName2][=propertyValue2]...</pre><p>If the database is not specified, the connection will be made
+        with no 'current' database. In this case, you will need to either call
+        the 'setCatalog()' method on the Connection instance, issue a 'USE
+        dbname' query or fully-specify table names using the database name
+        (i.e. 'SELECT dbname.tablename.colname FROM dbname.tablename...') in
+        your SQL. Not specifying the database to use upon connection is
+        generally only useful when building tools that work with multiple
+        databases, such as GUI database managers.</p><p>MySQL Connector/J has fail-over support. This allows the driver
+        to fail-over to any number of "slave" hosts and still perform
+        read-only queries. Fail-over only happens when the connection is in an
+        autoCommit(true) state, because fail-over can not happen reliably when
+        a transaction is in progress. Most good application servers and
+        connection pools set autoCommit to 'true' at the end of every
+        transaction/connection use. The fail-over functionality has the
+        following behavior: If the URL property "autoReconnect" is false:
+        Failover only happens at connection initialization, and failback
+        occurs when the driver determines that the first host has become
+        available again If the URL property "autoReconnect" is true: Failover
+        happens when the driver determines that the connection has failed
+        (before <em>every</em> query), and falls back to the first
+        host when it determines that the host has become available again
+        (after queriesBeforeRetryMaster queries have been issued). In either
+        case, whenever you are connected to a "failed-over" server, the
+        connection will be set to read-only state, so queries that would
+        modify data will have exceptions thrown (the query will
+        <em>never</em> be processed by the MySQL server).</p><p>You may specify additional properties to the JDBC driver, either
+        by placing them in a java.util.Properties instance and passing that
+        instance to the DriverManager when you connect, or by adding them to
+        the end of your JDBC URL as name-value pairs. The first property needs
+        to be preceeded with a '?' character, and additional name-value pair
+        properties are separated by an '&amp;' character. The properties,
+        their definitions and their default values are covered in the
+        following table:</p><a name="N101B3"></a><p><b>Table&nbsp;2.1.&nbsp;Connection Properties</b></p><table summary="Connection Properties" border="1"><colgroup><col><col><col><col><col></colgroup><thead><tr><th>Property Name</th><th>Definition</th><th>Required?</th><th>Default Value</th><th>Since Version</th></tr></thead><tbody><tr><td colspan="5"><em>Connection/Authentication</em></td></tr><tr><td>user</td><td>The user to connect as</td><td>No</td><td>&nbsp;</td><td>all</td></tr><tr><td>password</td><td>The password to use when connecting</td><td>No</td><td>&nbsp;</td><td>all</td></tr><tr><td>socketFactory</td><td>The name of the class that the driver should use for
+                creating socket connections to the server. This class must
+                implement the interface 'com.mysql.jdbc.SocketFactory' and
+                have public no-args constructor.</td><td>No</td><td>com.mysql.jdbc.StandardSocketFactory</td><td>3.0.3</td></tr><tr><td>connectTimeout</td><td>Timeout for socket connect (in milliseconds), with 0
+                being no timeout. Only works on JDK-1.4 or newer. Defaults to
+                '0'.</td><td>No</td><td>0</td><td>3.0.1</td></tr><tr><td>socketTimeout</td><td>Timeout on network socket operations (0, the default
+                means no timeout).</td><td>No</td><td>0</td><td>3.0.1</td></tr><tr><td>useConfigs</td><td>Load the comma-delimited list of configuration
+                properties before parsing the URL or applying user-specified
+                properties. These configurations are explained in the
+                'Configurations' of the documentation.</td><td>No</td><td>&nbsp;</td><td>3.1.5</td></tr><tr><td>interactiveClient</td><td>Set the CLIENT_INTERACTIVE flag, which tells MySQL to
+                timeout connections based on INTERACTIVE_TIMEOUT instead of
+                WAIT_TIMEOUT</td><td>No</td><td>false</td><td>3.1.0</td></tr><tr><td>propertiesTransform</td><td>An implementation of
+                com.mysql.jdbc.ConnectionPropertiesTransform that the driver
+                will use to modify URL properties passed to the driver before
+                attempting a connection</td><td>No</td><td>&nbsp;</td><td>3.1.4</td></tr><tr><td>useCompression</td><td>Use zlib compression when communicating with the server
+                (true/false)? Defaults to 'false'.</td><td>No</td><td>false</td><td>3.1.0</td></tr><tr><td colspan="5"><em>High
+                Availability and Clustering</em></td></tr><tr><td>autoReconnect</td><td>Should the driver try to re-establish bad
+                connections?</td><td>No</td><td>false</td><td>1.1</td></tr><tr><td>autoReconnectForPools</td><td>Use a reconnection strategy appropriate for connection
+                pools (defaults to 'false')</td><td>No</td><td>false</td><td>3.1.3</td></tr><tr><td>failOverReadOnly</td><td>When failing over in autoReconnect mode, should the
+                connection be set to 'read-only'?</td><td>No</td><td>true</td><td>3.0.12</td></tr><tr><td>maxReconnects</td><td>Maximum number of reconnects to attempt if
+                autoReconnect is true, default is '3'.</td><td>No</td><td>3</td><td>1.1</td></tr><tr><td>initialTimeout</td><td>If autoReconnect is enabled, the initial time to wait
+                between re-connect attempts (in seconds, defaults to
+                '2').</td><td>No</td><td>2</td><td>1.1</td></tr><tr><td>queriesBeforeRetryMaster</td><td>Number of queries to issue before falling back to
+                master when failed over (when using multi-host failover).
+                Whichever condition is met first, 'queriesBeforeRetryMaster'
+                or 'secondsBeforeRetryMaster' will cause an attempt to be made
+                to reconnect to the master. Defaults to 50.</td><td>No</td><td>50</td><td>3.0.2</td></tr><tr><td>secondsBeforeRetryMaster</td><td>How long should the driver wait, when failed over,
+                before attempting to reconnect to the master server? Whichever
+                condition is met first, 'queriesBeforeRetryMaster' or
+                'secondsBeforeRetryMaster' will cause an attempt to be made to
+                reconnect to the master. Time in seconds, defaults to
+                30</td><td>No</td><td>30</td><td>3.0.2</td></tr><tr><td colspan="5"><em>Security</em></td></tr><tr><td>allowMultiQueries</td><td>Allow the use of ';' to delimit multiple queries during
+                one statement (true/false, defaults to 'false'</td><td>No</td><td>false</td><td>3.1.1</td></tr><tr><td>useSSL</td><td>Use SSL when communicating with the server
+                (true/false), defaults to 'false'</td><td>No</td><td>false</td><td>3.0.2</td></tr><tr><td>requireSSL</td><td>Require SSL connection if useSSL=true? (defaults to
+                'false').</td><td>No</td><td>false</td><td>3.1.0</td></tr><tr><td>allowUrlInLocalInfile</td><td>Should the driver allow URLs in 'LOAD DATA LOCAL
+                INFILE' statements?</td><td>No</td><td>false</td><td>3.1.4</td></tr><tr><td>paranoid</td><td>Take measures to prevent exposure sensitive information
+                in error messages and clear data structures holding sensitive
+                data when possible? (defaults to 'false')</td><td>No</td><td>false</td><td>3.0.1</td></tr><tr><td colspan="5"><em>Performance
+                Extensions</em></td></tr><tr><td>metadataCacheSize</td><td>The number of queries to cacheResultSetMetadata for if
+                cacheResultSetMetaData is set to 'true' (default 50)</td><td>No</td><td>50</td><td>3.1.1</td></tr><tr><td>prepStmtCacheSize</td><td>If prepared statement caching is enabled, how many
+                prepared statements should be cached?</td><td>No</td><td>25</td><td>3.0.10</td></tr><tr><td>prepStmtCacheSqlLimit</td><td>If prepared statement caching is enabled, what's the
+                largest SQL the driver will cache the parsing for?</td><td>No</td><td>256</td><td>3.0.10</td></tr><tr><td>alwaysSendSetIsolation</td><td>Should the driver always communicate with the database
+                when Connection.setTransactionIsolation() is called? If set to
+                false, the driver will only communicate with the database when
+                the requested transaction isolation is different than the
+                whichever is newer, the last value that was set via
+                Connection.setTransactionIsolation(), or the value that was
+                read from the server when the connection was
+                established.</td><td>No</td><td>true</td><td>3.1.7</td></tr><tr><td>cacheCallableStmts</td><td>Should the driver cache the parsing stage of
+                CallableStatements</td><td>No</td><td>false</td><td>3.1.2</td></tr><tr><td>cachePrepStmts</td><td>Should the driver cache the parsing stage of
+                PreparedStatements?</td><td>No</td><td>false</td><td>3.0.10</td></tr><tr><td>cacheResultSetMetadata</td><td>Should the driver cache ResultSetMetaData for
+                Statements and PreparedStatements? (Req. JDK-1.4+, true/false,
+                default 'false')</td><td>No</td><td>false</td><td>3.1.1</td></tr><tr><td>cacheServerConfiguration</td><td>Should the driver cache the results of 'SHOW VARIABLES'
+                and 'SHOW COLLATION' on a per-URL basis?</td><td>No</td><td>false</td><td>3.1.5</td></tr><tr><td>dontTrackOpenResources</td><td>The JDBC specification requires the driver to
+                automatically track and close resources, however if your
+                application doesn't do a good job of explicitly calling
+                close() on statements or result sets, this can cause memory
+                leakage. Setting this property to true relaxes this
+                constraint, and can be more memory efficient for some
+                applications.</td><td>No</td><td>false</td><td>3.1.7</td></tr><tr><td>dynamicCalendars</td><td>Should the driver retrieve the default calendar when
+                required, or cache it per connection/session?</td><td>No</td><td>false</td><td>3.1.5</td></tr><tr><td>elideSetAutoCommits</td><td>If using MySQL-4.1 or newer, should the driver only
+                issue 'set autocommit=n' queries when the server's state
+                doesn't match the requested state by
+                Connection.setAutoCommit(boolean)?</td><td>No</td><td>false</td><td>3.1.3</td></tr><tr><td>holdResultsOpenOverStatementClose</td><td>Should the driver close result sets on
+                Statement.close() as required by the JDBC
+                specification?</td><td>No</td><td>false</td><td>3.1.7</td></tr><tr><td>useFastIntParsing</td><td>Use internal String-&gt;Integer conversion routines to
+                avoid excessive object creation?</td><td>No</td><td>true</td><td>3.1.4</td></tr><tr><td>useLocalSessionState</td><td>Should the driver refer to the internal values of
+                autocommit and transaction isolation that are set by
+                Connection.setAutoCommit() and
+                Connection.setTransactionIsolation(), rather than querying the
+                database?</td><td>No</td><td>false</td><td>3.1.7</td></tr><tr><td>useNewIO</td><td>Should the driver use the java.nio.* interfaces for
+                network communication (true/false), defaults to
+                'false'</td><td>No</td><td>false</td><td>3.1.0</td></tr><tr><td>useReadAheadInput</td><td>Use newer, optimized non-blocking, buffered input
+                stream when reading from the server?</td><td>No</td><td>true</td><td>3.1.5</td></tr><tr><td colspan="5"><em>Debuging/Profiling</em></td></tr><tr><td>logger</td><td>The name of a class that implements
+                'com.mysql.jdbc.log.Log' that will be used to log messages
+                to.(default is 'com.mysql.jdbc.log.StandardLogger', which logs
+                to STDERR)</td><td>No</td><td>com.mysql.jdbc.log.StandardLogger</td><td>3.1.1</td></tr><tr><td>profileSQL</td><td>Trace queries and their execution/fetch times to the
+                configured logger (true/false) defaults to 'false'</td><td>No</td><td>false</td><td>3.1.0</td></tr><tr><td>profileSql</td><td>Deprecated, use 'profileSQL' instead. Trace queries and
+                their execution/fetch times on STDERR (true/false) defaults to
+                'false'</td><td>No</td><td>&nbsp;</td><td>2.0.14</td></tr><tr><td>maxQuerySizeToLog</td><td>Controls the maximum length/size of a query that will
+                get logged when profiling or tracing</td><td>No</td><td>2048</td><td>3.1.3</td></tr><tr><td>packetDebugBufferSize</td><td>The maximum number of packets to retain when
+                'enablePacketDebug' is true</td><td>No</td><td>20</td><td>3.1.3</td></tr><tr><td>slowQueryThresholdMillis</td><td>If 'logSlowQueries' is enabled, how long should a query
+                (in ms) before it is logged as 'slow'?</td><td>No</td><td>2000</td><td>3.1.2</td></tr><tr><td>useUsageAdvisor</td><td>Should the driver issue 'usage' warnings advising
+                proper and efficient usage of JDBC and MySQL Connector/J to
+                the log (true/false, defaults to 'false')?</td><td>No</td><td>false</td><td>3.1.1</td></tr><tr><td>dumpQueriesOnException</td><td>Should the driver dump the contents of the query sent
+                to the server in the message for SQLExceptions?</td><td>No</td><td>false</td><td>3.1.3</td></tr><tr><td>enablePacketDebug</td><td>When enabled, a ring-buffer of 'packetDebugBufferSize'
+                packets will be kept, and dumped when exceptions are thrown in
+                key areas in the driver's code</td><td>No</td><td>false</td><td>3.1.3</td></tr><tr><td>explainSlowQueries</td><td>If 'logSlowQueries' is enabled, should the driver
+                automatically issue an 'EXPLAIN' on the server and send the
+                results to the configured log at a WARN level?</td><td>No</td><td>false</td><td>3.1.2</td></tr><tr><td>logSlowQueries</td><td>Should queries that take longer than
+                'slowQueryThresholdMillis' be logged?</td><td>No</td><td>false</td><td>3.1.2</td></tr><tr><td>traceProtocol</td><td>Should trace-level network protocol be logged?</td><td>No</td><td>false</td><td>3.1.2</td></tr><tr><td colspan="5"><em>Miscellaneous</em></td></tr><tr><td>useUnicode</td><td>Should the driver use Unicode character encodings when
+                handling strings? Should only be used when the driver can't
+                determine the character set mapping, or you are trying to
+                'force' the driver to use a character set that MySQL either
+                doesn't natively support (such as UTF-8), true/false, defaults
+                to 'true'</td><td>No</td><td>false</td><td>1.1g</td></tr><tr><td>characterEncoding</td><td>If 'useUnicode' is set to true, what character encoding
+                should the driver use when dealing with strings? (defaults is
+                to 'autodetect')</td><td>No</td><td>&nbsp;</td><td>1.1g</td></tr><tr><td>characterSetResults</td><td>Character set to tell the server to return results
+                as.</td><td>No</td><td>&nbsp;</td><td>3.0.13</td></tr><tr><td>connectionCollation</td><td>If set, tells the server to use this collation via 'set
+                connection_collation'</td><td>No</td><td>&nbsp;</td><td>3.0.13</td></tr><tr><td>allowNanAndInf</td><td>Should the driver allow NaN or +/- INF values in
+                PreparedStatement.setDouble()?</td><td>No</td><td>false</td><td>3.1.5</td></tr><tr><td>autoDeserialize</td><td>Should the driver automatically detect and de-serialize
+                objects stored in BLOB fields?</td><td>No</td><td>false</td><td>3.1.5</td></tr><tr><td>capitalizeTypeNames</td><td>Capitalize type names in DatabaseMetaData? (usually
+                only useful when using WebObjects, true/false, defaults to
+                'false')</td><td>No</td><td>false</td><td>2.0.7</td></tr><tr><td>clobberStreamingResults</td><td>This will cause a 'streaming' ResultSet to be
+                automatically closed, and any oustanding data still streaming
+                from the server to be discarded if another query is executed
+                before all the data has been read from the server.</td><td>No</td><td>false</td><td>3.0.9</td></tr><tr><td>continueBatchOnError</td><td>Should the driver continue processing batch commands if
+                one statement fails. The JDBC spec allows either way (defaults
+                to 'true').</td><td>No</td><td>true</td><td>3.0.3</td></tr><tr><td>emulateLocators</td><td>N/A</td><td>No</td><td>false</td><td>3.1.0</td></tr><tr><td>emulateUnsupportedPstmts</td><td>Should the driver detect prepared statements that are
+                not supported by the server, and replace them with client-side
+                emulated versions?</td><td>No</td><td>true</td><td>3.1.7</td></tr><tr><td>ignoreNonTxTables</td><td>Ignore non-transactional table warning for rollback?
+                (defaults to 'false').</td><td>No</td><td>false</td><td>3.0.9</td></tr><tr><td>jdbcCompliantTruncation</td><td>Should the driver throw java.sql.DataTruncation
+                exceptions when data is truncated as is required by the JDBC
+                specification when connected to a server that supports
+                warnings(MySQL 4.1.0 and newer)?</td><td>No</td><td>true</td><td>3.1.2</td></tr><tr><td>maxRows</td><td>The maximum number of rows to return (0, the default
+                means return all rows).</td><td>No</td><td>-1</td><td>all versions</td></tr><tr><td>noDatetimeStringSync</td><td>Don't ensure that
+                ResultSet.getDatetimeType().toString().equals(ResultSet.getString())</td><td>No</td><td>false</td><td>3.1.7</td></tr><tr><td>pedantic</td><td>Follow the JDBC spec to the letter.</td><td>No</td><td>false</td><td>3.0.0</td></tr><tr><td>relaxAutoCommit</td><td>If the version of MySQL the driver connects to does not
+                support transactions, still allow calls to commit(),
+                rollback() and setAutoCommit() (true/false, defaults to
+                'false')?</td><td>No</td><td>false</td><td>2.0.13</td></tr><tr><td>rollbackOnPooledClose</td><td>Should the driver issue a rollback() when the logical
+                connection in a pool is closed?</td><td>No</td><td>true</td><td>3.0.15</td></tr><tr><td>runningCTS13</td><td>Enables workarounds for bugs in Sun's JDBC compliance
+                testsuite version 1.3</td><td>No</td><td>false</td><td>3.1.7</td></tr><tr><td>serverTimezone</td><td>Override detection/mapping of timezone. Used when
+                timezone from server doesn't map to Java timezone</td><td>No</td><td>&nbsp;</td><td>3.0.2</td></tr><tr><td>strictFloatingPoint</td><td>Used only in older versions of compliance test</td><td>No</td><td>false</td><td>3.0.0</td></tr><tr><td>strictUpdates</td><td>Should the driver do strict checking (all primary keys
+                selected) of updatable result sets (true, false, defaults to
+                'true')?</td><td>No</td><td>true</td><td>3.0.4</td></tr><tr><td>tinyInt1isBit</td><td>Should the driver treat the datatype TINYINT(1) as the
+                BIT type (because the server silently converts BIT -&gt;
+                TINYINT(1) when creating tables)?</td><td>No</td><td>true</td><td>3.0.16</td></tr><tr><td>ultraDevHack</td><td>Create PreparedStatements for prepareCall() when
+                required, because UltraDev is broken and issues a
+                prepareCall() for _all_ statements? (true/false, defaults to
+                'false')</td><td>No</td><td>false</td><td>2.0.3</td></tr><tr><td>useHostsInPrivileges</td><td>Add '@hostname' to users in
+                DatabaseMetaData.getColumn/TablePrivileges() (true/false),
+                defaults to 'true'.</td><td>No</td><td>true</td><td>3.0.2</td></tr><tr><td>useOldUTF8Behavior</td><td>Use the UTF-8 behavior the driver did when
+                communicating with 4.0 and older servers</td><td>No</td><td>false</td><td>3.1.6</td></tr><tr><td>useOnlyServerErrorMessages</td><td>Don't prepend 'standard' SQLState error messages to
+                error messages returned by the server.</td><td>No</td><td>true</td><td>3.0.15</td></tr><tr><td>useServerPrepStmts</td><td>Use server-side prepared statements if the server
+                supports them? (defaults to 'true').</td><td>No</td><td>true</td><td>3.1.0</td></tr><tr><td>useSqlStateCodes</td><td>Use SQL Standard state codes instead of 'legacy'
+                X/Open/SQL state codes (true/false), default is 'true'</td><td>No</td><td>true</td><td>3.1.3</td></tr><tr><td>useStreamLengthsInPrepStmts</td><td>Honor stream length parameter in
+                PreparedStatement/ResultSet.setXXXStream() method calls
+                (true/false, defaults to 'true')?</td><td>No</td><td>true</td><td>3.0.2</td></tr><tr><td>useTimezone</td><td>Convert time/date types between client and server
+                timezones (true/false, defaults to 'false')?</td><td>No</td><td>false</td><td>3.0.2</td></tr><tr><td>useUnbufferedInput</td><td>Don't use BufferedInputStream for reading data from the
+                server</td><td>No</td><td>true</td><td>3.0.11</td></tr><tr><td>zeroDateTimeBehavior</td><td>What should happen when the driver encounters DATETIME
+                values that are composed entirely of zeroes (used by MySQL to
+                represent invalid dates)? Valid values are 'exception',
+                'round' and 'convertToNull'.</td><td>No</td><td>exception</td><td>3.1.4</td></tr></tbody></table><p>Connector/J also supports access to MySQL via named pipes on
+        Windows NT/2000/XP using the 'NamedPipeSocketFactory' as a
+        plugin-socket factory via the 'socketFactory' property. If you don't
+        use a 'namedPipePath' property, the default of '\\.\pipe\MySQL' will
+        be used. If you use the NamedPipeSocketFactory, the hostname and port
+        number values in the JDBC url will be ignored.</p><p>Adding the following property to your URL will enable the
+        NamedPipeSocketFactory:</p><p>socketFactory=com.mysql.jdbc.NamedPipeSocketFactory</p><p>Named pipes only work when connecting to a MySQL server on the
+        same physical machine as the one the JDBC driver is being used on. In
+        simple performance tests, it appears that named pipe access is between
+        30%-50% faster than the standard TCP/IP access.</p><p>You can create your own socket factories by following the
+        example code in
+        <tt>com.mysql.jdbc.NamedPipeSocketFactory</tt>, or
+        <tt>com.mysql.jdbc.StandardSocketFactory</tt>.</p>]]>
+			</doc-text>
+		</doc>
+		<parameter id="vendor" value="MySQL" />
+		<parameter id="driverClass" value="com.mysql.jdbc.Driver" />
+		<parameter id="handlerClass"
+			value="org.jpf.demo.toolbox.dbbrowser.mysql.MysqlDbHandler" />
+	</extension>
+</plugin>

@@ -1,0 +1,16 @@
+$Id: changelog.txt,v 1.2 2007/03/04 13:06:13 ddimon Exp $
+
+History of changes for the JPF-Demo application.
+
+Changes are chronologically ordered from top (most recent) to bottom
+(least recent). For more information about the JPF project, see the project
+web site at http://jpf.sourceforge.net
+
+Legend:
++ New Feature
+- Bug fixed
+* General comment
+----------------------------------------------------------------------------
+2007-03-04 : JPF-Demo 1.5.0
+* Initial public release.
+* JPF-Demo 1.0.1 ported to Java 5.

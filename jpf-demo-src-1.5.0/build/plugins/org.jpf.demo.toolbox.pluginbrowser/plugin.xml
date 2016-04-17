@@ -1,0 +1,29 @@
+<?xml version="1.0" ?>
+<!DOCTYPE plugin PUBLIC "-//JPF//Java Plug-in Manifest 1.0" "http://jpf.sourceforge.net/plugin_1_0.dtd">
+<plugin id="org.jpf.demo.toolbox.pluginbrowser" version="0.0.4"
+	class="org.jpf.demo.toolbox.pluginbrowser.PBPlugin">
+	<requires>
+		<import plugin-id="org.jpf.demo.toolbox.core" />
+	</requires>
+	<runtime>
+		<library id="pluginbrowser" path="classes/" type="code">
+			<doc caption="API documentation">
+				<doc-ref path="api/index.html" caption="javadoc" />
+			</doc>
+		</library>
+		<library type="resources" path="icons/" id="icons" />
+		<library id="jung" path="lib/jung-1.7.4.jar" type="code" />
+		<library id="commons-collections"
+			path="lib/commons-collections-3.1.jar" type="code" />
+		<library id="colt" path="lib/colt.jar" type="code" />
+	</runtime>
+	<extension plugin-id="org.jpf.demo.toolbox.core" point-id="Tool"
+		id="pluginBrowserTool">
+		<parameter id="class"
+			value="org.jpf.demo.toolbox.pluginbrowser.PBTool" />
+		<parameter id="name" value="Plug-in Browser Tool" />
+		<parameter id="description"
+			value="Tool to browse plug-in's structure." />
+		<parameter id="icon" value="pluginbrowser.gif" />
+	</extension>
+</plugin>

@@ -1,0 +1,30 @@
+<?xml version="1.0" ?>
+<!DOCTYPE plugin PUBLIC "-//JPF//Java Plug-in Manifest 1.0" "http://jpf.sourceforge.net/plugin_1_0.dtd">
+<plugin id="org.jpf.demo.toolbox.codecolorer" version="0.0.5">
+	<requires>
+		<import plugin-id="org.jpf.demo.toolbox.core" />
+	</requires>
+	<runtime>
+		<library id="codecolorer" path="classes/" type="code">
+			<doc caption="API documentation">
+				<doc-ref path="api/index.html" caption="javadoc" />
+			</doc>
+		</library>
+		<library id="java2html" path="lib/java2html.jar" type="code">
+			<doc caption="Java2html Library by Markus Gebhard">
+				<doc-ref path="http://www.java2html.de"
+					caption="Java2Html Homepage" />
+			</doc>
+		</library>
+		<library type="resources" path="icons/" id="icons" />
+	</runtime>
+	<extension plugin-id="org.jpf.demo.toolbox.core" point-id="Tool"
+		id="codeColorerTool">
+		<parameter id="class"
+			value="org.jpf.demo.toolbox.codecolorer.CCTool" />
+		<parameter id="name" value="Code Colorer Tool" />
+		<parameter id="description"
+			value="Tool to colorize source code text" />
+		<parameter id="icon" value="codecolorer.gif" />
+	</extension>
+</plugin>

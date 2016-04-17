@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="org.jpf.demo.toolbox.dbbrowser.jaybird plug-in build file"
+         default="help"
+         basedir=".">
+	<jpf-info manifest="${basedir}/plugin.xml"
+	          propertyid="plugin.id"
+	          propertyversion="plugin.version" />
+	<property name="plugin.home"
+	          value="${basedir}/../../build/plugins/${plugin.id}" />
+
+	<target name="help">
+		<echo>
+			<![CDATA[
+${plugin.id} plug-in build file:
+Use top-level project build file to build application.
+]]>
+		</echo>
+	</target>
+
+	<target name="build">
+		<echo>Building plug-in ${plugin.id} to folder ${plugin.home}</echo>
+		<copy todir="${plugin.home}" includeemptydirs="false">
+			<fileset dir="${basedir}"
+			         excludes="classes/,nbproject/,.*,*build*,source/" />
+		</copy>
+	</target>
+	
+	<target name="docs">
+		<!-- no op -->
+	</target>
+</project>

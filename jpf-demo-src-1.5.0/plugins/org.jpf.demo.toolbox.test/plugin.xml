@@ -1,0 +1,95 @@
+<?xml version="1.0" ?>
+<!DOCTYPE plugin PUBLIC "-//JPF//Java Plug-in Manifest 1.0" "http://jpf.sourceforge.net/plugin_1_0.dtd">
+<plugin id="org.jpf.demo.toolbox.test" version="0.0.2">
+	<attributes>
+		<attribute id="test_1" value="attr 1" />
+		<attribute id="test_2" value="attr 2">
+			<attribute id="test_2_1" value="attr 2 1">
+				<attribute id="test_2_1_1" value="attr 2 1 1" />
+				<attribute id="test_2_1_2" value="attr 2 1 2" />
+			</attribute>
+			<attribute id="test_2_2" value="attr 2 2" />
+			<attribute id="test_2_3" value="attr 2 3" />
+		</attribute>
+	</attributes>
+	<extension-point id="TestExtensionPoint_1"
+		extension-multiplicity="none">
+		<doc caption="Test extension point 1">
+			<doc-text>
+				<![CDATA[Just test extension point]]>
+			</doc-text>
+		</doc>
+		<parameter-def id="test_any" multiplicity="any" />
+		<parameter-def id="test_one" multiplicity="one" />
+		<parameter-def id="test_one_or_more" multiplicity="one-or-more" />
+		<parameter-def id="test_none_or_one" multiplicity="none-or-one" />
+	</extension-point>
+	<extension-point id="TestExtensionPoint_2">
+		<parameter-def id="test_any" type="any" />
+		<parameter-def id="test_boolean" type="boolean" />
+		<parameter-def id="test_date" type="date" />
+		<parameter-def id="test_date_time" type="date-time" />
+		<parameter-def id="test_extension_id" type="extension-id" />
+		<parameter-def id="test_extension_point_id"
+			type="extension-point-id" />
+		<parameter-def id="test_null" type="null" />
+		<parameter-def id="test_number" type="number" />
+		<parameter-def id="test_plugin_id" type="plugin-id" />
+		<parameter-def id="test_string" type="string"
+			multiplicity="one-or-more" />
+		<parameter-def id="test_time" type="time" />
+		<parameter-def id="test_sub" multiplicity="one-or-more">
+			<parameter-def id="test_sub_1" multiplicity="one-or-more" />
+			<parameter-def id="test_sub_2" multiplicity="any">
+				<parameter-def id="test_sub_2_1" multiplicity="any" />
+				<parameter-def id="test_sub_2_2"
+					multiplicity="one-or-more" />
+			</parameter-def>
+		</parameter-def>
+	</extension-point>
+	<extension-point id="TestExtensionPoint_3"
+		parent-point-id="TestExtensionPoint_1">
+		<parameter-def id="test_any" type="any" />
+		<parameter-def id="test_boolean" type="boolean" />
+		<parameter-def id="test_date" type="date" />
+	</extension-point>
+	<extension plugin-id="org.jpf.demo.toolbox.test"
+		point-id="TestExtensionPoint_3" id="testExtension_1">
+		<parameter id="test_any" value="any value" />
+		<parameter id="test_one" value="any value" />
+		<parameter id="test_one_or_more" value="any value" />
+		<parameter id="test_none_or_one" value="any value" />
+		<parameter id="test_boolean" value="false" />
+		<parameter id="test_date" value="2004-08-18" />
+	</extension>
+	<extension plugin-id="org.jpf.demo.toolbox.test"
+		point-id="TestExtensionPoint_2" id="testExtension_2">
+		<parameter id="test_any" value="any value">
+			<parameter id="test_sub_any" value="any sub-value" />
+		</parameter>
+		<parameter id="test_boolean" value="false" />
+		<parameter id="test_date" value="2004-08-18" />
+		<parameter id="test_date_time" value="2004-08-18 21:42:23" />
+		<parameter id="test_extension_id"
+			value="org.jpf.demo.toolbox.test@testExtension_1" />
+		<parameter id="test_extension_point_id"
+			value="org.jpf.demo.toolbox.test@TestExtensionPoint_1" />
+		<parameter id="test_null" value="no value" />
+		<parameter id="test_number" value="123.456" />
+		<parameter id="test_plugin_id"
+			value="org.jpf.demo.toolbox.test" />
+		<parameter id="test_string" value="string value" />
+		<parameter id="test_string">
+			<value>
+				<![CDATA[long text value]]>
+			</value>
+		</parameter>
+		<parameter id="test_time" value="21:45:00" />
+		<parameter id="test_sub" value="a value">
+			<parameter id="test_sub_1" value="sub 1 value" />
+			<parameter id="test_sub_2" value="sub 2 value">
+				<parameter id="test_sub_2_2" value="sub 2_2 value" />
+			</parameter>
+		</parameter>
+	</extension>
+</plugin>

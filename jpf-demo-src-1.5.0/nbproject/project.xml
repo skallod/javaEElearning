@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://www.netbeans.org/ns/project/1">
+    <type>org.netbeans.modules.ant.freeform</type>
+    <configuration>
+        <general-data xmlns="http://www.netbeans.org/ns/freeform-project/1">
+            <!-- Do not use Project Properties customizer when editing this file manually. -->
+            <name>JPF-Demo</name>
+            <properties/>
+            <folders>
+                <source-folder>
+                    <label>org.jpf.demo.toolbox.core</label>
+                    <type>java</type>
+                    <location>plugins/org.jpf.demo.toolbox.core/source</location>
+                </source-folder>
+                <source-folder>
+                    <label>org.jpf.demo.toolbox.codecolorer</label>
+                    <type>java</type>
+                    <location>plugins/org.jpf.demo.toolbox.codecolorer/source</location>
+                </source-folder>
+                <source-folder>
+                    <label>org.jpf.demo.toolbox.dbbrowser</label>
+                    <type>java</type>
+                    <location>plugins/org.jpf.demo.toolbox.dbbrowser/source</location>
+                </source-folder>
+                <source-folder>
+                    <label>org.jpf.demo.toolbox.dbbrowser.jtds</label>
+                    <type>java</type>
+                    <location>plugins/org.jpf.demo.toolbox.dbbrowser.jtds/source</location>
+                </source-folder>
+                <source-folder>
+                    <label>org.jpf.demo.toolbox.dbbrowser.mysql</label>
+                    <type>java</type>
+                    <location>plugins/org.jpf.demo.toolbox.dbbrowser.mysql/source</location>
+                </source-folder>
+                <source-folder>
+                    <label>org.jpf.demo.toolbox.pluginbrowser</label>
+                    <type>java</type>
+                    <location>plugins/org.jpf.demo.toolbox.pluginbrowser/source</location>
+                </source-folder>
+            </folders>
+            <ide-actions>
+                <action name="build">
+                    <target>build</target>
+                </action>
+                <action name="clean">
+                    <target>clean</target>
+                </action>
+                <action name="javadoc">
+                    <target>docs</target>
+                </action>
+                <action name="run">
+                    <target>run</target>
+                </action>
+                <action name="test">
+                    <target>test</target>
+                </action>
+                <action name="rebuild">
+                    <target>clean</target>
+                    <target>build</target>
+                </action>
+                <action name="debug">
+                    <script>nbproject/ide-targets.xml</script>
+                    <target>debug-nb</target>
+                </action>
+            </ide-actions>
+            <export>
+                <type>folder</type>
+                <location>build/plugins/org.jpf.demo.toolbox.core/classes</location>
+                <build-target>build</build-target>
+            </export>
+            <export>
+                <type>folder</type>
+                <location>build/plugins/org.jpf.demo.toolbox.codecolorer/classes</location>
+                <build-target>build</build-target>
+            </export>
+            <export>
+                <type>folder</type>
+                <location>build/plugins/org.jpf.demo.toolbox.dbbrowser/classes</location>
+                <build-target>build</build-target>
+            </export>
+            <export>
+                <type>folder</type>
+                <location>build/plugins/org.jpf.demo.toolbox.dbbrowser.jtds/classes</location>
+                <build-target>build</build-target>
+            </export>
+            <export>
+                <type>folder</type>
+                <location>build/plugins/org.jpf.demo.toolbox.dbbrowser.mysql/classes</location>
+                <build-target>build</build-target>
+            </export>
+            <export>
+                <type>folder</type>
+                <location>build/plugins/org.jpf.demo.toolbox.pluginbrowser/classes</location>
+                <build-target>build</build-target>
+            </export>
+            <view>
+                <items>
+                    <source-folder style="packages">
+                        <label>org.jpf.demo.toolbox.core</label>
+                        <location>plugins/org.jpf.demo.toolbox.core/source</location>
+                    </source-folder>
+                    <source-folder style="packages">
+                        <label>org.jpf.demo.toolbox.codecolorer</label>
+                        <location>plugins/org.jpf.demo.toolbox.codecolorer/source</location>
+                    </source-folder>
+                    <source-folder style="packages">
+                        <label>org.jpf.demo.toolbox.dbbrowser</label>
+                        <location>plugins/org.jpf.demo.toolbox.dbbrowser/source</location>
+                    </source-folder>
+                    <source-folder style="packages">
+                        <label>org.jpf.demo.toolbox.dbbrowser.jtds</label>
+                        <location>plugins/org.jpf.demo.toolbox.dbbrowser.jtds/source</location>
+                    </source-folder>
+                    <source-folder style="packages">
+                        <label>org.jpf.demo.toolbox.dbbrowser.mysql</label>
+                        <location>plugins/org.jpf.demo.toolbox.dbbrowser.mysql/source</location>
+                    </source-folder>
+                    <source-folder style="packages">
+                        <label>org.jpf.demo.toolbox.pluginbrowser</label>
+                        <location>plugins/org.jpf.demo.toolbox.pluginbrowser/source</location>
+                    </source-folder>
+                    <source-file>
+                        <location>build.xml</location>
+                    </source-file>
+                </items>
+                <context-menu>
+                    <ide-action name="build"/>
+                    <ide-action name="clean"/>
+                    <ide-action name="javadoc"/>
+                    <ide-action name="run"/>
+                    <ide-action name="test"/>
+                    <ide-action name="rebuild"/>
+                    <action>
+                        <label>Checks plug-ins integrity</label>
+                        <target>check</target>
+                    </action>
+                    <action>
+                        <label>Prepares distribution package</label>
+                        <target>dist</target>
+                    </action>
+                    <action>
+                        <label>Generates plug-ins documentation</label>
+                        <target>docs</target>
+                    </action>
+                    <ide-action name="debug"/>
+                </context-menu>
+            </view>
+            <subprojects/>
+        </general-data>
+        <java-data xmlns="http://www.netbeans.org/ns/freeform-project-java/1">
+            <compilation-unit>
+                <package-root>plugins/org.jpf.demo.toolbox.core/source</package-root>
+                <classpath mode="compile">lib/commons-logging.jar;lib/jpf-boot.jar;lib/jpf.jar</classpath>
+                <built-to>build/plugins/org.jpf.demo.toolbox.core/classes</built-to>
+                <source-level>1.5</source-level>
+            </compilation-unit>
+            <compilation-unit>
+                <package-root>plugins/org.jpf.demo.toolbox.codecolorer/source</package-root>
+                <classpath mode="compile">lib/commons-logging.jar;lib/jpf.jar;plugins/org.jpf.demo.toolbox.codecolorer/lib/java2html.jar;build/plugins/org.jpf.demo.toolbox.core/classes</classpath>
+                <built-to>build/plugins/org.jpf.demo.toolbox.codecolorer/classes</built-to>
+                <source-level>1.5</source-level>
+            </compilation-unit>
+            <compilation-unit>
+                <package-root>plugins/org.jpf.demo.toolbox.dbbrowser/source</package-root>
+                <classpath mode="compile">lib/commons-logging.jar;lib/jpf.jar;build/plugins/org.jpf.demo.toolbox.core/classes;lib/jpf-boot.jar</classpath>
+                <built-to>build/plugins/org.jpf.demo.toolbox.dbbrowser/classes</built-to>
+                <source-level>1.5</source-level>
+            </compilation-unit>
+            <compilation-unit>
+                <package-root>plugins/org.jpf.demo.toolbox.dbbrowser.jtds/source</package-root>
+                <classpath mode="compile">lib/commons-logging.jar;lib/jpf.jar;build/plugins/org.jpf.demo.toolbox.dbbrowser/classes</classpath>
+                <built-to>build/plugins/org.jpf.demo.toolbox.dbbrowser.jtds/classes</built-to>
+                <source-level>1.5</source-level>
+            </compilation-unit>
+            <compilation-unit>
+                <package-root>plugins/org.jpf.demo.toolbox.dbbrowser.mysql/source</package-root>
+                <classpath mode="compile">lib/commons-logging.jar;lib/jpf.jar;build/plugins/org.jpf.demo.toolbox.dbbrowser/classes</classpath>
+                <built-to>build/plugins/org.jpf.demo.toolbox.dbbrowser.mysql/classes</built-to>
+                <source-level>1.5</source-level>
+            </compilation-unit>
+            <compilation-unit>
+                <package-root>plugins/org.jpf.demo.toolbox.pluginbrowser/source</package-root>
+                <classpath mode="compile">lib/commons-logging.jar;lib/jpf.jar;lib/jpf-boot.jar;lib/jxp.jar;build/plugins/org.jpf.demo.toolbox.core/classes;plugins/org.jpf.demo.toolbox.pluginbrowser/lib/jung-1.7.4.jar</classpath>
+                <built-to>build/plugins/org.jpf.demo.toolbox.pluginbrowser/classes</built-to>
+                <source-level>1.5</source-level>
+            </compilation-unit>
+        </java-data>
+    </configuration>
+</project>

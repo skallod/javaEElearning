@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project basedir=".." name="JPF-Demo-IDE">
+    <import file="../build.xml"/>
+    <!-- TODO: edit the following target according to your needs -->
+    <!-- (more info: http://www.netbeans.org/kb/41/freeform-config.html#debugj2se) -->
+    <target depends="build" description="Runs application" name="debug-nb">
+        <antcall target="-build-plugins">
+            <param name="target" value="build"/>
+        </antcall>
+        <nbjpdastart addressproperty="jpda.address" name="JPF-Demo" transport="dt_socket"/>
+        <java dir="${build.home}" fork="true" jar="${build.home}/lib/jpf-boot.jar">
+            <jvmarg value="-Xdebug"/>
+            <jvmarg value="-Xnoagent"/>
+            <jvmarg value="-Djava.compiler=none"/>
+            <jvmarg value="-Xrunjdwp:transport=dt_socket,address=${jpda.address}"/>
+        </java>
+    </target>
+</project>

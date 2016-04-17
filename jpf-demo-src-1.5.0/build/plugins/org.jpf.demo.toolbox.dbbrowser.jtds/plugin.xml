@@ -1,0 +1,223 @@
+<?xml version="1.0" ?>
+<!DOCTYPE plugin PUBLIC "-//JPF//Java Plug-in Manifest 1.0" "http://jpf.sourceforge.net/plugin_1_0.dtd">
+<plugin id="org.jpf.demo.toolbox.dbbrowser.jtds" version="0.0.1">
+	<requires>
+		<import plugin-id="org.jpf.demo.toolbox.dbbrowser" />
+	</requires>
+	<runtime>
+		<library id="jtdsDbDriver" path="lib/jtds-1.0.2.jar"
+			type="code" />
+		<library id="jtdsDbHandler" path="classes/" type="code" />
+	</runtime>
+	<extension plugin-id="org.jpf.demo.toolbox.dbbrowser"
+		point-id="Database" id="sqlServerDatabase">
+		<doc caption="jTDS Driver URL Format Notes">
+			<doc-text>
+				<![CDATA[<p>The URL format for jTDS is:</p>
+      <pre>    jdbc:jtds:&lt;server_type&gt;://&lt;server&gt;[:&lt;port&gt;][/&lt;database&gt;][;&lt;property&gt;=&lt;value&gt;[;...]]</pre>
+
+      <p>where <code>&lt;server_type&gt;</code> is one of either <code>'sqlserver'</code>
+        or <code>'sybase'</code> (their meaning is quite obvious), <code>&lt;port&gt;</code>
+        is the port the database server is listening to (default is 1433 for SQL
+        Server and 7100 for Sybase) and <code>&lt;database&gt;</code> is the database
+        name -- JDBC term: catalog -- (if not specified, the user's default database
+        is used). The set of properties supported by jTDS is:</p>
+
+      <dl>
+        <dt><code>user</code> (required)</dt>
+        <dd>User name to use for login. When using <code>getConnection(String
+          url, String user, String password)</code> it's not required to set this
+          property as it is passed as parameter, but you will have to set it when
+          using <code>getConnection(String url, Properties info)</code> or <code>TdsDataSource</code>.</dd>
+
+        <dt><code>password</code> (required)</dt>
+        <dd>Password to use for login. When using <code>getConnection(String url,
+          String user, String password)</code> it's not required to set this property
+          as it is passed as parameter, but you will have to set it when using
+          <code>getConnection(String url, Properties info)</code> or <code>TdsDataSource</code>.</dd>
+        <dt><code>TDS</code> (default - <code>&quot;8.0&quot;</code> for SQL Server;
+          <code>&quot;5.0&quot;</code> for Sybase)</dt>
+
+        <dd>The version of TDS to be used. TDS (Tabular Data Stream) is the protocol
+          used by Microsoft SQL Server and Sybase to communicate with database
+          clients. jTDS can use TDS 4.2, 5.0, 7.0 and 8.0. Version 4.2 is used by
+          SQL Server 6.5 and Sybase 10.  Version 5.0 is used with Sybase 11 onwards.
+          Version 7.0 is used by SQL Server 7.0; this protocol also works with SQL
+          Server 2000. Version 8.0 is used by SQL Server 2000 and SQL Server 2005.<br>
+          Newer database server versions usually understand older protocol versions.
+          This means that SQL Server 7.0 can be used with TDS 4.2, but the limitations
+          of the protocol apply regardless of the server version (e.g. when using TDS
+          4.2 <code>VARCHAR</code>s are limited to 255 characters). As a conclusion,
+          you must set this property to <code>&quot;4.2&quot;</code> when connecting
+          to SQL Server 6.5 or Sybase.  You should not set this value to
+          <code>&quot;7.0&quot; or &quot;8.0&quot;</code>) when connecting to any
+          version of Sybase as these are SQL Server specific protocols.  Further, you
+          should not set this value to <code>&quot;5.0&quot;</code>) when connecting
+          to any version of SQL Server as this is a Sybase specific protocol.<br/>
+
+          Currently jTDS automatically falls back from 8.0 to 7.0 (if used with
+          SQL Server 7.0) and from 5.0 to 4.2 (with Sybase 10) so specifying
+          the value for this parameter is only necessary for SQL Server 6.5.</dd>
+        <dt><code>charset</code> (default - the character set the server was installed
+          with)</dt>
+        <dd>Very important setting, determines the byte value to character mapping
+          for <code>CHAR</code>/<code>VARCHAR</code>/<code>TEXT</code> values.
+          Applies for characters from the extended set (codes 128-255). For
+          <code>NCHAR</code>/<code>NVARCHAR</code>/<code>NTEXT</code> values
+          doesn't have any effect since these are stored using Unicode.</dd>
+
+        <dt><code>domain</code></dt>
+        <dd>Specifies the Windows domain to authenticate in. If present and the
+          user name and password are provided, jTDS uses Windows (NTLM)
+          authentication instead of the usual SQL Server authentication (i.e.
+          the user and password provided are the domain user and password).
+          This allows non-Windows clients to log in to servers which are only
+          configured to accept Windoes authentication.<br/>
+          If the <code>domain</code> parameter is present but no user name and
+          password are provided, jTDS uses its native Single-Sign-On library
+          and logs in with the logged Windows user's credentials (for this to
+          work one would obviously need to be on Windows, logged into a domain,
+          and also have the SSO library installed -- consult README.SSO in the
+          distribution on how to do this).</dd>
+        <dt><code>instance</code></dt>
+        <dd>Named instance to connect to. SQL Server can run multiple so-called
+          "named instances" (i.e. different server instances, running on different
+          TCP ports) on the same machine. When using Microsoft tools, selecting
+          one of these instances is made by using "&lt;host_name&gt;\&lt;instance_name&gt;"
+          instead of the usual "&lt;host_name&gt". With jTDS you will have to
+          split the two and use the instance name as a property.</dd>
+
+        <dt><code>appName</code> (default - <code>&quot;jTDS&quot;</code>)</dt>
+        <dd>Application name. No practical use, it's displayed by Enterprise Manager
+          or Profiler associated with the connection.</dd>
+        <dt><code>progName</code> (default - <code>&quot;jTDS&quot;</code>)</dt>
+
+        <dd>Client library name. No practical use, it's displayed by Enterprise
+          Manager or Profiler associated with the connection.</dd>
+        <dt><code>macAddress</code> (default - <code>"000000000000"</code>)</dt>
+        <dd>Network interface card MAC address. It's displayed by Enterprise
+          Manager or Profiler associated with the connection and is needed to
+          resolve some issues regarding the number of clients allowed by the
+          SQL Server license. The MAC address cannot be determined automatically
+          from Java (i.e. without using native code) so you'll have to specify
+          it yourself if you need it.</dd>
+        <dt><code>sendStringParametersAsUnicode</code> (default - <code>true</code>)</dt>
+
+        <dd>Determines whether string parameters are sent to the SQL Server database
+          in Unicode or in the default character encoding of the database. This
+          seriously affects SQL Server 2000 performance since it does not automatically
+          cast the types (as 7.0 does), meaning that if a index column is Unicode
+          and the string is submitted using the default character encoding (or
+          the other way around) SQLServer will perform an index scan instead of
+          an index seek.</dd>
+        <dt><code>lastUpdateCount</code> (default - <code>true</code>)</dt>
+        <dd>If <code>true</code> only the last update count will be returned by
+          <code>executeUpdate()</code>. This is useful in case you are updating
+          or inserting into tables that have triggers (such as replicated tables);
+          there's no way to make the difference between an update count returned
+          by a trigger and the actual update count but the actual update count
+          is always the last as the triggers execute first. If <code>false</code>
+
+          all update counts are returned; use <code>getMoreResults()</code> to
+          loop through them.</dd>
+        <dt><code>prepareSQL</code> (default - <code>1</code>)</dt>
+        <dd>This parameter specifies the mechanism used for Prepared Statements.
+          <table border="1" cellpadding="5" cellspacing="0">
+            <thead>
+
+              <tr><th>Value</th><th>Description</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><code>0</code></td><td>SQL is sent to the server each time without any preparation</td></tr>
+              <tr><td><code>1</code></td><td>Temporary stored procedures are created for each unique SQL statement and parameter combination (usually fastest)</td></tr>
+              <tr><td><code>2</code></td><td>sp_executesql is used</td></tr>
+
+              <tr><td><code>3 (experimental)</code></td><td>sp_prepare and sp_cursorprepare are used in conjunction with sp_execute and sp_cursorexecute</td></tr>
+              <tr><td><code>4 (experimental)</code></td><td>sp_prepexec and sp_cursorprepexec are used in conjunction with sp_execute and sp_cursorexecute</td></tr>
+            </tbody>
+          </table>
+          </dd></dt>
+        <dt><code>packetSize</code> (default - <code>4096</code> for TDS 7.0/8.0;
+          <code>512</code> for TDS 4.2/5.0)</dt>
+
+        <dd>The network packet size (a multiple of 512).</dd>
+        <dt><code>tcpNoDelay</code> (default - <code>true</code>)</dt>
+        <dd><code>true</code> to enable TCP_NODELAY on the socket; <code>false</code> to disable it.</dd>
+
+        <dt><code>lobBuffer</code> (default - <code>32768</code>)</dt>
+        <dd>The amount of LOB data to buffer in memory before caching to disk. The
+          value is in bytes for <code>Blob</code> data and chars for <code>Clob</code>
+          data.</dd>
+
+        <dt><code>maxStatements</code> (default - <code>500</code>)</dt>
+        <dd>The number of statements each connection should keep open.
+          A value of <code>0</code> will disable statement caching.
+          A value of <code>Integer.MAX_VALUE</code> (<code>2147483647</code>)
+          will enable fast caching (uses less memory and has no overhead
+          associated with removing statements); the cache will never release
+          any cached statements, so although experience has shown that this is
+          usually not a problem with most applications, use with care.</dd>
+
+        <dt><code>loginTimeout</code> (default - <code>0</code>)</dt>
+        <dd>The amount of time to wait (in milliseconds) for a successful connection
+          before timing out.</dd>
+        <dt><code>namedPipe</code> (default - <code>false</code>)</dt>
+
+        <dd>When set to <code>true</code>, named pipe communication is used to
+          connect to the database instead of TCP/IP sockets. When the server
+          name is "localhost" or starts with "127.", local named pipes (via the
+          Windows filesystem) are used. These usually have better performance
+          than TCP/IP communication, but only work when the SQL Server and
+          client are on the same machine. If the server name is not "localhost"
+          or "127.<i>something</i>" the <a href="http://jcifs.samba.org/">JCIFS</a>
+          library is used. JCIFS is a named pipe over TCP/IP implementation and
+          requires Windows (NTLM) authentication, so the <code>domain</code>
+          parameter is required.<br/>
+          This feature supports the <code>instance</code> parameter (which changes
+          the named pipe URL), but it does not currently support the named pipe at
+          a location other than <code>/sql/query</code> on the server. The
+          <code>port</code> parameter is ignored if set.</dd>
+
+        <dt><code>xaEmulation</code> (default - <code>true</code>)</dt>
+        <dd>When set to <code>true</code>, emulate XA distributed transaction
+          support, when set to <code>false</code> use experimental true
+          distributed transaction support. True distributed transaction support
+          is only available for SQL Server 2000 and requires the installation
+          of an external stored procedure in the target server (see the
+          README.XA file in the distribution for details).</dd>
+        <dt><code>ssl</code> (default - <code>off</code>)</dt>
+
+        <dd>Specifies if and how to use SSL for secure communication.
+          <table border="1" cellpadding="5" cellspacing="0">
+            <thead>
+              <tr><th>Value</th><th>Description</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><code>off</code></td><td>SSL is not request or used; this is the default</td></tr>
+
+              <tr><td><code>request</code></td><td>SSL is requested; if the server does not support it then a plain connection is used</td></tr>
+              <tr><td><code>require</code></td><td>SSL is requested; if the server does not support it then an exception is thrown</td></tr>
+              <tr><td><code>authenticate</code></td><td>Same as <code>require</code> except the server's certificate must be signed by a trusted CA</td></tr>
+            </tbody>
+
+          </table>
+          </dd></dt>
+      </dl>
+      <p>These properties can be passed to jTDS in one of three ways: in the URL, in
+        the <code>Properties</code> object passed to <code>getConnection()</code>
+        or by using the <code>TdsDataSource</code>'s setters (if connections are
+        obtained through a <code>DataSource</code> rather than using the
+        <code>DriverManager</code>). Because there is no URL when using the
+        <code>TdsDataSource</code> there are three other properties (with
+        setters and getters) to take the place of those items that are part of
+        the URL: <code>serverName</code>, <code>portNumber</code> and
+        <code>databaseName</code> (their meaning is quite clear).</p>]]>
+			</doc-text>
+		</doc>
+		<parameter id="vendor" value="SQLServer" />
+		<parameter id="driverClass"
+			value="net.sourceforge.jtds.jdbc.Driver" />
+		<parameter id="handlerClass"
+			value="org.jpf.demo.toolbox.dbbrowser.jtds.JtdsDbHandler" />
+	</extension>
+</plugin>

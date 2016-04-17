@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry path="plugins/org.jpf.demo.toolbox.core/source" output="plugins/org.jpf.demo.toolbox.core/classes" kind="src"/>
+	<classpathentry path="plugins/org.jpf.demo.toolbox.codecolorer/source" output="plugins/org.jpf.demo.toolbox.codecolorer/classes" kind="src"/>
+	<classpathentry path="plugins/org.jpf.demo.toolbox.dbbrowser/source" output="plugins/org.jpf.demo.toolbox.dbbrowser/classes" kind="src"/>
+	<classpathentry path="plugins/org.jpf.demo.toolbox.dbbrowser.jtds/source" output="plugins/org.jpf.demo.toolbox.dbbrowser.jtds/classes" kind="src"/>
+	<classpathentry path="plugins/org.jpf.demo.toolbox.dbbrowser.mysql/source" output="plugins/org.jpf.demo.toolbox.dbbrowser.mysql/classes" kind="src"/>
+	<classpathentry path="plugins/org.jpf.demo.toolbox.pluginbrowser/source" output="plugins/org.jpf.demo.toolbox.pluginbrowser/classes" kind="src"/>
+	<classpathentry sourcepath="/JPF-1.5/source" path="lib/jpf.jar" kind="lib"/>
+	<classpathentry sourcepath="/JPF-1.5/source-boot" path="lib/jpf-boot.jar" kind="lib"/>
+	<classpathentry sourcepath="/JPF-1.5/source-tools" path="lib/jpf-tools.jar" kind="lib"/>
+	<classpathentry path="lib/jxp.jar" kind="lib"/>
+	<classpathentry path="lib/commons-logging.jar" kind="lib"/>
+	<classpathentry sourcepath="plugins/org.jpf.demo.toolbox.codecolorer/lib/java2html_src.zip" path="plugins/org.jpf.demo.toolbox.codecolorer/lib/java2html.jar" kind="lib"/>
+	<classpathentry sourcepath="G:/temp/jung-1.7.4/src" path="plugins/org.jpf.demo.toolbox.pluginbrowser/lib/jung-1.7.4.jar" kind="lib"/>
+	<classpathentry path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/J2SE-1.5" kind="con"/>
+	<classpathentry path="classes" kind="output"/>
+</classpath>
