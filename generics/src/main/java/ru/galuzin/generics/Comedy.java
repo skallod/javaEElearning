@@ -31,5 +31,6 @@ public class Comedy extends Radio<Comedy,Resident<BigDecimal>>{
             System.out.println("resident="+resident);
             System.out.println("resident real salary= " + resident.getSalary());
         }
+//       todo Radio<Comedy,Resident<BigDecimal>> return this;
     }
 }

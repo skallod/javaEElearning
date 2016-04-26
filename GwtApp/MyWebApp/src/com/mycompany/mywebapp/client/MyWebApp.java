@@ -11,7 +11,12 @@ import com.google.gwt.event.dom.client.KeyUpHandler;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.DialogBox;
+import com.google.gwt.user.client.ui.FlexTable;
+import com.google.gwt.user.client.ui.FlexTable.FlexCellFormatter;
 import com.google.gwt.user.client.ui.HTML;
+import com.google.gwt.user.client.ui.HasHorizontalAlignment;
+import com.google.gwt.user.client.ui.HasVerticalAlignment;
+import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.TextBox;
@@ -143,5 +148,86 @@ public class MyWebApp implements EntryPoint {
     MyHandler handler = new MyHandler();
     sendButton.addClickHandler(handler);
     nameField.addKeyUpHandler(handler);
+    
+    
+    ////////// NEW
+    
+    // Create a Flex Table
+    final FlexTable flexTable = new FlexTable();
+    FlexCellFormatter cellFormatter = flexTable.getFlexCellFormatter();
+    flexTable.addStyleName("flexTable");
+    flexTable.setWidth("32em");
+    flexTable.setCellSpacing(5);
+    flexTable.setCellPadding(3);
+
+    // Add some text
+    cellFormatter.setHorizontalAlignment(
+    0, 1, HasHorizontalAlignment.ALIGN_LEFT);
+    flexTable.setHTML(0, 0, "This is a FlexTable that supports"
+    +" <b>colspans</b> and <b>rowspans</b>."
+    +" You can use it to format your page"
+    +" or as a special purpose table.");
+    cellFormatter.setColSpan(0, 0, 2);
+
+    // Add a button that will add more rows to the table
+    Button addRowButton = new Button("Add a Row"); 
+    addRowButton.addClickHandler(new ClickHandler() {
+       @Override
+       public void onClick(ClickEvent event) {
+          addRow(flexTable);
+       }
+    });
+
+    addRowButton.addStyleName("fixedWidthButton");
+
+    // Add a button that will add more rows to the table
+    Button removeRowButton = new Button("Remove a Row"); 
+    removeRowButton.addClickHandler(new ClickHandler() {
+       @Override
+       public void onClick(ClickEvent event) {
+          removeRow(flexTable);
+       }
+    });
+
+    removeRowButton.addStyleName("fixedWidthButton");
+
+    VerticalPanel buttonPanel = new VerticalPanel();
+    buttonPanel.setStyleName("flexTable-buttonPanel");
+    buttonPanel.add(addRowButton);
+    buttonPanel.add(removeRowButton);
+    flexTable.setWidget(0, 1, buttonPanel);
+    VerticalPanel tempPan1 = (VerticalPanel)flexTable.getWidget(0, 1);
+    cellFormatter.setVerticalAlignment(0, 1, 
+    HasVerticalAlignment.ALIGN_TOP);
+
+    // Add two rows to start
+    addRow(flexTable);
+    addRow(flexTable);
+
+    // Add the widgets to the root panel.
+    RootPanel.get().add(flexTable);
+  }
+  
+  /**
+  * Add a row to the flex table.
+  */
+  private void addRow(FlexTable flexTable) {
+     int numRows = flexTable.getRowCount();
+     flexTable.setWidget(numRows, 0, 
+     new Image("http://www.tutorialspoint.com/images/gwt-mini.png"));
+     flexTable.setWidget(numRows, 1, 
+     new Image("http://www.tutorialspoint.com/images/gwt-mini.png"));
+     flexTable.getFlexCellFormatter().setRowSpan(0, 1, numRows + 1);
+  }
+
+  /**
+  * Remove a row from the flex table.
+  */
+  private void removeRow(FlexTable flexTable) {
+     int numRows = flexTable.getRowCount();
+     if (numRows > 1) {
+        flexTable.removeRow(numRows - 1);
+        flexTable.getFlexCellFormatter().setRowSpan(0, 1, numRows - 1);
+     }
   }
 }

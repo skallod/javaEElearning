@@ -29,4 +29,17 @@ public class Resident<T extends Number> extends RadioItem {
                 ", salary=" + salary.doubleValue() +
                 '}';
     }
+
+    public class ResidentRowEditor extends RowEditor{
+
+        String data;
+
+        public ResidentRowEditor(int index) {
+            super(index);
+        }
+
+        public void updateData(String data) {
+            this.data = data;
+        }
+    }
 }
