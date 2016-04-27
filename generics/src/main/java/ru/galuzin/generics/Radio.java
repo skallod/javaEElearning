@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * Created by User on 17.04.2016.
  */
-public abstract class Radio <T extends RadioIF, U extends RadioItem> implements RadioIF{
+public abstract class Radio <T extends RadioIF, U extends RadioItem > implements RadioIF{
 
     T radio;
     List<U> itemsList = new LinkedList<U>();

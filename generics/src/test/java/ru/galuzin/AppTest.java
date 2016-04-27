@@ -33,6 +33,13 @@ public class AppTest
      */
     public void testApp()
     {
+        if("".equals(null)){
+            System.out.println("eq");
+        }else{
+            System.out.println("not eq");
+        }
+        int x=4;
+        System.out.println("x="+Integer.toString(x));
         assertTrue( true );
     }
 }
