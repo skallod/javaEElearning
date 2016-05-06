@@ -29,7 +29,8 @@ h1 {
 }
 
 .dialogVPanel {
-  margin: 5px;
+  /*margin: 5px;*/
+  border: 0px;
 }
 
 .serverResponseLabelError {
@@ -42,8 +43,8 @@ h1 {
 }
 
 .flexTable td {
-   border: 1px solid #BBBBBB;
-   padding: 3px;
+   border: 0px solid #BBBBBB;
+   /*padding: 3px;*/
 }
 
 .flexTable-buttonPanel td {

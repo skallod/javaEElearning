@@ -1,11 +1,12 @@
-package com.gridnine.bof.gwt.common.vo.proposal;
+package com.mycompany.mywebapp.shared.vo.proposal;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import com.gridnine.bof.gwt.common.vo.BaseEntityVo;
-import com.gridnine.bof.gwt.common.vo.EntityReferenceVo;
+import com.mycompany.mywebapp.shared.vo.BaseEntityVo;
+import com.mycompany.mywebapp.shared.vo.EntityReferenceVo;
+
 
 public class BaseProposalVo extends BaseEntityVo {
 

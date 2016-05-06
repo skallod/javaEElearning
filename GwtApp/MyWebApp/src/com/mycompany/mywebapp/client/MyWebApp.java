@@ -1,6 +1,7 @@
 package com.mycompany.mywebapp.client;
 
-import com.mycompany.mywebapp.shared.FieldVerifier;
+import java.util.logging.Logger;
+
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
@@ -10,6 +11,7 @@ import com.google.gwt.event.dom.client.KeyUpEvent;
 import com.google.gwt.event.dom.client.KeyUpHandler;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Button;
+import com.google.gwt.user.client.ui.DecoratedTabPanel;
 import com.google.gwt.user.client.ui.DialogBox;
 import com.google.gwt.user.client.ui.FlexTable;
 import com.google.gwt.user.client.ui.FlexTable.FlexCellFormatter;
@@ -18,14 +20,21 @@ import com.google.gwt.user.client.ui.HasHorizontalAlignment;
 import com.google.gwt.user.client.ui.HasVerticalAlignment;
 import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.Label;
+import com.google.gwt.user.client.ui.Panel;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.VerticalPanel;
+import com.mycompany.mywebapp.shared.BookingProposalVoCreator;
+import com.mycompany.mywebapp.shared.FieldVerifier;
+import com.mycompany.mywebapp.shared.vo.proposal.BookingProposalVo;
+
 
 /**
  * Entry point classes define <code>onModuleLoad()</code>.
  */
 public class MyWebApp implements EntryPoint {
+	
+	public static final Logger rootLogger = Logger.getLogger("");
   /**
    * The message displayed to the user when the server cannot be reached or
    * returns an error.
@@ -56,6 +65,10 @@ public class MyWebApp implements EntryPoint {
     RootPanel.get("nameFieldContainer").add(nameField);
     RootPanel.get("sendButtonContainer").add(sendButton);
     RootPanel.get("errorLabelContainer").add(errorLabel);
+    
+    final TextBox testField = new TextBox();
+    testField.setText("TEST TEST");
+    RootPanel.get().add(testField);
 
     // Focus the cursor on the name field when the app loads
     nameField.setFocus(true);
@@ -159,17 +172,13 @@ public class MyWebApp implements EntryPoint {
     flexTable.setWidth("32em");
     flexTable.setCellSpacing(5);
     flexTable.setCellPadding(3);
-
-    // Add some text
     cellFormatter.setHorizontalAlignment(
     0, 1, HasHorizontalAlignment.ALIGN_LEFT);
-    flexTable.setHTML(0, 0, "This is a FlexTable that supports"
+    flexTable.setHTML(0, 0, "This is a MEGA FlexTable that supports"
     +" <b>colspans</b> and <b>rowspans</b>."
     +" You can use it to format your page"
     +" or as a special purpose table.");
     cellFormatter.setColSpan(0, 0, 2);
-
-    // Add a button that will add more rows to the table
     Button addRowButton = new Button("Add a Row"); 
     addRowButton.addClickHandler(new ClickHandler() {
        @Override
@@ -177,10 +186,7 @@ public class MyWebApp implements EntryPoint {
           addRow(flexTable);
        }
     });
-
     addRowButton.addStyleName("fixedWidthButton");
-
-    // Add a button that will add more rows to the table
     Button removeRowButton = new Button("Remove a Row"); 
     removeRowButton.addClickHandler(new ClickHandler() {
        @Override
@@ -188,9 +194,7 @@ public class MyWebApp implements EntryPoint {
           removeRow(flexTable);
        }
     });
-
     removeRowButton.addStyleName("fixedWidthButton");
-
     VerticalPanel buttonPanel = new VerticalPanel();
     buttonPanel.setStyleName("flexTable-buttonPanel");
     buttonPanel.add(addRowButton);
@@ -199,16 +203,38 @@ public class MyWebApp implements EntryPoint {
     VerticalPanel tempPan1 = (VerticalPanel)flexTable.getWidget(0, 1);
     cellFormatter.setVerticalAlignment(0, 1, 
     HasVerticalAlignment.ALIGN_TOP);
-
-    // Add two rows to start
     addRow(flexTable);
     addRow(flexTable);
-
-    // Add the widgets to the root panel.
     RootPanel.get().add(flexTable);
+    
+    Panel panel3 = initBookingProposalPanel();
+    
+//    VerticalPanel customLogArea = new VerticalPanel();	   
+//    rootLogger.addHandler(new HasWidgetsLogHandler(customLogArea));
+//    RootPanel.get().add(customLogArea);
+//    rootLogger.log(Level.INFO, "TTTTTTTTTTTTTTTT");
+    
+    DecoratedTabPanel tab;
+    tab = new DecoratedTabPanel();
+    tab.setAnimationEnabled(false);
+    tab.clear();
+    tab.setSize("100%", " 100%");
+    tab.add(panel3, "Main info");
+    //tab.add(getDocumentGrid(), "Документы");
+    
+    RootPanel.get().add(tab);
+
   }
   
-  /**
+  private Panel initBookingProposalPanel() {
+	  BookingProposalPanel bookingProposalPanel = new BookingProposalPanel();
+	  BookingProposalVo bookingProposalVo = BookingProposalVoCreator.create();
+	  bookingProposalPanel.readData(bookingProposalVo);
+	  return bookingProposalPanel.getPanel();
+	  //RootPanel.get().add(bookingProposalPanel.getPanel());
+}
+
+/**
   * Add a row to the flex table.
   */
   private void addRow(FlexTable flexTable) {

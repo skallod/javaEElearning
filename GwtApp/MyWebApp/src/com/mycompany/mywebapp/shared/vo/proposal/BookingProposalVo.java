@@ -1,4 +1,4 @@
-package com.gridnine.bof.gwt.common.vo.proposal;
+package com.mycompany.mywebapp.shared.vo.proposal;
 
 public class BookingProposalVo extends BaseProposalVo {
 

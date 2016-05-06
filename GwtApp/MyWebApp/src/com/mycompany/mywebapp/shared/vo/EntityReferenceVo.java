@@ -4,7 +4,7 @@
  *
  * $Id: $
  *****************************************************************/
-package com.gridnine.bof.gwt.common.vo;
+package com.mycompany.mywebapp.shared.vo;
 
 public class EntityReferenceVo extends BaseIdentityVo {
 

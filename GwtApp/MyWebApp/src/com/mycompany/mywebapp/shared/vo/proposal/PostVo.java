@@ -1,9 +1,10 @@
-package com.gridnine.bof.gwt.common.vo.proposal;
+package com.mycompany.mywebapp.shared.vo.proposal;
 
 import java.util.Date;
 
-import com.gridnine.bof.gwt.common.vo.BaseEntityVo;
-import com.gridnine.bof.gwt.common.vo.EntityReferenceVo;
+import com.mycompany.mywebapp.shared.vo.BaseEntityVo;
+import com.mycompany.mywebapp.shared.vo.EntityReferenceVo;
+
 
 public class PostVo extends BaseEntityVo {
     private static final long serialVersionUID = -8530294134395644845L;
