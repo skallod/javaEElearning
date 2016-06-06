@@ -1,6 +1,18 @@
 #This is automatically generated file.
-#Sun Apr 17 15:59:47 EET 2016
-uid\:org.jpf.demo.toolbox.core@0.0.4=org.jpf.demo.toolbox.core@0.0.4
-source\:org.jpf.demo.toolbox.core@0.0.4=../../plugins/org.jpf.demo.toolbox.core/
-modified\:org.jpf.demo.toolbox.core@0.0.4=2007-03-04 14\:56\:10
+#Wed May 11 15:28:51 MSK 2016
 file\:org.jpf.demo.toolbox.core@0.0.4=org.jpf.demo.toolbox.core@0.0.4
+modified\:org.jpf.demo.toolbox.pluginbrowser@0.0.4=2016-05-11 15\:16\:15
+uid\:org.jpf.demo.toolbox.dbbrowser@0.0.2=org.jpf.demo.toolbox.dbbrowser@0.0.2
+source\:org.jpf.demo.toolbox.pluginbrowser@0.0.4=../../plugins/org.jpf.demo.toolbox.pluginbrowser/
+source\:org.jpf.demo.toolbox.dbbrowser@0.0.2=../../plugins/org.jpf.demo.toolbox.dbbrowser/
+file\:org.jpf.demo.toolbox.pluginbrowser@0.0.4=org.jpf.demo.toolbox.pluginbrowser@0.0.4
+file\:org.jpf.demo.toolbox.dbbrowser@0.0.2=org.jpf.demo.toolbox.dbbrowser@0.0.2
+uid\:org.jpf.demo.toolbox.pluginbrowser@0.0.4=org.jpf.demo.toolbox.pluginbrowser@0.0.4
+uid\:org.jpf.demo.toolbox.codecolorer@0.0.5=org.jpf.demo.toolbox.codecolorer@0.0.5
+source\:org.jpf.demo.toolbox.core@0.0.4=../../plugins/org.jpf.demo.toolbox.core/
+modified\:org.jpf.demo.toolbox.core@0.0.4=2016-05-11 15\:16\:15
+modified\:org.jpf.demo.toolbox.codecolorer@0.0.5=2016-05-11 15\:16\:15
+source\:org.jpf.demo.toolbox.codecolorer@0.0.5=../../plugins/org.jpf.demo.toolbox.codecolorer/
+file\:org.jpf.demo.toolbox.codecolorer@0.0.5=org.jpf.demo.toolbox.codecolorer@0.0.5
+modified\:org.jpf.demo.toolbox.dbbrowser@0.0.2=2016-05-11 15\:16\:15
+uid\:org.jpf.demo.toolbox.core@0.0.4=org.jpf.demo.toolbox.core@0.0.4

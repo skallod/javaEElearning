@@ -1,5 +1,5 @@
 JPF Application boot failed.
-Sun Apr 17 15:59:47 EET 2016
+Wed May 11 14:46:04 MSK 2016
 
 -----------------------------------------------
 Exception details.
@@ -40,39 +40,39 @@ java.awt.graphicsenv=sun.awt.Win32GraphicsEnvironment
 java.awt.printerjob=sun.awt.windows.WPrinterJob
 java.class.path=lib\jpf-boot.jar
 java.class.version=52.0
-java.endorsed.dirs=C:\Program Files\Java\jre1.8.0_66\lib\endorsed
-java.ext.dirs=C:\Program Files\Java\jre1.8.0_66\lib\ext;C:\Windows\Sun\Java\lib\ext
-java.home=C:\Program Files\Java\jre1.8.0_66
-java.io.tmpdir=C:\Users\User\AppData\Local\Temp\
-java.library.path=C:\ProgramData\Oracle\Java\javapath;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Users\User\AppData\Local\GitHub\PortableGit_c2ba306e536fdf878271f7fe636a147ff37326ad\bin;C:\Program Files (x86)\Skype\Phone\;D:\Leonid\Develop\apache-maven-3.3.9-bin\bin;D:\Develop\apache-ant-1.9.6\bin;;.
+java.endorsed.dirs=C:\Program Files\Java\jre1.8.0_77\lib\endorsed
+java.ext.dirs=C:\Program Files\Java\jre1.8.0_77\lib\ext;C:\WINDOWS\Sun\Java\lib\ext
+java.home=C:\Program Files\Java\jre1.8.0_77
+java.io.tmpdir=C:\Users\galuzin\AppData\Local\Temp\
+java.library.path=C:\ProgramData\Oracle\Java\javapath;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\ProgramData\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files\TortoiseSVN\bin;C:\Program Files (x86)\Skype\Phone\;c:\Dev\git\bin\;C:\Dev\gwt-2.7.0;.
 java.runtime.name=Java(TM) SE Runtime Environment
-java.runtime.version=1.8.0_66-b18
+java.runtime.version=1.8.0_77-b03
 java.specification.name=Java Platform API Specification
 java.specification.vendor=Oracle Corporation
 java.specification.version=1.8
 java.vendor=Oracle Corporation
 java.vendor.url=http://java.oracle.com/
 java.vendor.url.bug=http://bugreport.sun.com/bugreport/
-java.version=1.8.0_66
+java.version=1.8.0_77
 java.vm.info=mixed mode
 java.vm.name=Java HotSpot(TM) 64-Bit Server VM
 java.vm.specification.name=Java Virtual Machine Specification
 java.vm.specification.vendor=Oracle Corporation
 java.vm.specification.version=1.8
 java.vm.vendor=Oracle Corporation
-java.vm.version=25.66-b18
+java.vm.version=25.77-b03
 jpf.boot.mode=shell
 line.separator=
 
-log4j.configuration=file:/D:/Develop/jpf-demo-src-1.5.0/log4j.properties
+log4j.configuration=file:/C:/Dev/gitRepo/skallod/javaEElearning/jpf-demo-src-1.5.0/log4j.properties
 os.arch=amd64
-os.name=Windows 7
-os.version=6.1
+os.name=Windows 10
+os.version=10.0
 path.separator=;
 sun.arch.data.model=64
 sun.awt.enableExtraMouseButtons=true
-sun.boot.class.path=C:\Program Files\Java\jre1.8.0_66\lib\resources.jar;C:\Program Files\Java\jre1.8.0_66\lib\rt.jar;C:\Program Files\Java\jre1.8.0_66\lib\sunrsasign.jar;C:\Program Files\Java\jre1.8.0_66\lib\jsse.jar;C:\Program Files\Java\jre1.8.0_66\lib\jce.jar;C:\Program Files\Java\jre1.8.0_66\lib\charsets.jar;C:\Program Files\Java\jre1.8.0_66\lib\jfr.jar;C:\Program Files\Java\jre1.8.0_66\classes
-sun.boot.library.path=C:\Program Files\Java\jre1.8.0_66\bin
+sun.boot.class.path=C:\Program Files\Java\jre1.8.0_77\lib\resources.jar;C:\Program Files\Java\jre1.8.0_77\lib\rt.jar;C:\Program Files\Java\jre1.8.0_77\lib\sunrsasign.jar;C:\Program Files\Java\jre1.8.0_77\lib\jsse.jar;C:\Program Files\Java\jre1.8.0_77\lib\jce.jar;C:\Program Files\Java\jre1.8.0_77\lib\charsets.jar;C:\Program Files\Java\jre1.8.0_77\lib\jfr.jar;C:\Program Files\Java\jre1.8.0_77\classes
+sun.boot.library.path=C:\Program Files\Java\jre1.8.0_77\bin
 sun.cpu.endian=little
 sun.cpu.isalist=amd64
 sun.desktop=windows
@@ -81,23 +81,21 @@ sun.java.command=lib\jpf-boot.jar
 sun.java.launcher=SUN_STANDARD
 sun.jnu.encoding=Cp1251
 sun.management.compiler=HotSpot 64-Bit Tiered Compilers
-sun.os.patch.level=Service Pack 1
-sun.stderr.encoding=cp866
-sun.stdout.encoding=cp866
+sun.os.patch.level=
 user.country=RU
-user.dir=D:\Develop\jpf-demo-src-1.5.0
-user.home=C:\Users\User
+user.dir=C:\Dev\gitRepo\skallod\javaEElearning\jpf-demo-src-1.5.0
+user.home=C:\Users\galuzin
 user.language=ru
-user.name=User
+user.name=galuzin
 user.script=
-user.timezone=Europe/Kaliningrad
+user.timezone=Europe/Moscow
 user.variant=
 
 -----------------------------------------------
 Runtime info:
 
-Memory TOTAL / FREE / MAX: 56623104 / 52531880 / 831520768
-Available processors: 2
-System class loader: sun.misc.Launcher$AppClassLoader@33909752
-Thread context class loader: sun.misc.Launcher$AppClassLoader@33909752
+Memory TOTAL / FREE / MAX: 253231104 / 234707272 / 3745513472
+Available processors: 8
+System class loader: sun.misc.Launcher$AppClassLoader@55f96302
+Thread context class loader: sun.misc.Launcher$AppClassLoader@55f96302
 Security manager: null

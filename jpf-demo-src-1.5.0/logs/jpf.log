@@ -1,9 +1,15 @@
-2016-04-17 15:59:46,943 [main] INFO  org.java.plugin.boot.DefaultApplicationInitializer logging system initialized
-2016-04-17 15:59:46,944 [main] INFO  org.java.plugin.boot.DefaultApplicationInitializer application root is D:\Develop\jpf-demo-src-1.5.0
-2016-04-17 15:59:47,040 [main] INFO  org.java.plugin.registry.xml.ManifestParser got SAX parser factory - com.sun.org.apache.xerces.internal.jaxp.SAXParserFactoryImpl@76ccd017
-2016-04-17 15:59:47,040 [main] INFO  org.java.plugin.registry.xml.PluginRegistryImpl configured, stopOnError=false, isValidating=true
-2016-04-17 15:59:47,102 [main] INFO  org.java.plugin.standard.ShadingPathResolver configured, shadow folder is D:\Develop\jpf-demo-src-1.5.0\temp\.jpf-shadow
-2016-04-17 15:59:47,529 [main] WARN  org.java.plugin.registry.xml.ExtensionPointImpl parent plug-in ID not specified together with parent extension point ID, using declaring plug-in ID, extension point is org.jpf.demo.toolbox.test@TestExtensionPoint_3
-2016-04-17 15:59:47,532 [main] INFO  org.java.plugin.registry.xml.PluginRegistryImpl plug-in and fragment descriptors registered - 8
-2016-04-17 15:59:47,577 [main] INFO  org.java.plugin.boot.DefaultApplicationInitializer integrity check done: errors - 0, warnings - 0
-2016-04-17 15:59:47,578 [main] INFO  org.java.plugin.boot.DefaultApplicationInitializer application plug-in is org.jpf.demo.toolbox.core
+2016-05-11 15:28:51,203 [main] INFO  org.java.plugin.boot.DefaultApplicationInitializer logging system initialized
+2016-05-11 15:28:51,203 [main] INFO  org.java.plugin.boot.DefaultApplicationInitializer application root is C:\Dev\gitRepo\skallod\javaEElearning\jpf-demo-src-1.5.0
+2016-05-11 15:28:51,225 [main] INFO  org.java.plugin.registry.xml.ManifestParser got SAX parser factory - com.sun.org.apache.xerces.internal.jaxp.SAXParserFactoryImpl@69af4318
+2016-05-11 15:28:51,225 [main] INFO  org.java.plugin.registry.xml.PluginRegistryImpl configured, stopOnError=false, isValidating=true
+2016-05-11 15:28:51,241 [main] INFO  org.java.plugin.standard.ShadingPathResolver configured, shadow folder is C:\Dev\gitRepo\skallod\javaEElearning\jpf-demo-src-1.5.0\temp\.jpf-shadow
+2016-05-11 15:29:12,613 [main] WARN  org.java.plugin.registry.xml.ExtensionPointImpl parent plug-in ID not specified together with parent extension point ID, using declaring plug-in ID, extension point is org.jpf.demo.toolbox.test@TestExtensionPoint_3
+2016-05-11 15:29:12,615 [main] INFO  org.java.plugin.registry.xml.PluginRegistryImpl plug-in and fragment descriptors registered - 8
+2016-05-11 15:29:12,620 [main] INFO  org.java.plugin.boot.DefaultApplicationInitializer integrity check done: errors - 0, warnings - 0
+2016-05-11 15:29:12,620 [main] INFO  org.java.plugin.boot.DefaultApplicationInitializer application plug-in is org.jpf.demo.toolbox.core
+2016-05-11 15:29:14,815 [main] INFO  org.java.plugin.standard.StandardPluginManager plug-in started - org.jpf.demo.toolbox.core@0.0.4
+2016-05-11 15:47:27,728 [AWT-EventQueue-0] INFO  org.java.plugin.standard.StandardPluginManager plug-in started - org.jpf.demo.toolbox.pluginbrowser@0.0.4
+2016-05-11 15:47:27,751 [AWT-EventQueue-0] INFO  org.java.plugin.registry.xml.ManifestParser got SAX parser factory - com.sun.org.apache.xerces.internal.jaxp.SAXParserFactoryImpl@5079a5ea
+2016-05-11 15:47:27,751 [AWT-EventQueue-0] INFO  org.java.plugin.registry.xml.PluginRegistryImpl configured, stopOnError=false, isValidating=true
+2016-05-11 15:47:53,504 [AWT-EventQueue-0] INFO  org.java.plugin.standard.StandardPluginManager plug-in started - org.jpf.demo.toolbox.codecolorer@0.0.5
+2016-05-11 15:48:47,119 [AWT-EventQueue-0] INFO  org.java.plugin.registry.xml.PluginRegistryImpl plug-in and fragment descriptors registered - 0

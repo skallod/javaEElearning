@@ -1,0 +1,38 @@
+<?xml version="1.0" ?>
+<!DOCTYPE plugin PUBLIC "-//JPF//Java Plug-in Manifest 1.0" "http://jpf.sourceforge.net/plugin_1_0.dtd">
+<plugin id="org.jpf.demo.toolbox.dbbrowser" version="0.0.2"
+	class="org.jpf.demo.toolbox.dbbrowser.DBBPlugin">
+	<requires>
+		<import plugin-id="org.jpf.demo.toolbox.core" />
+	</requires>
+	<runtime>
+		<library id="dbbrowser" path="classes/" type="code">
+			<doc caption="API documentation">
+				<doc-ref path="api/index.html" caption="javadoc" />
+			</doc>
+			<export prefix="*" />
+		</library>
+		<library type="resources" path="icons/" id="icons" />
+	</runtime>
+	<extension-point id="Database">
+		<parameter-def id="vendor" />
+		<parameter-def id="driverClass" />
+		<parameter-def id="handlerClass" multiplicity="none-or-one">
+			<doc>
+				<doc-text>
+					Should have no-args constructor and implement
+					org.jpf.demo.toolbox.dbbrowser.DbHandler interface.
+				</doc-text>
+			</doc>
+		</parameter-def>
+	</extension-point>
+	<extension plugin-id="org.jpf.demo.toolbox.core" point-id="Tool"
+		id="dbBrowserTool">
+		<parameter id="class"
+			value="org.jpf.demo.toolbox.dbbrowser.DBBTool" />
+		<parameter id="name" value="Database Browser Tool" />
+		<parameter id="description"
+			value="Tool to make SQL queries to RDBMS." />
+		<parameter id="icon" value="dbbrowser.gif" />
+	</extension>
+</plugin>
