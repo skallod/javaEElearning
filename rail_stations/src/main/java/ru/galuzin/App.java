@@ -1,24 +1,22 @@
 package ru.galuzin;
 
 import com.google.common.collect.Maps;
-import com.google.common.primitives.Doubles;
+import org.json.JSONArray;
 import org.json.JSONObject;
+import ru.galuzin.rail_stations.AlreadyLoadedHelper;
 import ru.galuzin.rail_stations.Helper;
 import ru.galuzin.rail_stations.JsonReader;
+import ru.galuzin.rail_stations.Station;
+import ru.galuzin.rail_stations.StationListHelper;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.FileReader;
-import java.io.FileWriter;
+import java.io.FileInputStream;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.nio.charset.Charset;
@@ -33,16 +31,48 @@ public class App
 {
 
     static String gps;
-    static String stationCode="2044041";
-    static String stationName="ЖЕРЕБЦОВО";
-    static String filePath = "c:\\temp\\";
+    //static String stationCode="address";
+    //static String stationName="РУССКОЕ ПОЛЕ";
+    public static String basePath;
+
 
 
     public static void main( String[] args ) throws IOException, ClassNotFoundException {
         System.out.println( "Hello World!" );
-        defineGps();
-        //getAddressByGps();
-        System.out.println(""+Locale.getDefault());
+        basePath=args[0];
+        StationListHelper slh = new StationListHelper();//all_rail_stations_withoutCity.txt
+        slh.basePath= basePath;
+        slh.loadFromFile();
+        AlreadyLoadedHelper alh = new AlreadyLoadedHelper();//already_loaded.txt
+        alh.basePath = basePath;
+        alh.read();
+        int i=0;
+        try {
+            for (Station station : slh.stationList) {
+                if(alh.set.contains(station.stationCode)){
+                    continue;
+                }
+                System.out.println("load station "+station.stationCode);
+                if(!defineAddress(station)){
+                    break;
+                }
+                alh.set.add(station.stationCode);
+
+                try {
+                    Thread.sleep(200);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                //i++;
+                //if(i==100)break;
+            }
+        }finally {
+            alh.write();
+            slh.write();
+        }
+//        defineAddress();
+//        getAddressByGps();
+//        System.out.println(""+Locale.getDefault());
 //        try {
 //            FileReader fileWriter =  new FileReader(new File("c:\\temp\\stationsList5.txt"));
 //        } catch (FileNotFoundException e) {
@@ -51,33 +81,48 @@ public class App
 
     }
 
-    private static void  defineGps() throws IOException, ClassNotFoundException {
+    private static boolean  defineAddress(Station station) throws IOException, ClassNotFoundException {
         final String baseUrl = "http://maps.googleapis.com/maps/api/geocode/json";// путь к Geocoding API по HTTP
         final Map<String, String> params = Maps.newHashMap();
         params.put("sensor", "false");// исходит ли запрос на геокодирование от устройства с датчиком местоположения
 
         //params.put("lang","ru-RU");
         params.put("language", "ru");
-        params.put("address", "железнодорожная станция "+stationName);//железнодорожная станция БАЛАХНА");//"Россия, Москва, улица Поклонная, 12");// адрес, который нужно геокодировать
+        params.put("address", "железнодорожная станция "+station.stationName);//железнодорожная станция БАЛАХНА");//"Россия, Москва, улица Поклонная, 12");// адрес, который нужно геокодировать
         final String url = baseUrl + '?' + Helper.encodeParams(params);// генерируем путь с параметрами
         System.out.println(url);// Путь, что бы можно было посмотреть в браузере ответ службы
         JSONObject response = JsonReader.read(url);// делаем запрос к вебсервису и получаем от него ответ
         System.out.println("response = " + response);
         // как правило наиболее подходящий ответ первый и данные о координатах можно получить по пути
         // //results[0]/geometry/location/lng и //results[0]/geometry/location/lat
-        JSONObject location = response.getJSONArray("results").getJSONObject(0);
-        location = location.getJSONObject("geometry");
-        location = location.getJSONObject("location");
-        final double lng = location.getDouble("lng");// долгота
-        final double lat = location.getDouble("lat");// широта
-        gps=Double.toString(lng)+","+Double.toString(lat);
-        System.out.println(gps);// итоговая широта и долгота
-        writeObject(stationCode,response);
+        JSONArray jsonArray = response.getJSONArray("results");
+        String status = response.getString("status");
+        System.out.println("status = " + status);
+        if(status.contains("OVER_QUERY_LIMIT")){
+            //throw new RuntimeException("OVER_QUERY_LIMIT");
+            return false;
+        }
+        if(jsonArray.length()!=1){
+            writeObject(station.stationCode,response);
+            return true;
+        }else {
+            JSONObject location =jsonArray.getJSONObject(0);//первый результат
+            location = location.getJSONObject("geometry");
+            location = location.getJSONObject("location");
+            final double lng = location.getDouble("lng");// долгота
+            final double lat = location.getDouble("lat");// широта
+            station.lantitude = lat;
+            station.longtitude = lng;
+            gps = Double.toString(lng) + "," + Double.toString(lat);
+            System.out.println(gps);// итоговая широта и долгота
+            writeObject(station.stationCode, response);
+            return true;
+        }
         //JSONObject response1 = readObject(stationCode);
         //System.out.println("respser1 = " + response1);
     }
 
-    static void getAddressByGps() throws IOException {
+    static void getAddressByGps(Station station) throws IOException {
         final String baseUrl = "http://maps.googleapis.com/maps/api/geocode/json";// путь к Geocoding API по HTTP
         final Map<String, String> params = Maps.newHashMap();
         params.put("language", "ru");// язык данных, на котором мы хотим получить
@@ -88,7 +133,7 @@ public class App
         final String url = baseUrl + '?' + Helper.encodeParams(params);// генерируем путь с параметрами
         System.out.println(url);// Путь, что бы можно было посмотреть в браузере ответ службы
         final JSONObject response = JsonReader.read(url);// делаем запрос к вебсервису и получаем от него ответ
-        writeObject(stationCode+"_reverse",response);
+        writeObject(station.stationCode+"_reverse",response);
         // как правило, наиболее подходящий ответ первый и данные об адресе можно получить по пути
         // //results[0]/formatted_address
         final JSONObject location = response.getJSONArray("results").getJSONObject(0);
@@ -102,7 +147,7 @@ public class App
         //oos.defaultWriteObject();
         //oos.writeChars(_jsonObject.toString());
         //FileWriter fw = new FileWriter("c:\\temp\\"+stationCode,false);
-        OutputStream fis = new FileOutputStream(filePath+stationCode);
+        OutputStream fis = new FileOutputStream(basePath +stationCode);
         OutputStreamWriter isr = new OutputStreamWriter(fis, Charset.forName("UTF-8"));
         BufferedWriter fw = new BufferedWriter(isr);
         fw.write(_jsonObject.toString());
@@ -114,7 +159,7 @@ public class App
         //ObjectInputStream ois = new ObjectInputStream(is);
         //ois.defaultReadObject();
         //return new JSONObject(ois.readUTF());
-        InputStream fis = new FileInputStream(filePath+stationCode);
+        InputStream fis = new FileInputStream(basePath +stationCode);
         InputStreamReader isr = new InputStreamReader(fis, Charset.forName("UTF-8"));
         BufferedReader br = new BufferedReader(isr);
         JSONObject jsObj1 = new JSONObject(br.readLine());

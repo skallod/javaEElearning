@@ -4,6 +4,9 @@ import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Unit test for simple App.
  */
@@ -33,6 +36,13 @@ public class AppTest
      */
     public void testApp()
     {
+        Double a= Double.valueOf(0);
+        Map<String,Double> nearMap = new HashMap<String,Double>();
+        nearMap.put("sdaf", a);
+        for(Map.Entry<String,Double> entry: nearMap.entrySet()){
+            //entry.getKey()
+        }
+
         assertTrue( true );
     }
 }
