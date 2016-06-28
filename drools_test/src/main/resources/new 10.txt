@@ -1,0 +1,449 @@
+@Override
+public RuleSet getRuleSet() throws Exception {
+	if (ruleSet == null) {
+		ruleSet = new RuleSet();
+		ruleSet.fromXML(XUtil
+			.getDocumentBuilder()
+			.parse(
+				XUtil.createSource(new ByteArrayInputStream(ctr
+					.getEntity().getRulesData())))
+			.getDocumentElement());
+	}
+	return ruleSet;
+}
+
+/*****************************************************************
+ * Gridnine AB http://www.gridnine.com
+ * Project: bof-3
+ *
+ * $Id: RuleSettings.java 10418 2012-03-16 05:49:53Z olshansky $
+ *****************************************************************/
+package com.gridnine.bof.common.rules;
+
+import java.text.DateFormat;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import org.w3c.dom.Element;
+
+import com.gridnine.bof.common.Environment;
+import com.gridnine.bof.common.model.BaseEntity;
+import com.gridnine.bof.common.model.system.RoundingMode;
+import com.gridnine.bof.common.model.system.RoundingValue;
+import com.gridnine.bof.common.rules.elements.RuleTarget;
+import com.gridnine.bof.common.util.CollectionUtil;
+import com.gridnine.bof.common.util.MiscUtil;
+import com.gridnine.bof.common.util.TextUtil;
+import com.gridnine.bof.common.util.XmlUtil;
+import com.gridnine.bof.common.xml.XHelper;
+
+public class RuleSettings extends BaseEntity {
+
+    private static final long serialVersionUID = 4953701924725512011L;
+
+    private static String RuleSettings_AND = "И";
+
+    private static String RuleSettings_WHEN = "ЕСЛИ";
+
+    private static String RuleSettings_THEN = "ТО";
+
+    private static String RuleSettings_NO_ACTIONS = "нет действий";
+
+    private String targetId;
+
+    private String name;
+
+    private String remarks;
+
+    private Date periodBegin;
+
+    private Date periodEnd;
+
+    private RoundingValue roundingValue = RoundingValue.V_1;
+
+    private RoundingMode roundingMode = RoundingMode.MATH;
+
+    private final List<RuleRestriction> restrictions =
+        new LinkedList<RuleRestriction>();
+
+    private final List<RuleResult> results = new LinkedList<RuleResult>();
+
+    private Date revisionDate;
+
+    public Date getRevisionDate() {
+        return revisionDate;
+    }
+
+    public void setRevisionDate(final Date value) {
+        revisionDate = value;
+    }
+
+    private final Map<String, String> attributes =
+        new HashMap<String, String>();
+
+    public RuleTarget getTarget() {
+        return Environment.getPublished(RulesEnvironment.class).findTarget(
+            targetId);
+    }
+
+    public void setTarget(final RuleTarget value) {
+        targetId = (value == null) ? null : value.getId();
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(final String value) {
+        name = value;
+    }
+
+    public String getRemarks() {
+        return remarks;
+    }
+
+    public void setRemarks(final String value) {
+        remarks = value;
+    }
+
+    public Date getPeriodBegin() {
+        return periodBegin;
+    }
+
+    public void setPeriodBegin(final Date value) {
+        periodBegin = value;
+    }
+
+    public Date getPeriodEnd() {
+        return periodEnd;
+    }
+
+    public void setPeriodEnd(final Date value) {
+        periodEnd = value;
+    }
+
+    public RoundingValue getRoundingValue() {
+        return roundingValue;
+    }
+
+    public void setRoundingValue(final RoundingValue value) {
+        roundingValue = value;
+    }
+
+    public RoundingMode getRoundingMode() {
+        return roundingMode;
+    }
+
+    public void setRoundingMode(final RoundingMode value) {
+        roundingMode = value;
+    }
+
+    public List<RuleRestriction> getRestrictions() {
+        return restrictions;
+    }
+
+    public List<RuleResult> getResults() {
+        return results;
+    }
+
+    @Override
+    public void fromXML(final Element elm) throws Exception {
+        super.fromXML(elm);
+        targetId = XHelper.readString(elm, "target"); //$NON-NLS-1$
+        if (TextUtil.isBlank(targetId)) {
+            targetId = XHelper.readString(elm, "@target"); //$NON-NLS-1$
+        }
+        name = XHelper.readString(elm, "name"); //$NON-NLS-1$
+        if (TextUtil.isBlank(name)) {
+            name = XHelper.readString(elm, "@name"); //$NON-NLS-1$
+        }
+        remarks = XHelper.readString(elm, "remarks"); //$NON-NLS-1$
+        if (TextUtil.isBlank(remarks)) {
+            remarks = XHelper.readString(elm, "@remarks"); //$NON-NLS-1$
+        }
+        periodBegin = XHelper.readDate(elm, "period-begin"); //$NON-NLS-1$
+        if (periodBegin == null) {
+            periodBegin = XHelper.readDate(elm, "@periodBegin"); //$NON-NLS-1$
+        }
+        periodEnd = XHelper.readDate(elm, "period-end"); //$NON-NLS-1$
+        if (periodEnd == null) {
+            periodEnd = XHelper.readDate(elm, "@period-end"); //$NON-NLS-1$
+        }
+        roundingValue =
+            XHelper.readEnum(elm, "rounding-value", RoundingValue.class); //$NON-NLS-1$
+        if (roundingValue == null) {
+            roundingValue =
+                XHelper.readEnum(elm, "@rounding-value", RoundingValue.class); //$NON-NLS-1$
+        }
+        roundingMode =
+            XHelper.readEnum(elm, "rounding-mode", RoundingMode.class); //$NON-NLS-1$
+        if (roundingMode == null) {
+            roundingMode =
+                XHelper.readEnum(elm, "@rounding-mode", RoundingMode.class); //$NON-NLS-1$
+        }
+        revisionDate = XHelper.readDate(elm, "lastModified"); //$NON-NLS-1$
+        if (revisionDate == null) {
+            revisionDate = XHelper.readDate(elm, "@lastModified"); //$NON-NLS-1$
+        }
+
+        attributes.clear();
+        for (Element attrElm : XmlUtil.getElements(elm, "attribute")) { //$NON-NLS-1$
+            String key = XHelper.readString(attrElm, "key"); //$NON-NLS-1$
+            if (TextUtil.isBlank(key)) {
+                key = XHelper.readString(attrElm, "@key"); //$NON-NLS-1$
+            }
+            String value = XHelper.readString(attrElm, "value"); //$NON-NLS-1$
+            if (TextUtil.isBlank(value)) {
+                value = XHelper.readString(attrElm, "@value"); //$NON-NLS-1$
+            }
+            if (TextUtil.isBlank(key)) {
+                continue;
+            }
+            attributes.put(key, value);
+        }
+        restrictions.clear();
+        for (Element restrElm : XmlUtil.getElements(elm, "restriction")) { //$NON-NLS-1$
+            RuleRestriction restr = new RuleRestriction();
+            restr.fromXML(restrElm);
+            restrictions.add(restr);
+        }
+        results.clear();
+        for (Element resElm : XmlUtil.getElements(elm, "result")) { //$NON-NLS-1$
+            RuleResult res = new RuleResult();
+            res.fromXml(resElm);
+            results.add(res);
+        }
+    }
+
+    @Override
+    public void toXML(final Element elm) throws Exception {
+        super.toXML(elm);
+        XHelper.writeString(elm, "target", targetId); //$NON-NLS-1$
+        XHelper.writeString(elm, "name", name); //$NON-NLS-1$
+        XHelper.writeDate(elm, "period-begin", periodBegin); //$NON-NLS-1$
+        XHelper.writeDate(elm, "period-end", periodEnd); //$NON-NLS-1$
+        XHelper.writeDate(elm, "lastModified", revisionDate); //$NON-NLS-1$
+        XHelper.writeEnum(elm, "rounding-value", roundingValue); //$NON-NLS-1$
+        XHelper.writeEnum(elm, "rounding-mode", roundingMode); //$NON-NLS-1$
+        XHelper.writeString(elm, "remarks", remarks); //$NON-NLS-1$
+        for (String key : attributes.keySet()) {
+            Element attrElm = elm.getOwnerDocument().createElement("attribute"); //$NON-NLS-1$
+            attrElm.setAttribute("key", key); //$NON-NLS-1$
+            attrElm.setAttribute("value", attributes.get(key)); //$NON-NLS-1$
+            elm.appendChild(attrElm);
+        }
+        for (RuleRestriction restr : restrictions) {
+            Element restrElm =
+                elm.getOwnerDocument().createElement("restriction"); //$NON-NLS-1$
+            elm.appendChild(restrElm);
+            restr.toXML(restrElm);
+        }
+        for (RuleResult res : results) {
+            Element resElm = elm.getOwnerDocument().createElement("result"); //$NON-NLS-1$
+            elm.appendChild(resElm);
+            res.toXML(resElm);
+        }
+    }
+
+    public String getRestrictionsInfo() {
+        StringBuilder buf = new StringBuilder();
+        List<RuleRestriction> sortedRestrictions =
+            new ArrayList<RuleRestriction>(restrictions);
+        Collections.sort(sortedRestrictions, new Comparator<RuleRestriction>() {
+            @Override
+            public int compare(final RuleRestriction o1,
+                    final RuleRestriction o2) {
+                return o1.getProperty().getDisplayName()
+                    .compareTo(o2.getProperty().getDisplayName());
+            }
+        });
+        for (RuleRestriction restr : sortedRestrictions) {
+            if ((restr.getProperty() == null) || (restr.getCondition() == null)) {
+                continue;
+            }
+            if (buf.length() > 0) {
+                buf.append("<br><b>" + RuleSettings_AND + "</b> "); //$NON-NLS-1$//$NON-NLS-2$
+            }
+            restr.getProperty().buildInfo(buf, restr.getCondition(),
+                restr.getValue());
+        }
+        if (buf.length() > 0) {
+            buf.insert(0, "<b>" + RuleSettings_WHEN + "</b> "). //$NON-NLS-1$ //$NON-NLS-2$
+                append("<br><b>" + RuleSettings_THEN + "</b> "); //$NON-NLS-1$//$NON-NLS-2$
+        }
+        int i = 0;
+        for (RuleResult res : results) {
+            if (i > 0) {
+                buf.append("<br><b>" + RuleSettings_AND + "</b> "); //$NON-NLS-1$//$NON-NLS-2$
+            }
+            if (res.getAction() == null) {
+                buf.append("действие не найдено");
+            } else {
+                res.getAction().buildInfo(buf, res.getValue());
+            }
+            i++;
+        }
+        if (i == 0) {
+            buf.append("<b>" + RuleSettings_NO_ACTIONS + "</b>"); //$NON-NLS-1$//$NON-NLS-2$
+        }
+        return buf.insert(0, "<HTML>").toString(); //$NON-NLS-1$
+    }
+
+    @SuppressWarnings("nls")
+    int buildScript(final StringBuilder buf, final int idx) throws Exception {
+        if (results.isEmpty()) {
+            return idx;
+        }
+        int salience = idx;
+        buf.append('#').append(name).append("\r\n");
+        buf.append("rule \"rule ").append(salience).append("\"\r\n");
+        buf.append("salience ").append(-salience).append("\r\n");
+        buf.append("\twhen\r\n");
+        RuleTarget target = getTarget();
+        if (target == null) {
+            throw new IllegalStateException("unknown rule target " + targetId);
+        }
+        {
+            buf.append("\t\tproxy: com.gridnine.bof.server.rules.RuleProxy (\r\n");
+            buf.append("\t\t\tproxyType == \"").append(targetId).append('\"');
+            if ((periodBegin != null) || (periodEnd != null)) {
+                DateFormat df = RulesEnvironment.getDateFormat();
+                if (periodBegin != null) {
+                    buf.append(",\r\n");
+                    buf.append("\t\t\tproxyDate >= \"")
+                        .append(df.format(MiscUtil.clearTime(periodBegin)))
+                        .append('\"');
+                }
+                if (periodEnd != null) {
+                    buf.append(",\r\n");
+                    buf.append("\t\t\tproxyDate <= \"")
+                        .append(df.format(MiscUtil.setDayEndTime(periodEnd)))
+                        .append('\"');
+                }
+            }
+            buf.append("\r\n\t\t)\r\n");
+        }
+        {
+            buf.append("\t\tpropSet: ")
+                .append(target.getPropertySetClassName()).append("(\r\n");
+            int i = 0;
+            for (RuleRestriction restr : restrictions) {
+                if (i > 0) {
+                    buf.append(",\r\n");
+                }
+                restr.getProperty().buildScript(buf, restr.getCondition(),
+                    restr.getValue());
+                i++;
+            }
+            buf.append("\r\n\t\t) from proxy.getPropertySet()\r\n");
+        }
+        buf.append("\tthen\r\n");
+        Set<String> categories = new HashSet<String>();
+        for (RuleResult result : results) {
+            categories.add(result.getAction()
+                .getRuleCategory(result.getValue()));
+        }
+        StringBuilder cond = new StringBuilder();
+        for (String cat : categories) {
+            if (cond.length() != 0) {
+                cond.append(" || ");
+            }
+            cond.append(String.format(
+                "proxy.getAppliedRuleCategories().contains(%s)", cat));
+        }
+        buf.append("\t\tif(!(").append(cond.toString()).append(")){\r\n");
+        StringBuilder subresult = new StringBuilder();
+        for (RuleResult res : results) {
+            subresult
+                .append("\t\t   if(!proxy.getAppliedRuleCategories().contains(")
+                .append(res.getAction().getRuleCategory(res.getValue()))
+                .append(")){\r\n");
+            res.getAction().buildScript(subresult, target, res.getValue());
+            subresult.append(String.format("\t\t\tif(%s){\r\n",
+                cond.length() > 0 ? cond.toString() : "false"));
+            subresult.append("\t\t\t\tproxy.getAppliedRules().add(\"")
+                .append(getUid()).append("\");\r\n");
+            subresult.append("\t\t\t\tproxy.setRoundingMode(\"")
+                .append(roundingMode.name()).append("\");\r\n");
+            subresult.append("\t\t\t\tproxy.setRoundingValue(\"")
+                .append(roundingValue.name()).append("\");\r\n");
+            subresult.append("\t\t\t}\r\n");
+            subresult.append("\t\t   }\r\n");
+        }
+        buf.append(TextUtil.convertToUnicode(subresult.toString()));
+        buf.append("\t\t}\r\n");
+        buf.append("end\r\n");
+        salience++;
+        return salience;
+    }
+
+    public Map<String, String> getAttributes() {
+        return attributes;
+    }
+
+    @Override
+    public boolean equals(final Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (!(obj instanceof RuleSettings)) {
+            return false;
+        }
+        RuleSettings other = (RuleSettings) obj;
+        if (!MiscUtil.equals(targetId, other.targetId)) {
+            return false;
+        }
+        if (!MiscUtil.equals(name, other.name)) {
+            return false;
+        }
+        if (!MiscUtil.equals(remarks, other.remarks)) {
+            return false;
+        }
+        if (!MiscUtil.equals(periodBegin, other.periodBegin)) {
+            return false;
+        }
+        if (!MiscUtil.equals(periodEnd, other.periodEnd)) {
+            return false;
+        }
+        if (!MiscUtil.equals(revisionDate, other.revisionDate)) {
+            return false;
+        }
+        if (!MiscUtil.equals(roundingValue, other.roundingValue)) {
+            return false;
+        }
+        if (!MiscUtil.equals(roundingMode, other.roundingMode)) {
+            return false;
+        }
+        if (!CollectionUtil.equals(restrictions, other.restrictions, true)) {
+            return false;
+        }
+        if (!CollectionUtil.equals(results, other.results, true)) {
+            return false;
+        }
+        if (!CollectionUtil.equals(attributes, other.attributes, true)) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = 5878963;
+        if (targetId != null) {
+            result ^= targetId.hashCode();
+        }
+        if (name != null) {
+            result ^= name.hashCode();
+        }
+        return result;
+    }
+
+}
