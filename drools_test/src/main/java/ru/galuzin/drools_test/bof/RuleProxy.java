@@ -31,7 +31,7 @@ public final class RuleProxy<P, A> implements Serializable {
 
     private A actionSet;
 
-    private final RuleLogTracer tracer = new RuleLogTracer();
+    //private final RuleLogTracer tracer = new RuleLogTracer();
 
     public Date getProxyDate() {
         return proxyDate;
@@ -89,7 +89,7 @@ public final class RuleProxy<P, A> implements Serializable {
         actionSet = value;
     }
 
-    public RuleLogTracer getTracer() {
-        return tracer;
-    }
+//    public RuleLogTracer getTracer() {
+//        return tracer;
+//    }
 }

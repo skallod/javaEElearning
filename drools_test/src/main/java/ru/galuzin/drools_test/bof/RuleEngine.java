@@ -132,7 +132,7 @@ public class RuleEngine {
             }
         }
         entry.getSession(rules, folder).execute(data);
-        MiscUtil.logTiming(timing, "executed rules " + rules);
+        //MiscUtil.logTiming(timing, "executed rules " + rules);
     }
 
     private final static class ExecutionSetEntry implements Serializable {
@@ -185,9 +185,9 @@ public class RuleEngine {
 
         synchronized StatelessSession getSession(final RulesData rules,
                                                  final File folder) throws Exception {
-            if (!MiscUtil.equals(rules.getModified(), timestamp)) {
-                session = null;
-            }
+//            if (!MiscUtil.equals(rules.getModified(), timestamp)) {
+//                session = null;
+//            }
             if (session != null) {
                 return session;
             }

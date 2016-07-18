@@ -247,7 +247,7 @@ public final class TextUtil {
         StringBuilder sb = new StringBuilder();
         for (Iterator<?> it = objects.iterator(); it.hasNext();) {
             Object o = it.next();
-            sb.append(MiscUtil.toString(o));
+//            sb.append(MiscUtil.toString(o));
             if (it.hasNext()) {
                 sb.append(sep);
             }

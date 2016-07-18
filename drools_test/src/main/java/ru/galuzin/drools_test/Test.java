@@ -1,6 +1,8 @@
 package ru.galuzin.drools_test;
 
-public class Test {
+import java.io.Serializable;
+
+public class Test implements Serializable{
 
 	public static Integer TEST1 = new Integer(1);
 
@@ -15,6 +17,8 @@ public class Test {
 	private Integer id;
 
 	private String name;
+
+	//private Test2 test2 = new Test2();
 
 	private String description;
 
