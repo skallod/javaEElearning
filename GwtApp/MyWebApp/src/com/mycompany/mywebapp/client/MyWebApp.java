@@ -51,6 +51,7 @@ public class MyWebApp implements EntryPoint {
    * This is the entry point method.
    */
   public void onModuleLoad() {
+	  System.out.println("TTTTTEST");
     final Button sendButton = new Button("Send");
     final TextBox nameField = new TextBox();
     nameField.setText("GWT User");
@@ -227,7 +228,7 @@ public class MyWebApp implements EntryPoint {
     tab.clear();
     tab.setSize("100%", " 100%");
     tab.add(panel3, "Main info");
-    //tab.add(getDocumentGrid(), "Документы");
+    //tab.add(getDocumentGrid(), "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ");
     
     RootPanel.get().add(tab);
 
