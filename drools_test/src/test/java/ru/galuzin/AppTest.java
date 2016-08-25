@@ -149,4 +149,12 @@ public class AppTest
             System.out.println("ok");
         }
     }
+    public void test8(){
+        String str1 = "66520ed4-88fb-4ce9-aa08-bc5744a4e2a8|5cb76f9a-fba8-4d01-987c-bfbc310f5645";
+        String str2 = "5cb76f9a-fba8-4d01-987c-bfbc310f5645";
+        double k = 500;
+        if(str1.contains(str2)){
+            System.out.println("true");
+        }
+    }
 }

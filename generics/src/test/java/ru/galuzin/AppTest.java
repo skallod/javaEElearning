@@ -163,4 +163,14 @@ public class AppTest
         }
         return result.toString();
     }
+
+    public void testMathLog(){
+        long time = System.currentTimeMillis();
+        //System.out.println(""+Math.sqrt(4));
+        double result= Math.log(Math.pow(Math.log(Math.pow(Math.log(Math.log(Math.log(Math.pow(Math.log(Math.log(Math.sqrt(Math.log(Math.PI)))),2d)))),2d)),2d));
+        for(int i=0; i<1000000;i++){
+            result+= Math.log(Math.pow(Math.log(Math.pow(Math.log(Math.log(Math.log(Math.pow(Math.log(Math.log(Math.sqrt(Math.log(Math.PI)))),2d)))),2d)),2d));
+        }
+        System.out.println(String.format("%d , %f",System.currentTimeMillis()-time,result));
+    }
 }
