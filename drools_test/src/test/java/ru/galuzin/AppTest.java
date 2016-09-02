@@ -6,6 +6,7 @@ import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
 import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
@@ -17,8 +18,10 @@ import java.io.InputStreamReader;
 import java.io.ObjectOutputStream;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.WeakHashMap;
 
 /**
@@ -155,6 +158,14 @@ public class AppTest
         double k = 500;
         if(str1.contains(str2)){
             System.out.println("true");
+        }
+    }
+    public void test9(){
+        int[] a = new int[]{1,2,3};
+        Set<Integer> b = new HashSet();
+        b.add(1);
+        if(b.contains(1)){
+            System.out.println("ok");
         }
     }
 }
