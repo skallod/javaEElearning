@@ -27,7 +27,7 @@ public class CommonObject {
     private CountDownLatch cdl = new CountDownLatch(3);
     //private Semaphore smph = new Semaphore();
 
-    public void setParams(String name, String soname){
+    public void setParams(String name, String soname, int some){
         //smph.
 //        cdl.countDown();
 //        try {
@@ -40,9 +40,10 @@ public class CommonObject {
         this.soname = soname;
         time = System.currentTimeMillis();
         double result= Math.log(Math.pow(Math.log(Math.pow(Math.log(Math.log(Math.log(Math.pow(Math.log(Math.log(Math.sqrt(Math.log(Math.random()*Math.PI)))),2d)))),2d)),2d));
-        for(int i=0; i<10000;i++){
+        for(int i=0; i<10000000;i++){
             result+= Math.log(Math.pow(Math.log(Math.pow(Math.log(Math.log(Math.log(Math.pow(Math.log(Math.log(Math.sqrt(Math.log(Math.random()*Math.PI)))),2d)))),2d)),2d));
         }
+        part2(some);
     }
 
     private void part2(int passNumb){

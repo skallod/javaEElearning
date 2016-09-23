@@ -5,14 +5,14 @@ package ru.galuzin.concurrent_test;
  */
 public class ValMain {
     public static void main(String[] args) {
-
+        case1();
     }
-    private void case1(){
+    private static void case1(){
         Runnable first = new Runnable() {
             @Override
             public void run() {
                 while (true){
-                    CommonObject.getInstance().setParams("Leonid","Galuzin",1111111);
+                    CommonObject.getInstance().setParams("Leonid","Galuzin", 11);
 //                    try {
 //                        Thread.sleep(100);
 //                    } catch (InterruptedException e) {
@@ -25,12 +25,12 @@ public class ValMain {
             @Override
             public void run() {
                 while (true){
-                    CommonObject.getInstance().setParams("Kiseleva","Anastasiya",2222);
-//                    try {
-//                        Thread.sleep(100);
-//                    } catch (InterruptedException e) {
-//                        e.printStackTrace();
-//                    }
+                    CommonObject.getInstance().setParams("Kiseleva","Anastasiya", 222);
+                    try {
+                        Thread.sleep(100);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                 }
             }
         };
@@ -38,18 +38,18 @@ public class ValMain {
             @Override
             public void run() {
                 while (true){
-                    CommonObject.getInstance().setParams("Antonova","Olga",33333);
-//                    try {
-//                        Thread.sleep(100);
-//                    } catch (InterruptedException e) {
-//                        e.printStackTrace();
-//                    }
+                    CommonObject.getInstance().setParams("Antonova","Olga", 33333);
+                    try {
+                        Thread.sleep(100);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                 }
             }
         };
         new Thread(first).start();
-        new Thread(second).start();
-        new Thread(third).start();
+//        new Thread(second).start();
+//        new Thread(third).start();
     }
     public void case2(){
 

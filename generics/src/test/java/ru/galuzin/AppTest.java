@@ -8,6 +8,7 @@ import ru.galuzin.generics.Maximum;
 
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -172,5 +173,15 @@ public class AppTest
             result+= Math.log(Math.pow(Math.log(Math.pow(Math.log(Math.log(Math.log(Math.pow(Math.log(Math.log(Math.sqrt(Math.log(Math.PI)))),2d)))),2d)),2d));
         }
         System.out.println(String.format("%d , %f",System.currentTimeMillis()-time,result));
+    }
+
+    public void test7(){
+        List al = new ArrayList<>();
+        al.get(-1);
+        if((true || true)&&false){
+            System.out.println("fdsa");
+        }else{
+            System.out.println("cxzv");
+        }
     }
 }
