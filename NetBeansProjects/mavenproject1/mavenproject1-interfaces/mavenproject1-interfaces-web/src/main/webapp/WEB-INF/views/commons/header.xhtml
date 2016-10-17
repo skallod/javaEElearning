@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+	<div class="header">
+		<div class="banner-top">
+			<div class="container">
+				<div class="social-icons">
+					<ul>
+						<li><a href="#"><i class="facebook"> </i></a></li>
+						<li><a href="#"><i class="twitter"> </i></a></li>
+						<li><a href="#"><i class="vimeo"> </i></a></li>
+					</ul>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+		<div class="logo">
+			<a href="home.xhtml"><h1>#{msg.header_title}</h1></a>
+		</div>
+	</div>
+	<div class="navigation">
+		<div class="container">
+			<div class="header-nav">
+				<!-- navigation -->
+				<div class="navigation">
+					<nav class="navbar navbar-default"> <!-- Brand and toggle get grouped for better mobile display -->
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle collapsed"
+							data-toggle="collapse"
+							data-target="#bs-example-navbar-collapse-1">
+							<span class="sr-only">Toggle navigation</span> <span
+								class="icon-bar"></span> <span class="icon-bar"></span>
+						    <span class="icon-bar"></span>
+						</button>
+					</div>
+
+					<!-- Collect the nav links, forms, and other content for toggling -->
+					<div class="collapse navbar-collapse nav-wil"
+						id="bs-example-navbar-collapse-1">
+						<ul class="nav navbar-nav">
+							<li class="hvr-bounce-to-bottom #{menuItem eq 'home' ? 'active' : ''}"><a href="home.xhtml"><h:outputText escape="false" value="#{msg.menu_title_home}" /><span
+									class="sr-only">(current)</span></a></li>
+							<li class="hvr-bounce-to-bottom #{menuItem eq 'blog' ? 'active' : ''}"><a href="blog.xhtml"><h:outputText escape="false" value="#{msg.menu_title_posts}" /></a></li>
+						</ul>
+						<div class="clearfix"></div>
+					</div>
+					<!-- /.navbar-collapse --> </nav>
+				</div>
+			</div>
+			<!-- script-for-menu -->
+			<script>
+				$("span.menu").click(function(){
+					$(".top-nav ul").slideToggle("slow" , function(){
+					});
+				});
+			</script>
+			<!-- script-for-menu -->
+		</div>
+	</div>
+</ui:composition>

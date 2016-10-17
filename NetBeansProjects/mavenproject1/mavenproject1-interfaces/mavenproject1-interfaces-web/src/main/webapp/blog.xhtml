@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:blog="http://java.sun.com/jsf/composite/component"
+	template="/WEB-INF/layouts/genericLayout.xhtml">
+
+    <ui:define name="menuDefinition">
+        <ui:param name="menuItem" value="blog" />
+    </ui:define>
+	<ui:define name="content">
+	    <ui:param name="postCount" value="#{blogBean.postCount}" />
+	    
+		<div class="banner banner5">
+			<div class="container">
+				<h2><h:outputText escape="false" value="#{msg.menu_title_posts}" /></h2>
+			</div>
+		</div>
+		<div class="blog">
+			<div class="container">
+				<div class="single-inline wow fadeInLeft animated" data-wow-delay="0.4s" style="visibility: visible; -webkit-animation-delay: 0.4s;">
+					<a href="post.xhtml" class="hvr-shutter-in-horizontal"><h:outputText escape="false" value="#{msg.blog_new_post}" /></a>
+					<h3>&nbsp;</h3>
+					<c:if test="#{postCount eq 0}">
+						<h3 class="first"><h:outputText escape="false" value="#{msg.blog_no_posts}" /></h3>					
+					</c:if>
+					<c:if test="#{postCount ne 0}">
+						<ui:repeat value="#{blogBean.posts}" var="value">
+						    <blog:post post="#{value}" />
+						</ui:repeat>
+					</c:if>
+				</div>
+			</div>	
+		</div>
+	</ui:define>
+</ui:composition>

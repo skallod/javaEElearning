@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+	<title><h:outputText escape="false" value="#{msg.header_title}" /></title>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+	<meta content='text/html; charset=UTF-8' http-equiv="Content-Type" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta name="description" content="" />
+	<meta name="keywords" content="" />
+
+	<script type="application/x-javascript">
+		addEventListener("load", 
+				function() { setTimeout(hideURLbar, 0); }, 
+				false); 
+		function hideURLbar(){
+			window.scrollTo(0,1); 
+		}
+	</script>
+	<!--webfont-->
+	<link
+		href='//fonts.googleapis.com/css?family=Open+Sans:400,800italic,800,700italic,700,600italic,400italic,300italic,300,600'
+		rel='stylesheet' type='text/css' />
+	<!--/webfont-->
+	<!-- Bootstrap core JavaScript-->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<!--bootstrap-->
+	<link rel="stylesheet" type="text/css" href="css/component.css" />
+	<!--css-->
+	<link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
+	<!--coustom css-->
+	<link href="css/style.css" rel="stylesheet" type="text/css" />
+	<!--default-js-->
+	<script src="js/jquery-2.1.4.min.js"></script>
+	<!--bootstrap-js-->
+	<script src="js/bootstrap.min.js"></script>
+
+	<!-- js -->
+	<script type="text/javascript" src="js/move-top.js"></script>
+	<script type="text/javascript" src="js/easing.js"></script>
+	<script src="js/modernizr.custom.js"></script>
+	<!--/script-->
+	<script type="text/javascript">
+			jQuery(document).ready(function($) {
+				$(".scroll").click(function(event){		
+					event.preventDefault();
+					$('html,body').animate({scrollTop:$(this.hash).offset().top},900);
+				});
+			});
+	</script>
+
+</ui:composition>

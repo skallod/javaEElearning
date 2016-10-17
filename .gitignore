@@ -23,3 +23,6 @@ war/WEB-INF/classes/
 
 #gwt junit compilation files
 www-test/
+/NetBeansProjects/FirstJSF/nbproject/private/
+/NetBeansProjects/FirstJSF/build/
+/NetBeansProjects/FirstJSF/dist/

@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:blog="http://java.sun.com/jsf/composite/component"
+	template="/WEB-INF/layouts/genericLayout.xhtml">
+
+	<ui:define name="menuDefinition">
+		<ui:param name="menuItem" value="blog" />
+		<f:metadata>
+			<f:viewParam name="id" value="#{postBean.postId}" />
+			<f:event listener="#{postBean.loadPost}" type="preRenderView" />
+		</f:metadata>
+	</ui:define>
+	<ui:define name="content">
+		<div class="banner banner5">
+			<div class="container">
+				<h2>
+					<h:outputText escape="false" value="#{msg.menu_title_post}" />
+				</h2>
+			</div>
+		</div>
+
+		<div class="about">
+			<div class="container">
+				<div class="about-top">
+					<div class="col-md-7 about-top-right">
+						<!-- Title -->
+						<h4>#{postBean.postDescription}</h4>
+						<h3>#{postBean.post.title}</h3>
+						<!-- Text -->
+						<p>#{postBean.post.text}</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</ui:define>
+</ui:composition>

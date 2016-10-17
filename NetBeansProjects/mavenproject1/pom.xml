@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.mycompany</groupId>
+	<artifactId>mavenproject1</artifactId>
+	<packaging>pom</packaging>
+	<version>1.0-SNAPSHOT</version>
+	<name>JEE7 Archetype base project</name>
+	<description>The JEE7 Archetype is a Java project that implements a complete 3-layer architecture using JEE7 and 
+		several other Java technologies. The goal of this project is to be the base of a maven archetype, allowing
+		everyone to have a complete, ready to work, 3-layer architecture, multi-module project.</description>
+	<url>https://sites.google.com/site/luismmribeiro/jee7-archetype</url>
+
+	<properties>
+		<!-- Java -->
+		<java.version>1.8</java.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+		<!-- JEE -->
+		<jee.version>7.0</jee.version>
+		<cdi-api.version>1.2</cdi-api.version>
+		<jsf.version>2.2.13</jsf.version>
+
+		<!-- ORM/Persistence -->
+		<hibernate-core.version>5.2.0.Final</hibernate-core.version>
+		<hibernate-jpa.version>1.0.1.Final</hibernate-jpa.version>
+		<jta.version>1.1</jta.version>
+		<hibernate-validation.version>5.2.4.Final</hibernate-validation.version>
+
+		<!-- Tests -->
+		<junit.version>4.12</junit.version>
+
+		<!-- Maven plugins -->
+		<war-plugin.version>2.1.1</war-plugin.version>
+		<surefire-plugin.version>2.19.1</surefire-plugin.version>
+		<compiler-plugin.version>3.5.1</compiler-plugin.version>
+		<release-plugin.version>2.5.3</release-plugin.version>
+
+		<!-- Other libs -->
+		<deltaspike.version>1.6.1</deltaspike.version>
+		<log4j-slf4j-impl.version>2.6</log4j-slf4j-impl.version>
+		<dozer.version>5.5.1</dozer.version>
+	</properties>
+
+	<profiles>
+		<profile>
+			<id>development</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<env>dev</env>
+			</properties>
+		</profile>
+		<profile>
+			<id>deploy-to-test</id>
+			<properties>
+				<env>test</env>
+			</properties>
+		</profile>
+		<profile>
+			<id>release</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-source-plugin</artifactId>
+						<version>3.0.0</version>
+						<executions>
+							<execution>
+								<id>attach-sources</id>
+								<goals>
+									<goal>jar</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-javadoc-plugin</artifactId>
+						<version>2.10.3</version>
+						<executions>
+							<execution>
+								<id>attach-javadocs</id>
+								<goals>
+									<goal>jar</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-gpg-plugin</artifactId>
+						<version>1.6</version>
+						<executions>
+							<execution>
+								<id>sign-artifacts</id>
+								<phase>verify</phase>
+								<goals>
+									<goal>sign</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>org.sonatype.plugins</groupId>
+						<artifactId>nexus-staging-maven-plugin</artifactId>
+						<version>1.6.7</version>
+						<extensions>true</extensions>
+						<configuration>
+							<serverId>ossrh</serverId>
+							<nexusUrl>https://oss.sonatype.org/</nexusUrl>
+							<autoReleaseAfterClose>true</autoReleaseAfterClose>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+
+		</profile>
+	</profiles>
+
+	<scm>
+		<connection>scm:svn:https://subversion.assembla.com/svn/financetrends/tags/V1.2</connection>
+		<developerConnection>scm:svn:https://subversion.assembla.com/svn/financetrends/tags/V1.2</developerConnection>
+		<url>https://subversion.assembla.com/svn/financetrends/tags/V1.2</url>
+	</scm>
+
+	<distributionManagement>
+		<snapshotRepository>
+			<id>ossrh</id>
+			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
+		</snapshotRepository>
+		<repository>
+			<id>ossrh</id>
+			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+		</repository>
+	</distributionManagement>
+
+	<developers>
+		<developer>
+			<id>lribeiro</id>
+			<name>Luis Ribeiro</name>
+			<email>luismmribeiro@gmail.com</email>
+			<roles>
+				<role>Architect</role>
+				<role>Developer</role>
+			</roles>
+		</developer>
+	</developers>
+
+	<licenses>
+		<license>
+			<name>GNU Lesser General Public License</name>
+			<url>http://www.gnu.org/licenses/lgpl.txt</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
+
+
+	<dependencyManagement>
+		<dependencies>
+			<!-- Project -->
+			<dependency>
+				<groupId>com.mycompany</groupId>
+				<artifactId>mavenproject1-commons-model</artifactId>
+				<version>1.0-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.mycompany</groupId>
+				<artifactId>mavenproject1-commons-service</artifactId>
+				<version>1.0-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.mycompany</groupId>
+				<artifactId>mavenproject1-services-helloworld</artifactId>
+				<version>1.0-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.mycompany</groupId>
+				<artifactId>mavenproject1-services-helloworld-interface</artifactId>
+				<version>1.0-SNAPSHOT</version>
+			</dependency>
+
+			<!-- JEE -->
+			<dependency>
+				<groupId>javax</groupId>
+				<artifactId>javaee-api</artifactId>
+				<version>${jee.version}</version>
+				<scope>provided</scope>
+			</dependency>
+
+			<!-- Persistence Dependencies -->
+			<dependency>
+				<groupId>org.hibernate</groupId>
+				<artifactId>hibernate-core</artifactId>
+				<version>${hibernate-core.version}</version>
+				<scope>provided</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.hibernate</groupId>
+				<artifactId>hibernate-validator</artifactId>
+				<version>${hibernate-validation.version}</version>
+				<scope>provided</scope>
+				<exclusions>
+					<exclusion>
+						<groupId>javax.xml.bind</groupId>
+						<artifactId>jaxb-api</artifactId>
+					</exclusion>
+					<exclusion>
+						<groupId>com.sun.xml.bind</groupId>
+						<artifactId>jaxb-impl</artifactId>
+					</exclusion>
+				</exclusions>
+			</dependency>
+			<dependency>
+				<groupId>org.hibernate.javax.persistence</groupId>
+				<artifactId>hibernate-jpa-2.0-api</artifactId>
+				<version>${hibernate-jpa.version}</version>
+				<scope>provided</scope>
+			</dependency>
+
+			<!-- JTA -->
+			<dependency>
+				<groupId>javax.transaction</groupId>
+				<artifactId>jta</artifactId>
+				<version>${jta.version}</version>
+				<scope>provided</scope>
+			</dependency>
+
+
+			<dependency>
+				<groupId>org.apache.deltaspike.modules</groupId>
+				<artifactId>deltaspike-data-module-api</artifactId>
+				<version>${deltaspike.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.deltaspike.modules</groupId>
+				<artifactId>deltaspike-data-module-impl</artifactId>
+				<version>${deltaspike.version}</version>
+				<scope>runtime</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>org.apache.deltaspike.modules</groupId>
+				<artifactId>deltaspike-jpa-module-api</artifactId>
+				<version>${deltaspike.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.apache.deltaspike.modules</groupId>
+				<artifactId>deltaspike-jpa-module-impl</artifactId>
+				<version>${deltaspike.version}</version>
+				<scope>runtime</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>javax.enterprise</groupId>
+				<artifactId>cdi-api</artifactId>
+				<version>${cdi-api.version}</version>
+				<scope>provided</scope>
+			</dependency>
+
+			<!-- JSF -->
+			<dependency>
+				<groupId>com.sun.faces</groupId>
+				<artifactId>jsf-api</artifactId>
+				<version>${jsf.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.sun.faces</groupId>
+				<artifactId>jsf-impl</artifactId>
+				<version>${jsf.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>net.sf.dozer</groupId>
+				<artifactId>dozer</artifactId>
+				<version>${dozer.version}</version>
+			</dependency>
+
+			<!-- Logging -->
+			<dependency>
+				<groupId>org.apache.logging.log4j</groupId>
+				<artifactId>log4j-slf4j-impl</artifactId>
+				<version>${log4j-slf4j-impl.version}</version>
+			</dependency>
+			<!-- -->
+
+			<!-- Tests -->
+			<dependency>
+				<groupId>junit</groupId>
+				<artifactId>junit</artifactId>
+				<version>${junit.version}</version>
+				<scope>test</scope>
+			</dependency>
+			<!-- -->
+		</dependencies>
+	</dependencyManagement>
+
+	<dependencies>
+		<!-- Logging -->
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-slf4j-impl</artifactId>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>${war-plugin.version}</version>
+				<configuration>
+					<failOnMissingWebXml>false</failOnMissingWebXml>
+					<archive>
+						<manifestEntries>
+							<Dependencies>org.apache.log4j</Dependencies>
+						</manifestEntries>
+					</archive>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-release-plugin</artifactId>
+				<version>${release-plugin.version}</version>
+				<configuration>
+					<releaseProfiles>release</releaseProfiles>
+					<goals>deploy nexus-staging:release</goals>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${compiler-plugin.version}</version>
+				<configuration>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+					<encoding>${project.build.sourceEncoding}</encoding>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>${surefire-plugin.version}</version>
+			</plugin>
+		</plugins>
+	</build>
+  <modules>
+    <module>mavenproject1-services</module>
+    <module>mavenproject1-commons</module>
+    <module>mavenproject1-interfaces</module>
+  </modules>
+</project>
