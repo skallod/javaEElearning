@@ -1,0 +1,189 @@
+<object class="com.gridnine.bof.commom.hotels.HotelsSearchResult">
+    <uid>a1470e0b-30b0-4e13-b399-9996331a2e2a</uid>
+    <completed>false</completed>
+    <answeredProviders>0</answeredProviders>
+    <offers>
+        <item class="com.gridnine.bof.common.hotels.HotelOffer">
+            <uid>1572727f-13b3-4cbf-9275-c4d136fd1724</uid>
+            <id>1132905</id>
+            <token>ZXlKamIyUmxJam9pTVRFek1qa3dOU0lzSW1Gc2JHOTBiV1Z1ZENJNklqazFNREF3TURFck1UUXlO
+                REE0TUNzNU5UQXdNREF4S3pRaQpmUT09fjp+QUNBREVNU0VSVklDRX46fjIhMyE1ISF+On4zODMw
+                MC4wMH46flJVQn46fjUxOTIwLjAw</token>
+            <hotel>1468399064061</hotel>
+            <provider>ACADEMSERVICE</provider>
+            <vendor>ACADEMSERVICE</vendor>
+            <price class="com.gridnine.bof.common.model.system.Money">
+                <uid>d1e1dcba-8ef4-4332-aef4-814049bc6de1</uid>
+                <value>38300.0</value>
+                <currency>RUB</currency>
+            </price>
+            <commission class="com.gridnine.bof.common.model.system.Money">
+                <uid>fb6b6e61-2975-4567-a5d3-24031585e22e</uid>
+                <value>0.0</value>
+                <currency>RUB</currency>
+            </commission>
+            <equivalentPrice>38300.0</equivalentPrice>
+            <fee>0.0</fee>
+            <cancelationPolicy class="com.gridnine.bof.common.hotels.CancelationPolicy">
+                <uid>318b0dab-8b26-434d-a702-eea887fff52f</uid>
+                <canBeCancelled>true</canBeCancelled>
+                <filled>false</filled>
+            </cancelationPolicy>
+            <bar>false</bar>
+            <specialOffer>false</specialOffer>
+            <byRequest>false</byRequest>
+            <freeForSale>false</freeForSale>
+            <rooms>
+                <item class="com.gridnine.bof.common.hotels.OfferRoom">
+                    <uid>6e81ca8d-270e-4013-b18c-48336470257b</uid>
+                    <token>ZXlKamIyUmxJam9pTVRFek1qa3dOU0lzSW1Gc2JHOTBiV1Z1ZENJNklqazFNREF3TURFck1UUXlO
+                        REE0TUNzNU5UQXdNREF4S3pRaQpmUT09fjp+QUNBREVNU0VSVklDRX46fjIhMyE1ISF+On4zODMw
+                        MC4wMH46flJVQn46fjUxOTIwLjAw</token>
+                    <name>Deluxe (Double)</name>
+                    <description>Данная цена является пакетной. В стоимость пакета входит: проживание, завтрак "Американский буфет", посещение фитнес-центра отеля, визовая поддержка, бутылка минеральной воды.</description>
+                    <count>5</count>
+                    <roomSize>DOUBLE</roomSize>
+                    <parameters class="com.gridnine.bof.common.hotels.model.HotelsRoomSearchParameters">
+                        <uid>0469181f-559e-494b-ab41-60d5f880f543</uid>
+                        <adultsCount>2</adultsCount>
+                        <systemAdultsCount>0</systemAdultsCount>
+                        <childAge>0</childAge>
+                        <infantsCount>0</infantsCount>
+                    </parameters>
+                </item>
+            </rooms>
+        </item>
+        <item class="com.gridnine.bof.common.hotels.HotelOffer">
+            <uid>55189caa-ab62-4406-95fa-b02a1cb2b001</uid>
+            <id>1132906</id>
+            <token>ZXlKamIyUmxJam9pTVRFek1qa3dOaUlzSW1Gc2JHOTBiV1Z1ZENJNklqazFNREF3TURFck1UUXlO
+                REE0TWlzNU5UQXdNREF4S3pRaQpmUT09fjp+QUNBREVNU0VSVklDRX46fjIhMyE1ISF+On41MTEw
+                MC4wMH46flJVQn46fjU2NjQwLjAw</token>
+            <hotel>1468399064061</hotel>
+            <provider>ACADEMSERVICE</provider>
+            <vendor>ACADEMSERVICE</vendor>
+            <price class="com.gridnine.bof.common.model.system.Money">
+                <uid>890b9e47-654b-4966-b993-b38fdfd6a9c2</uid>
+                <value>51100.0</value>
+                <currency>RUB</currency>
+            </price>
+            <commission class="com.gridnine.bof.common.model.system.Money">
+                <uid>723ee0ae-f663-42de-8231-deb5ef041b47</uid>
+                <value>0.0</value>
+                <currency>RUB</currency>
+            </commission>
+            <equivalentPrice>51100.0</equivalentPrice>
+            <fee>0.0</fee>
+            <cancelationPolicy class="com.gridnine.bof.common.hotels.CancelationPolicy">
+                <uid>e93d44dd-a1e0-4a7b-9626-bc507763a864</uid>
+                <canBeCancelled>true</canBeCancelled>
+                <filled>false</filled>
+            </cancelationPolicy>
+            <bar>false</bar>
+            <specialOffer>false</specialOffer>
+            <byRequest>false</byRequest>
+            <freeForSale>false</freeForSale>
+            <rooms>
+                <item class="com.gridnine.bof.common.hotels.OfferRoom">
+                    <uid>679132ea-18b4-42ce-a771-5c2640949ce9</uid>
+                    <token>ZXlKamIyUmxJam9pTVRFek1qa3dOaUlzSW1Gc2JHOTBiV1Z1ZENJNklqazFNREF3TURFck1UUXlO
+                        REE0TWlzNU5UQXdNREF4S3pRaQpmUT09fjp+QUNBREVNU0VSVklDRX46fjIhMyE1ISF+On41MTEw
+                        MC4wMH46flJVQn46fjU2NjQwLjAw</token>
+                    <name>Executive Room (Double)</name>
+                    <description>Данная цена является пакетной. В стоимость пакета входит: проживание, завтрак "Американский буфет", посещение фитнес-центра отеля, визовая поддержка, бутылка минеральной воды.</description>
+                    <count>5</count>
+                    <roomSize>DOUBLE</roomSize>
+                    <parameters class="com.gridnine.bof.common.hotels.model.HotelsRoomSearchParameters" uid="0469181f-559e-494b-ab41-60d5f880f543"/>
+                </item>
+            </rooms>
+        </item>
+        <item class="com.gridnine.bof.common.hotels.HotelOffer">
+            <uid>b0856580-7603-4827-980e-a73e6a1d3663</uid>
+            <id>1132907</id>
+            <token>ZXlKamIyUmxJam9pTVRFek1qa3dOeUlzSW1Gc2JHOTBiV1Z1ZENJNklqazFNREF3TURFck1UUXlO
+                REE0TXlzNU5UQXdNREF4S3pRaQpmUT09fjp+QUNBREVNU0VSVklDRX46fjIhMyE1ISF+On41MTEw
+                MC4wMH46flJVQn46fjU2NjQwLjAw</token>
+            <hotel>1468399064061</hotel>
+            <provider>ACADEMSERVICE</provider>
+            <vendor>ACADEMSERVICE</vendor>
+            <price class="com.gridnine.bof.common.model.system.Money">
+                <uid>c22add90-58cb-4196-9da8-3eab64b2eaf2</uid>
+                <value>51100.0</value>
+                <currency>RUB</currency>
+            </price>
+            <commission class="com.gridnine.bof.common.model.system.Money">
+                <uid>af660288-99b5-4638-a6f0-672461569246</uid>
+                <value>0.0</value>
+                <currency>RUB</currency>
+            </commission>
+            <equivalentPrice>51100.0</equivalentPrice>
+            <fee>0.0</fee>
+            <cancelationPolicy class="com.gridnine.bof.common.hotels.CancelationPolicy">
+                <uid>334482b2-497c-4185-8d53-f190d26d12b3</uid>
+                <canBeCancelled>true</canBeCancelled>
+                <filled>false</filled>
+            </cancelationPolicy>
+            <bar>false</bar>
+            <specialOffer>false</specialOffer>
+            <byRequest>false</byRequest>
+            <freeForSale>false</freeForSale>
+            <rooms>
+                <item class="com.gridnine.bof.common.hotels.OfferRoom">
+                    <uid>a32e89d8-2391-41c6-90dc-54961ed9d210</uid>
+                    <token>ZXlKamIyUmxJam9pTVRFek1qa3dOeUlzSW1Gc2JHOTBiV1Z1ZENJNklqazFNREF3TURFck1UUXlO
+                        REE0TXlzNU5UQXdNREF4S3pRaQpmUT09fjp+QUNBREVNU0VSVklDRX46fjIhMyE1ISF+On41MTEw
+                        MC4wMH46flJVQn46fjU2NjQwLjAw</token>
+                    <name>Executive Room (Twin)</name>
+                    <description>Данная цена является пакетной. В стоимость пакета входит: проживание, завтрак "Американский буфет", посещение фитнес-центра отеля, визовая поддержка, бутылка минеральной воды.</description>
+                    <count>5</count>
+                    <roomSize>DOUBLE</roomSize>
+                    <parameters class="com.gridnine.bof.common.hotels.model.HotelsRoomSearchParameters" uid="0469181f-559e-494b-ab41-60d5f880f543"/>
+                </item>
+            </rooms>
+        </item>
+        <item class="com.gridnine.bof.common.hotels.HotelOffer">
+            <uid>47f703d0-6443-4c90-a7d6-60b1318cefb6</uid>
+            <id>1134058</id>
+            <token>ZXlKamIyUmxJam9pTVRFek5EQTFPQ0lzSW1Gc2JHOTBiV1Z1ZENJNklqazFNREF3TURFck1UUXlO
+                REE0TVNzNU5UQXdNREF4S3pRaQpmUT09fjp+QUNBREVNU0VSVklDRX46fjIhMyE1ISF+On4zODMw
+                MC4wMH46flJVQn46fjUxOTIwLjAw</token>
+            <hotel>1468399064061</hotel>
+            <provider>ACADEMSERVICE</provider>
+            <vendor>ACADEMSERVICE</vendor>
+            <price class="com.gridnine.bof.common.model.system.Money">
+                <uid>ec4ce7f4-69c3-43f1-8fe8-7bcbf3b20e6f</uid>
+                <value>38300.0</value>
+                <currency>RUB</currency>
+            </price>
+            <commission class="com.gridnine.bof.common.model.system.Money">
+                <uid>3cc3d673-f034-4685-9b40-08c4354f62da</uid>
+                <value>0.0</value>
+                <currency>RUB</currency>
+            </commission>
+            <equivalentPrice>38300.0</equivalentPrice>
+            <fee>0.0</fee>
+            <cancelationPolicy class="com.gridnine.bof.common.hotels.CancelationPolicy">
+                <uid>59276776-9967-4a82-85c1-75c0714f879c</uid>
+                <canBeCancelled>true</canBeCancelled>
+                <filled>false</filled>
+            </cancelationPolicy>
+            <bar>false</bar>
+            <specialOffer>false</specialOffer>
+            <byRequest>false</byRequest>
+            <freeForSale>false</freeForSale>
+            <rooms>
+                <item class="com.gridnine.bof.common.hotels.OfferRoom">
+                    <uid>e103e011-10df-4833-adb1-584f26b6bb66</uid>
+                    <token>ZXlKamIyUmxJam9pTVRFek5EQTFPQ0lzSW1Gc2JHOTBiV1Z1ZENJNklqazFNREF3TURFck1UUXlO
+                        REE0TVNzNU5UQXdNREF4S3pRaQpmUT09fjp+QUNBREVNU0VSVklDRX46fjIhMyE1ISF+On4zODMw
+                        MC4wMH46flJVQn46fjUxOTIwLjAw</token>
+                    <name>Deluxe (Twin)</name>
+                    <description>Данная цена является пакетной. В стоимость пакета входит: проживание, завтрак "Американский буфет", посещение фитнес-центра отеля, визовая поддержка, бутылка минеральной воды.</description>
+                    <count>5</count>
+                    <roomSize>DOUBLE</roomSize>
+                    <parameters class="com.gridnine.bof.common.hotels.model.HotelsRoomSearchParameters" uid="0469181f-559e-494b-ab41-60d5f880f543"/>
+                </item>
+            </rooms>
+        </item>
+    </offers>
+</object>

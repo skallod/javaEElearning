@@ -1,0 +1,63 @@
+{
+  "params": {
+    "rooms": [
+      {
+        "adults": 2
+      }
+    ],
+    "city": "MOW",
+    "customerCode": "1573",
+    "customerText": "Ново Нордиск ООО",
+    "checkIn": "2016-10-19",
+    "checkOut": "2016-10-20",
+    "searchPois": true
+  },
+  "rates": [
+    {
+      "enabled": false,
+      "charges": [],
+      "isByRequest": false,
+      "bookingType": "POSTPAID_ONLINE",
+      "cancelationPolicy": {
+        "charges": [],
+        "isCanBeCancelled": true,
+        "isFilled": true
+      },
+      "provider": "OKTOGO",
+      "isBar": false,
+      "isSpecialOffer": false,
+      "subProvider": "Hotelbeds",
+      "discount": 0,
+      "fee": 0,
+      "price": 16753,
+      "token": "wnurl3sRPZzUOnMbbAw0676YCeJIuB693qoeQOqaxY+OLvFFzRoJgWitSNiJHJ7iwkRV3975svM8u6FMVjJVnfCwgCx7GJFplUUryyiQiH/z61Bxsplq8sLQY1l8pLTnVaiMMZdpS78l6FRKMrBrTtPFTl81u6mkZ19jM7E9qwDvHcaKOJEUSiFSoCQZee6ddsZUP1XTJZpNRFNS8kW2mefIL7lJ62Fxl93mfaOfKYoJ5WyIieTj5pEFaUBBqkQh8PxjfC9uKAqcBOY2FowGP0to3hYl14kTPj71lyJ/EiFMJLQqGqXGx47y4cOKohNiTVq+QVbdjyaCsLk8lHQBbfG1Mi7+I0hiztXYNiUfx8qDgx5aOx0JBxr5iFGiEQtdI8O7sXQKS0LpRschb8XEK7/0+v6klqSzelyy13LoN/N1an0FoHhLQeg0AW9ddX+dP2XVTnamElJ36ykwYmgtW6tpg+ByWJDo2/uicpLEsWVLk2z2OHcNRKyXxiGxg0Vof7R4jAYhfT4A1YippvRbQ98L6HoFLaLzhZaUWN8KT5XUObNqvwr5iFvSmdKg3lIuJdvYMauD1NTo25ExUB59hpke/L9ZSEuLjaDWI9pFvz99zzCUulb9UQ==",
+      "hotel": "1453716085274",
+      "fullPrice": {
+        "amount": 16753,
+        "currency": "RUB"
+      },
+      "commission": {
+        "amount": 1676,
+        "currency": "RUB"
+      },
+      "rooms": [
+        {
+          "token": "",
+          "name": "Люкс CORNER-SUITE",
+          "mealName": "",
+          "mealCode": "RO",
+          "fullName": "Люкс CORNER-SUITE",
+          "parameters": {
+            "childAge": 0,
+            "adultsCount": 2,
+            "systemAdultsCount": 2,
+            "infantsCount": 0,
+            "roomsCount": 1
+          },
+          "meal": "RO",
+          "travellers": []
+        }
+      ]
+    }
+  ]
+}

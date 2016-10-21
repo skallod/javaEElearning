@@ -5,20 +5,25 @@ package ru.galuzin.concurrent_test;
  */
 public class ValMain {
     public static void main(String[] args) {
+        try {
+            Thread.currentThread().sleep(15000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         case1();
     }
     private static void case1(){
         Runnable first = new Runnable() {
             @Override
             public void run() {
-                while (true){
+//                while (true){
                     CommonObject.getInstance().setParams("Leonid","Galuzin", 11);
 //                    try {
 //                        Thread.sleep(100);
 //                    } catch (InterruptedException e) {
 //                        e.printStackTrace();
 //                    }
-                }
+//                }
             }
         };
         Runnable second = new Runnable() {

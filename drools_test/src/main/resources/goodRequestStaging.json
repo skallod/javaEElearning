@@ -1,0 +1,59 @@
+{
+  "params": {
+    "rooms": [
+      {
+        "adults": 2
+      }
+    ],
+    "city": "MOW",
+    "customerCode": "1573",
+    "customerText": "Ново Нордиск ООО",
+    "checkIn": "2016-10-21",
+    "checkOut": "2016-10-22",
+    "searchPois": true
+  },
+  "rates": [
+    {
+      "charges": [],
+      "isByRequest": false,
+      "bookingType": "POSTPAID_ONLINE",
+      "cancelationPolicy": {
+        "charges": [],
+        "isCanBeCancelled": true,
+        "isFilled": false
+      },
+      "provider": "ACADEMSERVICE",
+      "isBar": false,
+      "isSpecialOffer": false,
+      "subProvider": "ACADEMSERVICE",
+      "discount": 0,
+      "fee": 0,
+      "price": 12626,
+      "token": "LQfZJWzyp5QZF2/RtayrU2Qn4ydco3Z95Z6gtkPkKdhidpjbTnU3XByORf8EW6lhiwv+OTg+qb40SZvURl9nf0oYiUOQuyukXXQhLZM9h3Xsx9kg/+tu/A+eRWegJALUwsm4/dq6Du1pNLTBE6fRyJoQ2CXnv803Uufk994kW5m5lE+2zgKSxStvoXJT2qf0G/2MAmMzr4KpwgAANbPoSSZtSWe29bfU4p4EX0OvAyTzUgNVnqiECIc2aqHe0pUcIJgEsbli3ka0Jq7mZJZWLkNSDckQv7Yids3FsusjTL0KMXPrzBfnqiHFyiF/sSa9hA289pP3IwXs8DpfCBoFKZ6DeahkZJZGMYaDIlnA+IWLThUoIm4IdG/oqfvbwXdjxYGLucuPf4uwn1xZtDDFegLouEWOUZ7pIL+ZFfdGxTn8G969zjJ1hGcLo+g7quea58N2YMq3emr03gayedtT+FcrKUwd2vAfvPzmxSByORaQbacPyQul6due3K1t/3Qct6yYDzcGzN+8SqQvO61lIFLmJrpmDxS7DwwdMBe8Mv3AVVxGs55/Z0mqrCJyDcYaxsSQTSaCRJr5QDgv2pYYysz+aa6+O1ZX/UasRZl4CVPF8nr3nartXZ3Cd/4T0psCQtrteDzQBV7Z3LTBR5CLLt6UvXkW/OHckrgeEKIg5raI7y10xmiwEBOF7yZDGgIx",
+      "hotel": "1455108448391",
+      "fullPrice": {
+        "amount": 12626,
+        "currency": "RUB"
+      },
+      "commission": {
+        "amount": 1175,
+        "currency": "RUB"
+      },
+      "rooms": [
+        {
+          "token": "",
+          "name": "Superior",
+          "fullName": "Superior",
+          "parameters": {
+            "childAge": 0,
+            "adultsCount": 2,
+            "infantsCount": 0,
+            "roomsCount": 1
+          },
+          "travellers": []
+        }
+      ],
+      "offerHash": "{\"charges\":[],\"isByRequest\":false,\"bookingType\":\"POSTPAID_ONLINE\",\"cancelationPolicy\":{\"charges\":[],\"isCanBeCancelled\":true,\"isFilled\":false},\"provider\":\"ACADEMSERVICE\",\"isBar\":false,\"isSpecialOffer\":false,\"subProvider\":\"ACADEMSERVICE\",\"discount\":0,\"fee\":0,\"price\":12626,\"hotel\":\"1455108448391\",\"fullPrice\":{\"amount\":12626,\"currency\":\"RUB\"},\"commission\":{\"amount\":1175,\"currency\":\"RUB\"},\"rooms\":[{\"token\":\"\",\"name\":\"Superior\",\"fullName\":\"Superior\",\"parameters\":{\"childAge\":0,\"adultsCount\":2,\"infantsCount\":0,\"roomsCount\":1}}]}"
+    }
+  ]
+}

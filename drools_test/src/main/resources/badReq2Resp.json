@@ -1,0 +1,877 @@
+{
+  "dicts": [
+    {
+      "name": "BB BUFFET",
+      "code": "BB",
+      "type": "Meal"
+    },
+    {
+      "name": "RO",
+      "code": "RO",
+      "type": "Meal"
+    },
+    {
+      "name": "Завтрак \"Шведский стол\"",
+      "code": "Завтрак \"Шведский стол\"",
+      "type": "Meal"
+    },
+    {
+      "name": "руб.",
+      "code": "RUB",
+      "type": "CurrencyInfo"
+    }
+  ],
+  "rates": [
+    {
+      "charges": [
+        {
+          "amount": 5200,
+          "startDate": "2016-10-18T00:00:00+0300"
+        }
+      ],
+      "isByRequest": false,
+      "bookingType": "POSTPAID_ONLINE",
+      "cancelationPolicy": {
+        "startDate": "2016-10-18T00:00:00+0300",
+        "charges": [
+          {
+            "price": {
+              "amount": 5200,
+              "currency": "RUB"
+            }
+          }
+        ],
+        "isCanBeCancelled": true,
+        "endDate": "2016-10-19T00:00:00+0300",
+        "isFilled": true
+      },
+      "provider": "INTERNAL",
+      "isBar": false,
+      "isSpecialOffer": false,
+      "checkIn": "14:00",
+      "subProvider": "НовоНордиск (Группа)",
+      "discount": 0,
+      "fee": 0,
+      "checkOut": "12:00",
+      "price": 5200,
+      "token": "wnurl3sRPZzUOnMbbAw066Sd8GP0c710dFX2pcvnbntL7+eBhv/32Ar1BKOMZ1kk9hhiJH6POFXWyQ5Nmq6mE1Bcx7/sXTololejToxHlNlyRkg3dapomcKTkEkujUeziopCWgs6pBcAJU7b7VxrdUtqJ8XJf+y1s1AlV2Jy0gr3xZYwlwHmIHFhKRhj8L4t6Kqps179srpdE59KpWC9JI8/Tos1hXz5aGSLFKi/RWtkStPtQZdmE8Zsqb0FDu0RmX2d975mDNFs60IndU7FTrj7R3yEIOx+w2qTMzOoNGqt6BuGoC8AS6KhSDQfr7wLrndU/OJTzZ78e2bWKlaQFXaITnjX9+cwAABi2oN0OwNtUg1O8Il4klFxRv2q9lbVvzr8lS736XDcoJmH7pL7OBUnaVHwcFnxOBWHLQZb81ShLcWZHDNeIyGM1yZxZnNb6FQ2MCXbEIb/mSad4AHdhRbLJou+6QbOoMZogmZd+Wk=",
+      "hotel": "1453716085274",
+      "fullPrice": {
+        "amount": 5200,
+        "currency": "RUB"
+      },
+      "commission": {
+        "amount": 0,
+        "currency": "RUB"
+      },
+      "rooms": [
+        {
+          "token": "",
+          "name": "Стандарт классик",
+          "mealName": "BB BUFFET",
+          "mealCode": "BB",
+          "fullName": "Стандарт классик",
+          "parameters": {
+            "childAge": 0,
+            "adultsCount": 2,
+            "infantsCount": 0,
+            "roomsCount": 1
+          },
+          "meal": "BB"
+        }
+      ]
+    },
+    {
+      "charges": [
+        {
+          "amount": 10790,
+          "startDate": "2016-10-17T21:00:00+0300"
+        }
+      ],
+      "isByRequest": false,
+      "bookingType": "POSTPAID_ONLINE",
+      "cancelationPolicy": {
+        "startDate": "2016-10-17T21:00:00+0300",
+        "charges": [
+          {
+            "price": {
+              "amount": 10790,
+              "currency": "RUB"
+            },
+            "comment": "10790.00 RUB"
+          }
+        ],
+        "isCanBeCancelled": true,
+        "isFilled": true
+      },
+      "provider": "ACADEMSERVICE",
+      "isBar": false,
+      "isSpecialOffer": false,
+      "discount": 0,
+      "fee": 0,
+      "price": 10790,
+      "token": "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",
+      "hotel": "1453716085274",
+      "fullPrice": {
+        "amount": 10790,
+        "currency": "RUB"
+      },
+      "commission": {
+        "amount": 0,
+        "currency": "RUB"
+      },
+      "rooms": [
+        {
+          "token": "",
+          "name": "Club Level Standard",
+          "mealName": "Завтрак \"Шведский стол\"",
+          "mealCode": "Завтрак \"Шведский стол\"",
+          "fullName": "Club Level Standard",
+          "parameters": {
+            "childAge": 0,
+            "adultsCount": 2,
+            "systemAdultsCount": 2,
+            "infantsCount": 0,
+            "roomsCount": 1
+          },
+          "meal": "Завтрак \"Шведский стол\""
+        }
+      ]
+    },
+    {
+      "charges": [
+        {
+          "amount": 12720,
+          "startDate": "2016-10-17T21:00:00+0300"
+        }
+      ],
+      "isByRequest": false,
+      "bookingType": "POSTPAID_ONLINE",
+      "cancelationPolicy": {
+        "startDate": "2016-10-17T21:00:00+0300",
+        "charges": [
+          {
+            "price": {
+              "amount": 12720,
+              "currency": "RUB"
+            },
+            "comment": "12720.00 RUB"
+          }
+        ],
+        "isCanBeCancelled": true,
+        "isFilled": true
+      },
+      "provider": "ACADEMSERVICE",
+      "isBar": false,
+      "isSpecialOffer": false,
+      "discount": 0,
+      "fee": 0,
+      "price": 12720,
+      "token": "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",
+      "hotel": "1453716085274",
+      "fullPrice": {
+        "amount": 12720,
+        "currency": "RUB"
+      },
+      "commission": {
+        "amount": 0,
+        "currency": "RUB"
+      },
+      "rooms": [
+        {
+          "token": "",
+          "name": "Corner Suite",
+          "mealName": "Завтрак \"Шведский стол\"",
+          "mealCode": "Завтрак \"Шведский стол\"",
+          "fullName": "Corner Suite",
+          "parameters": {
+            "childAge": 0,
+            "adultsCount": 2,
+            "systemAdultsCount": 2,
+            "infantsCount": 0,
+            "roomsCount": 1
+          },
+          "meal": "Завтрак \"Шведский стол\""
+        }
+      ]
+    },
+    {
+      "charges": [
+        {
+          "amount": 12720,
+          "startDate": "2016-10-17T21:00:00+0300"
+        }
+      ],
+      "isByRequest": false,
+      "bookingType": "POSTPAID_ONLINE",
+      "cancelationPolicy": {
+        "startDate": "2016-10-17T21:00:00+0300",
+        "charges": [
+          {
+            "price": {
+              "amount": 12720,
+              "currency": "RUB"
+            },
+            "comment": "12720.00 RUB"
+          }
+        ],
+        "isCanBeCancelled": true,
+        "isFilled": true
+      },
+      "provider": "ACADEMSERVICE",
+      "isBar": false,
+      "isSpecialOffer": false,
+      "discount": 0,
+      "fee": 0,
+      "price": 12720,
+      "token": "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",
+      "hotel": "1453716085274",
+      "fullPrice": {
+        "amount": 12720,
+        "currency": "RUB"
+      },
+      "commission": {
+        "amount": 0,
+        "currency": "RUB"
+      },
+      "rooms": [
+        {
+          "token": "",
+          "name": "Junior Suite",
+          "mealName": "Завтрак \"Шведский стол\"",
+          "mealCode": "Завтрак \"Шведский стол\"",
+          "fullName": "Junior Suite",
+          "parameters": {
+            "childAge": 0,
+            "adultsCount": 2,
+            "systemAdultsCount": 2,
+            "infantsCount": 0,
+            "roomsCount": 1
+          },
+          "meal": "Завтрак \"Шведский стол\""
+        }
+      ]
+    },
+    {
+      "charges": [
+        {
+          "amount": 12720,
+          "startDate": "2016-10-17T21:00:00+0300"
+        }
+      ],
+      "isByRequest": false,
+      "bookingType": "POSTPAID_ONLINE",
+      "cancelationPolicy": {
+        "startDate": "2016-10-17T21:00:00+0300",
+        "charges": [
+          {
+            "price": {
+              "amount": 12720,
+              "currency": "RUB"
+            },
+            "comment": "12720.00 RUB"
+          }
+        ],
+        "isCanBeCancelled": true,
+        "isFilled": true
+      },
+      "provider": "ACADEMSERVICE",
+      "isBar": false,
+      "isSpecialOffer": false,
+      "discount": 0,
+      "fee": 0,
+      "price": 12720,
+      "token": "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",
+      "hotel": "1453716085274",
+      "fullPrice": {
+        "amount": 12720,
+        "currency": "RUB"
+      },
+      "commission": {
+        "amount": 0,
+        "currency": "RUB"
+      },
+      "rooms": [
+        {
+          "token": "",
+          "name": "Studio Suite",
+          "mealName": "Завтрак \"Шведский стол\"",
+          "mealCode": "Завтрак \"Шведский стол\"",
+          "fullName": "Studio Suite",
+          "parameters": {
+            "childAge": 0,
+            "adultsCount": 2,
+            "systemAdultsCount": 2,
+            "infantsCount": 0,
+            "roomsCount": 1
+          },
+          "meal": "Завтрак \"Шведский стол\""
+        }
+      ]
+    },
+    {
+      "charges": [
+        {
+          "amount": 8220,
+          "startDate": "2016-10-17T21:00:00+0300"
+        }
+      ],
+      "isByRequest": false,
+      "bookingType": "POSTPAID_ONLINE",
+      "cancelationPolicy": {
+        "startDate": "2016-10-17T21:00:00+0300",
+        "charges": [
+          {
+            "price": {
+              "amount": 8220,
+              "currency": "RUB"
+            },
+            "comment": "8220.00 RUB"
+          }
+        ],
+        "isCanBeCancelled": true,
+        "isFilled": true
+      },
+      "provider": "ACADEMSERVICE",
+      "isBar": false,
+      "isSpecialOffer": false,
+      "discount": 0,
+      "fee": 0,
+      "price": 8220,
+      "token": "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",
+      "hotel": "1453716085274",
+      "fullPrice": {
+        "amount": 8220,
+        "currency": "RUB"
+      },
+      "commission": {
+        "amount": 0,
+        "currency": "RUB"
+      },
+      "rooms": [
+        {
+          "token": "",
+          "name": "Classic Room",
+          "mealName": "Завтрак \"Шведский стол\"",
+          "mealCode": "Завтрак \"Шведский стол\"",
+          "fullName": "Classic Room",
+          "parameters": {
+            "childAge": 0,
+            "adultsCount": 2,
+            "systemAdultsCount": 2,
+            "infantsCount": 0,
+            "roomsCount": 1
+          },
+          "meal": "Завтрак \"Шведский стол\""
+        }
+      ]
+    },
+    {
+      "charges": [
+        {
+          "amount": 8531,
+          "startDate": "2016-10-17T21:00:00+0300"
+        }
+      ],
+      "isByRequest": false,
+      "bookingType": "POSTPAID_ONLINE",
+      "cancelationPolicy": {
+        "startDate": "2016-10-17T21:00:00+0300",
+        "charges": [
+          {
+            "price": {
+              "amount": 8531,
+              "currency": "RUB"
+            },
+            "comment": "8531 RUB"
+          }
+        ],
+        "isCanBeCancelled": true,
+        "endDate": "2016-10-18T21:00:00+0300",
+        "isFilled": true
+      },
+      "provider": "OKTOGO",
+      "isBar": false,
+      "isSpecialOffer": false,
+      "subProvider": "Acase",
+      "discount": 0,
+      "fee": 0,
+      "price": 8616,
+      "token": "wnurl3sRPZzUOnMbbAw06ylt9RXBFERn+VmdrdyEuBie/kr1kRosHy/KcxEYt4GVlEdieLNJ7wp4SBaNO3F7jsCm5EJVsA+4PAS8MT3rQxt8eHuZYajSLqelu4uojOEWYI6rcj21x4/avi2/4/nHGeiBoLThBcy6hFbqvbkQHvFUxfhbb1Iq+qKdRw5HC2ik74nsahTnFiqFcfkKtx+43dDzTurrag3FcLTBPN+ifJxQ3G4JvfB+2HV/aaPNgL0QljzeAachPYMhJO/wsGIfytYe8JmKl6/Ci6SrH2gGZEuQ+YIzPAeV+kpY6isC13hmZrABXke6bwzg2On79GX4SOYwyWnPqTt7VmR2aLG37ayWiqvV3whwlciktZfEe4AwvsCBdUJXGtD0G1slqhTtvGXZnLOwAugatZppmwRMohdEEPa++xZ+lrDeu2zZGutpM/ZV5SEOq5yf2KRgWvqTbhBetCK1kEh7cWw6PHKLuBvw7p53eFrNQ0QHNrcPK6ahCWUMmKVz+z3OfepVas4up4iTek5m5Rsl6Rc0FTyC9Nx0cJmQihh29w==",
+      "hotel": "1453716085274",
+      "fullPrice": {
+        "amount": 8616,
+        "currency": "RUB"
+      },
+      "commission": {
+        "amount": 0,
+        "currency": "RUB"
+      },
+      "rooms": [
+        {
+          "token": "",
+          "name": "Classic Room",
+          "mealCode": "BB",
+          "fullName": "Classic Room",
+          "parameters": {
+            "childAge": 0,
+            "adultsCount": 2,
+            "systemAdultsCount": 2,
+            "infantsCount": 0,
+            "roomsCount": 1
+          },
+          "meal": "BB"
+        }
+      ]
+    },
+    {
+      "charges": [
+        {
+          "amount": 13184,
+          "startDate": "2016-10-17T21:00:00+0300"
+        }
+      ],
+      "isByRequest": false,
+      "bookingType": "POSTPAID_ONLINE",
+      "cancelationPolicy": {
+        "startDate": "2016-10-17T21:00:00+0300",
+        "charges": [
+          {
+            "price": {
+              "amount": 13184,
+              "currency": "RUB"
+            },
+            "comment": "13184 RUB"
+          }
+        ],
+        "isCanBeCancelled": true,
+        "endDate": "2016-10-18T21:00:00+0300",
+        "isFilled": true
+      },
+      "provider": "OKTOGO",
+      "isBar": false,
+      "isSpecialOffer": false,
+      "subProvider": "Acase",
+      "discount": 0,
+      "fee": 0,
+      "price": 13316,
+      "token": "wnurl3sRPZzUOnMbbAw065KXK2MfPklnW//kb4mKblA64yH7qGwoubvkI92xuYgadZxrJ2wFKiIy17ij9+q89IiFnL008WY4hB6d8Jyy3UxBuhd2zKeaBO3liPFeiSp8DyMqooCCgRMXBPwmffcZbrjkGr1oI7gBnknHk0vS6NdW9MuxvSZHS0f9U5//YiFLTStrnKZJniFaJFZLa4dJ2KMBPuXGxQLn4dnJeqbvxJOnftDR6oK6PQErNrAfJjqCffv0Kf7sjcK26J3bG1gIFH/yHzPd+bKSdKjM1y4u6p7HYT2I8fI0v9CGVMCTNe1h11gJNxOk7/tVZuj+e6sTtgQ3r8z/oy9GaODGvFFPLt18BegvEqbImWVQurRTUwb9Tc70MvwpkaqnWEfzU21FaecaGCUjtvpKZLTh8O82J9mgJGdeXvOYJDfjEAvvBIBiDd5XpX1axmkct9higrR+7dvcZHf583z6346+OIn8hVoOLxBFxPbdOVNlhokKc6khuOuOOHX+XRn+OWaG0ojI36BVsalZSzReV6uM7MLFE3BwV1M8WurU+g==",
+      "hotel": "1453716085274",
+      "fullPrice": {
+        "amount": 13316,
+        "currency": "RUB"
+      },
+      "commission": {
+        "amount": 0,
+        "currency": "RUB"
+      },
+      "rooms": [
+        {
+          "token": "",
+          "name": "Corner Suite",
+          "mealCode": "BB",
+          "fullName": "Corner Suite",
+          "parameters": {
+            "childAge": 0,
+            "adultsCount": 2,
+            "systemAdultsCount": 2,
+            "infantsCount": 0,
+            "roomsCount": 1
+          },
+          "meal": "BB"
+        }
+      ]
+    },
+    {
+      "charges": [
+        {
+          "amount": 21367,
+          "startDate": "2016-10-18T13:00:00+0300"
+        }
+      ],
+      "isByRequest": false,
+      "bookingType": "POSTPAID_ONLINE",
+      "cancelationPolicy": {
+        "startDate": "2016-10-18T13:00:00+0300",
+        "charges": [
+          {
+            "price": {
+              "amount": 21367,
+              "currency": "RUB"
+            },
+            "comment": "21367 RUB"
+          }
+        ],
+        "isCanBeCancelled": true,
+        "endDate": "2016-10-18T21:00:00+0300",
+        "isFilled": true
+      },
+      "provider": "OKTOGO",
+      "isBar": false,
+      "isSpecialOffer": false,
+      "subProvider": "Hotelbeds",
+      "discount": 0,
+      "fee": 0,
+      "price": 21367,
+      "token": "wnurl3sRPZzUOnMbbAw06+zkNQgYVRYPy4g6FpBN/+zw3KH3JfLEKT3DBZvZ0rVsWMrJ3t7uAbXiHzrrTmngCf91YI/lXW2cY4GQWszivUdZ9tml2pqkJHcwLwm7inKx1u/FrXi15+G9YVsHhQ6rUQpFzjD6qPL7GyEL9FbbJFmLoycXzAJOyJrgXxvFFsP1wdSwM4+x/sxhFV8rbv62eMg+HwRQJsYDtTeOqvpnloZI8Ceogwta8L3HTof92pjDoAtb/wuhPN4PVUhNInQZEOfcsVL+PpIWzZoUzEs8Ci+iHr7W3a5izaXS0myUNl6In0lIQYclLE+JDOk4hZGTUljeMZC2EzNj16MP9TNEeyL08foLh7LH4Zk7gsdxqg4ZZKMUCOAxCJ7a9KlgtkReHMj7+xO1PnTu+jrGAN5HR2pyP4VY3498zJMbFrN1p8C7XGItUO0TmqEcZ3SPn5O4Jo/R8vEJ56Mitd/yGmMnFEZJ/L/agRd87Y6UN7nkJAuhTG9rLzBPuWmVX3ntNHe9xHaV776UtwjpYMQfjzNI1w1GbLeIEz2oWtUBFKaVpBNDKSdEjcgDrGVP6RRY+DCv4dYmAyOy01P63hBsaap5i99ReXwQq04j8AmICrOFxXLoKe2Qs6KKympYOARoY7opBdixQjx8xdXoKkYw+m4uDLkzkdB7ptflQsBabKWAurYfIbbmLYLcsCaoVdy9m8cKGhBrEh45dDQM",
+      "hotel": "1453716085274",
+      "fullPrice": {
+        "amount": 21367,
+        "currency": "RUB"
+      },
+      "commission": {
+        "amount": 0,
+        "currency": "RUB"
+      },
+      "rooms": [
+        {
+          "token": "",
+          "name": "Полулюкс С КРОВАТЬЮ КИНГСАЙЗ",
+          "mealCode": "RO",
+          "fullName": "Полулюкс С КРОВАТЬЮ КИНГСАЙЗ",
+          "parameters": {
+            "childAge": 0,
+            "adultsCount": 2,
+            "systemAdultsCount": 2,
+            "infantsCount": 0,
+            "roomsCount": 1
+          },
+          "meal": "RO"
+        }
+      ]
+    },
+    {
+      "charges": [
+        {
+          "amount": 13184,
+          "startDate": "2016-10-17T21:00:00+0300"
+        }
+      ],
+      "isByRequest": false,
+      "bookingType": "POSTPAID_ONLINE",
+      "cancelationPolicy": {
+        "startDate": "2016-10-17T21:00:00+0300",
+        "charges": [
+          {
+            "price": {
+              "amount": 13184,
+              "currency": "RUB"
+            },
+            "comment": "13184 RUB"
+          }
+        ],
+        "isCanBeCancelled": true,
+        "endDate": "2016-10-18T21:00:00+0300",
+        "isFilled": true
+      },
+      "provider": "OKTOGO",
+      "isBar": false,
+      "isSpecialOffer": false,
+      "subProvider": "Acase",
+      "discount": 0,
+      "fee": 0,
+      "price": 13316,
+      "token": "wnurl3sRPZzUOnMbbAw06waMaPLFAJOdlaxFVjFHTQtLp3T5vHTHbiB4T/+ES/XG7gw6qa3CVz/KlPVVoh6EDd5kBJVZt/llc+NJydBg2vWJPPtR7bqBec1fLwGBrzEiJRSnoE1I9SzIrEvnui0Q513bgzoDYuoM5kVbrzAbzgGWf2tN1BxlcpwJLb3+BPLuvcZkPIujEaY76K7pRE2ciENtRdkvX4pyzBrElq46SO62kr815wgkb232jNZZOuS7cUMdggVTFebTM7Ik4/w1Z70shc3MaeVVKn2rJDcwXEeSHlJ0G8HfKpofES7LqnYlLOlfDejBfgAlCgp3CDAxDVqLUJ2sFCG0KYTv+HuvBelHfsrBSbhVVsCpgXtElCf/fB+Iv9mzvetU4Z6xRqGSC+tGA2YBgC9xHavMsuuZocaD2UhPodtNZnoQU+x/GD/9+d/KQh+08DggSJp8oaLVHZM+/o51Ne3uNqt4fY8mjexfrYbMecDcABSMQo3yzejAZ7bY1VmycxuDH50jiIDfR2s8netMa/2+VDJFtavl84qsSIq2BLC2sA==",
+      "hotel": "1453716085274",
+      "fullPrice": {
+        "amount": 13316,
+        "currency": "RUB"
+      },
+      "commission": {
+        "amount": 0,
+        "currency": "RUB"
+      },
+      "rooms": [
+        {
+          "token": "",
+          "name": "Junior Suite",
+          "mealCode": "BB",
+          "fullName": "Junior Suite",
+          "parameters": {
+            "childAge": 0,
+            "adultsCount": 2,
+            "systemAdultsCount": 2,
+            "infantsCount": 0,
+            "roomsCount": 1
+          },
+          "meal": "BB"
+        }
+      ]
+    },
+    {
+      "charges": [
+        {
+          "amount": 9188,
+          "startDate": "2016-10-18T13:00:00+0300"
+        }
+      ],
+      "isByRequest": false,
+      "bookingType": "POSTPAID_ONLINE",
+      "cancelationPolicy": {
+        "startDate": "2016-10-18T13:00:00+0300",
+        "charges": [
+          {
+            "price": {
+              "amount": 9188,
+              "currency": "RUB"
+            },
+            "comment": "9188 RUB"
+          }
+        ],
+        "isCanBeCancelled": true,
+        "endDate": "2016-10-18T21:00:00+0300",
+        "isFilled": true
+      },
+      "provider": "OKTOGO",
+      "isBar": false,
+      "isSpecialOffer": false,
+      "subProvider": "Hotelbeds",
+      "discount": 0,
+      "fee": 0,
+      "price": 9188,
+      "token": "wnurl3sRPZzUOnMbbAw066yhvL256El+XIDft8JUkym4Xi9sOTXA8o5Wv2cDyLA9DqQNv38LZHzeE9ffI6qfF+qaDqxhy1vd969Pq9n9JMASa15pVMcGYBH38+maG9ohbyS4xMMWgQzHpMHAHbUlgGptPo7NU0oW73VhrSrGlTFTI0zclfq2d4faAwIB1XBZ8hmkH61PtgS9EdvkukHZSoRI7j9FhQ5SHW2QNwSd50jgQqJcoDDkw/KBdpBqa3n8eQ/aSQWGFq3ySRrC60haTI76jtvJJRmBa4+D59VgPMU6mheyVzhdZmKxBCyA2GmHdZpfrL64v1RtGHcaM+4Gflt6o9wgOG3D+SJ+8tEI+A/Sm6aY1AbX4Fsu/sWcUdlQozSXJVeFc9UzUFjMhXBrBSbcLiOle17mNbh37catYdTkJSW0BeqjqCCL1wvDGkrXqLcZYtQSeuowFmIt3f6uIWwOarKbbms8PaGkE5WGfKH1USARDfQcjXw6vg+2f2KtFuuHsu8jAHDM7ozSaUJnj8nVn+VPqWxVD6o9XYQit2vqq0jWaxiq1MMjPszJY8cbx/LbpeYSvrAjSNSx0AdF0B7wVzPRxxLdcZcGnuWPkQFe4kw+u21y5CT06Dp/ak0WYlOdggI63WrVL38UoIHgUaCHJ+8fIZbkEbR9XU899SCoTm5DfwIvfrUt9xidaHEtsonLLWZXmKGsx2sIwnjuHqFz4gkEb5RmJp53GWlOh3LUzVC47GXQeVo5Gv0r8G6+FiYlzvmhhBxvQ70D4k0Mv63iIcFDqPBt",
+      "hotel": "1453716085274",
+      "fullPrice": {
+        "amount": 9188,
+        "currency": "RUB"
+      },
+      "commission": {
+        "amount": 0,
+        "currency": "RUB"
+      },
+      "rooms": [
+        {
+          "token": "",
+          "name": "Двухместный с 2 кроватями КЛАССИЧЕСКИЙ",
+          "mealCode": "RO",
+          "fullName": "Двухместный с 2 кроватями КЛАССИЧЕСКИЙ",
+          "parameters": {
+            "childAge": 0,
+            "adultsCount": 2,
+            "systemAdultsCount": 2,
+            "infantsCount": 0,
+            "roomsCount": 1
+          },
+          "meal": "RO"
+        }
+      ]
+    },
+    {
+      "charges": [],
+      "isByRequest": false,
+      "bookingType": "POSTPAID_ONLINE",
+      "cancelationPolicy": {
+        "charges": [],
+        "isCanBeCancelled": true,
+        "isFilled": true
+      },
+      "provider": "OKTOGO",
+      "isBar": false,
+      "isSpecialOffer": false,
+      "subProvider": "Hotelbeds",
+      "discount": 0,
+      "fee": 0,
+      "price": 21367,
+      "token": "wnurl3sRPZzUOnMbbAw063/w0lxhCobeJlPCDbtkEGQNooFFzXF3IF5fxQM9Ukx1Q6WucoV/TnX4u/p5L1EkZ0Z6Mu2oS+q4SeMaXcrjyX3Ks8AiBP26iEUYWPv044pBZdT3xS5nS7jszvlDQTu86xFZ2Pk3T4R3soZuWfKul4E++4Mznmx01wC2jhVba3wWSunSraYdbLwIkwONhqLlF9mL5M+KBeig/9zkUCulk7Fh7Y4Ts0pjYJNaWimlT9Y6H3nnPUJ8rifoA/puBRL/Oa/J6ck9cTzvZJ75ZdZjoBERpl6xhlOI7rCvCsvz5f/VaioHUskyRRLT97C51tpyy9xJveYr5DdAugeAS4dmI1bvS+QwAoBhkWBRJ6kK5BDsJxGo1Ey4+yDfEmx88CS38tG6eaupqncZLqobTrmRJl4tGfOHw/cnjaSmDbvYAelIZablF43GYxrYxWIZ/CPEVhF8wNyvy1UVKVlFZIxvHI7TEWizlXnWYf9gauWVxMPJ+8SYMOeLMKIix0BqbMfZu/TE/JTKQF15H5litcgsQwiMKAGqJp5sJ26K4BNBqMWCwZ4V/raiIjSNdPM9nLXE498FSwSoEmochTpArZ0qnHMWLUbAsY7s/A==",
+      "hotel": "1453716085274",
+      "fullPrice": {
+        "amount": 21367,
+        "currency": "RUB"
+      },
+      "commission": {
+        "amount": 0,
+        "currency": "RUB"
+      },
+      "rooms": [
+        {
+          "token": "",
+          "name": "Люкс CORNER-SUITE",
+          "mealCode": "RO",
+          "fullName": "Люкс CORNER-SUITE",
+          "parameters": {
+            "childAge": 0,
+            "adultsCount": 2,
+            "systemAdultsCount": 2,
+            "infantsCount": 0,
+            "roomsCount": 1
+          },
+          "meal": "RO"
+        }
+      ]
+    },
+    {
+      "charges": [
+        {
+          "amount": 13184,
+          "startDate": "2016-10-17T21:00:00+0300"
+        }
+      ],
+      "isByRequest": false,
+      "bookingType": "POSTPAID_ONLINE",
+      "cancelationPolicy": {
+        "startDate": "2016-10-17T21:00:00+0300",
+        "charges": [
+          {
+            "price": {
+              "amount": 13184,
+              "currency": "RUB"
+            },
+            "comment": "13184 RUB"
+          }
+        ],
+        "isCanBeCancelled": true,
+        "endDate": "2016-10-18T21:00:00+0300",
+        "isFilled": true
+      },
+      "provider": "OKTOGO",
+      "isBar": false,
+      "isSpecialOffer": false,
+      "subProvider": "Acase",
+      "discount": 0,
+      "fee": 0,
+      "price": 13316,
+      "token": "wnurl3sRPZzUOnMbbAw0675Bvb/rgf81ds7epGsWw4MqUnEa/47pEgJ/KFW/IZyoJghQVCf3fHMaygDnkN4VGiBPv8trWQ2v59sypPWiRv+b/nzAr/8ZawtBPk28TvTQ+QQww56iymJ0HQghtn37yHhmekAx1KlFZsjiCnPvbE2OmrR20JSRuPlAVlnjtdHyfXBFPIw3QHWWglmAtfyimpP/weEMeL2Jx31okxELhzJNOPo0k4J/EME0vlqy6HHtClstcjoS9nA5+9hqqunDnM1x4s6eizyuQtFP+83N/Nh2CCtNF+V/m1MGjo6YjFQXx+Y0iH1gYEGYoyEgYr8tSPXH3ExoYyWKZngLuOjSNgmDEJGig/IfvA6ben2NwCRo9LTL2ldywKthuzcwcm4YTG73QLDwP8kr+uLjo5xNjwoseT0i1j+p0pKqx7AStGhfhIJYKrSqT+kZMqlQPmAOkQu2yvHogtJYymuivqWq2rmPKSFoMjkdE6f03Cr+fyeZbfdAUQm63yfXN4nHBjB85KXW7FmLcthATOO/ddeWFn0+quO79SSH1A==",
+      "hotel": "1453716085274",
+      "fullPrice": {
+        "amount": 13316,
+        "currency": "RUB"
+      },
+      "commission": {
+        "amount": 0,
+        "currency": "RUB"
+      },
+      "rooms": [
+        {
+          "token": "",
+          "name": "Studio Suite",
+          "mealCode": "BB",
+          "fullName": "Studio Suite",
+          "parameters": {
+            "childAge": 0,
+            "adultsCount": 2,
+            "systemAdultsCount": 2,
+            "infantsCount": 0,
+            "roomsCount": 1
+          },
+          "meal": "BB"
+        }
+      ]
+    },
+    {
+      "charges": [
+        {
+          "amount": 21367,
+          "startDate": "2016-10-18T13:00:00+0300"
+        }
+      ],
+      "isByRequest": false,
+      "bookingType": "POSTPAID_ONLINE",
+      "cancelationPolicy": {
+        "startDate": "2016-10-18T13:00:00+0300",
+        "charges": [
+          {
+            "price": {
+              "amount": 21367,
+              "currency": "RUB"
+            },
+            "comment": "21367 RUB"
+          }
+        ],
+        "isCanBeCancelled": true,
+        "endDate": "2016-10-18T21:00:00+0300",
+        "isFilled": true
+      },
+      "provider": "OKTOGO",
+      "isBar": false,
+      "isSpecialOffer": false,
+      "subProvider": "Hotelbeds",
+      "discount": 0,
+      "fee": 0,
+      "price": 21367,
+      "token": "wnurl3sRPZzUOnMbbAw063BaUu7qgWfoEnHoKi/0S8W2LF4o/mZ7ORxtN/FKJmtVibG972SQCLd3prOZ4XCEZ5ej4MevdMjq5/LCRvSropvHVltOttdRmnsLmEFElTV3ZZlz0vgnGNrRkspogmwYz0SQZhTDy6XrBW2JQ2bDG4U+L8lUCfMz7nurQmuTGzSCCPTEkagRv8Hbwf7bAdS9V/59LXAScCOKEibHd9EmUD42NLBHdFKMjEXKdDwS/1cz6nZ8CWkIKDvj4blHi31hFarmvIFK8o7I+g7gZDRNzYpffl+SjcCMUCtIk9/2tSve4m6MDE+RPlF0XA7MUlyiWO/qRM/16v838+wyRJB5eSq0I2QBpg7Bja5E0GwixcstdAH5JEnbxZwgpKAF1zIr769iqE9wEvD5AjCHdy8qv52H89Ta+YpIlkkNaEI/1Lpu1yEvV+r7P8Qnw5GUEFbJt6e3/+h8b3gPSkit88wPtrfzqwUZP8QHSb5xFM4q9Ig4mehXHItux5PSiJFkQfKNShJA570l01OPPf5ct5O2tYXw2HLBRsZMq1euU4poQJ0Sp4tJ2ndMATDSZ3nXrRHaDhFrazuQNhJLtG2VZ5gr+rI=",
+      "hotel": "1453716085274",
+      "fullPrice": {
+        "amount": 21367,
+        "currency": "RUB"
+      },
+      "commission": {
+        "amount": 0,
+        "currency": "RUB"
+      },
+      "rooms": [
+        {
+          "token": "",
+          "name": "Студия SUITE",
+          "mealCode": "RO",
+          "fullName": "Студия SUITE",
+          "parameters": {
+            "childAge": 0,
+            "adultsCount": 2,
+            "systemAdultsCount": 2,
+            "infantsCount": 0,
+            "roomsCount": 1
+          },
+          "meal": "RO"
+        }
+      ]
+    },
+    {
+      "charges": [
+        {
+          "amount": 14850,
+          "startDate": "2016-10-18T06:00:00+0300"
+        }
+      ],
+      "isByRequest": false,
+      "bookingType": "POSTPAID_ONLINE",
+      "cancelationPolicy": {
+        "startDate": "2016-10-18T06:00:00+0300",
+        "charges": [
+          {
+            "price": {
+              "amount": 14850,
+              "currency": "RUB"
+            },
+            "comment": "14850 RUB"
+          }
+        ],
+        "isCanBeCancelled": true,
+        "endDate": "2016-10-18T21:00:00+0300",
+        "isFilled": true
+      },
+      "provider": "OKTOGO",
+      "isBar": false,
+      "isSpecialOffer": false,
+      "subProvider": "Hotelbeds",
+      "discount": 0,
+      "fee": 0,
+      "price": 14850,
+      "token": "wnurl3sRPZzUOnMbbAw06/V8Bzoh/m8MeblBuUOZ2tXod++252rcOj3r/UFHnloMzJ7jNxAooXeUySl0/CO2v5ATM8zl7q/gi3buzB3BIkbJ5LX/ynR7GXOq09JQYZMvjepWkN1Ij1cr5nmgq2Fmv8R+X8R91VxOPpi/o1jxaKC5JCTqOPcULCZ0xria0lPb8obwc8Fqcu+i6jRV4QL4ZeBS1YPmD6zFYIpOBN05j4mDBBbtx9uNNnpvwkKDOVNmZTu8J9/NAAtZpQ95dRuZpqr2UVo6WgBm2knB3lo+zJBoDJ9ScTGnJe4oCEINZE0lE1Q8dpENIo8qe5xaZJreqwEFlrINT4cemFDQgSIJ/WgOhh+6lgvDNVLMNU1avCqOt7025iPajj36eYZ6JVE9FHy/SCsdI6r4fuAR+ygGOArKeyhn1+KDiU9Sge17QwWrM133rbNZhCQuwyyD3YrKYilEW5+d90EnBpWhovrf8MxAfvrpbo5Icp6VxGrB7lO44NOC8yXIT+bzuKST28IlXZkVdln9NcpUNsJbq4VdjuQ1aDDOgGdei6FtSOfaqp5q+Srj0DitJe4pMuT0nYMScSCGZs3JdvdnvNw0N0YwPG8npgoKwYJRlj0nadlyTH6b9dPbw+qq0LQ=",
+      "hotel": "1453716085274",
+      "fullPrice": {
+        "amount": 14850,
+        "currency": "RUB"
+      },
+      "commission": {
+        "amount": 0,
+        "currency": "RUB"
+      },
+      "rooms": [
+        {
+          "token": "",
+          "name": "Студия КЛУБНЫЙ",
+          "mealCode": "BB",
+          "fullName": "Студия КЛУБНЫЙ",
+          "parameters": {
+            "childAge": 0,
+            "adultsCount": 2,
+            "systemAdultsCount": 2,
+            "infantsCount": 0,
+            "roomsCount": 1
+          },
+          "meal": "BB"
+        }
+      ]
+    }
+  ]
+}

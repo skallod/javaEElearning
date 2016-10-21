@@ -1,0 +1,59 @@
+{
+  "params": {
+    "rooms": [
+      {
+        "adults": 2
+      }
+    ],
+    "city": "MOW",
+    "customerCode": "69",
+    "customerText": "Талгет Лимитед",
+    "checkIn": "2016-11-15",
+    "checkOut": "2016-11-16",
+    "searchPois": true
+  },
+  "rates": [
+    {
+      "charges": [],
+      "isByRequest": false,
+      "bookingType": "POSTPAID_ONLINE",
+      "cancelationPolicy": {
+        "charges": [],
+        "isCanBeCancelled": true,
+        "isFilled": false
+      },
+      "provider": "ACADEMSERVICE",
+      "isBar": false,
+      "isSpecialOffer": false,
+      "subProvider": "ACADEMSERVICE",
+      "discount": 0,
+      "fee": 0,
+      "price": 18500,
+      "token": "LQfZJWzyp5Rpl8nMsZ/juM8NsXvnRjBaQ5cMQVbXtSrE281S4tKyc4drMN5SEzdtMB6fRoMZggdPa43D7iIp0p1gm4NRCQpD7qeUT6Q3BBLVXcbfkmxKSMczY5dMQPI0mhcens4UGys2KbX0Zi7rcrgGR+wFijA3Kg0jIQlVthbkj6/WV2hwIjPmjCJXeftrzOnkhidaYZtHoNsFIVJs1qZ2l+ftBl7vftjoPYFu0CB1QRAMUIm8BRdJDYPwEXCtCX+u4wXV8SlFTxJpaSanF+V9Z7OgDlt6jk8yoglofL6xkCNj6pSHxoCLuZHhLGuKcad/uH0HdGj2NvtP63OIUjrV/Pc3GWYXpF4m37GDbI2bZaBPz/f2llM1KHQRMzRf7MltDHXq9qp31Nttx53yEL+7b0p9dcNEEAOEwMNshFsRZT5HdU8XxNm9tAtUff+bAeX8cCAKWAxof0a1lzeMxWCPz6gZD/IVLyy1hk6SiZj0bFggoGCGIbKnjO7ThN4z28T2loPhnPbdmFY1xaq0rhJdWkRyYoWGoHkU59DK5KSp0l+oVkRE65zDDYqv68vr7WPUwkFlEkowml/EYIboI448stSRLxciiXfVSfh5mvChZfxdEa0yaE+L81SxzBo40+d30kwHQM4F3ZuqxwhNoXZ7CUIZBqqelt426Jc8CepmbLrN3Y00aRm49XMmkmDY",
+      "hotel": "1451465864292",
+      "fullPrice": {
+        "amount": 18500,
+        "currency": "RUB"
+      },
+      "commission": {
+        "amount": 0,
+        "currency": "RUB"
+      },
+      "rooms": [
+        {
+          "token": "",
+          "name": "Номер Супериор",
+          "fullName": "Номер Супериор",
+          "parameters": {
+            "childAge": 0,
+            "adultsCount": 2,
+            "infantsCount": 0,
+            "roomsCount": 1
+          },
+          "travellers": []
+        }
+      ],
+      "offerHash": "{\"charges\":[],\"isByRequest\":false,\"bookingType\":\"POSTPAID_ONLINE\",\"cancelationPolicy\":{\"charges\":[],\"isCanBeCancelled\":true,\"isFilled\":false},\"provider\":\"ACADEMSERVICE\",\"isBar\":false,\"isSpecialOffer\":false,\"subProvider\":\"ACADEMSERVICE\",\"discount\":0,\"fee\":0,\"price\":18500,\"hotel\":\"1451465864292\",\"fullPrice\":{\"amount\":18500,\"currency\":\"RUB\"},\"commission\":{\"amount\":0,\"currency\":\"RUB\"},\"rooms\":[{\"token\":\"\",\"name\":\"Номер Супериор\",\"fullName\":\"Номер Супериор\",\"parameters\":{\"childAge\":0,\"adultsCount\":2,\"infantsCount\":0,\"roomsCount\":1}}]}"
+    }
+  ]
+}

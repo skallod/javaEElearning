@@ -1,0 +1,73 @@
+{
+  "dicts": [
+    {
+      "name": "Завтрак \"Шведский стол\"",
+      "code": "Завтрак \"Шведский стол\"",
+      "type": "Meal"
+    },
+    {
+      "name": "руб.",
+      "code": "RUB",
+      "type": "CurrencyInfo"
+    }
+  ],
+  "rates": [
+    {
+      "charges": [
+        {
+          "amount": 12626,
+          "startDate": "2016-10-19T21:00:00+0300"
+        }
+      ],
+      "isByRequest": false,
+      "bookingType": "POSTPAID_ONLINE",
+      "cancelationPolicy": {
+        "startDate": "2016-10-19T21:00:00+0300",
+        "charges": [
+          {
+            "price": {
+              "amount": 12626,
+              "currency": "RUB"
+            },
+            "comment": "12626.00 RUB"
+          }
+        ],
+        "isCanBeCancelled": true,
+        "isFilled": true
+      },
+      "provider": "ACADEMSERVICE",
+      "isBar": false,
+      "isSpecialOffer": false,
+      "discount": 0,
+      "fee": 0,
+      "price": 12626,
+      "token": "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",
+      "hotel": "1455108448391",
+      "fullPrice": {
+        "amount": 12626,
+        "currency": "RUB"
+      },
+      "commission": {
+        "amount": 0,
+        "currency": "RUB"
+      },
+      "rooms": [
+        {
+          "token": "",
+          "name": "Superior",
+          "mealName": "Завтрак \"Шведский стол\"",
+          "mealCode": "Завтрак \"Шведский стол\"",
+          "fullName": "Superior",
+          "parameters": {
+            "childAge": 0,
+            "adultsCount": 2,
+            "systemAdultsCount": 2,
+            "infantsCount": 0,
+            "roomsCount": 1
+          },
+          "meal": "Завтрак \"Шведский стол\""
+        }
+      ]
+    }
+  ]
+}

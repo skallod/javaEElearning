@@ -1,0 +1,430 @@
+<object class="com.gridnine.bof.common.model.unifest.corporate.CorporateHotelOffer">
+    <uid>cd74a85c-1631-4689-9205-a3652c4050fc</uid>
+    <parameters class="com.gridnine.bof.common.hotels.model.HotelsSearchParameters">
+        <uid>3728c07d-810b-4981-8f08-d858f56e7109</uid>
+        <salesContext class="com.gridnine.bof.common.gds.model.SalesContext">
+            <uid>20691278-013c-40d1-9810-eda9b813eb53</uid>
+            <agency class="com.gridnine.bof.common.model.EntityReference">
+                <uid>a4e25c11-a717-4fe2-8ef5-96ace2904d3d</uid>
+                <type>com.gridnine.bof.common.model.profile.Organization</type>
+                <caption><![CDATA[Unifest]]></caption>
+            </agency>
+            <salesPoint class="com.gridnine.bof.common.model.EntityReference">
+                <uid>c34656f4-61af-4035-944c-e086c98b3611</uid>
+                <type>com.gridnine.bof.common.model.profile.SalesPoint</type>
+                <caption><![CDATA[Web Site]]></caption>
+            </salesPoint>
+            <corporateClient class="com.gridnine.bof.common.model.EntityReference">
+                <uid>98b07c9d-a41b-4648-8273-37063952b823</uid>
+                <type>com.gridnine.bof.common.model.profile.Organization</type>
+                <caption><![CDATA[Розничный клиент]]></caption>
+            </corporateClient>
+            <partnerProfile class="com.gridnine.bof.common.model.EntityReference">
+                <uid>8fdd0480-da55-4cf7-b47f-deb03bfd49de</uid>
+                <type>com.gridnine.bof.common.model.profile.Organization</type>
+                <caption><![CDATA[fest.pososhok.ru]]></caption>
+            </partnerProfile>
+            <client class="com.gridnine.bof.common.model.EntityReference">
+                <uid>734cc05b-31b9-450c-ba50-67d2fb5ac0dc</uid>
+                <type>com.gridnine.bof.common.model.profile.Person</type>
+                <caption><![CDATA[Fest 0.]]></caption>
+            </client>
+        </salesContext>
+        <location>MOW</location>
+        <checkInDate>2016-10-19 00:00:00.000</checkInDate>
+        <checkOutDate>2016-10-21 00:00:00.000</checkOutDate>
+        <searchInternal>false</searchInternal>
+        <rooms>
+            <item class="com.gridnine.bof.common.hotels.model.HotelsRoomSearchParameters">
+                <uid>0469181f-559e-494b-ab41-60d5f880f543</uid>
+                <adultsCount>2</adultsCount>
+                <systemAdultsCount>0</systemAdultsCount>
+                <childAge>0</childAge>
+                <infantsCount>0</infantsCount>
+            </item>
+        </rooms>
+    </parameters>
+    <rooms>
+        <item class="com.gridnine.bof.common.hotels.RoomOffer">
+            <uid>3b3bf211-f988-4686-bd7f-5c4a18d8ab6f</uid>
+            <token>ZXlKamIyUmxJam9pTVRFek1qa3dOU0lzSW1Gc2JHOTBiV1Z1ZENJNklqazFNREF3TURFck1UUXlO
+                REE0TUNzNU5UQXdNREF4S3pRaQpMQ0pqYUdWamEwbHVJam81TURBc0ltTm9aV05yVDNWMElqbzNN
+                akFzSW1GblpWQmxjbWx2WkdsNllYUnBiMjRpT25zaVlXUjFiSFJKCmJtWWlPakV5TENKamFHbHNa
+                RWx1WmlJNk5uMTl+On5BQ0FERU1TRVJWSUNFfjp+MiHQl9Cw0LLRgtGA0LDQuiAi0KjQstC10LTR
+                gdC60LjQuSDRgdGC0L7QuyIhMCEhZXlKdmNIUnBiMjV6SWpwYmV5SjBlWEJsSWpvaVJWaFVVa0Zm
+                UWtWRVgwRkVWVXhVSW4wc2V5SjBlWEJsSWpvaVJWaFVVa0ZmVFVWQgpUQ0lzSW1ScGMzQnNZWGxP
+                WVcxbElqb2kwSmZRc05DeTBZTFJnTkN3MExvZ1hDTFFxTkN5MExYUXROR0IwTHJRdU5DNUlOR0Iw
+                WUxRCnZ0QzdYQ0lpTENKamIyUmxJam9pMEpmUXNOQ3kwWUxSZ05DdzBMb2dYQ0xRcU5DeTBMWFF0
+                TkdCMExyUXVOQzVJTkdCMFlMUXZ0QzcKWENJaUxDSmhkbUZwYkdGaWFXeHBkSGtpT2lKSlRrTk1W
+                VVJGUkNKOUxIc2lkSGx3WlNJNklreEJWRVZmUTBoRlEwdFBWVlFpTENKaApkbUZwYkdGaWFXeHBk
+                SGtpT2lKU1JWRlZSVk5VSW4wc2V5SjBlWEJsSWpvaVJWaFVVa0ZmUWtWRVgwTklTVXhFVWtWT0lu
+                MWRMQ0puCmRXRnlZVzUwWldVaU9uc2lSVmhVVWtGZlFrVkVYMGxPUmtGT1ZGTWlPblJ5ZFdWOWZR
+                PT1+On4zODMwMC4wMH46flJVQn46fjUxOTIwLjAw</token>
+            <hotel>1468399064061</hotel>
+            <provider>ACADEMSERVICE</provider>
+            <price class="com.gridnine.bof.common.model.system.Money">
+                <uid>f4f0b1db-a939-49e9-b7f5-c41424b2152f</uid>
+                <value>38300.0</value>
+                <currency>RUB</currency>
+            </price>
+            <commission class="com.gridnine.bof.common.model.system.Money">
+                <uid>68c45df5-1f40-4dc4-b96a-4a823666b164</uid>
+                <value>0.0</value>
+                <currency>RUB</currency>
+            </commission>
+            <equivalentPrice>38300.0</equivalentPrice>
+            <fee>0.0</fee>
+            <cancelationPolicy class="com.gridnine.bof.common.hotels.CancelationPolicy">
+                <uid>6c32de03-a3bc-44fc-aee4-f16f489f3cad</uid>
+                <canBeCancelled>true</canBeCancelled>
+                <filled>true</filled>
+                <charges>
+                    <item class="com.gridnine.bof.common.hotels.CancellationCharge">
+                        <uid>ad9cf74e-fe98-492d-b50c-e3ece10656f6</uid>
+                        <start>2016-10-17 21:00:00.000</start>
+                        <comment>19150.00 RUB</comment>
+                        <price class="com.gridnine.bof.common.model.system.Money">
+                            <uid>861f9e81-9c5f-4326-8c2a-a7b12dc7630a</uid>
+                            <value>19150.0</value>
+                            <currency>RUB</currency>
+                        </price>
+                    </item>
+                </charges>
+            </cancelationPolicy>
+            <bar>false</bar>
+            <specialOffer>false</specialOffer>
+            <byRequest>false</byRequest>
+            <freeForSale>false</freeForSale>
+            <rooms>
+                <item class="com.gridnine.bof.common.hotels.OfferRoom">
+                    <uid>f9e821ad-837f-4697-95d1-80ae49634b6b</uid>
+                    <token>ZXlKamIyUmxJam9pTVRFek1qa3dOU0lzSW1Gc2JHOTBiV1Z1ZENJNklqazFNREF3TURFck1UUXlO
+                        REE0TUNzNU5UQXdNREF4S3pRaQpMQ0pqYUdWamEwbHVJam81TURBc0ltTm9aV05yVDNWMElqbzNN
+                        akFzSW1GblpWQmxjbWx2WkdsNllYUnBiMjRpT25zaVlXUjFiSFJKCmJtWWlPakV5TENKamFHbHNa
+                        RWx1WmlJNk5uMTl+On5BQ0FERU1TRVJWSUNFfjp+MiHQl9Cw0LLRgtGA0LDQuiAi0KjQstC10LTR
+                        gdC60LjQuSDRgdGC0L7QuyIhMCEhZXlKdmNIUnBiMjV6SWpwYmV5SjBlWEJsSWpvaVJWaFVVa0Zm
+                        UWtWRVgwRkVWVXhVSW4wc2V5SjBlWEJsSWpvaVJWaFVVa0ZmVFVWQgpUQ0lzSW1ScGMzQnNZWGxP
+                        WVcxbElqb2kwSmZRc05DeTBZTFJnTkN3MExvZ1hDTFFxTkN5MExYUXROR0IwTHJRdU5DNUlOR0Iw
+                        WUxRCnZ0QzdYQ0lpTENKamIyUmxJam9pMEpmUXNOQ3kwWUxSZ05DdzBMb2dYQ0xRcU5DeTBMWFF0
+                        TkdCMExyUXVOQzVJTkdCMFlMUXZ0QzcKWENJaUxDSmhkbUZwYkdGaWFXeHBkSGtpT2lKSlRrTk1W
+                        VVJGUkNKOUxIc2lkSGx3WlNJNklreEJWRVZmUTBoRlEwdFBWVlFpTENKaApkbUZwYkdGaWFXeHBk
+                        SGtpT2lKU1JWRlZSVk5VSW4wc2V5SjBlWEJsSWpvaVJWaFVVa0ZmUWtWRVgwTklTVXhFVWtWT0lu
+                        MWRMQ0puCmRXRnlZVzUwWldVaU9uc2lSVmhVVWtGZlFrVkVYMGxPUmtGT1ZGTWlPblJ5ZFdWOWZR
+                        PT1+On4zODMwMC4wMH46flJVQn46fjUxOTIwLjAw</token>
+                    <name>Deluxe (Double)</name>
+                    <description>Данная цена является пакетной. В стоимость пакета входит: проживание, завтрак "Американский буфет", посещение фитнес-центра отеля, визовая поддержка, бутылка минеральной воды. </description>
+                    <count>1</count>
+                    <meal class="com.gridnine.bof.common.hotels.RoomMeal">
+                        <uid>0e126e93-55c2-4509-a548-eaff114c4065</uid>
+                        <id>Завтрак "Шведский стол"</id>
+                        <name>Завтрак "Шведский стол"</name>
+                    </meal>
+                    <parameters class="com.gridnine.bof.common.hotels.model.HotelsRoomSearchParameters">
+                        <uid>a82ef921-c317-4c0d-a9f9-4f092936c360</uid>
+                        <adultsCount>2</adultsCount>
+                        <systemAdultsCount>2</systemAdultsCount>
+                        <childAge>0</childAge>
+                        <infantsCount>0</infantsCount>
+                    </parameters>
+                </item>
+            </rooms>
+        </item>
+        <item class="com.gridnine.bof.common.hotels.RoomOffer">
+            <uid>7c999b4b-e1a5-47b5-af2a-d9f4f3b043fb</uid>
+            <token>ZXlKamIyUmxJam9pTVRFek1qa3dOaUlzSW1Gc2JHOTBiV1Z1ZENJNklqazFNREF3TURFck1UUXlO
+                REE0TWlzNU5UQXdNREF4S3pRaQpMQ0pqYUdWamEwbHVJam81TURBc0ltTm9aV05yVDNWMElqbzNN
+                akFzSW1GblpWQmxjbWx2WkdsNllYUnBiMjRpT25zaVlXUjFiSFJKCmJtWWlPakV5TENKamFHbHNa
+                RWx1WmlJNk5uMTl+On5BQ0FERU1TRVJWSUNFfjp+MiHQl9Cw0LLRgtGA0LDQuiAi0KjQstC10LTR
+                gdC60LjQuSDRgdGC0L7QuyIhMCEhZXlKdmNIUnBiMjV6SWpwYmV5SjBlWEJsSWpvaVJWaFVVa0Zm
+                UWtWRVgwRkVWVXhVSW4wc2V5SjBlWEJsSWpvaVJWaFVVa0ZmVFVWQgpUQ0lzSW1ScGMzQnNZWGxP
+                WVcxbElqb2kwSmZRc05DeTBZTFJnTkN3MExvZ1hDTFFxTkN5MExYUXROR0IwTHJRdU5DNUlOR0Iw
+                WUxRCnZ0QzdYQ0lpTENKamIyUmxJam9pMEpmUXNOQ3kwWUxSZ05DdzBMb2dYQ0xRcU5DeTBMWFF0
+                TkdCMExyUXVOQzVJTkdCMFlMUXZ0QzcKWENJaUxDSmhkbUZwYkdGaWFXeHBkSGtpT2lKSlRrTk1W
+                VVJGUkNKOUxIc2lkSGx3WlNJNklreEJWRVZmUTBoRlEwdFBWVlFpTENKaApkbUZwYkdGaWFXeHBk
+                SGtpT2lKU1JWRlZSVk5VSW4wc2V5SjBlWEJsSWpvaVJWaFVVa0ZmUWtWRVgwTklTVXhFVWtWT0lu
+                MWRMQ0puCmRXRnlZVzUwWldVaU9uc2lSVmhVVWtGZlFrVkVYMGxPUmtGT1ZGTWlPblJ5ZFdWOWZR
+                PT1+On41MTEwMC4wMH46flJVQn46fjU2NjQwLjAw</token>
+            <hotel>1468399064061</hotel>
+            <provider>ACADEMSERVICE</provider>
+            <price class="com.gridnine.bof.common.model.system.Money">
+                <uid>dbd46ac0-d2da-4238-b4f9-434432ef4844</uid>
+                <value>51100.0</value>
+                <currency>RUB</currency>
+            </price>
+            <commission class="com.gridnine.bof.common.model.system.Money">
+                <uid>a3d9cc83-720b-4cb8-9bb6-c00903eb8a03</uid>
+                <value>0.0</value>
+                <currency>RUB</currency>
+            </commission>
+            <equivalentPrice>51100.0</equivalentPrice>
+            <fee>0.0</fee>
+            <cancelationPolicy class="com.gridnine.bof.common.hotels.CancelationPolicy">
+                <uid>439c9934-cabb-43d1-aa7e-0be325c9dcb5</uid>
+                <canBeCancelled>true</canBeCancelled>
+                <filled>true</filled>
+                <charges>
+                    <item class="com.gridnine.bof.common.hotels.CancellationCharge">
+                        <uid>c44d79e8-dd01-4d6b-ad00-c2f9bc9be437</uid>
+                        <start>2016-10-17 21:00:00.000</start>
+                        <comment>25550.00 RUB</comment>
+                        <price class="com.gridnine.bof.common.model.system.Money">
+                            <uid>1e9c96e8-022d-4a2c-95cb-b8666a46b558</uid>
+                            <value>25550.0</value>
+                            <currency>RUB</currency>
+                        </price>
+                    </item>
+                </charges>
+            </cancelationPolicy>
+            <bar>false</bar>
+            <specialOffer>false</specialOffer>
+            <byRequest>false</byRequest>
+            <freeForSale>false</freeForSale>
+            <rooms>
+                <item class="com.gridnine.bof.common.hotels.OfferRoom">
+                    <uid>69a0eeb2-6d2f-4a2e-b60f-ced0f0da6ba9</uid>
+                    <token>ZXlKamIyUmxJam9pTVRFek1qa3dOaUlzSW1Gc2JHOTBiV1Z1ZENJNklqazFNREF3TURFck1UUXlO
+                        REE0TWlzNU5UQXdNREF4S3pRaQpMQ0pqYUdWamEwbHVJam81TURBc0ltTm9aV05yVDNWMElqbzNN
+                        akFzSW1GblpWQmxjbWx2WkdsNllYUnBiMjRpT25zaVlXUjFiSFJKCmJtWWlPakV5TENKamFHbHNa
+                        RWx1WmlJNk5uMTl+On5BQ0FERU1TRVJWSUNFfjp+MiHQl9Cw0LLRgtGA0LDQuiAi0KjQstC10LTR
+                        gdC60LjQuSDRgdGC0L7QuyIhMCEhZXlKdmNIUnBiMjV6SWpwYmV5SjBlWEJsSWpvaVJWaFVVa0Zm
+                        UWtWRVgwRkVWVXhVSW4wc2V5SjBlWEJsSWpvaVJWaFVVa0ZmVFVWQgpUQ0lzSW1ScGMzQnNZWGxP
+                        WVcxbElqb2kwSmZRc05DeTBZTFJnTkN3MExvZ1hDTFFxTkN5MExYUXROR0IwTHJRdU5DNUlOR0Iw
+                        WUxRCnZ0QzdYQ0lpTENKamIyUmxJam9pMEpmUXNOQ3kwWUxSZ05DdzBMb2dYQ0xRcU5DeTBMWFF0
+                        TkdCMExyUXVOQzVJTkdCMFlMUXZ0QzcKWENJaUxDSmhkbUZwYkdGaWFXeHBkSGtpT2lKSlRrTk1W
+                        VVJGUkNKOUxIc2lkSGx3WlNJNklreEJWRVZmUTBoRlEwdFBWVlFpTENKaApkbUZwYkdGaWFXeHBk
+                        SGtpT2lKU1JWRlZSVk5VSW4wc2V5SjBlWEJsSWpvaVJWaFVVa0ZmUWtWRVgwTklTVXhFVWtWT0lu
+                        MWRMQ0puCmRXRnlZVzUwWldVaU9uc2lSVmhVVWtGZlFrVkVYMGxPUmtGT1ZGTWlPblJ5ZFdWOWZR
+                        PT1+On41MTEwMC4wMH46flJVQn46fjU2NjQwLjAw</token>
+                    <name>Executive Room (Double)</name>
+                    <description>Данная цена является пакетной. В стоимость пакета входит: проживание, завтрак "Американский буфет", посещение фитнес-центра отеля, визовая поддержка, бутылка минеральной воды. </description>
+                    <count>1</count>
+                    <meal class="com.gridnine.bof.common.hotels.RoomMeal">
+                        <uid>a22f9943-6bd2-48f1-b28d-3759c76cc896</uid>
+                        <id>Завтрак "Шведский стол"</id>
+                        <name>Завтрак "Шведский стол"</name>
+                    </meal>
+                    <parameters class="com.gridnine.bof.common.hotels.model.HotelsRoomSearchParameters">
+                        <uid>754d7b97-b62b-4493-9eb9-3abbc1162fb9</uid>
+                        <adultsCount>2</adultsCount>
+                        <systemAdultsCount>2</systemAdultsCount>
+                        <childAge>0</childAge>
+                        <infantsCount>0</infantsCount>
+                    </parameters>
+                </item>
+            </rooms>
+        </item>
+        <item class="com.gridnine.bof.common.hotels.RoomOffer">
+            <uid>8cff10c4-c18c-46e8-bbd1-0fb8c0f1a260</uid>
+            <token>ZXlKamIyUmxJam9pTVRFek1qa3dOeUlzSW1Gc2JHOTBiV1Z1ZENJNklqazFNREF3TURFck1UUXlO
+                REE0TXlzNU5UQXdNREF4S3pRaQpMQ0pqYUdWamEwbHVJam81TURBc0ltTm9aV05yVDNWMElqbzNN
+                akFzSW1GblpWQmxjbWx2WkdsNllYUnBiMjRpT25zaVlXUjFiSFJKCmJtWWlPakV5TENKamFHbHNa
+                RWx1WmlJNk5uMTl+On5BQ0FERU1TRVJWSUNFfjp+MiHQl9Cw0LLRgtGA0LDQuiAi0KjQstC10LTR
+                gdC60LjQuSDRgdGC0L7QuyIhMCEhZXlKdmNIUnBiMjV6SWpwYmV5SjBlWEJsSWpvaVJWaFVVa0Zm
+                UWtWRVgwRkVWVXhVSW4wc2V5SjBlWEJsSWpvaVJWaFVVa0ZmVFVWQgpUQ0lzSW1ScGMzQnNZWGxP
+                WVcxbElqb2kwSmZRc05DeTBZTFJnTkN3MExvZ1hDTFFxTkN5MExYUXROR0IwTHJRdU5DNUlOR0Iw
+                WUxRCnZ0QzdYQ0lpTENKamIyUmxJam9pMEpmUXNOQ3kwWUxSZ05DdzBMb2dYQ0xRcU5DeTBMWFF0
+                TkdCMExyUXVOQzVJTkdCMFlMUXZ0QzcKWENJaUxDSmhkbUZwYkdGaWFXeHBkSGtpT2lKSlRrTk1W
+                VVJGUkNKOUxIc2lkSGx3WlNJNklreEJWRVZmUTBoRlEwdFBWVlFpTENKaApkbUZwYkdGaWFXeHBk
+                SGtpT2lKU1JWRlZSVk5VSW4wc2V5SjBlWEJsSWpvaVJWaFVVa0ZmUWtWRVgwTklTVXhFVWtWT0lu
+                MWRMQ0puCmRXRnlZVzUwWldVaU9uc2lSVmhVVWtGZlFrVkVYMGxPUmtGT1ZGTWlPblJ5ZFdWOWZR
+                PT1+On41MTEwMC4wMH46flJVQn46fjU2NjQwLjAw</token>
+            <hotel>1468399064061</hotel>
+            <provider>ACADEMSERVICE</provider>
+            <price class="com.gridnine.bof.common.model.system.Money">
+                <uid>2c0822ac-7ce3-4474-95e8-0c5ee880705f</uid>
+                <value>51100.0</value>
+                <currency>RUB</currency>
+            </price>
+            <commission class="com.gridnine.bof.common.model.system.Money">
+                <uid>f3b52b00-b85b-4ed5-9d8f-760f5a018646</uid>
+                <value>0.0</value>
+                <currency>RUB</currency>
+            </commission>
+            <equivalentPrice>51100.0</equivalentPrice>
+            <fee>0.0</fee>
+            <cancelationPolicy class="com.gridnine.bof.common.hotels.CancelationPolicy">
+                <uid>630b31a3-1fe2-4da2-820f-ca6cff01d1b4</uid>
+                <canBeCancelled>true</canBeCancelled>
+                <filled>true</filled>
+                <charges>
+                    <item class="com.gridnine.bof.common.hotels.CancellationCharge">
+                        <uid>cd73a5b2-29a6-484a-a100-62f942daf1b8</uid>
+                        <start>2016-10-17 21:00:00.000</start>
+                        <comment>25550.00 RUB</comment>
+                        <price class="com.gridnine.bof.common.model.system.Money">
+                            <uid>401ea954-e1b0-408c-ac0e-306e2cdcd860</uid>
+                            <value>25550.0</value>
+                            <currency>RUB</currency>
+                        </price>
+                    </item>
+                </charges>
+            </cancelationPolicy>
+            <bar>false</bar>
+            <specialOffer>false</specialOffer>
+            <byRequest>false</byRequest>
+            <freeForSale>false</freeForSale>
+            <rooms>
+                <item class="com.gridnine.bof.common.hotels.OfferRoom">
+                    <uid>5957d5b5-ecc4-402c-9be8-486b2177718f</uid>
+                    <token>ZXlKamIyUmxJam9pTVRFek1qa3dOeUlzSW1Gc2JHOTBiV1Z1ZENJNklqazFNREF3TURFck1UUXlO
+                        REE0TXlzNU5UQXdNREF4S3pRaQpMQ0pqYUdWamEwbHVJam81TURBc0ltTm9aV05yVDNWMElqbzNN
+                        akFzSW1GblpWQmxjbWx2WkdsNllYUnBiMjRpT25zaVlXUjFiSFJKCmJtWWlPakV5TENKamFHbHNa
+                        RWx1WmlJNk5uMTl+On5BQ0FERU1TRVJWSUNFfjp+MiHQl9Cw0LLRgtGA0LDQuiAi0KjQstC10LTR
+                        gdC60LjQuSDRgdGC0L7QuyIhMCEhZXlKdmNIUnBiMjV6SWpwYmV5SjBlWEJsSWpvaVJWaFVVa0Zm
+                        UWtWRVgwRkVWVXhVSW4wc2V5SjBlWEJsSWpvaVJWaFVVa0ZmVFVWQgpUQ0lzSW1ScGMzQnNZWGxP
+                        WVcxbElqb2kwSmZRc05DeTBZTFJnTkN3MExvZ1hDTFFxTkN5MExYUXROR0IwTHJRdU5DNUlOR0Iw
+                        WUxRCnZ0QzdYQ0lpTENKamIyUmxJam9pMEpmUXNOQ3kwWUxSZ05DdzBMb2dYQ0xRcU5DeTBMWFF0
+                        TkdCMExyUXVOQzVJTkdCMFlMUXZ0QzcKWENJaUxDSmhkbUZwYkdGaWFXeHBkSGtpT2lKSlRrTk1W
+                        VVJGUkNKOUxIc2lkSGx3WlNJNklreEJWRVZmUTBoRlEwdFBWVlFpTENKaApkbUZwYkdGaWFXeHBk
+                        SGtpT2lKU1JWRlZSVk5VSW4wc2V5SjBlWEJsSWpvaVJWaFVVa0ZmUWtWRVgwTklTVXhFVWtWT0lu
+                        MWRMQ0puCmRXRnlZVzUwWldVaU9uc2lSVmhVVWtGZlFrVkVYMGxPUmtGT1ZGTWlPblJ5ZFdWOWZR
+                        PT1+On41MTEwMC4wMH46flJVQn46fjU2NjQwLjAw</token>
+                    <name>Executive Room (Twin)</name>
+                    <description>Данная цена является пакетной. В стоимость пакета входит: проживание, завтрак "Американский буфет", посещение фитнес-центра отеля, визовая поддержка, бутылка минеральной воды. </description>
+                    <count>1</count>
+                    <meal class="com.gridnine.bof.common.hotels.RoomMeal">
+                        <uid>9694bb51-0282-4de3-aeb5-295563576313</uid>
+                        <id>Завтрак "Шведский стол"</id>
+                        <name>Завтрак "Шведский стол"</name>
+                    </meal>
+                    <parameters class="com.gridnine.bof.common.hotels.model.HotelsRoomSearchParameters">
+                        <uid>8cb4a26e-192b-4d96-b93d-d879a10639f6</uid>
+                        <adultsCount>2</adultsCount>
+                        <systemAdultsCount>2</systemAdultsCount>
+                        <childAge>0</childAge>
+                        <infantsCount>0</infantsCount>
+                    </parameters>
+                </item>
+            </rooms>
+        </item>
+        <item class="com.gridnine.bof.common.hotels.RoomOffer">
+            <uid>bd6171b1-0680-4bb0-a313-dc53c2e26b18</uid>
+            <token>ZXlKamIyUmxJam9pTVRFek5EQTFPQ0lzSW1Gc2JHOTBiV1Z1ZENJNklqazFNREF3TURFck1UUXlO
+                REE0TVNzNU5UQXdNREF4S3pRaQpMQ0pqYUdWamEwbHVJam81TURBc0ltTm9aV05yVDNWMElqbzNN
+                akFzSW1GblpWQmxjbWx2WkdsNllYUnBiMjRpT25zaVlXUjFiSFJKCmJtWWlPakV5TENKamFHbHNa
+                RWx1WmlJNk5uMTl+On5BQ0FERU1TRVJWSUNFfjp+MiHQl9Cw0LLRgtGA0LDQuiAi0KjQstC10LTR
+                gdC60LjQuSDRgdGC0L7QuyIhMCEhZXlKdmNIUnBiMjV6SWpwYmV5SjBlWEJsSWpvaVJWaFVVa0Zm
+                UWtWRVgwRkVWVXhVSW4wc2V5SjBlWEJsSWpvaVJWaFVVa0ZmVFVWQgpUQ0lzSW1ScGMzQnNZWGxP
+                WVcxbElqb2kwSmZRc05DeTBZTFJnTkN3MExvZ1hDTFFxTkN5MExYUXROR0IwTHJRdU5DNUlOR0Iw
+                WUxRCnZ0QzdYQ0lpTENKamIyUmxJam9pMEpmUXNOQ3kwWUxSZ05DdzBMb2dYQ0xRcU5DeTBMWFF0
+                TkdCMExyUXVOQzVJTkdCMFlMUXZ0QzcKWENJaUxDSmhkbUZwYkdGaWFXeHBkSGtpT2lKSlRrTk1W
+                VVJGUkNKOUxIc2lkSGx3WlNJNklreEJWRVZmUTBoRlEwdFBWVlFpTENKaApkbUZwYkdGaWFXeHBk
+                SGtpT2lKU1JWRlZSVk5VSW4wc2V5SjBlWEJsSWpvaVJWaFVVa0ZmUWtWRVgwTklTVXhFVWtWT0lu
+                MWRMQ0puCmRXRnlZVzUwWldVaU9uc2lSVmhVVWtGZlFrVkVYMGxPUmtGT1ZGTWlPblJ5ZFdWOWZR
+                PT1+On4zODMwMC4wMH46flJVQn46fjUxOTIwLjAw</token>
+            <hotel>1468399064061</hotel>
+            <provider>ACADEMSERVICE</provider>
+            <price class="com.gridnine.bof.common.model.system.Money">
+                <uid>3c839721-4fb1-403e-89a6-0cef07da6087</uid>
+                <value>38300.0</value>
+                <currency>RUB</currency>
+            </price>
+            <commission class="com.gridnine.bof.common.model.system.Money">
+                <uid>73fa6a41-bbb9-4cce-907a-85edf14700c6</uid>
+                <value>0.0</value>
+                <currency>RUB</currency>
+            </commission>
+            <equivalentPrice>38300.0</equivalentPrice>
+            <fee>0.0</fee>
+            <cancelationPolicy class="com.gridnine.bof.common.hotels.CancelationPolicy">
+                <uid>de5cb073-190e-452f-b9e7-5f3a8bb5e6d4</uid>
+                <canBeCancelled>true</canBeCancelled>
+                <filled>true</filled>
+                <charges>
+                    <item class="com.gridnine.bof.common.hotels.CancellationCharge">
+                        <uid>458ed120-784a-479a-8a86-cbe6b98f3431</uid>
+                        <start>2016-10-17 21:00:00.000</start>
+                        <comment>19150.00 RUB</comment>
+                        <price class="com.gridnine.bof.common.model.system.Money">
+                            <uid>af4bfe8b-a9e2-4027-8290-7a94beed736b</uid>
+                            <value>19150.0</value>
+                            <currency>RUB</currency>
+                        </price>
+                    </item>
+                </charges>
+            </cancelationPolicy>
+            <bar>false</bar>
+            <specialOffer>false</specialOffer>
+            <byRequest>false</byRequest>
+            <freeForSale>false</freeForSale>
+            <rooms>
+                <item class="com.gridnine.bof.common.hotels.OfferRoom">
+                    <uid>1612a6d0-1009-4f82-a4be-181965788ff8</uid>
+                    <token>ZXlKamIyUmxJam9pTVRFek5EQTFPQ0lzSW1Gc2JHOTBiV1Z1ZENJNklqazFNREF3TURFck1UUXlO
+                        REE0TVNzNU5UQXdNREF4S3pRaQpMQ0pqYUdWamEwbHVJam81TURBc0ltTm9aV05yVDNWMElqbzNN
+                        akFzSW1GblpWQmxjbWx2WkdsNllYUnBiMjRpT25zaVlXUjFiSFJKCmJtWWlPakV5TENKamFHbHNa
+                        RWx1WmlJNk5uMTl+On5BQ0FERU1TRVJWSUNFfjp+MiHQl9Cw0LLRgtGA0LDQuiAi0KjQstC10LTR
+                        gdC60LjQuSDRgdGC0L7QuyIhMCEhZXlKdmNIUnBiMjV6SWpwYmV5SjBlWEJsSWpvaVJWaFVVa0Zm
+                        UWtWRVgwRkVWVXhVSW4wc2V5SjBlWEJsSWpvaVJWaFVVa0ZmVFVWQgpUQ0lzSW1ScGMzQnNZWGxP
+                        WVcxbElqb2kwSmZRc05DeTBZTFJnTkN3MExvZ1hDTFFxTkN5MExYUXROR0IwTHJRdU5DNUlOR0Iw
+                        WUxRCnZ0QzdYQ0lpTENKamIyUmxJam9pMEpmUXNOQ3kwWUxSZ05DdzBMb2dYQ0xRcU5DeTBMWFF0
+                        TkdCMExyUXVOQzVJTkdCMFlMUXZ0QzcKWENJaUxDSmhkbUZwYkdGaWFXeHBkSGtpT2lKSlRrTk1W
+                        VVJGUkNKOUxIc2lkSGx3WlNJNklreEJWRVZmUTBoRlEwdFBWVlFpTENKaApkbUZwYkdGaWFXeHBk
+                        SGtpT2lKU1JWRlZSVk5VSW4wc2V5SjBlWEJsSWpvaVJWaFVVa0ZmUWtWRVgwTklTVXhFVWtWT0lu
+                        MWRMQ0puCmRXRnlZVzUwWldVaU9uc2lSVmhVVWtGZlFrVkVYMGxPUmtGT1ZGTWlPblJ5ZFdWOWZR
+                        PT1+On4zODMwMC4wMH46flJVQn46fjUxOTIwLjAw</token>
+                    <name>Deluxe (Twin)</name>
+                    <description>Данная цена является пакетной. В стоимость пакета входит: проживание, завтрак "Американский буфет", посещение фитнес-центра отеля, визовая поддержка, бутылка минеральной воды. </description>
+                    <count>1</count>
+                    <meal class="com.gridnine.bof.common.hotels.RoomMeal">
+                        <uid>b7787121-e0b1-48de-a822-d85ac457f746</uid>
+                        <id>Завтрак "Шведский стол"</id>
+                        <name>Завтрак "Шведский стол"</name>
+                    </meal>
+                    <parameters class="com.gridnine.bof.common.hotels.model.HotelsRoomSearchParameters">
+                        <uid>966a4b5a-14a3-4b28-8678-29815cfd3710</uid>
+                        <adultsCount>2</adultsCount>
+                        <systemAdultsCount>2</systemAdultsCount>
+                        <childAge>0</childAge>
+                        <infantsCount>0</infantsCount>
+                    </parameters>
+                </item>
+            </rooms>
+        </item>
+    </rooms>
+    <hotels>
+        <item class="com.gridnine.bof.common.hotels.Hotel">
+            <uid>2be425fe-2967-4714-a0de-5fc4dcaa012e</uid>
+            <number>1468399064061</number>
+            <name>Марриотт Роял Аврора</name>
+            <latitude>55.762986</latitude>
+            <longitude>37.617176</longitude>
+            <category>FIVE</category>
+            <description>Метро: Театральная.
+                Гостиница Марриотт Роял Аврора расположена в центре Москвы, в нескольких шагах от Большого театра, Кремля и Красной площади.</description>
+            <address>107031 Москва Петровка улица, 11</address>
+            <city>MOW</city>
+            <checkIn>12:00</checkIn>
+            <checkOut>12:00</checkOut>
+            <communications>
+                <item class="com.gridnine.bof.common.model.profile.Communication">
+                    <uid>9700cdaf-1259-42d2-97ad-abb675efa8f0</uid>
+                    <sense>+7 (495) 9371000</sense>
+                    <type>WORK_PHONE</type>
+                </item>
+            </communications>
+            <documents>
+                <item class="com.gridnine.bof.common.hotels.HotelDocument">
+                    <uid>d12554d5-b99f-4a3b-9982-53633b903ff6</uid>
+                    <id>428334cc-08db-42fd-b62f-43d5e5cd446c</id>
+                </item>
+                <item class="com.gridnine.bof.common.hotels.HotelDocument">
+                    <uid>0f9baae2-a74c-4d34-9ef3-6e8012baacb2</uid>
+                    <id>d8e1ab0c-de56-4719-bf9d-da6599e9e346</id>
+                </item>
+                <item class="com.gridnine.bof.common.hotels.HotelDocument">
+                    <uid>0f0f0f88-68b3-407d-b9bc-819aab9f43ff</uid>
+                    <id>25c10add-06e8-439c-b871-f028cc81566d</id>
+                </item>
+                <item class="com.gridnine.bof.common.hotels.HotelDocument">
+                    <uid>0f33ee78-1707-4826-94ac-49803d083abe</uid>
+                    <id>7b17b130-d5fc-4a2a-8809-511c3eaf8e9f</id>
+                </item>
+                <item class="com.gridnine.bof.common.hotels.HotelDocument">
+                    <uid>b52b336f-e4d0-4541-812a-58dddd0f1ca1</uid>
+                    <id>8a07a6b5-ff56-4ca2-b50c-e2e7bc1d8ffb</id>
+                </item>
+            </documents>
+        </item>
+    </hotels>
+</object>

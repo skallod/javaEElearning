@@ -6,6 +6,7 @@ import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
@@ -16,6 +17,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.ObjectOutputStream;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -161,10 +165,81 @@ public class AppTest
         }
     }
     public void test9(){
+        String sysnumber = "123, 53 4 ";
+        String[] numbers  = sysnumber.split(",");
+        double temp = 2.4;
+        int k= (int)Math.round(temp);
+        System.out.println("k = " + k);
+        for(String number : numbers){
+            number = number.replaceAll(" ","");
+            System.out.println(number);
+        }
         int[] a = new int[]{1,2,3};
         Set<Integer> b = new HashSet();
         b.add(1);
         if(b.contains(1)){
+            System.out.println("ok");
+        }
+    }
+
+    public void test10(){
+        HttpURLConnection c = null;
+        try {
+            URL u = new URL("http://195.151.27.110/u1c/NDS.aspx?ticket=4212442254014");
+            c = (HttpURLConnection) u.openConnection();
+            c.setRequestMethod("GET");
+            c.setRequestProperty("Content-length", "0");
+            c.setUseCaches(false);
+            c.setAllowUserInteraction(false);
+            c.setConnectTimeout(5000);
+            c.setReadTimeout(5000);
+            c.connect();
+            int status = c.getResponseCode();
+
+            switch (status) {
+                case 200:
+                case 201:
+                    BufferedReader br = new BufferedReader(new InputStreamReader(c.getInputStream()));
+                    StringBuilder sb = new StringBuilder();
+                    String line;
+                    while ((line = br.readLine()) != null) {
+                        sb.append(line);
+                    }
+                    br.close();
+                    System.out.println("sb = " + sb);
+                    try {
+                        JSONObject jobj = new JSONObject(sb.toString());
+                        if(jobj!=null){
+
+                                double value = jobj.getDouble("value");
+                                System.out.println("value = " + value);
+                                int value2 = jobj.getInt("percent");
+                                System.out.println("value2 = " + value2);
+                        }
+                    }catch (JSONException jex){
+                        jex.printStackTrace();
+                    }
+            }
+
+        } catch (MalformedURLException ex) {
+            ex.printStackTrace();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        } finally {
+            if (c != null) {
+                try {
+                    c.disconnect();
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+            }
+        }
+        return;
+    }
+
+    public void test11(){
+        String str1= "1115152200706, 4256115384663";
+        if(str1.contains(",")){
             System.out.println("ok");
         }
     }
