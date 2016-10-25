@@ -39,7 +39,7 @@
 
     <bean name="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="org.postgresql.Driver" />
-        <property name="url" value="jdbc:postgresql://localhost:5432/db2" />
+        <property name="url" value="jdbc:postgresql://localhost:5432/db2?create=true" />
         <property name="username" value="postgres" />
         <property name="password" value="12345678" />
     </bean>
@@ -48,14 +48,14 @@
     <!--<bean name="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">-->
         <property name="dataSource" ref="dataSource" />
         <property name="packagesToScan" value="ru.galuzin.payment_system.spring.common_types"/>
-        <!--<property name="annotatedClasses">-->
-            <!--<list>-->
-                <!--<value>ru.galuzin.payment_system.spring.common_types.Account</value>-->
-                <!--<value>ru.galuzin.payment_system.spring.common_types.Operation</value>-->
-                <!--<value>ru.galuzin.payment_system.spring.common_types.Person</value>-->
-                <!--<value>ru.galuzin.payment_system.spring.common_types.Terminal</value>-->
-            <!--</list>-->
-        <!--</property>-->
+        <property name="annotatedClasses">
+            <list>
+                <value>ru.galuzin.payment_system.spring.common_types.Account</value>
+                <value>ru.galuzin.payment_system.spring.common_types.Operation</value>
+                <value>ru.galuzin.payment_system.spring.common_types.Person</value>
+                <value>ru.galuzin.payment_system.spring.common_types.Terminal</value>
+            </list>
+        </property>
         <property name="hibernateProperties">
             <props>
                 <prop key="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</prop>
