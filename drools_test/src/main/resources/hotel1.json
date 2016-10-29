@@ -1,0 +1,501 @@
+{
+  "dicts": [
+    {
+      "rName": "России",
+      "pName": "России",
+      "tName": "Россией",
+      "name": "Россия",
+      "code": "RU",
+      "vName": "Россию",
+      "type": "Country"
+    },
+    {
+      "name": "руб.",
+      "code": "RUB",
+      "type": "CurrencyInfo"
+    },
+    {
+      "IATA": "MOW",
+      "rName": "Москвы",
+      "coords": {
+        "longitude": 37.617531,
+        "latitude": 55.7561
+      },
+      "CRT": "МОВ",
+      "pName": "Москве",
+      "tName": "Москвой",
+      "name": "Москва",
+      "code": "MOW",
+      "vName": "Москву",
+      "type": "GeoLocation:CITY",
+      "country": "RU"
+    }
+  ],
+  "offer": {
+    "uid": "dd92968c-8e06-45c2-b665-2373f69cec30",
+    "token": "E32EC42A42A0872BFE8F5774AF8DF5D85D5B0304C58DC9CD92EAD662CFBFAC39018C0EC6D5291214",
+    "avia": [],
+    "number": "0000100",
+    "customer": {
+      "id": "69",
+      "name": "Талгет Лимитед"
+    },
+    "comment": "",
+    "agent": "Fest 0.",
+    "hotels": [
+      {
+        "rates": [
+          {
+            "enabled": false,
+            "charges": [
+              {
+                "amount": 28830,
+                "startDate": "2016-11-10T21:00:00+0400"
+              }
+            ],
+            "isByRequest": false,
+            "bookingType": "POSTPAID_ONLINE",
+            "cancelationPolicy": {
+              "startDate": "2016-11-10T21:00:00+0400",
+              "charges": [
+                {
+                  "price": {
+                    "amount": 28830,
+                    "currency": "RUB"
+                  },
+                  "comment": "28830 RUB"
+                }
+              ],
+              "isCanBeCancelled": true,
+              "isFilled": true
+            },
+            "provider": "HOTELBOOK",
+            "isBar": false,
+            "isSpecialOffer": false,
+            "subProvider": "HBConnect",
+            "discount": 0,
+            "fee": 0,
+            "price": 28830,
+            "token": "wnurl3sRPZzUOnMbbAw06zMdNglVzlFlIWMvKOsPtPLYUTAYm5ZDPT2DyWOwsEzf2stuAdHBx30EkyFv6zmw+XK631f4YWoeK7HALKVNVte8GCIDchBuFTinahlMp2e69QgvM8dbdL+ZtbSyWUYvQihUc06/tnd5paKpcB+MNELtmgdt5thzwh7h/rRJ8cODadT14ZV4357LvchBPhOerRRN4P1OEZruHXC4TRz7Ux9UsaoZc3lV5E3gAnWanv+RUVrCs3OM+D38dJqkEEC4HjXUebD/0G2fC0W8t7CFCVgJqWgbrW2TJE4+699QbFOPABJLZEjz426hp2UX49fBhylEDqwx08CrDWAKqWbG0dJb+C2+b3kLInGLhwKHmFZF4uwDJmUNTjZ5wO+MJOS9MJhIfPh8jufErdHsQBOTZTx7S6f7/D9xCtlYMKR8YxtdSq3aPlVRZjjqCtoqhpSG6DharZWH3dXtO2TszbkcvcqJIRTlqRLaG4g3BL9w0JY8nuCVapiOssTpppdXm03+beeub4GFd4te4LqM0zOaLUrRjJU8szTy1N/O2WaJ1q8iaUzMVnlJW6+Ze/I4H8N3wVPbRpyEJD0VnO7zYD8+g0FqKQ4g0ODJz5mKnGmsibE1lLSzB7CeXL3eWvRDWsM8Fvva1iLpiZFpC9MkwJtBTyLmiznBJbidtvXcQO9l4P9onUgzYW1Q15JqnZYjYoZUB7lGS3HU3KWRCp7XKZmXwObQHCqSb7puJgpiCjV+6Z5Im71ww4ruozQSb9B+H3qqiOjanc+oV01bucRSbZ9JKVOdEDmloP5bBqA30YYSrAQ4u0Eet1cI6Lr/ivoPK/JA1VRkLaSa0F9Ic006pjxqQsm1tGwTZ8gHzUKgwjssUdjd1svrtz/qlfe989ZhoY2VK46mwmdji8XF6fzEgtKUgOU3Z1EsmBggxcE45ZNbie/yDlbBbOSaN5t6zG5SUAWLU/LENYEQH2BNN7EgsSKh1P/F6T6gjX/mohTH2vevtg85bGIWfJ9j2H4KiNrHkelaRXEyBIe8QrlPqy6zWBs969/TSTJKlY7iOBncs3mJhapTYnuzlJzP0W6Qe/9IcP7yAv4kdv5g1wahbLC5m7pKuBbS3vMkaD76JOpP+RMc72yRlS9NYIHuQJHcn8TF516EPLE8MxxhdYmMtSi+ffi26qaPMIJfW1MuKp3TcVTzzJqq/tGtV2YLGAfQMJ+RkDsa0g==",
+            "hotel": "1451465882510",
+            "fullPrice": {
+              "amount": 28830,
+              "currency": "RUB"
+            },
+            "commission": {
+              "amount": 0,
+              "currency": "RUB"
+            },
+            "rooms": [
+              {
+                "token": "",
+                "name": "Люкс с джакузи и сауной 2-ярусный DBL",
+                "fullName": "Люкс с джакузи и сауной 2-ярусный DBL",
+                "parameters": {
+                  "childAge": 0,
+                  "adultsCount": 2,
+                  "systemAdultsCount": 2,
+                  "infantsCount": 0,
+                  "roomsCount": 1
+                }
+              }
+            ]
+          },
+          {
+            "enabled": false,
+            "charges": [
+              {
+                "amount": 25950,
+                "startDate": "2016-11-10T21:00:00+0400"
+              }
+            ],
+            "isByRequest": false,
+            "bookingType": "POSTPAID_ONLINE",
+            "cancelationPolicy": {
+              "startDate": "2016-11-10T21:00:00+0400",
+              "charges": [
+                {
+                  "price": {
+                    "amount": 25950,
+                    "currency": "RUB"
+                  },
+                  "comment": "25950 RUB"
+                }
+              ],
+              "isCanBeCancelled": true,
+              "isFilled": true
+            },
+            "provider": "HOTELBOOK",
+            "isBar": false,
+            "isSpecialOffer": false,
+            "subProvider": "HBConnect",
+            "discount": 0,
+            "fee": 0,
+            "price": 25950,
+            "token": "wnurl3sRPZzUOnMbbAw06zMdNglVzlFlIWMvKOsPtPKkYSN9QCcwps57Z8q+6iLK08HbjZ9H2dq+DW+iaRaVoeibIQ7I1XxTgnBrGcTjRoHqcdGxXJsVnaCb7Uug6U5caPeP0wSkxzui5OtDgCL5USQc0eyhXJ4zhHDHOFzKfHUpgRANiYU+2y01t2YSCkgwPjEBNvV3VNsKptT5OzCPgfsKbb0cv5JKRybHe5Ohmg+8gnJWR71eBsEgAsn9KozgQw3hL2bQbbC/KTiANMKtvVHk08i6T2RcpBgIT0s+xjAYQPVNEZNxAsnNWW60yFLZO7XeC+iWeKKnBHdkarBeTECFK/2YOkZ9ql0T3Zhv0odg3LjQrSJPapPbxX5jHoBK07b6GPS0ZZzktnaMh8ddtFDy9hDuDLbhyQvxsmMKvroUfQX72RxSFDvf1oeaiP4cjh9xXot3sKUIaeaPdYzfIcyX5wS/Zao8D2pBcmcKeckMiGJgefMOjREZd+yvtBSQJMse0gXpCYBSx6Aqce8FwdkxQh48Rol18cbNB9pBATWsVYIs7w/oxkj0uAQ/1zkB3mOxST/isGuSdMoQc5yju0vD5l8vdiBrI0YMYxCyOMWHGqpxlSfi49CJhs2MydU18VLk6Ob7uppXT9MTGHCVQBOfebPomNjMes5P716SlCPz5yLmQ/wBv51IE3e8P3Dlxl5LUCa2Jc/g74LGI+rv/OY1wHuLBpNdiBIKENGF5OzaxtsuG3i+Ks4xZ49KwJVACOTrIAfzaWS8zAvQoga9RmKh1FSovYjyp1suSmdXcM7vRzfDUWHAHlgc2IQ7ecR2zLt385GKGHLNjyhXSImgS5alGg8ABgYW2Vewq2OYAfRfWjeL7oDFkLHvcX1lRoCvc3wxIwxtVRPUDHWtauGLPIXn3EF1CjkOf7lv26jNLIA7+c9C4OBKPdy1JENcY1yZ+BYSkA4bbDkfdb/shVnh8W3X1phudUNnVjl5MSTOUIFseW7K5Gcp63H+0rRmUYKeL8Bh73v1hYkhadbbmSCSJ6xfy6vddiMPFfPd2p+DBzo=",
+            "hotel": "1451465882510",
+            "fullPrice": {
+              "amount": 25950,
+              "currency": "RUB"
+            },
+            "commission": {
+              "amount": 0,
+              "currency": "RUB"
+            },
+            "rooms": [
+              {
+                "token": "",
+                "name": "Люкс с джакузи 2-ярусный DBL",
+                "fullName": "Люкс с джакузи 2-ярусный DBL",
+                "parameters": {
+                  "childAge": 0,
+                  "adultsCount": 2,
+                  "systemAdultsCount": 2,
+                  "infantsCount": 0,
+                  "roomsCount": 1
+                }
+              }
+            ]
+          },
+          {
+            "enabled": false,
+            "charges": [
+              {
+                "amount": 22110,
+                "startDate": "2016-11-10T21:00:00+0400"
+              }
+            ],
+            "isByRequest": false,
+            "bookingType": "POSTPAID_ONLINE",
+            "cancelationPolicy": {
+              "startDate": "2016-11-10T21:00:00+0400",
+              "charges": [
+                {
+                  "price": {
+                    "amount": 22110,
+                    "currency": "RUB"
+                  },
+                  "comment": "22110 RUB"
+                }
+              ],
+              "isCanBeCancelled": true,
+              "isFilled": true
+            },
+            "provider": "HOTELBOOK",
+            "isBar": false,
+            "isSpecialOffer": false,
+            "subProvider": "HBConnect",
+            "discount": 0,
+            "fee": 0,
+            "price": 22110,
+            "token": "wnurl3sRPZzUOnMbbAw06zMdNglVzlFlIWMvKOsPtPKul57pxi7Sv/JonZ/BiOOwy4jxgvXS/0HtzvPxCqfjYYWeEXj6YeggMrjj6yfEsGKB/7EBqFHuwad2VCG5CGUXylw+9CbrDGi+PUeWGgrHOyRz5mTaJ3B12yAm4qAUKldpTKssEHlB8YLWFyEO8Y0c1VDkAFa12GRTol/PvxsbPpqWh+uYkc0IblXXVsL1cxTFtuDFljTuiZ3FtS4Z1GV6OKp1F0Z6PmZ7ooG2+jpimuh+A9+RxGL1a2dEkF+04EenRg6SEl8wvZsyR3T5TNZPJAAb7jtLpa/Cs5GGjEStPXHKdEUTk77WiFdGrO/nMsi0VZ+EyWjVfkexFheJXisE9FOO05sb9ezxfrHK5+a7s0u/bz7xDurPA+x/4ALnErlBaqMB/ot7f7cbYlyamRxqAX/Z+8J4En1zQCvK+bdVZm42evsLTc2JoSKxSS2dzAlDyOHNRN6E4KECN7FItKAkQ3b8SrEqcVnWi1iNmAzFU1mjdowVlhlybaH+xS9Q9dTkzZFzoBkHZc0NavVeVx+6v0aNjrvNu8ijqFdeZcuO7qBt+kRHcb1NhxSI8ekEHX6347eRFxmVog+ZGs0MXnpSMEoOVHiBCi0z2H35durpegp+96XJNW/ezwZwiP8/sK6DF+4FjypweWDNwE9FqJTjm/JrpYaF6ugh1ZBleNFOy56s9GEqVQEO7n+OSaMGoNPoXUSYGT4P7yjWGJIZq7ite3zc6pQ8dgrBUe7MYAFMPlXWrojvBa5rhFU2rP09F5N+Vz3V5QENVwK+QxvBw2dSmlLtmyIkxu/Q3TywZCYN7034t/gIcJYczsRat+YJJ0CU/TSlO03x3y/lPAv5YtzTmFFubUKjvVcF/TswMGrlHU4TD5THT2StzlcZPYbFtzVK60C1cymjRv442Dr1dvFunUrERNapr/TK2PKqQcy4pItHud9X6sI0SX3+f8bStHaMp6n9pZoLr6LRhZ6d04qsWh78ioDSt7VXxrVvVg1Fji6tQCMRK5HxKJ20LGEDqlYBl/Wd0wtyYxVWZbZfdHefnUHEBKsi7fAB3tEK3QweJYaAC1UvZj2A1+PMs3yIFqpb5pH4AO0IIOBNgn2cp4Bp1HuUZRX9WjO4T6glRE8DqErcNv6VwEV7sQzEq6mBEgw9kDhbO+H4QEDFTxIbr7l2WAjBWYU7FjtkSMP7ON26dgygx12uTbn3v864FNOaUOgLljstNdoqNGBixDDqb/p5YJBhJioFX1qsK0T9AM0Ek+CEGLTCXKlLo4D8ySVb0i3xFtRDbOo+uFkKfDtNcC5cV0KaqFxi/3dBe6LtVBsANTzHxRalloLjZmlDTqD8PtClRDyhD7aSz1M4V6VCxaHBhgwHJH1Oj7PCUBcY3EjyEJNPM1Wqc87hLW0oEH/ECCiwCDTmg02nunhoPFV5XXc2OiY4UGYBuIDlbx32y9qacna705jR0RjeCbqf0rDIjCkXcQvK7dEsREDvkI6JIbRwZelAcVGUk7DDIeFY/ZtIkg==",
+            "hotel": "1451465882510",
+            "fullPrice": {
+              "amount": 22110,
+              "currency": "RUB"
+            },
+            "commission": {
+              "amount": 0,
+              "currency": "RUB"
+            },
+            "rooms": [
+              {
+                "token": "",
+                "name": "Люкс с балконом (с видом на Храм Христа Спасителя) DBL",
+                "fullName": "Люкс с балконом (с видом на Храм Христа Спасителя) DBL",
+                "parameters": {
+                  "childAge": 0,
+                  "adultsCount": 2,
+                  "systemAdultsCount": 2,
+                  "infantsCount": 0,
+                  "roomsCount": 1
+                }
+              }
+            ]
+          },
+          {
+            "enabled": false,
+            "charges": [
+              {
+                "amount": 17310,
+                "startDate": "2016-11-10T21:00:00+0400"
+              }
+            ],
+            "isByRequest": false,
+            "bookingType": "POSTPAID_ONLINE",
+            "cancelationPolicy": {
+              "startDate": "2016-11-10T21:00:00+0400",
+              "charges": [
+                {
+                  "price": {
+                    "amount": 17310,
+                    "currency": "RUB"
+                  },
+                  "comment": "17310 RUB"
+                }
+              ],
+              "isCanBeCancelled": true,
+              "isFilled": true
+            },
+            "provider": "HOTELBOOK",
+            "isBar": false,
+            "isSpecialOffer": false,
+            "subProvider": "HBConnect",
+            "discount": 0,
+            "fee": 0,
+            "price": 17310,
+            "token": "wnurl3sRPZzUOnMbbAw06zMdNglVzlFlIWMvKOsPtPKvETr9tLZhkijwbLGpIOUcsPcnfPyQIZ4oC+Asl4LL2flBRCSPIHLHiP7zPgpxLHwZQXapdzHAtm8IPM3X3wz29j+D25KoujHxdftnzHc2YtuMzQ37YuWt9Vh5IPCxQEMAlRBvw8pesGSn+VtjKoKEifFdrCYMsujucNA6wOkjuIhLQUnUAVzFyxT8I4fezZooy7r7YnsDOq2Tx/UaqlecMtSshJdc3Doi4/NtZtyvK4r20DZtxhpuwILSw1y6G20foTIjb4R6ybfgHouNEVVGrFmYKX0sYvfI5tkhZqy5mOllPHb116oCo+EA9RTSXdt6S8jvp/b69DJlafTs/0MN5MMNOIk7fI3ManeOg1KhpqrUe2fbYB8hVZWj/ckvPzhwhv2kJLKTDz06xRqz0EfLa8fTQ56p7KXsG0kS6hvn8PkykjPk5e/L8apnj7DjQRbr3k4K1yD+rls9wkMc5CS1iHq8pgz+m2LOEQrqaILOnykRSXXqDEYnfx2fKB6UtUfVDbEIeO7UJSjPtomwAAlz0IckZRYIWJTMBjKhb4y+RFWH1V+gkjOkmvSrXf3xaVfIznEDGRkO5FNN9ZAPBVhEm32WLq+ui40TPyctosNuFAbwylnysr0bUbz2YUfpuwfCv0Z5WSrs7XKOUyIOqOZdxKbqbSFAqE9hJ4JBM/H9Ze7DK4QR0CdREyU91OfFaGcMfjegGEuFGujpMAOBShUJQHVktYoT6dewkK0d6eVhfXMgS/DwQxwgvCl3caAAVCsOnk1xaf4tkpM+k2wjDdW2tFZyQ/IuLcpDXhznWnL4XNuzXuiTo+AQy9lxQnThthevXagDzS3HVv/iInFmv8uKDorpJjNAm6UOTSeZPLsn9AGbmb9bQN/y5ybXoqdD1m5ciJvuuyjSKXvRGPyUmq1o4cL/nkhsCfsIPadZk/6IfzF5p5ZxYhCD+i6LCE87BX2/1Ov+KtS1oHJV+ln1XKzi0CWRFGHN4Tb6jEQX3KSZHtz8lrarSDcjytPc2fHP9SmIrFhEMDE0NYB1e2wtB9OS0+ojgnahylfFehnf4GSMPBf+l26zcFSYOGPX3hxa6nLNqyjvwPjSO2UbZlNKOb8UFa9O4zlV6QUyiTntTiOvE3gOy53LKJ5UJmN0b+SakX5rzyyGiVgNSqtyOZCGMqEuIyviCrmKYe2/NwYo4BmbMWR/JaaBIhM7HhRojvjWTGQ3H+5wGbr8T1LDFy0kGy032db+PNv3kTKY5eaMLO262ldmiUcl8KE0W0Db9TbDxoQidnJGSkwoj//aZ2QXek2AXh5s489EdD5q9uQhhdqhDfMPwCqYp0crkOS7CyH9mXJM40ZniEt5iAQsTXK4PYQ50Znbl+YqutL5Ys7FzPqxR3T7iTg0nC/2EV2OgV7AFmZFM9v5ZudgRD3wqnDbwPLUhUqGQr1M7dzGVfp4MftTw6BPUszUccBvc+lcVXFyQtDH+OBL54az0KfhSEKt81+cmaXdLtHHE8beiGFp2Z7Xyh/rRDoWKGQHYCbGS4LIwwxGhyjDhFvT7w==",
+            "hotel": "1451465882510",
+            "fullPrice": {
+              "amount": 17310,
+              "currency": "RUB"
+            },
+            "commission": {
+              "amount": 0,
+              "currency": "RUB"
+            },
+            "rooms": [
+              {
+                "token": "",
+                "name": "Люкс Малый с балконом(вид на Храм Христа Спасителя DBL",
+                "fullName": "Люкс Малый с балконом(вид на Храм Христа Спасителя DBL",
+                "parameters": {
+                  "childAge": 0,
+                  "adultsCount": 2,
+                  "systemAdultsCount": 2,
+                  "infantsCount": 0,
+                  "roomsCount": 1
+                }
+              }
+            ]
+          },
+          {
+            "enabled": true,
+            "charges": [
+              {
+                "amount": 12510,
+                "startDate": "2016-11-10T21:00:00+0400"
+              }
+            ],
+            "isByRequest": false,
+            "bookingType": "POSTPAID_ONLINE",
+            "cancelationPolicy": {
+              "startDate": "2016-11-10T21:00:00+0400",
+              "charges": [
+                {
+                  "price": {
+                    "amount": 12510,
+                    "currency": "RUB"
+                  },
+                  "comment": "12510 RUB"
+                }
+              ],
+              "isCanBeCancelled": true,
+              "isFilled": true
+            },
+            "provider": "HOTELBOOK",
+            "isBar": false,
+            "isSpecialOffer": false,
+            "subProvider": "HBConnect",
+            "discount": 0,
+            "fee": 0,
+            "price": 12510,
+            "token": "wnurl3sRPZzUOnMbbAw06zMdNglVzlFlIWMvKOsPtPJLnsZ8uke+snbvKHnlkHZf6TisVtIdxJp+nX5tkfeYxQr74MRK2PX7lOleaX9SZ8Bq+vMI29fxXItHo8+C7alIit+qZBrFDlCVu1R1ZaQjA0ygqDew9j0sdRRmmAkKFoQ4dHIsmuAbb3nUjVraWbX90aHrdcqDyWvIbz7rn1J/X61o/3tw02QVvKVd8l/SSMCEKuXnFQVWmuCTwRcmjT/CFCDOae9OCc/SRBz8lb1vB58GDj1VR8SW2BFr88QFFCenfmlW5KNjcs2r6SWZ3OAj0uVLYzzg7nrgsOfoIUjUbW7dAjDGsbXtNJXboBspNdZCWAg/aSpCqaQt0l57ZbpyqYC4sh1jXEi/HjROHQMnadKrieoEG311DJzvrclYz2ttVYrtmr2SrgYmf4cufswR76dQ8XBf/vrZs6D26Iootypipv1In6ddIqhoXlW00517Ob5f3TpBQGm0itJC7TAQpUA8Eb07xKIA6PanNU7yZPrvZjigqr4eCca93Rc6iFiHq8ZqNRbzELYgH8M73TJ2SC3dBUzB5O94NS4o295zLhsbTgP3gut0ascu89Pzd5gv9oKYhKsj92YBXRogvZdVoJcRz1UK99t1Q8FBaqMXQIiMReZw2WawtZ98iFnWn1E6M9s6CoZ4VhJss6s44Dwwhop9hnfk1uQGoJ2Nqi4GESOqshAYK3RNWX1NhVYYxFOmDYTQgnh8R5VMg5+PrPNMWwlh0iBvJX0+ezuGWnO5RGBzwuE99BSezSR1t8U77NIV1K6uuU9HcmhSb3064U9UDlYQ5ZVSYoJGQLPy+eMHgoGZiD/JsgctzLu6eGAZ6yazFyK8KgGrZ+9wq1AUXdYOb8DVxLVVbq8z+0jGLvNYT5To4Sg7NhMjHO79rQTJOBUc1jToNpyFyuSnCkc51QH1tWuWXdZKoznvYgWE5eRyJw/M/ZurgKHXcL5P495EAI2j+t4akUgiXlVKopt0lsjNYbBbPrY4lU6wnJPCMU6zhqPLC+sdrhpPSRSikIaOMhrWx3EYR3V0CjgWTFnlzUgAu37v14adNqj+vxwI2wXi9zFMizFFDvQFqD+2WFX2SOu38t1ZLWMgJvAuJvfJjsUV69dcaX6uk0Q3xUmBt6tmh93yIZ5h4gi/pWV2BjdzWH7xut0s6fav2uDMK8OS5ZQvIkA2uxP0I3Q/2lV5NNh7cQ==",
+            "hotel": "1451465882510",
+            "fullPrice": {
+              "amount": 12510,
+              "currency": "RUB"
+            },
+            "commission": {
+              "amount": 0,
+              "currency": "RUB"
+            },
+            "rooms": [
+              {
+                "token": "",
+                "name": "Одноместный Кинг(двухместный) DBL",
+                "fullName": "Одноместный Кинг(двухместный) DBL",
+                "parameters": {
+                  "childAge": 0,
+                  "adultsCount": 2,
+                  "systemAdultsCount": 2,
+                  "infantsCount": 0,
+                  "roomsCount": 1
+                }
+              }
+            ]
+          },
+          {
+            "enabled": false,
+            "charges": [
+              {
+                "amount": 19230,
+                "startDate": "2016-11-10T21:00:00+0400"
+              }
+            ],
+            "isByRequest": false,
+            "bookingType": "POSTPAID_ONLINE",
+            "cancelationPolicy": {
+              "startDate": "2016-11-10T21:00:00+0400",
+              "charges": [
+                {
+                  "price": {
+                    "amount": 19230,
+                    "currency": "RUB"
+                  },
+                  "comment": "19230 RUB"
+                }
+              ],
+              "isCanBeCancelled": true,
+              "isFilled": true
+            },
+            "provider": "HOTELBOOK",
+            "isBar": false,
+            "isSpecialOffer": false,
+            "subProvider": "HBConnect",
+            "discount": 0,
+            "fee": 0,
+            "price": 19230,
+            "token": "wnurl3sRPZzUOnMbbAw06zMdNglVzlFlIWMvKOsPtPKVN07Ez/FXh3ryJK6cWKHquY6uALarrU5s+uSljcJlsijS1xueWtGent0hSSu5IEsrmMCJNU9zeraB/tAg27609VGM0lt/iP9Ln6Q9ujoCQITRaCzlq9E5+IQKSJa5I/WpLTZC8xaAIwKl2IZUbVeDMzpJPjLFD+eiM2/6Aeeh2wjBL6iyX5YqfwrO1SdS84O+LQWQVt2OrVj3zDb8Ce8PGkc0wZrSdslwN+GKRABB/tLrFz/vHDGiSkYzLlt6GClGJf4ljGObckpPNOd8wT88k4rdPfB1ECc/Elv2ak23MXlsLCDOn69aPWuwfRPkcmvtwHi6OiOrIH7BeeEJ/FM/3TOhGbX08mCajrHpTTA+PzYQvivrKMk+LxR96HaMjGQFjJFWR8BArKOOODnbehsHi/uah4tsaQ0owew8lAc/XK0BOnhz7/+zieEOMZjMySQIiLwNSCsU0V78qLDngZodYFD5jPbPKwPD456ewvIh5RP8gmS4bel/fZL9V0X+A0ISsx5x1Kdtug9VkhujOHhdUxOFGgjN+yBPFZEzQn0kG/jEOq8Zy0TpIJla/FxLeDW+VqQyq0gsmShX/TcSCGN4ZmcP3kPL4chdl/ehZlOjgNs053G1UdSHt5tcTcUoAZWThJ4MTFMeI15q1ms3TJ2ekJkXt55OfnjfWJ18lSKTNMSUlSxtcsPEoRKA4lMrWTn5ZZcgXOU7hqeZqPqJZnDXKDHMjRBTB1UAzOj2EdSG5rd96raPvVymQYlofM9FdnEZE4nxTtEkX+KqvfOPFSTNzpFduOCPu8bR/v7hKzfQF/aPPBFwwzUTyOcoiuKoRrz6h6DNktrGvAlM8+/430XA7/jaiZBJ5w0=",
+            "hotel": "1451465882510",
+            "fullPrice": {
+              "amount": 19230,
+              "currency": "RUB"
+            },
+            "commission": {
+              "amount": 0,
+              "currency": "RUB"
+            },
+            "rooms": [
+              {
+                "token": "",
+                "name": "Люкс с Джакузи DBL",
+                "fullName": "Люкс с Джакузи DBL",
+                "parameters": {
+                  "childAge": 0,
+                  "adultsCount": 2,
+                  "systemAdultsCount": 2,
+                  "infantsCount": 0,
+                  "roomsCount": 1
+                }
+              }
+            ]
+          },
+          {
+            "enabled": false,
+            "charges": [
+              {
+                "amount": 14430,
+                "startDate": "2016-11-10T21:00:00+0400"
+              }
+            ],
+            "isByRequest": false,
+            "bookingType": "POSTPAID_ONLINE",
+            "cancelationPolicy": {
+              "startDate": "2016-11-10T21:00:00+0400",
+              "charges": [
+                {
+                  "price": {
+                    "amount": 14430,
+                    "currency": "RUB"
+                  },
+                  "comment": "14430 RUB"
+                }
+              ],
+              "isCanBeCancelled": true,
+              "isFilled": true
+            },
+            "provider": "HOTELBOOK",
+            "isBar": false,
+            "isSpecialOffer": false,
+            "subProvider": "HBConnect",
+            "discount": 0,
+            "fee": 0,
+            "price": 14430,
+            "token": "wnurl3sRPZzUOnMbbAw06zMdNglVzlFlIWMvKOsPtPIC9FUXqJQyabSJJhEknHmrXGuKJxWO4rHn0mTc0wALwI+cxRGH0WcEZkIzprgA6yyQmUpgsv6oQqA9N+o2fpdJ7t4lBmkbVbLWNWwmGYJPSIMPfqzQ5OLG+OjCMOP8lTWutjiHA1n/0V3gydjUhAHcNb7lm64g8t4wnM2mEq5vYrhNJpENODnvWdLDaCgDbjnlKa7UB4/7cCqrCACmJR0gD/HR4u2v3I8q4T9gO1DsVquZpWnnLJOGo2hh42Hw1zBHLrFj9iNP0EpxrIEEiELvidD6x4cnrKjk+OnK76Zu9IEtzKHTIQBuOym1a5TotBozojoKFiwGcsY8X+FUljQt9ZgmfnUJjkaE2KUhxRur7dTLKNiInZ17oGnWUpW4S1hGN40X/d3vdd5kjFpOTQdTq6G7qx+2F/+ya2oif3J3WxMVwbasbRRe4QrodV1LLA+Ea/+zeZqY/o/G+R0tCVPK8ojQi9DeIz1dxE3VaOibh53N+kwUzpt9brxz9UX+jBLpFnboYkvUS3NAbRFiL7ii2e9c29DOmuiMKvrczLOWcddnG34WTkOKqZUa/1EYWGW7NW4HWSZJXdfKxG+9q+CzTWd+N6Xf9CDhw8+SIe/rcJPAJRS31kq7bVUGpB5mPN3xQLd/Y4eP9LvyY2vEouEKzVy2RXJzrV/OhTNkkM1FiwgU0CvBc0vRmLcid3pGmWG/jQJawp0Xp+DkdiP6PtCsCBRgPiR3QUfQNoeR3iP2nSI+F8Wm5XQSuMVTqaTE4C/PoJgeOwW+0A==",
+            "hotel": "1451465882510",
+            "fullPrice": {
+              "amount": 14430,
+              "currency": "RUB"
+            },
+            "commission": {
+              "amount": 0,
+              "currency": "RUB"
+            },
+            "rooms": [
+              {
+                "token": "",
+                "name": "Полулюкс DBL",
+                "fullName": "Полулюкс DBL",
+                "parameters": {
+                  "childAge": 0,
+                  "adultsCount": 2,
+                  "systemAdultsCount": 2,
+                  "infantsCount": 0,
+                  "roomsCount": 1
+                }
+              }
+            ]
+          }
+        ],
+        "params": {
+          "checkOut": "2016-11-14",
+          "checkIn": "2016-11-13",
+          "rooms": [
+            {
+              "adults": 2
+            }
+          ],
+          "city": "MOW"
+        },
+        "hotels": [
+          {
+            "uid": "1451465882510",
+            "reviews": 0,
+            "phone": "+7(495)733-90-70",
+            "descriptionDescription": "Музей Изобразитльных Искусств им. А.Пушкина, Памятник Петру I, Храм Христа Спасителя",
+            "roomsNumber": 0,
+            "fax": "+7(495)733-9054",
+            "website": "www.keburpalace.ru",
+            "code": "1451465882510",
+            "checkIn": "00:00:00",
+            "distances": {
+              "MOW": 2.2673847062225785
+            },
+            "city": "MOW",
+            "category": "FOUR",
+            "coords": {
+              "longitude": 37.59600067138672,
+              "latitude": 55.73970031738281
+            },
+            "checkOut": "",
+            "address": "119034 Москва Остоженка улица, 32",
+            "email": "hotel@kebur.ru",
+            "name": "Кебур Палас",
+            "images": [
+              {
+                "src": "/imgs/hotels/ecc1cda5-ec64-4fb7-b7f5-2758fb320406"
+              },
+              {
+                "src": "/imgs/hotels/5aedfdb8-7d90-47bb-a827-c0b6642157c5"
+              },
+              {
+                "src": "/imgs/hotels/75c664e2-488a-42ca-9285-d0cc507ee309"
+              },
+              {
+                "src": "/imgs/hotels/84fa0d09-bc03-4a76-aaf8-1f0f88730a20"
+              },
+              {
+                "src": "/imgs/hotels/c83d88ac-4ff3-4cc3-847f-d37336dd14c4"
+              }
+            ],
+            "rating": 0,
+            "distance_to_center": 2.2673847062225785,
+            "facilities": []
+          }
+        ]
+      }
+    ],
+    "info": "Отель в Москве c 13.11.2016 по 14.11.2016, 2 взрослых"
+  }
+}

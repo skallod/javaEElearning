@@ -1,0 +1,89 @@
+package com.gridnine.bof.server.rules
+
+rule "rule 1"
+salience -1
+	when
+		proxy: com.gridnine.bof.server.rules.RuleProxy (
+			proxyType == "GDS_PARAMETERS"
+		)
+		propSet: com.gridnine.bof.server.gds.rules.proxy.GDSParametersProperties(
+			propSet.partnerCode == "letaem" || == "unifest2"
+		) from proxy.getPropertySet()
+	then
+		if(!(proxy.getAppliedRuleCategories().contains("additional-search-oneways") || proxy.getAppliedRuleCategories().contains("applicable-GDS"))){
+		   if(!proxy.getAppliedRuleCategories().contains("applicable-GDS")){
+			((com.gridnine.bof.server.gds.rules.proxy.GDSParametersActions) proxy.getActionSet()).addApplicableGDS("UNIFEST");
+			proxy.getAppliedRuleCategories().add("applicable-GDS");
+			if(proxy.getAppliedRuleCategories().contains("additional-search-oneways") || proxy.getAppliedRuleCategories().contains("applicable-GDS")){
+				proxy.getAppliedRules().add("24422FC9-C45C-4990-9DE8-42F7AF3AD377");
+				proxy.setRoundingMode("NONE");
+				proxy.setRoundingValue("V_1");
+			}
+		   }
+		   if(!proxy.getAppliedRuleCategories().contains("additional-search-oneways")){
+			((com.gridnine.bof.server.gds.rules.proxy.GDSParametersActions) proxy.getActionSet()).setSearchOW(false);
+			proxy.getAppliedRuleCategories().add("additional-search-oneways");
+			if(proxy.getAppliedRuleCategories().contains("additional-search-oneways") || proxy.getAppliedRuleCategories().contains("applicable-GDS")){
+				proxy.getAppliedRules().add("24422FC9-C45C-4990-9DE8-42F7AF3AD377");
+				proxy.setRoundingMode("NONE");
+				proxy.setRoundingValue("V_1");
+			}
+		   }
+		}
+end
+
+rule "rule 2"
+salience -2
+	when
+		proxy: com.gridnine.bof.server.rules.RuleProxy (
+			proxyType == "GDS_PARAMETERS"
+		)
+		propSet: com.gridnine.bof.server.gds.rules.proxy.GDSParametersProperties(
+			propSet.partnerCode == "qunar"
+		) from proxy.getPropertySet()
+	then
+		if(!(proxy.getAppliedRuleCategories().contains("additional-search-oneways") || proxy.getAppliedRuleCategories().contains("applicable-GDS"))){
+		   if(!proxy.getAppliedRuleCategories().contains("applicable-GDS")){
+			((com.gridnine.bof.server.gds.rules.proxy.GDSParametersActions) proxy.getActionSet()).addApplicableGDS("UNIFEST");
+			proxy.getAppliedRuleCategories().add("applicable-GDS");
+			if(proxy.getAppliedRuleCategories().contains("additional-search-oneways") || proxy.getAppliedRuleCategories().contains("applicable-GDS")){
+				proxy.getAppliedRules().add("176452FF-0635-4DF2-9461-2C0B4975AA7A");
+				proxy.setRoundingMode("NONE");
+				proxy.setRoundingValue("V_1");
+			}
+		   }
+		   if(!proxy.getAppliedRuleCategories().contains("additional-search-oneways")){
+			((com.gridnine.bof.server.gds.rules.proxy.GDSParametersActions) proxy.getActionSet()).setSearchOW(false);
+			proxy.getAppliedRuleCategories().add("additional-search-oneways");
+			if(proxy.getAppliedRuleCategories().contains("additional-search-oneways") || proxy.getAppliedRuleCategories().contains("applicable-GDS")){
+				proxy.getAppliedRules().add("176452FF-0635-4DF2-9461-2C0B4975AA7A");
+				proxy.setRoundingMode("NONE");
+				proxy.setRoundingValue("V_1");
+			}
+		   }
+		}
+end
+
+rule "rule 8"
+salience -8
+	when
+		proxy: com.gridnine.bof.server.rules.RuleProxy (
+			proxyType == "PRODUCT_COMMISSION"
+		)
+		propSet: com.gridnine.bof.server.model.rules.standard.proxy.BaseAirPropertySet(
+			propSet.gdsName == "GALILEO",
+			propSet.partnerCode == "startravel" || == "startravelapp" || == "startravel_tomsk" || == "startravel_vlad" || == "startravel_ufa" || == "startravel_krr" || == "startravel_goj" || == "startravel_rov" || == "startravel_vog" || == "startravel_kja" || == "startravel_cek"
+		) from proxy.getPropertySet()
+	then
+		if(!(proxy.getAppliedRuleCategories().contains("profit"))){
+		   if(!proxy.getAppliedRuleCategories().contains("profit")){
+			((com.gridnine.bof.server.model.rules.standard.proxy.BaseCommissionActionSet) proxy.getActionSet()).addProfitFareAndTaxesRate(0.0, null);
+			proxy.getAppliedRuleCategories().add("profit");
+			if(proxy.getAppliedRuleCategories().contains("profit")){
+				proxy.getAppliedRules().add("F8A567B4-CB09-46E3-A3D1-4DA6C088013F");
+				proxy.setRoundingMode("NONE");
+				proxy.setRoundingValue("V_1");
+			}
+		   }
+		}
+end

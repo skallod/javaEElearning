@@ -6,8 +6,19 @@ import junit.framework.TestSuite;
 import ru.galuzin.enum_test.GdsNameVo;
 import ru.galuzin.generics.Maximum;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.math.BigDecimal;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -163,4 +174,55 @@ public class AppTest
         }
         return result.toString();
     }
+
+    public void testMathLog(){
+        long time = System.currentTimeMillis();
+        //System.out.println(""+Math.sqrt(4));
+        double result= Math.log(Math.pow(Math.log(Math.pow(Math.log(Math.log(Math.log(Math.pow(Math.log(Math.log(Math.sqrt(Math.log(Math.PI)))),2d)))),2d)),2d));
+        for(int i=0; i<1000000;i++){
+            result+= Math.log(Math.pow(Math.log(Math.pow(Math.log(Math.log(Math.log(Math.pow(Math.log(Math.log(Math.sqrt(Math.log(Math.PI)))),2d)))),2d)),2d));
+        }
+        System.out.println(String.format("%d , %f",System.currentTimeMillis()-time,result));
+    }
+
+    public void test7(){
+        BigDecimal bd = new BigDecimal(251);
+        bd = bd.multiply(new BigDecimal(0.18d));
+        System.out.println("bd = " + bd);
+        if((true || true)&&false){
+            System.out.println("fdsa");
+        }else{
+            System.out.println("cxzv");
+        }
+    }
+
+    public void test8() throws IOException {
+        String url =
+                "http://195.151.27.110/u1c/NDS.aspx?ticket=4212442254014";
+        try {
+            HttpURLConnection conn =
+                    (HttpURLConnection) new URL(url).openConnection();
+            int respCode = conn.getResponseCode();
+
+            if (respCode == HttpURLConnection.HTTP_NOT_FOUND) {
+                throw new FileNotFoundException();
+            }
+
+            String contentType = conn.getContentType();
+            String contentDispositionHeader =
+                    conn.getHeaderField("content-disposition");
+            int contentLength = conn.getContentLength();
+            conn.getResponseMessage();
+            conn.getInputStream();
+            System.out.println("conn = " + conn);
+            /*if (contentType.startsWith("text/") || (contentLength == -1)) {
+                throw new IOException("This is not a binary file.");
+            }*/
+            InputStream raw = conn.getInputStream();
+        }finally {
+
+        }
+
+    }
+
 }

@@ -1,0 +1,83 @@
+<object class="com.gridnine.bof.common.hotels.model.HotelsPriceParameters">
+    <uid>0957d043-87fc-45ed-bfaa-605dde419d30</uid>
+    <salesContext class="com.gridnine.bof.common.gds.model.SalesContext">
+        <uid>38a34141-1d9a-43a7-a9ac-d7e0de604215</uid>
+        <agency class="com.gridnine.bof.common.model.EntityReference">
+            <uid>a4e25c11-a717-4fe2-8ef5-96ace2904d3d</uid>
+            <type>com.gridnine.bof.common.model.profile.Organization</type>
+            <caption><![CDATA[Unifest]]></caption>
+        </agency>
+        <salesPoint class="com.gridnine.bof.common.model.EntityReference">
+            <uid>c34656f4-61af-4035-944c-e086c98b3611</uid>
+            <type>com.gridnine.bof.common.model.profile.SalesPoint</type>
+            <caption><![CDATA[Web Site]]></caption>
+        </salesPoint>
+        <corporateClient class="com.gridnine.bof.common.model.EntityReference">
+            <uid>98b07c9d-a41b-4648-8273-37063952b823</uid>
+            <type>com.gridnine.bof.common.model.profile.Organization</type>
+            <caption><![CDATA[Розничный клиент]]></caption>
+        </corporateClient>
+        <partnerProfile class="com.gridnine.bof.common.model.EntityReference">
+            <uid>8fdd0480-da55-4cf7-b47f-deb03bfd49de</uid>
+            <type>com.gridnine.bof.common.model.profile.Organization</type>
+            <caption><![CDATA[fest.pososhok.ru]]></caption>
+        </partnerProfile>
+        <client class="com.gridnine.bof.common.model.EntityReference">
+            <uid>734cc05b-31b9-450c-ba50-67d2fb5ac0dc</uid>
+            <type>com.gridnine.bof.common.model.profile.Person</type>
+            <caption><![CDATA[Fest 0.]]></caption>
+        </client>
+    </salesContext>
+    <location>MOW</location>
+    <checkInDate>2016-10-21 00:00:00.000</checkInDate>
+    <checkOutDate>2016-10-22 00:00:00.000</checkOutDate>
+    <searchInternal>false</searchInternal>
+    <customerCode>1573</customerCode>
+    <rooms>
+        <item class="com.gridnine.bof.common.hotels.model.HotelsRoomSearchParameters">
+            <uid>0be38693-c0cc-4624-a7ac-4faa0806a75e</uid>
+            <adultsCount>2</adultsCount>
+            <systemAdultsCount>0</systemAdultsCount>
+            <childAge>0</childAge>
+            <infantsCount>0</infantsCount>
+        </item>
+    </rooms>
+    <offers>
+        <item class="com.gridnine.bof.common.hotels.RoomOffer">
+            <uid>26b12c44-36bc-4e16-b166-914c9cb91105</uid>
+            <id>1361566</id>
+            <token>ZXlKamIyUmxJam9pTVRNMk1UVTJOaUlzSW1Gc2JHOTBiV1Z1ZENJNklqazFNREF3TURFck1UUXpN
+                RFUwT0NzNU5UQXdNREF4S3pJaQpmUT09fjp+QUNBREVNU0VSVklDRX46fjIhMyE1ISF+On4xMjYy
+                Ni4wMH46flJVQn46fjEyNjI2LjAw</token>
+            <hotel>1455108448391</hotel>
+            <provider>ACADEMSERVICE</provider>
+            <price class="com.gridnine.bof.common.model.system.Money">
+                <uid>5f267c78-4f3c-4c78-b23f-4d6bc372a398</uid>
+                <value>12626</value>
+                <currency>RUB</currency>
+            </price>
+            <equivalentPrice>12626</equivalentPrice>
+            <bar>false</bar>
+            <specialOffer>false</specialOffer>
+            <byRequest>false</byRequest>
+            <freeForSale>false</freeForSale>
+            <rooms>
+                <item class="com.gridnine.bof.common.hotels.OfferRoom">
+                    <uid>3fef1799-df10-411e-9816-b0a1e2656be3</uid>
+                    <token>ZXlKamIyUmxJam9pTVRNMk1UVTJOaUlzSW1Gc2JHOTBiV1Z1ZENJNklqazFNREF3TURFck1UUXpN
+                        RFUwT0NzNU5UQXdNREF4S3pJaQpmUT09fjp+QUNBREVNU0VSVklDRX46fjIhMyE1ISF+On4xMjYy
+                        Ni4wMH46flJVQn46fjEyNjI2LjAw</token>
+                    <name>Superior</name>
+                    <count>0</count>
+                    <parameters class="com.gridnine.bof.common.hotels.model.HotelsRoomSearchParameters">
+                        <uid>0be38693-c0cc-4624-a7ac-4faa0806a75e</uid>
+                        <adultsCount>2</adultsCount>
+                        <systemAdultsCount>0</systemAdultsCount>
+                        <childAge>0</childAge>
+                        <infantsCount>0</infantsCount>
+                    </parameters>
+                </item>
+            </rooms>
+        </item>
+    </offers>
+</object>

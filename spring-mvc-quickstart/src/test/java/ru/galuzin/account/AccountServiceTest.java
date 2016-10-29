@@ -1,16 +1,21 @@
 package ru.galuzin.account;
 
+import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static java.util.function.Predicate.isEqual;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -70,5 +75,21 @@ public class AccountServiceTest {
 		return userDetails.getAuthorities().stream()
 				.map(GrantedAuthority::getAuthority)
 				.anyMatch(isEqual(role));
+	}
+
+	@Test
+	public void whenNotUseSpyAnnotation_thenCorrect() {
+		List<String> spyList = Mockito.spy(new ArrayList<String>());
+
+		spyList.add("one");
+		spyList.add("two");
+
+		Mockito.verify(spyList).add("one");
+		Mockito.verify(spyList).add("two");
+
+		Assert.assertEquals(2, spyList.size());
+
+		Mockito.doReturn(100).when(spyList).size();
+		Assert.assertEquals(100, spyList.size());
 	}
 }

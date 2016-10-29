@@ -78,6 +78,7 @@ public class TestsRulesEngineTest extends TestCase {
 	}
 
 	public void testTestsRulesEngine() throws Exception {
+		Thread.sleep(3000);
 		while (machineResultSet.next()) {
 			Machine machine = machineResultSet.getMachine();
 			testsRulesEngine.assignTests(machine);

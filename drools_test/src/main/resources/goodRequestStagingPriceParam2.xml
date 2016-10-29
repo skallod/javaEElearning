@@ -1,0 +1,607 @@
+<object class="com.gridnine.bof.common.hotels.model.HotelsPriceParameters">
+    <uid>0957d043-87fc-45ed-bfaa-605dde419d30</uid>
+    <salesContext class="com.gridnine.bof.common.gds.model.SalesContext">
+        <uid>38a34141-1d9a-43a7-a9ac-d7e0de604215</uid>
+        <agency class="com.gridnine.bof.common.model.EntityReference">
+            <uid>a4e25c11-a717-4fe2-8ef5-96ace2904d3d</uid>
+            <type>com.gridnine.bof.common.model.profile.Organization</type>
+            <caption><![CDATA[Unifest]]></caption>
+        </agency>
+        <salesPoint class="com.gridnine.bof.common.model.EntityReference">
+            <uid>c34656f4-61af-4035-944c-e086c98b3611</uid>
+            <type>com.gridnine.bof.common.model.profile.SalesPoint</type>
+            <caption><![CDATA[Web Site]]></caption>
+        </salesPoint>
+        <corporateClient class="com.gridnine.bof.common.model.EntityReference">
+            <uid>98b07c9d-a41b-4648-8273-37063952b823</uid>
+            <type>com.gridnine.bof.common.model.profile.Organization</type>
+            <caption><![CDATA[Розничный клиент]]></caption>
+        </corporateClient>
+        <partnerProfile class="com.gridnine.bof.common.model.EntityReference">
+            <uid>8fdd0480-da55-4cf7-b47f-deb03bfd49de</uid>
+            <type>com.gridnine.bof.common.model.profile.Organization</type>
+            <caption><![CDATA[fest.pososhok.ru]]></caption>
+        </partnerProfile>
+        <client class="com.gridnine.bof.common.model.EntityReference">
+            <uid>734cc05b-31b9-450c-ba50-67d2fb5ac0dc</uid>
+            <type>com.gridnine.bof.common.model.profile.Person</type>
+            <caption><![CDATA[Fest 0.]]></caption>
+        </client>
+    </salesContext>
+    <location>MOW</location>
+    <checkInDate>2016-10-21 00:00:00.000</checkInDate>
+    <checkOutDate>2016-10-22 00:00:00.000</checkOutDate>
+    <searchInternal>false</searchInternal>
+    <customerCode>1573</customerCode>
+    <rooms>
+        <item class="com.gridnine.bof.common.hotels.model.HotelsRoomSearchParameters">
+            <uid>0be38693-c0cc-4624-a7ac-4faa0806a75e</uid>
+            <adultsCount>2</adultsCount>
+            <systemAdultsCount>0</systemAdultsCount>
+            <childAge>0</childAge>
+            <infantsCount>0</infantsCount>
+        </item>
+    </rooms>
+    <offers>
+        <item class="com.gridnine.bof.common.hotels.HotelOffer">
+            <uid>ab5aecf6-9ef6-468e-9d0b-735b22c0dfa9</uid>
+            <id>1361561</id>
+            <token>ZXlKamIyUmxJam9pTVRNMk1UVTJNU0lzSW1Gc2JHOTBiV1Z1ZENJNklqazFNREF3TURFck1UUXpN
+                RFUwTXlzNU5UQXdNREF4S3pJaQpmUT09fjp+QUNBREVNU0VSVklDRX46fjIhMyE1ISF+On4xNTM0
+                MC4wMH46flJVQn46fjE1MzQwLjAw</token>
+            <hotel>1455108448391</hotel>
+            <provider>ACADEMSERVICE</provider>
+            <vendor>ACADEMSERVICE</vendor>
+            <price class="com.gridnine.bof.common.model.system.Money">
+                <uid>75bacd80-3410-4291-8fdc-1935d427f973</uid>
+                <value>15340.0</value>
+                <currency>RUB</currency>
+            </price>
+            <commission class="com.gridnine.bof.common.model.system.Money">
+                <uid>431b1218-a46a-4399-9823-babb62b82e9e</uid>
+                <value>0.0</value>
+                <currency>RUB</currency>
+            </commission>
+            <equivalentPrice>15340.0</equivalentPrice>
+            <fee>0.0</fee>
+            <cancelationPolicy class="com.gridnine.bof.common.hotels.CancelationPolicy">
+                <uid>691e3fb9-02b9-4139-90ba-08adcf622176</uid>
+                <canBeCancelled>true</canBeCancelled>
+                <filled>false</filled>
+            </cancelationPolicy>
+            <bar>false</bar>
+            <specialOffer>false</specialOffer>
+            <byRequest>false</byRequest>
+            <freeForSale>true</freeForSale>
+            <rooms>
+                <item class="com.gridnine.bof.common.hotels.OfferRoom">
+                    <uid>af1d1124-3642-4954-88a4-d3ee616ae81b</uid>
+                    <token>ZXlKamIyUmxJam9pTVRNMk1UVTJNU0lzSW1Gc2JHOTBiV1Z1ZENJNklqazFNREF3TURFck1UUXpN
+                        RFUwTXlzNU5UQXdNREF4S3pJaQpmUT09fjp+QUNBREVNU0VSVklDRX46fjIhMyE1ISF+On4xNTM0
+                        MC4wMH46flJVQn46fjE1MzQwLjAw</token>
+                    <name>Business</name>
+                    <description>Business</description>
+                    <count>5</count>
+                    <roomSize>DOUBLE</roomSize>
+                    <parameters class="com.gridnine.bof.common.hotels.model.HotelsRoomSearchParameters">
+                        <uid>0be38693-c0cc-4624-a7ac-4faa0806a75e</uid>
+                        <adultsCount>2</adultsCount>
+                        <systemAdultsCount>0</systemAdultsCount>
+                        <childAge>0</childAge>
+                        <infantsCount>0</infantsCount>
+                    </parameters>
+                </item>
+            </rooms>
+        </item>
+        <item class="com.gridnine.bof.common.hotels.HotelOffer">
+            <uid>f40e8a01-f569-4704-92df-8ea6a20b4f68</uid>
+            <id>1361564</id>
+            <token>ZXlKamIyUmxJam9pTVRNMk1UVTJOQ0lzSW1Gc2JHOTBiV1Z1ZENJNklqazFNREF3TURFck1UUXpN
+                RFUwTmlzNU5UQXdNREF4S3pJaQpmUT09fjp+QUNBREVNU0VSVklDRX46fjIhMyE1ISF+On4xMTgw
+                MC4wMH46flJVQn46fjExODAwLjAw</token>
+            <hotel>1455108448391</hotel>
+            <provider>ACADEMSERVICE</provider>
+            <vendor>ACADEMSERVICE</vendor>
+            <price class="com.gridnine.bof.common.model.system.Money">
+                <uid>13d0cccd-749c-46f2-88a5-f8039b8ae29a</uid>
+                <value>11800.0</value>
+                <currency>RUB</currency>
+            </price>
+            <commission class="com.gridnine.bof.common.model.system.Money">
+                <uid>e0c7c7ef-47bb-45c5-a003-c5678899592c</uid>
+                <value>0.0</value>
+                <currency>RUB</currency>
+            </commission>
+            <equivalentPrice>11800.0</equivalentPrice>
+            <fee>0.0</fee>
+            <cancelationPolicy class="com.gridnine.bof.common.hotels.CancelationPolicy">
+                <uid>39b71b43-568a-4c7f-9461-877dfc7dc18e</uid>
+                <canBeCancelled>true</canBeCancelled>
+                <filled>false</filled>
+            </cancelationPolicy>
+            <bar>false</bar>
+            <specialOffer>false</specialOffer>
+            <byRequest>false</byRequest>
+            <freeForSale>true</freeForSale>
+            <rooms>
+                <item class="com.gridnine.bof.common.hotels.OfferRoom">
+                    <uid>b2925818-25a8-40fd-8298-76f21621ebcd</uid>
+                    <token>ZXlKamIyUmxJam9pTVRNMk1UVTJOQ0lzSW1Gc2JHOTBiV1Z1ZENJNklqazFNREF3TURFck1UUXpN
+                        RFUwTmlzNU5UQXdNREF4S3pJaQpmUT09fjp+QUNBREVNU0VSVklDRX46fjIhMyE1ISF+On4xMTgw
+                        MC4wMH46flJVQn46fjExODAwLjAw</token>
+                    <name>Standart</name>
+                    <description>Standart</description>
+                    <count>5</count>
+                    <roomSize>DOUBLE</roomSize>
+                    <parameters class="com.gridnine.bof.common.hotels.model.HotelsRoomSearchParameters" uid="0be38693-c0cc-4624-a7ac-4faa0806a75e"/>
+                </item>
+            </rooms>
+        </item>
+        <item class="com.gridnine.bof.common.hotels.HotelOffer">
+            <uid>d3fd5e56-3f71-413f-b60a-8bb8ac99622e</uid>
+            <id>1361566</id>
+            <token>ZXlKamIyUmxJam9pTVRNMk1UVTJOaUlzSW1Gc2JHOTBiV1Z1ZENJNklqazFNREF3TURFck1UUXpN
+                RFUwT0NzNU5UQXdNREF4S3pJaQpmUT09fjp+QUNBREVNU0VSVklDRX46fjIhMyE1ISF+On4xMjYy
+                Ni4wMH46flJVQn46fjEyNjI2LjAw</token>
+            <hotel>1455108448391</hotel>
+            <provider>ACADEMSERVICE</provider>
+            <vendor>ACADEMSERVICE</vendor>
+            <price class="com.gridnine.bof.common.model.system.Money">
+                <uid>55c68bc8-4c3c-415a-a97c-b17ec1cb67e6</uid>
+                <value>12626.0</value>
+                <currency>RUB</currency>
+            </price>
+            <commission class="com.gridnine.bof.common.model.system.Money">
+                <uid>12064b3c-0ba1-4a86-aac8-226f9669aa92</uid>
+                <value>0.0</value>
+                <currency>RUB</currency>
+            </commission>
+            <equivalentPrice>12626.0</equivalentPrice>
+            <fee>0.0</fee>
+            <cancelationPolicy class="com.gridnine.bof.common.hotels.CancelationPolicy">
+                <uid>a9a4ac7d-ca0a-4f06-bf96-d2b04f2d0918</uid>
+                <canBeCancelled>true</canBeCancelled>
+                <filled>false</filled>
+            </cancelationPolicy>
+            <bar>false</bar>
+            <specialOffer>false</specialOffer>
+            <byRequest>false</byRequest>
+            <freeForSale>true</freeForSale>
+            <rooms>
+                <item class="com.gridnine.bof.common.hotels.OfferRoom">
+                    <uid>91b9ad77-3b9b-4180-a4e0-8f496b6f66be</uid>
+                    <token>ZXlKamIyUmxJam9pTVRNMk1UVTJOaUlzSW1Gc2JHOTBiV1Z1ZENJNklqazFNREF3TURFck1UUXpN
+                        RFUwT0NzNU5UQXdNREF4S3pJaQpmUT09fjp+QUNBREVNU0VSVklDRX46fjIhMyE1ISF+On4xMjYy
+                        Ni4wMH46flJVQn46fjEyNjI2LjAw</token>
+                    <name>Superior</name>
+                    <description>Superior</description>
+                    <count>5</count>
+                    <roomSize>DOUBLE</roomSize>
+                    <parameters class="com.gridnine.bof.common.hotels.model.HotelsRoomSearchParameters" uid="0be38693-c0cc-4624-a7ac-4faa0806a75e"/>
+                </item>
+            </rooms>
+        </item>
+        <item class="com.gridnine.bof.common.hotels.HotelOffer">
+            <uid>973c2185-dfa9-40da-ae13-7a60128229db</uid>
+            <id>1430560</id>
+            <token>ZXlKamIyUmxJam9pTVRRek1EVTJNQ0lzSW1Gc2JHOTBiV1Z1ZENJNklqazFNREF3TURFck1UUXpN
+                RFUwTkNzNU5UQXdNREF4S3pJaQpmUT09fjp+QUNBREVNU0VSVklDRX46fjIhMyE1ISF+On4xNzcw
+                MC4wMH46flJVQn46fjE3NzAwLjAw</token>
+            <hotel>1455108448391</hotel>
+            <provider>ACADEMSERVICE</provider>
+            <vendor>ACADEMSERVICE</vendor>
+            <price class="com.gridnine.bof.common.model.system.Money">
+                <uid>05db83a1-45a5-47f5-a6c0-c19d4979651b</uid>
+                <value>17700.0</value>
+                <currency>RUB</currency>
+            </price>
+            <commission class="com.gridnine.bof.common.model.system.Money">
+                <uid>bc3d1667-82fe-49bc-939d-12947c814496</uid>
+                <value>0.0</value>
+                <currency>RUB</currency>
+            </commission>
+            <equivalentPrice>17700.0</equivalentPrice>
+            <fee>0.0</fee>
+            <cancelationPolicy class="com.gridnine.bof.common.hotels.CancelationPolicy">
+                <uid>115108aa-f2bd-4b80-97cd-326eca677df8</uid>
+                <canBeCancelled>true</canBeCancelled>
+                <filled>false</filled>
+            </cancelationPolicy>
+            <bar>false</bar>
+            <specialOffer>false</specialOffer>
+            <byRequest>false</byRequest>
+            <freeForSale>true</freeForSale>
+            <rooms>
+                <item class="com.gridnine.bof.common.hotels.OfferRoom">
+                    <uid>922954fd-5fa6-4381-aba0-3927cae12316</uid>
+                    <token>ZXlKamIyUmxJam9pTVRRek1EVTJNQ0lzSW1Gc2JHOTBiV1Z1ZENJNklqazFNREF3TURFck1UUXpN
+                        RFUwTkNzNU5UQXdNREF4S3pJaQpmUT09fjp+QUNBREVNU0VSVklDRX46fjIhMyE1ISF+On4xNzcw
+                        MC4wMH46flJVQn46fjE3NzAwLjAw</token>
+                    <name>Executive Suite</name>
+                    <description>Executive Suite</description>
+                    <count>5</count>
+                    <roomSize>DOUBLE</roomSize>
+                    <parameters class="com.gridnine.bof.common.hotels.model.HotelsRoomSearchParameters" uid="0be38693-c0cc-4624-a7ac-4faa0806a75e"/>
+                </item>
+            </rooms>
+        </item>
+        <item class="com.gridnine.bof.common.hotels.HotelOffer">
+            <uid>2e621380-3445-4c19-8960-08d80f83c7ef</uid>
+            <id>U3RhbmRhcnQhQkI=</id>
+            <token>NGY0ZWQ2Y2EtNWRjNi00Mzg1LTllMmMtYTZmYzRhNjRhNGRjfjp+T0tUT0dPfjp+LTEwMTE3MDM4
+                MzQtIS1BY2FzZS0hLTItIS1TdGFuZGFydC0hLX46fjEyOTE5fjp+UlVCfjp+bnVsbA==</token>
+            <hotel>1455108448391</hotel>
+            <provider>OKTOGO</provider>
+            <vendor>Acase</vendor>
+            <price class="com.gridnine.bof.common.model.system.Money">
+                <uid>724a8af0-2793-4eb2-b293-816adc34a04a</uid>
+                <value>12919.0</value>
+                <currency>RUB</currency>
+            </price>
+            <commission class="com.gridnine.bof.common.model.system.Money">
+                <uid>a9ffd288-662a-46f6-aade-4787d4ddd470</uid>
+                <value>0.0</value>
+                <currency>RUB</currency>
+            </commission>
+            <equivalentPrice>12919.0</equivalentPrice>
+            <fee>0.0</fee>
+            <cancelationPolicy class="com.gridnine.bof.common.hotels.CancelationPolicy">
+                <uid>11f366aa-2c57-43d0-b795-afa2eadb7ef8</uid>
+                <canBeCancelled>true</canBeCancelled>
+                <filled>true</filled>
+                <charges>
+                    <item class="com.gridnine.bof.common.hotels.CancellationCharge">
+                        <uid>1adaf5af-16d6-4785-9953-2ab1fae01698</uid>
+                        <start>2016-10-19 21:00:00.000</start>
+                        <end>2016-10-20 21:00:00.000</end>
+                        <comment>12790 RUB</comment>
+                        <price class="com.gridnine.bof.common.model.system.Money">
+                            <uid>ca90e107-5ba1-4c04-8a94-a5ebcdf74c93</uid>
+                            <value>12790.0</value>
+                            <currency>RUB</currency>
+                        </price>
+                    </item>
+                </charges>
+            </cancelationPolicy>
+            <bar>false</bar>
+            <specialOffer>false</specialOffer>
+            <byRequest>false</byRequest>
+            <freeForSale>true</freeForSale>
+            <rooms>
+                <item class="com.gridnine.bof.common.hotels.OfferRoom">
+                    <uid>69192ca5-4c4a-4882-bd9c-a2d36333de70</uid>
+                    <token>NGY0ZWQ2Y2EtNWRjNi00Mzg1LTllMmMtYTZmYzRhNjRhNGRjfjp+T0tUT0dPfjp+LTEwMTE3MDM4
+                        MzQtIS1BY2FzZS0hLTItIS1TdGFuZGFydC0hLX46fjEyOTE5fjp+UlVCfjp+bnVsbA==</token>
+                    <name>Standart</name>
+                    <count>0</count>
+                    <roomSize>DOUBLE</roomSize>
+                    <parameters class="com.gridnine.bof.common.hotels.model.HotelsRoomSearchParameters" uid="0be38693-c0cc-4624-a7ac-4faa0806a75e"/>
+                </item>
+            </rooms>
+        </item>
+        <item class="com.gridnine.bof.common.hotels.HotelOffer">
+            <uid>a9c564ff-f975-44de-b292-5956fefe2cc1</uid>
+            <id>U3VwZXJpb3IhQkI=</id>
+            <token>NTAyM2U0MmUtMjQ4ZC00Y2Y4LWJjNGUtNTNkOGE4NGQ1ZGNifjp+T0tUT0dPfjp+LTEwMTE3MDM4
+                MzQtIS1BY2FzZS0hLTItIS1TdXBlcmlvci0hLX46fjEzODI0fjp+UlVCfjp+bnVsbA==</token>
+            <hotel>1455108448391</hotel>
+            <provider>OKTOGO</provider>
+            <vendor>Acase</vendor>
+            <price class="com.gridnine.bof.common.model.system.Money">
+                <uid>9d1871c3-302a-4628-a7bb-a10d42a3cf5e</uid>
+                <value>13824.0</value>
+                <currency>RUB</currency>
+            </price>
+            <commission class="com.gridnine.bof.common.model.system.Money">
+                <uid>a608ddfe-4fc5-4160-bb65-1b2efc655a02</uid>
+                <value>0.0</value>
+                <currency>RUB</currency>
+            </commission>
+            <equivalentPrice>13824.0</equivalentPrice>
+            <fee>0.0</fee>
+            <cancelationPolicy class="com.gridnine.bof.common.hotels.CancelationPolicy">
+                <uid>1b7b5056-4ecd-492c-9b17-14e2798a76ff</uid>
+                <canBeCancelled>true</canBeCancelled>
+                <filled>true</filled>
+                <charges>
+                    <item class="com.gridnine.bof.common.hotels.CancellationCharge">
+                        <uid>10945220-04ca-41e7-afc0-a3418a21fedd</uid>
+                        <start>2016-10-19 21:00:00.000</start>
+                        <end>2016-10-20 21:00:00.000</end>
+                        <comment>13686 RUB</comment>
+                        <price class="com.gridnine.bof.common.model.system.Money">
+                            <uid>838823ff-10fc-436f-bcc4-42a61b28e046</uid>
+                            <value>13686.0</value>
+                            <currency>RUB</currency>
+                        </price>
+                    </item>
+                </charges>
+            </cancelationPolicy>
+            <bar>false</bar>
+            <specialOffer>false</specialOffer>
+            <byRequest>false</byRequest>
+            <freeForSale>true</freeForSale>
+            <rooms>
+                <item class="com.gridnine.bof.common.hotels.OfferRoom">
+                    <uid>6180b8d1-24df-443c-9a98-a6282d231345</uid>
+                    <token>NTAyM2U0MmUtMjQ4ZC00Y2Y4LWJjNGUtNTNkOGE4NGQ1ZGNifjp+T0tUT0dPfjp+LTEwMTE3MDM4
+                        MzQtIS1BY2FzZS0hLTItIS1TdXBlcmlvci0hLX46fjEzODI0fjp+UlVCfjp+bnVsbA==</token>
+                    <name>Superior</name>
+                    <count>0</count>
+                    <roomSize>DOUBLE</roomSize>
+                    <parameters class="com.gridnine.bof.common.hotels.model.HotelsRoomSearchParameters" uid="0be38693-c0cc-4624-a7ac-4faa0806a75e"/>
+                </item>
+            </rooms>
+        </item>
+        <item class="com.gridnine.bof.common.hotels.HotelOffer">
+            <uid>4b6e50d4-ddf0-4121-b261-ab0512412979</uid>
+            <id>RXhlY3V0aXZlIFN1aXRlIUJC</id>
+            <token>NjRjNGRiOWItNzNhOC00ZDE2LWE5MDYtNzRmOGMzOGFiZWEzfjp+T0tUT0dPfjp+LTEwMTE3MDM4
+                MzQtIS1BY2FzZS0hLTItIS1FeGVjdXRpdmUgU3VpdGUtIS1+On4xOTM3OH46flJVQn46fm51bGw=</token>
+            <hotel>1455108448391</hotel>
+            <provider>OKTOGO</provider>
+            <vendor>Acase</vendor>
+            <price class="com.gridnine.bof.common.model.system.Money">
+                <uid>9df00464-8c18-4fad-aed0-b6c1daf7683e</uid>
+                <value>19378.0</value>
+                <currency>RUB</currency>
+            </price>
+            <commission class="com.gridnine.bof.common.model.system.Money">
+                <uid>109df9d7-217f-440c-bbd7-e9115e16fff6</uid>
+                <value>0.0</value>
+                <currency>RUB</currency>
+            </commission>
+            <equivalentPrice>19378.0</equivalentPrice>
+            <fee>0.0</fee>
+            <cancelationPolicy class="com.gridnine.bof.common.hotels.CancelationPolicy">
+                <uid>28d77aa1-912a-49f4-a6f8-9ad22c09a87a</uid>
+                <canBeCancelled>true</canBeCancelled>
+                <filled>true</filled>
+                <charges>
+                    <item class="com.gridnine.bof.common.hotels.CancellationCharge">
+                        <uid>5f2c5ca6-51ae-4223-ad71-b95aeb4926f3</uid>
+                        <start>2016-10-19 21:00:00.000</start>
+                        <end>2016-10-20 21:00:00.000</end>
+                        <comment>19184 RUB</comment>
+                        <price class="com.gridnine.bof.common.model.system.Money">
+                            <uid>bfd2ba4b-6bf5-41b7-8339-b531b1fe0f48</uid>
+                            <value>19184.0</value>
+                            <currency>RUB</currency>
+                        </price>
+                    </item>
+                </charges>
+            </cancelationPolicy>
+            <bar>false</bar>
+            <specialOffer>false</specialOffer>
+            <byRequest>false</byRequest>
+            <freeForSale>true</freeForSale>
+            <rooms>
+                <item class="com.gridnine.bof.common.hotels.OfferRoom">
+                    <uid>a3fd88e9-8c65-42bd-aee2-19180f44a8d1</uid>
+                    <token>NjRjNGRiOWItNzNhOC00ZDE2LWE5MDYtNzRmOGMzOGFiZWEzfjp+T0tUT0dPfjp+LTEwMTE3MDM4
+                        MzQtIS1BY2FzZS0hLTItIS1FeGVjdXRpdmUgU3VpdGUtIS1+On4xOTM3OH46flJVQn46fm51bGw=</token>
+                    <name>Executive Suite</name>
+                    <count>0</count>
+                    <roomSize>DOUBLE</roomSize>
+                    <parameters class="com.gridnine.bof.common.hotels.model.HotelsRoomSearchParameters" uid="0be38693-c0cc-4624-a7ac-4faa0806a75e"/>
+                </item>
+            </rooms>
+        </item>
+        <item class="com.gridnine.bof.common.hotels.HotelOffer">
+            <uid>08f38356-6808-4f21-9c6a-1242278bdb02</uid>
+            <id>35563</id>
+            <token>MzU1NjMhMCExNDowMCExMjowMCEhMn46fkFfQU5EX0F+On4yITEhOSEhfjp+MTE5MDAuMDB+On5S
+                VUJ+On4xMTgwMC4wMA==</token>
+            <hotel>1455108448391</hotel>
+            <provider>A_AND_A</provider>
+            <vendor>A_AND_A</vendor>
+            <price class="com.gridnine.bof.common.model.system.Money">
+                <uid>4ed571bc-e684-43f4-a0b2-ef2acc5c8e3e</uid>
+                <value>11900.0</value>
+                <currency>RUB</currency>
+            </price>
+            <commission class="com.gridnine.bof.common.model.system.Money">
+                <uid>04e3b266-daa3-4385-a043-7be8d0d63064</uid>
+                <value>0.0</value>
+                <currency>RUB</currency>
+            </commission>
+            <equivalentPrice>11900.0</equivalentPrice>
+            <fee>0.0</fee>
+            <cancelationPolicy class="com.gridnine.bof.common.hotels.CancelationPolicy">
+                <uid>dbe6782e-e57f-4de7-8b12-ae2e5ca2aaa7</uid>
+                <canBeCancelled>true</canBeCancelled>
+                <filled>true</filled>
+                <charges>
+                    <item class="com.gridnine.bof.common.hotels.CancellationCharge">
+                        <uid>fa9b0511-787f-4090-b589-dd9589b13fa1</uid>
+                        <start>2016-10-19 21:00:00.000</start>
+                        <end>2016-10-20 21:00:00.000</end>
+                        <comment>11900.00 RUB</comment>
+                        <price class="com.gridnine.bof.common.model.system.Money">
+                            <uid>b693d5c8-6734-4328-9bab-11e78486f642</uid>
+                            <value>11900.0</value>
+                            <currency>RUB</currency>
+                        </price>
+                    </item>
+                </charges>
+            </cancelationPolicy>
+            <bar>false</bar>
+            <specialOffer>false</specialOffer>
+            <byRequest>false</byRequest>
+            <freeForSale>true</freeForSale>
+            <rooms>
+                <item class="com.gridnine.bof.common.hotels.OfferRoom">
+                    <uid>c77d63b8-f7fd-4da4-9d57-719a57364004</uid>
+                    <token>MzU1NjMhMCExNDowMCExMjowMCEhMn46fkFfQU5EX0F+On4yITEhOSEhfjp+MTE5MDAuMDB+On5S
+                        VUJ+On4xMTgwMC4wMA==</token>
+                    <name>стандарт </name>
+                    <count>9</count>
+                    <roomSize>DOUBLE</roomSize>
+                    <parameters class="com.gridnine.bof.common.hotels.model.HotelsRoomSearchParameters" uid="0be38693-c0cc-4624-a7ac-4faa0806a75e"/>
+                </item>
+            </rooms>
+        </item>
+        <item class="com.gridnine.bof.common.hotels.HotelOffer">
+            <uid>e23f623e-5c78-44b0-9b5c-9575962801fd</uid>
+            <id>35564</id>
+            <token>MzU1NjQhMCExNDowMCExMjowMCEhMn46fkFfQU5EX0F+On4yITEhNSEhfjp+MTU0NTAuMDB+On5S
+                VUJ+On4xNTM0MC4wMA==</token>
+            <hotel>1455108448391</hotel>
+            <provider>A_AND_A</provider>
+            <vendor>A_AND_A</vendor>
+            <price class="com.gridnine.bof.common.model.system.Money">
+                <uid>a4585451-edd8-4884-9926-052b09650fa4</uid>
+                <value>15450.0</value>
+                <currency>RUB</currency>
+            </price>
+            <commission class="com.gridnine.bof.common.model.system.Money">
+                <uid>da6295e2-80f0-4a67-8f4c-4cfad6963b99</uid>
+                <value>0.0</value>
+                <currency>RUB</currency>
+            </commission>
+            <equivalentPrice>15450.0</equivalentPrice>
+            <fee>0.0</fee>
+            <cancelationPolicy class="com.gridnine.bof.common.hotels.CancelationPolicy">
+                <uid>450e97c1-e9de-401a-b7c3-4e77650aaa38</uid>
+                <canBeCancelled>true</canBeCancelled>
+                <filled>true</filled>
+                <charges>
+                    <item class="com.gridnine.bof.common.hotels.CancellationCharge">
+                        <uid>9edd1592-86af-4a16-9b31-fb924f40f25e</uid>
+                        <start>2016-10-19 21:00:00.000</start>
+                        <end>2016-10-20 21:00:00.000</end>
+                        <comment>15450.00 RUB</comment>
+                        <price class="com.gridnine.bof.common.model.system.Money">
+                            <uid>b97c44f7-2596-4de3-bd82-1462e94901d3</uid>
+                            <value>15450.0</value>
+                            <currency>RUB</currency>
+                        </price>
+                    </item>
+                </charges>
+            </cancelationPolicy>
+            <bar>false</bar>
+            <specialOffer>false</specialOffer>
+            <byRequest>false</byRequest>
+            <freeForSale>false</freeForSale>
+            <rooms>
+                <item class="com.gridnine.bof.common.hotels.OfferRoom">
+                    <uid>dba652ed-3182-41a9-a487-7d27b0fb5504</uid>
+                    <token>MzU1NjQhMCExNDowMCExMjowMCEhMn46fkFfQU5EX0F+On4yITEhNSEhfjp+MTU0NTAuMDB+On5S
+                        VUJ+On4xNTM0MC4wMA==</token>
+                    <name>бизнес </name>
+                    <count>5</count>
+                    <roomSize>DOUBLE</roomSize>
+                    <parameters class="com.gridnine.bof.common.hotels.model.HotelsRoomSearchParameters" uid="0be38693-c0cc-4624-a7ac-4faa0806a75e"/>
+                </item>
+            </rooms>
+        </item>
+        <item class="com.gridnine.bof.common.hotels.HotelOffer">
+            <uid>e663d82b-af61-44b1-81d0-a48a32f6e43e</uid>
+            <id>35567</id>
+            <token>MzU1NjchMCExNDowMCExMjowMCEhMn46fkFfQU5EX0F+On4yITEhNSEhfjp+MTc4MDAuMDB+On5S
+                VUJ+On4xNzcwMC4wMA==</token>
+            <hotel>1455108448391</hotel>
+            <provider>A_AND_A</provider>
+            <vendor>A_AND_A</vendor>
+            <price class="com.gridnine.bof.common.model.system.Money">
+                <uid>1228b5d1-4259-4d39-9a12-b16a2710df2a</uid>
+                <value>17800.0</value>
+                <currency>RUB</currency>
+            </price>
+            <commission class="com.gridnine.bof.common.model.system.Money">
+                <uid>3938efe8-4241-4ee4-abe7-6b8bca11e994</uid>
+                <value>0.0</value>
+                <currency>RUB</currency>
+            </commission>
+            <equivalentPrice>17800.0</equivalentPrice>
+            <fee>0.0</fee>
+            <cancelationPolicy class="com.gridnine.bof.common.hotels.CancelationPolicy">
+                <uid>691fd7c3-6458-4c72-ab1d-ed70489192d5</uid>
+                <canBeCancelled>true</canBeCancelled>
+                <filled>true</filled>
+                <charges>
+                    <item class="com.gridnine.bof.common.hotels.CancellationCharge">
+                        <uid>e751de43-511e-45b2-afb6-d17013f222d7</uid>
+                        <start>2016-10-19 21:00:00.000</start>
+                        <end>2016-10-20 21:00:00.000</end>
+                        <comment>17800.00 RUB</comment>
+                        <price class="com.gridnine.bof.common.model.system.Money">
+                            <uid>7ea7567c-93a4-4f58-9658-6f035599c80e</uid>
+                            <value>17800.0</value>
+                            <currency>RUB</currency>
+                        </price>
+                    </item>
+                </charges>
+            </cancelationPolicy>
+            <bar>false</bar>
+            <specialOffer>false</specialOffer>
+            <byRequest>false</byRequest>
+            <freeForSale>false</freeForSale>
+            <rooms>
+                <item class="com.gridnine.bof.common.hotels.OfferRoom">
+                    <uid>e2ee3e98-e34f-4414-ae73-283f1fbc30a8</uid>
+                    <token>MzU1NjchMCExNDowMCExMjowMCEhMn46fkFfQU5EX0F+On4yITEhNSEhfjp+MTc4MDAuMDB+On5S
+                        VUJ+On4xNzcwMC4wMA==</token>
+                    <name>Executive Suite </name>
+                    <count>5</count>
+                    <roomSize>DOUBLE</roomSize>
+                    <parameters class="com.gridnine.bof.common.hotels.model.HotelsRoomSearchParameters" uid="0be38693-c0cc-4624-a7ac-4faa0806a75e"/>
+                </item>
+            </rooms>
+        </item>
+        <item class="com.gridnine.bof.common.hotels.HotelOffer">
+            <uid>8725b021-a4da-44a0-8fff-a06b2706fe4e</uid>
+            <id>37199</id>
+            <token>MzcxOTkhMCExNDowMCExMjowMCEhMn46fkFfQU5EX0F+On4yITEhOSEhfjp+MTI3MDAuMDB+On5S
+                VUJ+On4xMjYyNi4wMA==</token>
+            <hotel>1455108448391</hotel>
+            <provider>A_AND_A</provider>
+            <vendor>A_AND_A</vendor>
+            <price class="com.gridnine.bof.common.model.system.Money">
+                <uid>084ca28b-e279-49c2-8e43-29d52b9d5d7f</uid>
+                <value>12700.0</value>
+                <currency>RUB</currency>
+            </price>
+            <commission class="com.gridnine.bof.common.model.system.Money">
+                <uid>266614f2-f06c-4842-a12f-7465a8d5db8c</uid>
+                <value>0.0</value>
+                <currency>RUB</currency>
+            </commission>
+            <equivalentPrice>12700.0</equivalentPrice>
+            <fee>0.0</fee>
+            <cancelationPolicy class="com.gridnine.bof.common.hotels.CancelationPolicy">
+                <uid>7d5869bf-190a-4d2d-8be8-5ea13b010896</uid>
+                <canBeCancelled>true</canBeCancelled>
+                <filled>true</filled>
+                <charges>
+                    <item class="com.gridnine.bof.common.hotels.CancellationCharge">
+                        <uid>11d4709c-0b4c-49f7-9435-5755b337006c</uid>
+                        <start>2016-10-19 21:00:00.000</start>
+                        <end>2016-10-20 21:00:00.000</end>
+                        <comment>12700.00 RUB</comment>
+                        <price class="com.gridnine.bof.common.model.system.Money">
+                            <uid>2c5c4ca0-b0af-49d2-bad3-2a6bccd3b1f8</uid>
+                            <value>12700.0</value>
+                            <currency>RUB</currency>
+                        </price>
+                    </item>
+                </charges>
+            </cancelationPolicy>
+            <bar>false</bar>
+            <specialOffer>false</specialOffer>
+            <byRequest>false</byRequest>
+            <freeForSale>true</freeForSale>
+            <rooms>
+                <item class="com.gridnine.bof.common.hotels.OfferRoom">
+                    <uid>be5018b4-d377-4842-a18f-55e08d2ba9fc</uid>
+                    <token>MzcxOTkhMCExNDowMCExMjowMCEhMn46fkFfQU5EX0F+On4yITEhOSEhfjp+MTI3MDAuMDB+On5S
+                        VUJ+On4xMjYyNi4wMA==</token>
+                    <name>супериор </name>
+                    <count>9</count>
+                    <roomSize>DOUBLE</roomSize>
+                    <parameters class="com.gridnine.bof.common.hotels.model.HotelsRoomSearchParameters" uid="0be38693-c0cc-4624-a7ac-4faa0806a75e"/>
+                </item>
+            </rooms>
+        </item>
+    </offers>
+</object>

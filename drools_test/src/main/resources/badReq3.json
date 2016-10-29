@@ -1,0 +1,59 @@
+{
+  "params": {
+    "rooms": [
+      {
+        "adults": 2
+      }
+    ],
+    "city": "MOW",
+    "checkIn": "2016-12-13",
+    "checkOut": "2016-12-14",
+    "searchPois": true
+  },
+  "rates": [
+    {
+      "charges": [],
+      "isByRequest": false,
+      "bookingType": "POSTPAID_ONLINE",
+      "cancelationPolicy": {
+        "charges": [],
+        "isCanBeCancelled": true,
+        "isFilled": false
+      },
+      "provider": "ACADEMSERVICE",
+      "isBar": false,
+      "isSpecialOffer": false,
+      "subProvider": "ACADEMSERVICE",
+      "discount": 0,
+      "fee": 0,
+      "price": 38400,
+      "token": "LQfZJWzyp5TD+5KozeYI34M9eGEGjP7nHCKqNMWujWyH8vx8KX+8rhbX778l0fUEl4TvN7MQ6K+5+WYiB4f5dPfG0Le8q89TKs/df7XCretaoz3xSzy+/+HTtRR/qlwxnAOHu2M6160SfS15ssWw73B90iH/6iLLmmOfz0HcUOQty02+dkixXVxk54Y3XF597sMFA7kWoXLqyLt74CpVNt5rXVZ/OSRHmmjYD2zpUA/NMfMUQ8Fgfs9kQgU16/w004rCaLbpA4GxkjxCYLSp1Ylt8wy07DFzVFrhjEEiPt2tDTsjOLwpmOVwnO6x/DoGbUavT0KmNzkGfoC3L8ZIM6zasV6Zz3whPphCfvKQ+7fW1EGvJMb1GpkX5xdCX7mChwvWW35UUHj9zXSOVDKdiZxUYc420WsSmlFGLrxsG3kHLDb/JCrV5zQ0SvlauL0+AWFEAjxX1cbeJ63yv/eP2LazFvL9HUPoAXdJCPsTG8R6ttc4Cq0Bj3sgholHJfv9fuAt7bct49INtyNlvzHPHUGKJvVeqecNT4aQ3HdPNZCA/glPChLBPFDKjHIMCFzSs2CT1V3Ld8klxsYn6eKMDMhVZjzB2NkM0fynjE1vWZ0cK5spU1LURO4W0mb5gELJty8BmSDjjgtrLBZFjIUBeQllovvpqTCTZVYszSNdGCU=",
+      "hotel": "1142924",
+      "fullPrice": {
+        "amount": 38400,
+        "currency": "RUB"
+      },
+      "commission": {
+        "amount": 3572,
+        "currency": "RUB"
+      },
+      "rooms": [
+        {
+          "token": "",
+          "name": "Deluxe Room",
+          "fullName": "Deluxe Room",
+          "parameters": {
+            "childAge": 0,
+            "adultsCount": 2,
+            "infantsCount": 0,
+            "roomsCount": 1
+          },
+          "travellers": []
+        }
+      ],
+      "offerHash": "{\"charges\":[],\"isByRequest\":false,\"bookingType\":\"POSTPAID_ONLINE\",\"cancelationPolicy\":{\"charges\":[],\"isCanBeCancelled\":true,\"isFilled\":false},\"provider\":\"ACADEMSERVICE\",\"isBar\":false,\"isSpecialOffer\":false,\"subProvider\":\"ACADEMSERVICE\",\"discount\":0,\"fee\":0,\"price\":38400,\"hotel\":\"1142924\",\"fullPrice\":{\"amount\":38400,\"currency\":\"RUB\"},\"commission\":{\"amount\":3572,\"currency\":\"RUB\"},\"rooms\":[{\"token\":\"\",\"name\":\"Deluxe Room\",\"fullName\":\"Deluxe Room\",\"parameters\":{\"childAge\":0,\"adultsCount\":2,\"infantsCount\":0,\"roomsCount\":1}}]}",
+      "additionalServices": [],
+      "hiddenFee": 0
+    }
+  ]
+}
