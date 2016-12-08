@@ -2,7 +2,7 @@ rem mvn archetype:generate maven-archetype-simple
 
 mvn -B archetype:generate ^
 -DgroupId=ru.galuzin ^
--DartifactId=simple_webapp ^
+-DartifactId=ejbAuth ^
 -DarchetypeArtifactId=maven-archetype-webapp
 
 rem -DarchetypeGroupId=org.apache.maven.archetypes ^

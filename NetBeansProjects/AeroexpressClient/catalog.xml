@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="https://api.aeroexpress.ru:30084/aeapi/services/TicketServiceService?wsdl" uri="xml-resources/web-service-references/TicketServiceService/wsdl/api.aeroexpress.ru_30084/aeapi/services/TicketServiceService.wsdl"/>
+</catalog>

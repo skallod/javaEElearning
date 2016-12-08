@@ -5,11 +5,11 @@ package ru.galuzin.long_time;
  */
 public class ValMain {
     public static void main(String[] args) {
-        try {
+        /*try {
             Thread.currentThread().sleep(15000);
         } catch (InterruptedException e) {
             e.printStackTrace();
-        }
+        }*/
         case1();
     }
     private static void case1(){

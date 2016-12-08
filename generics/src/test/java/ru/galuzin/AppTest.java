@@ -224,5 +224,11 @@ public class AppTest
         }
 
     }
+    @org.junit.Test
+    public void test9(){
+        String number = "III-AP958-443";
+        number = number.replace("-", "");
+        System.out.println(number);
+    }
 
 }

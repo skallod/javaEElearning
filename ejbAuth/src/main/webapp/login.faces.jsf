@@ -1,0 +1,25 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<HTML xmlns:f=http://java.sun.com/jsf/core
+xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+<title>ActionBazaar Admin Login</title>
+</h:head>
+<h:body>
+<form action="j_security_check" method="POST">
+<h:panelGrid columns="2">
+<f:facet name="header">
+Authentication
+</f:facet>
+<h:outputText value="Username"/>
+<input type="text" name="j_username" size="25"/>
+<h:outputText value="Password"/>
+<input type="password" size="15" name="j_password"/>
+<h:panelGroup>
+<input type="submit" value="Submit"/>
+<input type="reset" value="Reset"/>
+</h:panelGroup>
+</h:panelGrid>
+</form>
+</h:body>
+</HTML>
