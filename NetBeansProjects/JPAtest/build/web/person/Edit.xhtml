@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundleAccount.EditPersonTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundleAccount.EditPersonLabel_personId}" for="personId" />
+                    <h:inputText id="personId" value="#{personController.selected.personId}" title="#{bundleAccount.EditPersonTitle_personId}" required="true" requiredMessage="#{bundleAccount.EditPersonRequiredMessage_personId}"/>
+                    <h:outputLabel value="#{bundleAccount.EditPersonLabel_address}" for="address" />
+                    <h:inputText id="address" value="#{personController.selected.address}" title="#{bundleAccount.EditPersonTitle_address}" />
+                    <h:outputLabel value="#{bundleAccount.EditPersonLabel_lastName}" for="lastName" />
+                    <h:inputText id="lastName" value="#{personController.selected.lastName}" title="#{bundleAccount.EditPersonTitle_lastName}" />
+                    <h:outputLabel value="#{bundleAccount.EditPersonLabel_name}" for="name" />
+                    <h:inputText id="name" value="#{personController.selected.name}" title="#{bundleAccount.EditPersonTitle_name}" />
+                </h:panelGrid>
+                <h:commandLink action="#{personController.update}" value="#{bundleAccount.EditPersonSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundleAccount.EditPersonViewLink}"/>
+                <br />
+                <h:commandLink action="#{personController.prepareList}" value="#{bundleAccount.EditPersonShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundleAccount.EditPersonIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

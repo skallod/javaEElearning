@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundleAccount.CreateAccountTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundleAccount.CreateAccountLabel_accountId}" for="accountId" />
+                    <h:inputText id="accountId" value="#{accountController.selected.accountId}" title="#{bundleAccount.CreateAccountTitle_accountId}" required="true" requiredMessage="#{bundleAccount.CreateAccountRequiredMessage_accountId}"/>
+                    <h:outputLabel value="#{bundleAccount.CreateAccountLabel_money}" for="money" />
+                    <h:inputText id="money" value="#{accountController.selected.money}" title="#{bundleAccount.CreateAccountTitle_money}" required="true" requiredMessage="#{bundleAccount.CreateAccountRequiredMessage_money}"/>
+                    <h:outputLabel value="#{bundleAccount.CreateAccountLabel_person}" for="person" />
+                    <h:selectOneMenu id="person" value="#{accountController.selected.person}" title="#{bundleAccount.CreateAccountTitle_person}" required="true" requiredMessage="#{bundleAccount.CreateAccountRequiredMessage_person}">
+                        <f:selectItems value="#{personController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{accountController.create}" value="#{bundleAccount.CreateAccountSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{accountController.prepareList}" value="#{bundleAccount.CreateAccountShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundleAccount.CreateAccountIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

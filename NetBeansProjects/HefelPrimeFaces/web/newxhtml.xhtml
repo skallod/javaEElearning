@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:jsf="http://xmlns.jcp.org/jsf">
+    <head>
+        <title>TODO supply a title</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+    <body>
+        <div>TODO write content</div>
+        <form jsf:id="mainForm" jsf:prependid="false">
+            <table style="border-spacing: 0; border-collapse:
+                   collapse">
+                <tr>
+                    <td class="rightAlign">
+                        <label jsf:for="firstName">First name:</label>
+                    </td>
+                    <td class="leftAlign">
+                        <input type="text" jsf:id="firstName"
+                               jsf:value="#{registrationBean.firstName}"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="rightAlign">
+                        <label jsf:for="lastName">Last Name</label>
+                    </td>
+                    <td class="leftAlign">
+                        <input type="text" jsf:id="lastName"
+                               jsf:value="#{registrationBean.lastName}"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="rightAlign">
+                        <label jsf:for="email">Email
+                            Address</label>
+                    </td>
+                    <td class="leftAlign">
+                        <input type="email" jsf:id="email"
+                               jsf:value="#{registrationBean.email}"/></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <input type="submit"
+                               jsf:action="confirmation"
+                               value="Submit"/>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>

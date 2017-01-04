@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/D:/Develop/GitRepo/javaEElearning/NetBeansProjects/JPAtest/src/java/ru/galuzin/entity/util/JsfUtil.java</file>
+            <file>file:/D:/Develop/GitRepo/javaEElearning/NetBeansProjects/JPAtest/src/java/ru/galuzin/entity/AccountFacade.java</file>
+            <file>file:/D:/Develop/GitRepo/javaEElearning/NetBeansProjects/JPAtest/web/account/Edit.xhtml</file>
+            <file>file:/D:/Develop/GitRepo/javaEElearning/NetBeansProjects/JPAtest/src/java/ru/galuzin/entity/Account.java</file>
+            <file>file:/D:/Develop/GitRepo/javaEElearning/NetBeansProjects/JPAtest/src/java/Bundle.properties</file>
+            <file>file:/D:/Develop/GitRepo/javaEElearning/NetBeansProjects/JPAtest/src/java/BundleAccount.properties</file>
+            <file>file:/D:/Develop/GitRepo/javaEElearning/NetBeansProjects/JPAtest/test/ru/galuzin/entity/PersonTest.java</file>
+            <file>file:/D:/Develop/GitRepo/javaEElearning/NetBeansProjects/JPAtest/src/java/ru/galuzin/entity/PersonController.java</file>
+            <file>file:/D:/Develop/GitRepo/javaEElearning/NetBeansProjects/JPAtest/web/person/Create.xhtml</file>
+            <file>file:/D:/Develop/GitRepo/javaEElearning/NetBeansProjects/JPAtest/web/template.xhtml</file>
+            <file>file:/D:/Develop/GitRepo/javaEElearning/NetBeansProjects/JPAtest/src/java/ru/galuzin/entity/AccountController.java</file>
+            <file>file:/D:/Develop/GitRepo/javaEElearning/NetBeansProjects/JPAtest/web/account/Create.xhtml</file>
+            <file>file:/D:/Develop/GitRepo/javaEElearning/NetBeansProjects/JPAtest/src/java/ru/galuzin/entity/Person.java</file>
+            <file>file:/D:/Develop/GitRepo/javaEElearning/NetBeansProjects/JPAtest/src/java/ru/galuzin/entity/Operation.java</file>
+            <file>file:/D:/Develop/GitRepo/javaEElearning/NetBeansProjects/JPAtest/src/java/ru/galuzin/entity/PersonJpaController.java</file>
+            <file>file:/D:/Develop/GitRepo/javaEElearning/NetBeansProjects/JPAtest/src/java/ru/galuzin/entity/AbstractFacade.java</file>
+        </group>
+    </open-files>
+</project-private>
