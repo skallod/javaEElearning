@@ -5,12 +5,10 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.orm.hibernate3.HibernateTemplate;
-//import ru.galuzin.payment_system.spring.persistance.HibernateSession;
 
 import java.io.Serializable;
-import java.util.List;
+
+//import ru.galuzin.payment_system.spring.persistance.HibernateSession;
 
 /**
  * Created by User on 23.02.2016.

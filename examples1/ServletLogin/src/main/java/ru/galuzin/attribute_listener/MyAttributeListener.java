@@ -14,6 +14,7 @@ public class MyAttributeListener implements
     public void attributeAdded(HttpSessionBindingEvent ev) {
         String currentAttributeName = ev.getName();
         String urlAttr = "URL";
+        System.out.println("atribut added thread name "+Thread.currentThread().getName());
         if(currentAttributeName.equals(counterAttr)){
             Integer currentValueInt = (Integer)ev.getValue();
             System.out.println("? session ???????? ???????="+currentValueInt);
@@ -31,6 +32,7 @@ public class MyAttributeListener implements
     @Override
     public void attributeReplaced(HttpSessionBindingEvent ev) {
         String currentAttributeName = ev.getName();
+        System.out.println("atribut replaced thread name "+Thread.currentThread().getName());
         if(currentAttributeName.equals(counterAttr)){
             Integer currentValueInt = (Integer)ev.getValue();
             System.out.println("? ??????? ??????? ???????="+currentValueInt);

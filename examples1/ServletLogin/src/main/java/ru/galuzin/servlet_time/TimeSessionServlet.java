@@ -23,6 +23,8 @@ public class TimeSessionServlet extends HttpServlet {
         HttpServletRequest req,
         HttpServletResponse resp
     )throws ServletException{
+        System.out.println("time session thread name "+Thread.currentThread().getName());
+        //getServletContext()
         HttpSession session = null;
         if(flag){
             session = req.getSession();

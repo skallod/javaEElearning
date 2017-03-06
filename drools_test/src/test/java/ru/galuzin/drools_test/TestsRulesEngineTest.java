@@ -79,8 +79,10 @@ public class TestsRulesEngineTest extends TestCase {
 
 	public void testTestsRulesEngine() throws Exception {
 		Thread.sleep(3000);
-		while (machineResultSet.next()) {
-			Machine machine = machineResultSet.getMachine();
+//		while (machineResultSet.next()) {
+//			Machine machine = machineResultSet.getMachine();
+		Machine machine = new Machine();
+		machine.setFunctions(Arrays.asList(new String[] { "ADULT" }));
 			testsRulesEngine.assignTests(machine);
 			Timestamp creationTs = machine.getCreationTs();
 			Calendar calendar = Calendar.getInstance();
@@ -141,7 +143,7 @@ public class TestsRulesEngineTest extends TestCase {
 				calendar.add(Calendar.DATE, 12);
 				assertEquals(calendar.getTime(), testsDueTime);
 			}
-		}
+//		}
 	}
 
 }

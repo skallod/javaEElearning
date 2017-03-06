@@ -1,0 +1,66 @@
+package ru.galuzin.socket;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.io.PrintWriter;
+import java.net.Socket;
+import java.util.Scanner;
+
+/**
+ * This program demonstrates how to use a socket to communicate with a web
+ * server. Supply the name of the host and the resource on the command-line, for
+ * example java WebGet horstmann.com index.html
+ *
+ * Solution to exercise P21.1 and P21.2.
+ */
+public class SimpleSocket {
+
+    public static void main(String[] args) throws IOException {
+        // Get command-line arguments
+
+        String host;
+        String resource;
+
+        if (args.length == 2) {
+            host = args[0];
+            resource = args[1];
+        } else {
+            System.out.println("Getting / from horstmann.com");
+            host = "horstmann.com";
+            resource = "/";
+        }
+
+        // Open socket
+        final int HTTP_PORT = 8900;
+        try (Socket s = new Socket(host, HTTP_PORT)) {
+            // Get streams
+
+            InputStream instream = s.getInputStream();
+            OutputStream outstream = s.getOutputStream();
+
+            // Turn streams into scanners and writers
+            Scanner in = new Scanner(instream);
+            PrintWriter out = new PrintWriter(outstream);
+
+            // Send command
+            String command = "GET " + resource + " HTTP/1.1\n"
+                    + "Host: " + host + "\n\n";
+            out.print(command);
+            out.flush();
+
+            // Read server response
+            while (in.hasNextLine()) {
+                String input = in.nextLine();
+                //if(input.isEmpty()) break; //solution to exercise P21.1
+                //if(input.contains("<title>")) { //solution to exercise P21.2
+                    System.out.println(input);
+                //    break;
+                //}
+
+            }
+        }
+
+        // The try-with-resources statement closes the socket
+    }
+}

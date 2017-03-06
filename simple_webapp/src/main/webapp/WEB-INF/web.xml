@@ -12,4 +12,12 @@
     <servlet-name>hello</servlet-name>
     <url-pattern>/wtf</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>show</servlet-name>
+    <servlet-class>ru.galuzin.servlet.ShowAll</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>show</servlet-name>
+    <url-pattern>/showall</url-pattern>
+  </servlet-mapping>
 </web-app>

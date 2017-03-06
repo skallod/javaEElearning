@@ -3,25 +3,21 @@ package ru.galuzin;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import ru.galuzin.enum_test.GdsNameVo;
 import ru.galuzin.generics.Maximum;
 
-import java.io.BufferedInputStream;
-import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.math.BigDecimal;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.text.DecimalFormat;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.ListIterator;
@@ -230,5 +226,95 @@ public class AppTest
         number = number.replace("-", "");
         System.out.println(number);
     }
+
+    public void test10(){
+        class A {
+            void method1(){
+                throw new RuntimeException("message1");
+            }
+        }
+        A a1 = new A();
+        try {
+            a1.method1();
+        }catch (Exception e){
+            System.out.println(e.toString());
+        }
+    }
+
+    public void test11(){
+        boolean a=true;
+        boolean b=true;
+        boolean c=false;
+        if(a && !(b && c) ){
+            System.out.println("yes");
+        }else{
+            System.out.println("no");
+        }
+        long minutes = 419;
+        long hours = minutes/60;
+        long minutes2 = minutes%60;
+        System.out.println("hours = " + hours);
+        System.out.println("minutes2 = " + minutes2);
+        TYPES.type1.name();
+        String tp = "type3";
+        TYPES temp = TYPES.valueOf(tp);
+        System.out.println("temp = " + temp);
+    }
+
+    public void test12(){
+        System.out.println(String.valueOf(new DecimalFormat("0.00").format(BigDecimal.valueOf(78.5399986624718))));
+
+        A a1 = new A();
+        a1.types=TYPES.type1;
+
+        A a2 = new A();
+        a2.types=TYPES.type2;
+
+        A a3 = new A();
+        a3.types=TYPES.type2;
+
+        List<A> list = new LinkedList<>();
+        list.add(a1);
+        list.add(a2);
+        list.add(a3);
+        int s = (int)list.stream().filter(a -> a.types!=null && a.types!=TYPES.type1).count();
+        System.out.println("s = " + s);
+
+        String string = "h";
+        switch (TYPES.valueOf(string)){
+            default:
+                System.out.println("ok");
+                break;
+        }
+
+    }
+
+    public void test13(){
+        StringBuilder result = new StringBuilder();
+        System.out.println("result = " + result);
+        marketingInfolog.info("");
+
+    }
+
+    public void test14(){
+        Map<A,A> map = new HashMap<>();
+        A a1= new A();a1.name="Leo"; a1.lastname="Galuzin"; a1.types= TYPES.type1;
+        A a2= new A();a2.name="Den"; a2.lastname="Zizin"; a2.types= TYPES.type2;
+        map.put(a1, a2);
+        A a3 = map.get(a1);
+        System.out.println("a3.name = " + a3.name);
+        new Date().compareTo(null);
+    }
+
+    private static enum TYPES{type1, type2}
+    static class A {
+        String name;
+        String lastname;
+        TYPES types;
+    }
+
+    protected final transient Log marketingInfolog =
+            LogFactory.getLog(getClass().getName() + ".MARKETING");
+
 
 }
