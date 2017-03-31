@@ -1,8 +1,8 @@
 rem mvn archetype:generate maven-archetype-simple
 
 mvn -B archetype:generate ^
--DgroupId=ru.galuzin.oracle_nio ^
--DartifactId=OracleNioExamples ^
+-DgroupId=ru.galuzin.jse8impatient ^
+-DartifactId=jse8impatient ^
 -DarchetypeArtifactId=maven-archetype-quickstart
 
 rem -DarchetypeGroupId=org.apache.maven.archetypes ^
