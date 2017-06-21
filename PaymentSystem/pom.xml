@@ -5,6 +5,8 @@
 		 <artifactId>base</artifactId>
 		 <packaging>pom</packaging>
 		 <version>1.0</version>
+    <name>MAIN POM</name>
+
   <modules>
     <module>business</module>
     <module>common-types</module>

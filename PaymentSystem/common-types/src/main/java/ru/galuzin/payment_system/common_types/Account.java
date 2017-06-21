@@ -1,8 +1,14 @@
 package ru.galuzin.payment_system.common_types;
 
-import javax.persistence.*;
-import java.util.List;
-import java.util.Set;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.SequenceGenerator;
 
 /**
  * Created by LEONID on 14.02.2016.
@@ -13,8 +19,8 @@ public class Account {
     private Long accountID;
     private Double money;
     private Person person;
-    private List<Operation> operationsSrcAccount;
-    private List<Operation> operationsDestAccount;
+//    private List<Operation> operationsSrcAccount;
+//    private List<Operation> operationsDestAccount;
 
 
     @Id
@@ -47,30 +53,33 @@ public class Account {
         this.person = person;
     }
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "srcAccount")
-    public List<Operation> getOperationsSrcAccount() {
-        return operationsSrcAccount;
-    }
-    public void setOperationsSrcAccount(List<Operation> operations) {
-        this.operationsSrcAccount = operations;
-    }
+//    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "srcAccount")
+//    public List<Operation> getOperationsSrcAccount() {
+//        return operationsSrcAccount;
+//    }
+//    public void setOperationsSrcAccount(List<Operation> operations) {
+//        this.operationsSrcAccount = operations;
+//    }
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "destAccount")
-    public List<Operation> getOperationsDestAccount() {
-        return operationsDestAccount;
-    }
-    public void setOperationsDestAccount(List<Operation> operationsDestAccount) {
-        this.operationsDestAccount = operationsDestAccount;
-    }
+//    @OneToMany(fetch = FetchType.LAZY, mappedBy = "destAccount")
+//    public List<Operation> getOperationsDestAccount() {
+//        return operationsDestAccount;
+//    }
+//    public void setOperationsDestAccount(List<Operation> operationsDestAccount) {
+//        this.operationsDestAccount = operationsDestAccount;
+//    }
+
+//    int version;
+
+//    @Version
+//    @Column(name="OPTLOCK")
+//    public Integer getVersion() { return version; }
 
     @Override
     public String toString() {
         return "Account{" +
                 "accountID=" + accountID +
                 ", money=" + money +
-                ", person=" + person +
-                ", operationsSrcAccount=" + operationsSrcAccount +
-                ", operationsDestAccount=" + operationsDestAccount +
                 '}';
     }
 }

@@ -1,17 +1,25 @@
 package ru.galuzin.payment_system.persistance.dao;
 
+import java.io.Serializable;
+import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import ru.galuzin.payment_system.common_types.*;
+import ru.galuzin.payment_system.common_types.Account;
+import ru.galuzin.payment_system.common_types.Operation;
+import ru.galuzin.payment_system.common_types.OperationType;
+import ru.galuzin.payment_system.common_types.Person;
+import ru.galuzin.payment_system.common_types.Terminal;
 import ru.galuzin.payment_system.persistance.HibernateSession;
-
-import java.io.Serializable;
-import java.util.Date;
-
-import static org.junit.Assert.*;
 
 /**
  * Created by User on 23.02.2016.
@@ -27,7 +35,7 @@ public class BasicDAOTest {
 //        HibernateSession.quit();
 //    }
 
-//    @Test
+    @Test
     public void testAddEntity() throws Exception {
 
         BasicDAO basicDAO = new BasicDAO();
@@ -57,8 +65,8 @@ public class BasicDAOTest {
         operation.setMoney(5D);
         operation.setDate(new Date());
         operation.setOperationType(OperationType.MONEY_ORDER.toString());
-        operation.setSrcAccount(account);
-        operation.setDestAccount(account2);
+//        operation.setSrcAccount(account);
+//        operation.setDestAccount(account2);
         operation.setTerminal(terminal);
 
         //====== операция "положить деньги на счет" ====
@@ -66,8 +74,8 @@ public class BasicDAOTest {
         operation2.setMoney(15.5D);
         operation2.setDate(new Date());
         operation2.setOperationType(OperationType.PUT_MONEY.toString());
-        operation2.setSrcAccount(null);
-        operation2.setDestAccount(account);
+//        operation2.setSrcAccount(null);
+//        operation2.setDestAccount(account);
         operation2.setTerminal(terminal);
 
         //====== операция "снять деньги со счета" ====
@@ -75,8 +83,8 @@ public class BasicDAOTest {
         operation3.setMoney(9.99D);
         operation3.setDate(new Date());
         operation3.setOperationType(OperationType.GET_MONEY.toString());
-        operation3.setSrcAccount(account);
-        operation3.setDestAccount(null);
+//        operation3.setSrcAccount(account);
+//        operation3.setDestAccount(null);
         operation3.setTerminal(terminal);
 
         basicDAO.addEntity(person);
@@ -92,12 +100,51 @@ public class BasicDAOTest {
 
     }
 
-//    @Test
+    //@Test
     public void testUpdateEntity() throws Exception {
         BasicDAO basicDAO = new BasicDAO();
-        Account account = (Account)basicDAO.getEntity(Account.class, 1L);
-        account.setMoney(33.3D);
-        basicDAO.updateEntity(account);
+        //final CountDownLatch cdl = new CountDownLatch(1);
+        ExecutorService pool = Executors.newFixedThreadPool(2);
+        Callable<String> callable1 = new Callable<String>() {
+            @Override
+            public String call() throws Exception {
+                long nanoTime = System.nanoTime();
+                try {
+                    //cdl.await();
+                    System.out.println("START!!!");
+                    Account account = (Account) basicDAO.getEntity(Account.class, 2L);
+                    account.setMoney(33.3D);
+                    basicDAO.updateEntity(account);
+                    nanoTime = System.nanoTime() - nanoTime;
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                return "DONE 1 "+nanoTime;
+            }
+        };
+        Callable<String> callable2 = new Callable<String>() {
+            @Override
+            public String call() throws Exception {
+                long nanoTime = System.nanoTime();
+                try {
+                    //cdl.await();
+                    System.out.println("START!!!");
+                    Account account = (Account) basicDAO.getEntity(Account.class, 2L);
+                    account.setMoney(44.3D);
+                    basicDAO.updateEntity(account,true);
+                    nanoTime = System.nanoTime() - nanoTime;
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                return "DONE 2 "+nanoTime;
+            }
+        };
+        Set<Future<String>> futures = new HashSet<>();
+        futures.add(pool.submit(callable1));
+        futures.add(pool.submit(callable2));
+        for(Future<String> future:futures) {
+            System.out.println("future.get() = " + future.get());
+        }
     }
 
 //    @Test
@@ -105,7 +152,7 @@ public class BasicDAOTest {
 
     }
 
-    @Test
+//    @Test
     public void testGetEntity() throws Exception {
         BasicDAO basicDAO = new BasicDAO();
         Account account = (Account)basicDAO.getEntity(Account.class, 1L);
@@ -118,12 +165,12 @@ public class BasicDAOTest {
             tx = sess.beginTransaction();
             account = (Account)sess.get(Account.class, 1L);
             System.out.println("account = " + account);
-            for (Operation oper : account.getOperationsSrcAccount()){
-                System.out.println("operSrc = " + oper);
-            }
-            for (Operation oper : account.getOperationsDestAccount()){
-                System.out.println("operDest = " + oper);
-            }
+//            for (Operation oper : account.getOperationsSrcAccount()){
+//                System.out.println("operSrc = " + oper);
+//            }
+//            for (Operation oper : account.getOperationsDestAccount()){
+//                System.out.println("operDest = " + oper);
+//            }
             tx.commit();
         }
         catch (Exception e) {

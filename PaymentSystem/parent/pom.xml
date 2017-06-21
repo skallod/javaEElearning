@@ -5,7 +5,7 @@
   <groupId>ru.galuzin.payment_system</groupId>
   <artifactId>parent</artifactId>
   <version>1.0</version>
-  <name>parent</name>
+  <name>PARENT</name>
   <packaging>pom</packaging>
   <url>http://maven.apache.org</url>
   <dependencies>
@@ -41,4 +41,16 @@
       <version>1.0.2</version>
     </dependency>
   </dependencies>
+  <build>
+  <plugins>
+    <plugin>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-compiler-plugin</artifactId>
+      <configuration>
+        <source>1.8</source>
+        <target>1.8</target>
+      </configuration>
+    </plugin>
+  </plugins>
+  </build>
 </project>

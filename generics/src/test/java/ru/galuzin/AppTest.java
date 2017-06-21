@@ -1,13 +1,5 @@
 package ru.galuzin;
 
-import junit.framework.Test;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-import ru.galuzin.enum_test.GdsNameVo;
-import ru.galuzin.generics.Maximum;
-
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
@@ -23,6 +15,14 @@ import java.util.List;
 import java.util.ListIterator;
 import java.util.Map;
 import java.util.Set;
+
+import junit.framework.Test;
+import junit.framework.TestCase;
+import junit.framework.TestSuite;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import ru.galuzin.enum_test.GdsNameVo;
+import ru.galuzin.generics.Maximum;
 
 /**
  * Unit test for simple App.

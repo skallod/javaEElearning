@@ -1,4 +1,4 @@
-package org.danielchesters.javase8;
+package ru.galuzin.jse8_realy_impatient;
 
 import java.io.File;
 import java.io.IOException;

@@ -18,12 +18,12 @@ public class Operation {
      * аккаунт, с которого "уходят" деньги.
      * когда operationType = PUT_MONEY , srcAccount=null.
      */
-    private Account srcAccount;
+    //private Account srcAccount;
     /**
      * аккаунт, на который "приходят" деньги.
      * когда operationType = GET_MONEY , destAccount=null.
      */
-    private Account destAccount;
+    //private Account destAccount;
     private String operationType;
     private Terminal terminal;
     private Double money;
@@ -39,23 +39,23 @@ public class Operation {
         this.operationID = operationID;
     }
 
-    @ManyToOne(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY, targetEntity = Account.class)
-    @JoinColumn(name="SRC_ACCOUNT", unique = false,nullable = true)
-    public Account getSrcAccount() {
-        return srcAccount;
-    }
-    public void setSrcAccount(Account srcAccount) {
-        this.srcAccount = srcAccount;
-    }
-
-    @ManyToOne(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY, targetEntity = Account.class)
-    @JoinColumn(name="DEST_ACCOUNT", unique = false,nullable = true)
-    public Account getDestAccount() {
-        return destAccount;
-    }
-    public void setDestAccount(Account destAccount) {
-        this.destAccount = destAccount;
-    }
+//    @ManyToOne(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY, targetEntity = Account.class)
+//    @JoinColumn(name="SRC_ACCOUNT", unique = false,nullable = true)
+//    public Account getSrcAccount() {
+//        return srcAccount;
+//    }
+//    public void setSrcAccount(Account srcAccount) {
+//        this.srcAccount = srcAccount;
+//    }
+//
+//    @ManyToOne(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY, targetEntity = Account.class)
+//    @JoinColumn(name="DEST_ACCOUNT", unique = false,nullable = true)
+//    public Account getDestAccount() {
+//        return destAccount;
+//    }
+//    public void setDestAccount(Account destAccount) {
+//        this.destAccount = destAccount;
+//    }
 
     @Column(name="OPERATION_TYPE", unique = false, nullable = false)
     public String getOperationType() {
@@ -91,18 +91,5 @@ public class Operation {
         this.date = date;
     }
 
-    @Override
-    public String toString() {
-        String srcAcc = (srcAccount==null)?"null": srcAccount.getAccountID().toString();
-        String srcDest = (destAccount==null)?"null": destAccount.getAccountID().toString();
-        return "Operation{" +
-                "operationID=" + operationID +
-                ", srcAccount=" + srcAcc +
-                ", destAccount=" + srcDest +
-                ", operationType='" + operationType + '\'' +
-                ", terminal=" + terminal.getTerminalID() +
-                ", money=" + money +
-                ", date=" + date +
-                '}';
-    }
+
 }

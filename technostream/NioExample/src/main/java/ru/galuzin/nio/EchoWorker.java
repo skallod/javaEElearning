@@ -1,11 +1,11 @@
 package ru.galuzin.nio;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import java.nio.channels.SocketChannel;
 import java.util.LinkedList;
 import java.util.List;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  *
@@ -47,12 +47,13 @@ class EchoWorker implements Runnable {
 
     private String operation(String receivedData){
         long time  = System.nanoTime();
-        double result= Math.log(Math.pow(Math.log(Math.pow(Math.log(Math.log(Math.log(Math.pow(Math.log(Math.log(Math.sqrt(Math.log(Math.random()*Math.PI)))),2d)))),2d)),2d));
+        double result= 0;
         for(int i=0; i<1_00_000;i++) {
             result += Math.log(Math.pow(Math.log(Math.pow(Math.log(Math.log(Math.log(Math.pow(Math.log(Math.log(Math.sqrt(Math.log(Math.random() * Math.PI)))), 2d)))), 2d)), 2d));
         }
         time = System.nanoTime()-time;
         String resultStr = receivedData + " handled " + time + " nanos";
+        System.out.println("result = " + result);
         LOG.info(resultStr);
         return resultStr;
     }
