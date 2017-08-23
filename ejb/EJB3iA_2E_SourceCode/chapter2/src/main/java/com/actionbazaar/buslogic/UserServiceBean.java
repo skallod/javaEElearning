@@ -16,10 +16,11 @@
  */
 package com.actionbazaar.buslogic;
 
-import com.actionbazaar.persistence.Bidder;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+
+import com.actionbazaar.persistence.Bidder;
 
 /**
  * Manages users
@@ -41,7 +42,10 @@ public class UserServiceBean implements UserService {
      * @return User
      */
     @Override
+//    @Produces
     public Bidder getUser(long userId) {
+//        Bidder bidder = new Bidder("leo", "gal", 10L);
+//        entityManager.persist(bidder);
         return entityManager.find(Bidder.class,userId);
     }
 

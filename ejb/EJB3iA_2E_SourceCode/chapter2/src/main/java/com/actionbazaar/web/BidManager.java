@@ -4,15 +4,17 @@
  */
 package com.actionbazaar.web;
 
-import com.actionbazaar.buslogic.BidService;
-import com.actionbazaar.persistence.Bid;
-import com.actionbazaar.persistence.Bidder;
-import com.actionbazaar.persistence.Item;
+import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
 import javax.enterprise.inject.Produces;
-import javax.inject.Inject;
 import javax.inject.Named;
+
+import com.actionbazaar.buslogic.BidService;
+import com.actionbazaar.buslogic.UserService;
+import com.actionbazaar.persistence.Bid;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Bid Manager - handles the add bid form.
@@ -20,14 +22,14 @@ import javax.inject.Named;
 @Named
 public class BidManager {
 
+    private static final Logger log = LoggerFactory.getLogger(BidManager.class);
+
     @EJB
     private BidService bidService;
 
     @EJB
-    private Bidder user;
+    private UserService userServiceBean;
 
-    @Inject
-    private Item item;
     private Bid bid = new Bid();
 
     @Produces
@@ -37,10 +39,17 @@ public class BidManager {
         return bid;
     }
 
+    @PostConstruct
+    void postConstruct(){
+        log.info("postConstruct bid sevice "+bidService);
+        log.info("postConstruct Bid "+bid);
+    }
+
     public String placeBid() {
-        bid.setBidder(user);
-        bid.setItem(item);
-        // Incomplete bidService.addBid(bid);
+        log.info("place bid");
+//        bid.setBidder(user);
+//        bid.setItem(item);
+//        bidService.addBid(bid);
         return "bid_confirm.xhtml";
     }
 }

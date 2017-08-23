@@ -16,13 +16,16 @@
  */
 package com.actionbazaar.buslogic;
 
-import com.actionbazaar.persistence.Bid;
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+
+import com.actionbazaar.persistence.Bid;
 
 /**
  * Manages bids
  */
+@Stateless
 public class BidServiceBean implements BidService {
 
     /**
@@ -39,5 +42,4 @@ public class BidServiceBean implements BidService {
     public void addBid(Bid bid) {
         entityManager.persist(bid);
     }
-
 }

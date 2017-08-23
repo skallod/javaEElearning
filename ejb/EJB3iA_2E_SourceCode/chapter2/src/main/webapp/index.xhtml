@@ -6,7 +6,7 @@
       xmlns:ui="http://java.sun.com/jsf/facelets">
 <h:body>
     <h:form id="bid-form">
-        <h:inputText id="input-bid" value="#{bid.amount}"/>
+        <h:inputText id="input-bid" value="#{bid.bidPrice}"/>
         <h:commandButton id="place-bid-button"
                          value="Place Bid!"
                          action="#{bidManager.placeBid}"/>

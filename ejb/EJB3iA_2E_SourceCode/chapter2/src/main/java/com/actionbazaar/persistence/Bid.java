@@ -16,9 +16,6 @@
  */
 package com.actionbazaar.persistence;
 
-import java.util.Date;
-import javax.enterprise.context.RequestScoped;
-import javax.inject.Named;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -27,12 +24,13 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
+import java.util.Date;
 
 /**
  * Represents a bid on an item
  */
-@Named
-@RequestScoped
+//@Named
+//@RequestScoped
 @Entity
 @Table(name="BIDS")
 public class Bid {

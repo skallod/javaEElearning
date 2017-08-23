@@ -16,8 +16,9 @@
  */
 package com.actionbazaar.buslogic;
 
-import com.actionbazaar.persistence.Item;
 import javax.ejb.Local;
+
+import com.actionbazaar.persistence.Item;
 
 /**
  * Manages items

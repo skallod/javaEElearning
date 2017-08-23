@@ -16,16 +16,20 @@
  */
 package com.actionbazaar.buslogic;
 
-import com.actionbazaar.persistence.Item;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+
+import com.actionbazaar.persistence.Item;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Item service - retrieves items from the database.
  */
 @Stateless
 public class ItemServiceBean implements ItemService {
+    private static final Logger log = LoggerFactory.getLogger(ItemServiceBean.class);
 
     /**
      * Persistence Context
@@ -44,6 +48,7 @@ public class ItemServiceBean implements ItemService {
      */
     @Override
     public void createItem(Item item) {
+        log.info("item service ent manager "+entityManager);
         entityManager.persist(item);
     }
 

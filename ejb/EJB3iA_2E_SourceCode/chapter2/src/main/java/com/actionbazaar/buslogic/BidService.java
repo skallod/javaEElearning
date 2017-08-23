@@ -16,11 +16,14 @@
  */
 package com.actionbazaar.buslogic;
 
+import javax.ejb.Local;
+
 import com.actionbazaar.persistence.Bid;
 
 /**
  * Manages a bid
  */
+@Local
 public interface BidService {
 
     /**
