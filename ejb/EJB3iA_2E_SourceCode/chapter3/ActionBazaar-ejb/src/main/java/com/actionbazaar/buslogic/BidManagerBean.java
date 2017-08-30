@@ -16,13 +16,14 @@
  */
 package com.actionbazaar.buslogic;
 
-import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.annotation.Resource;
 import javax.ejb.SessionContext;
 import javax.ejb.Stateless;
 import javax.jws.WebService;
+import java.util.List;
+
 import com.actionbazaar.persistence.Bid;
 import com.actionbazaar.persistence.Item;
 
