@@ -5,9 +5,6 @@
  */
 package com.actionbazaar.listing02;
 
-import com.actionbazaar.listing01.ActionBazaarShippingRequest;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.ejb.ActivationConfigProperty;
 import javax.ejb.MessageDriven;
 import javax.jms.JMSException;
@@ -16,6 +13,10 @@ import javax.jms.MessageListener;
 import javax.jms.ObjectMessage;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+import com.actionbazaar.listing01.ActionBazaarShippingRequest;
 
 /**
  *
@@ -25,7 +26,7 @@ import javax.persistence.PersistenceContext;
   @ActivationConfigProperty(propertyName = "destinationType", 
     propertyValue = "javax.jms.Queue"),
   @ActivationConfigProperty(propertyName = "destinationLookup", 
-    propertyValue = "jms/ShippingRequestQueue")
+    propertyValue = "queue/test")
 })
 public class TurtleShippingRequestMessageBean
   implements MessageListener {

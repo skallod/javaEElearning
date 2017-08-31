@@ -4,9 +4,6 @@
  */
 package com.actionbazaar.listing01;
 
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.Date;
 import javax.annotation.Resource;
 import javax.inject.Inject;
 import javax.jms.Destination;
@@ -19,6 +16,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.Date;
 
 /**
  *
@@ -28,10 +28,10 @@ import javax.servlet.http.HttpServletResponse;
 public class ActionBazaarShippingRequestServlet extends HttpServlet {
   
 @Inject
-@JMSConnectionFactory("jms/QueueConnectionFactory")
+@JMSConnectionFactory("java:/ConnectionFactory")
 private JMSContext context;
 
-@Resource(name="jms/ShippingRequestQueue")
+@Resource(name="java:/queue/test")
 private Destination destination;
 
   /**
