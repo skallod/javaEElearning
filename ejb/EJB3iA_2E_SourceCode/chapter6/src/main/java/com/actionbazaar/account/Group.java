@@ -17,7 +17,6 @@
  */
 package com.actionbazaar.account;
 
-import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -26,6 +25,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import java.io.Serializable;
 
 /**
  * A group.
@@ -46,7 +46,8 @@ public class Group implements Serializable {
     /**
      * Reference back to the user
      */
-    @ManyToOne @JoinColumn
+    @ManyToOne
+    @JoinColumn
     private User user;
     
     /**

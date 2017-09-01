@@ -17,26 +17,24 @@
  */
 package com.actionbazaar.model;
 
-import java.io.Serializable;
-import java.sql.Timestamp;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.CollectionTable;
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import java.io.Serializable;
+import java.sql.Timestamp;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Represents a category
@@ -46,9 +44,10 @@ import javax.persistence.Table;
 @Table(name = "CATEGORIES")
 public class Category implements Serializable {
 
-    @SequenceGenerator(name = "CATEGORY_SEQ_GEN", sequenceName = "CATEGORY_SEQ", initialValue = 1, allocationSize = 1)
+    //@SequenceGenerator(name = "CATEGORY_SEQ_GEN", sequenceName = "CATEGORY_SEQ", initialValue = 1, allocationSize = 1)
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "CATEGORY_SEQ_GEN")
+    //@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "CATEGORY_SEQ_GEN")
+    @GeneratedValue
     @Column(name = "CATEGORY_ID", nullable = false)
     private Long categoryId;
 
@@ -59,7 +58,8 @@ public class Category implements Serializable {
     private Timestamp createDate;
 
     @ManyToMany(cascade = CascadeType.PERSIST)
-    @JoinTable(name = "CATEGORIES_ITEMS", joinColumns = @JoinColumn(name = "CI_CATEGORY_ID", referencedColumnName = "CATEGORY_ID"), inverseJoinColumns = @JoinColumn(name = "CI_ITEM_ID", referencedColumnName = "ITEM_ID"))
+    @JoinTable(name = "CATEGORIES_ITEMS")
+    //, joinColumns = @JoinColumn(name = "CI_CATEGORY_ID", referencedColumnName = "CATEGORY_ID"), inverseJoinColumns = @JoinColumn(name = "CI_ITEM_ID", referencedColumnName = "ITEM_ID")
     private Set<Item> items;
 
     @ManyToOne

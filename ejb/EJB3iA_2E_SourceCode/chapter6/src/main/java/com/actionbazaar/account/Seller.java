@@ -17,23 +17,20 @@
  */
 package com.actionbazaar.account;
 
-import com.actionbazaar.model.Item;
-import java.io.Serializable;
-import java.math.BigDecimal;
-import java.util.Date;
-import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-import javax.persistence.OneToMany;
-import javax.xml.bind.annotation.XmlRootElement;
+import java.io.Serializable;
+import java.math.BigDecimal;
+import java.util.Date;
 
 /**
  * Represents a seller within ActionBazaar
  */
 @Entity
 @DiscriminatorValue(value = "S")
-@XmlRootElement
+//@PrimaryKeyJoinColumn(name="USER_ID")
+//@XmlRootElement
 public class Seller extends User implements Serializable {
 
     /**
@@ -51,8 +48,8 @@ public class Seller extends User implements Serializable {
     /**
      * Items this seller is selling
      */
-    @OneToMany(mappedBy = "seller")
-    private Set<Item> items;
+//    @OneToMany(mappedBy = "seller")
+//    private Set<Item> items;
 
     /**
      * Default constructor for JPA
@@ -101,31 +98,31 @@ public class Seller extends User implements Serializable {
 
 
 
-    public Set<Item> getItems() {
-        return items;
-    }
-
-
-    public void setItems(Set<Item> items) {
-        this.items = items;
-    }
+//    public Set<Item> getItems() {
+//        return items;
+//    }
+//
+//
+//    public void setItems(Set<Item> items) {
+//        this.items = items;
+//    }
 
     /**
      * Adds an new for the seller
      * @param item - item being sold
      * @return Item
      */
-    public Item addItem(Item item) {
-        getItems().add(item);
-        item.setSeller(this);
-        return item;
-    }
-
-
-    public Item removeItem(Item item) {
-        getItems().remove(item);
-        item.setSeller(null);
-        return item;
-    }
+//    public Item addItem(Item item) {
+//        getItems().add(item);
+//        item.setSeller(this);
+//        return item;
+//    }
+//
+//
+//    public Item removeItem(Item item) {
+//        getItems().remove(item);
+//        item.setSeller(null);
+//        return item;
+//    }
 }
 

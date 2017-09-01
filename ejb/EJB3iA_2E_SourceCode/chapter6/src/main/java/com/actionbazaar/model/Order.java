@@ -17,15 +17,14 @@
  */
 package com.actionbazaar.model;
 
-import com.actionbazaar.account.Bidder;
-import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import java.io.Serializable;
+
+import com.actionbazaar.account.Bidder;
 
 /**
  * Represents an Order
@@ -43,32 +42,32 @@ public class Order implements Serializable {
     /**
      * Person that bid
      */
-    @ManyToOne @JoinColumn
-    private Bidder bidder;
+//    @ManyToOne @JoinColumn
+//    private Bidder bidder;
 
     /**
      * Item on that was bid on
      */
-    @ManyToOne @JoinColumn
-    private Item item;
+//    @ManyToOne @JoinColumn
+//    private Item item;
 
     /**
      * Shipping address
      */
-    @ManyToOne @JoinColumn
-    private Shipping shipping;
+//    @ManyToOne @JoinColumn
+//    private Shipping shipping;
 
     /**
      * Billing address
      */
-    @ManyToOne @JoinColumn
-    private Billing billing;
+//    @ManyToOne @JoinColumn
+//    private Billing billing;
 
     /**
      * Credit card
      */
-    @ManyToOne @JoinColumn
-    private CreditCard creditCard;
+//    @ManyToOne @JoinColumn
+//    private CreditCard creditCard;
 
     /**
      * Order status
@@ -90,9 +89,9 @@ public class Order implements Serializable {
      * @param creditCard - credit card
      */
     public Order(Item item, Bidder bidder, CreditCard creditCard) {
-        this.item = item;
-        this.bidder = bidder;
-        this.creditCard = creditCard;
+//        this.item = item;
+//        this.bidder = bidder;
+//        this.creditCard = creditCard;
     }
 
     /**
@@ -116,7 +115,7 @@ public class Order implements Serializable {
      * @return bidder
      */
     public Bidder getBidder() {
-        return bidder;
+        return null;//bidder;
     }
 
     /**
@@ -124,7 +123,7 @@ public class Order implements Serializable {
      * @param bidder - bidder
      */
     public void setBidder(Bidder bidder) {
-        this.bidder = bidder;
+        //this.bidder = bidder;
     }
 
     /**
@@ -132,7 +131,7 @@ public class Order implements Serializable {
      * @return billing information
      */
     public Billing getBilling() {
-        return billing;
+        return null;//billing;
     }
 
     /**
@@ -140,7 +139,7 @@ public class Order implements Serializable {
      * @param billing - billing information
      */
     public void setBilling(Billing billing) {
-        this.billing = billing;
+        //this.billing = billing;
     }
 
     /**
@@ -148,7 +147,7 @@ public class Order implements Serializable {
      * @return item
      */
     public Item getItem() {
-        return item;
+        return null;//item;
     }
 
     /**
@@ -156,7 +155,7 @@ public class Order implements Serializable {
      * @param item - item
      */
     public void setItem(Item item) {
-        this.item = item;
+        //this.item = item;
     }
 
     /**
@@ -164,7 +163,7 @@ public class Order implements Serializable {
      * @return shipping
      */
     public Shipping getShipping() {
-        return shipping;
+        return null;//shipping;
     }
 
     /**
@@ -172,7 +171,7 @@ public class Order implements Serializable {
      * @param creditCard - credit card
      */
     public void setCreditCard(CreditCard creditCard) {
-        this.creditCard = creditCard;
+        //this.creditCard = creditCard;
     }
 
     /**
@@ -180,7 +179,7 @@ public class Order implements Serializable {
      * @return credit card
      */
     public CreditCard getCreditCard() {
-        return creditCard;
+        return null;//creditCard;
     }
 
     /**
@@ -188,7 +187,7 @@ public class Order implements Serializable {
      * @param shipping - shipping information
      */
     public void setShipping(Shipping shipping) {
-        this.shipping = shipping;
+        //this.shipping = shipping;
     }
 
     /**

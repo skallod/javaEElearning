@@ -17,15 +17,15 @@
  */
 package com.actionbazaar.model;
 
-import com.actionbazaar.account.Bidder;
-import java.io.Serializable;
-import java.math.BigDecimal;
-import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
+import java.io.Serializable;
+import java.math.BigDecimal;
+import java.util.Date;
+
+import com.actionbazaar.account.Bidder;
 
 /**
  * Represents a bid on an item.
@@ -53,14 +53,14 @@ public class Bid implements Serializable {
     /**
      * Item for this bid
      */
-    @ManyToOne
-    private Item item;
+//    @ManyToOne
+//    private Item item;
 
     /**
      * Bidder
      */
-    @ManyToOne
-    private Bidder bidder;
+//    @ManyToOne
+//    private Bidder bidder;
 
     /**
      * Default constructor
@@ -76,8 +76,8 @@ public class Bid implements Serializable {
      * @param bidPrice - price
      */
     public Bid(Bidder bidder, Item item, BigDecimal bidPrice) {
-        this.item = item;
-        this.bidder = bidder;
+//        this.item = item;
+//        this.bidder = bidder;
         this.bidPrice = bidPrice;
     }
 
@@ -133,33 +133,33 @@ public class Bid implements Serializable {
      * Returns the item
      * @return item
      */
-    public Item getItem() {
-        return item;
-    }
-
-    /**
-     * Sets the item being bid on
-     * @param item - item
-     */
-    public void setItem(Item item) {
-        this.item = item;
-    }
-
+//    public Item getItem() {
+//        return item;
+//    }
+//
+//    /**
+//     * Sets the item being bid on
+//     * @param item - item
+//     */
+//    public void setItem(Item item) {
+//        this.item = item;
+//    }
+//
     /**
      * Returns the bidder
      * @return bidder
      */
     public Bidder getBidder() {
-        return bidder;
+        return null;//bidder;
     }
-
-    /**
-     * Sets the bidder
-     * @param bidder - bidder
-     */
-    public void setBidder(Bidder bidder) {
-        this.bidder = bidder;
-    } 
+//
+//    /**
+//     * Sets the bidder
+//     * @param bidder - bidder
+//     */
+//    public void setBidder(Bidder bidder) {
+//        this.bidder = bidder;
+//    }
 
     public Long getId() {
         return id;

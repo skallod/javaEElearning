@@ -39,20 +39,20 @@ import javax.persistence.Table;
 @Entity
 @Table(name="BIDDERS")
 @DiscriminatorValue(value="B")
-@PrimaryKeyJoinColumn(name="USER_ID")
+//@PrimaryKeyJoinColumn(name="USER_ID")
 public class Bidder extends User implements Serializable {
 
     /**
      * Billing information
      */
-    @OneToMany(cascade = CascadeType.ALL)
-    private Set<BillingInfo> billingInfo = new HashSet<BillingInfo>();
+//    @OneToMany(cascade = CascadeType.ALL)
+//    private Set<BillingInfo> billingInfo = new HashSet<BillingInfo>();
 
     /**
      * Orders
      */
-    @OneToMany
-    private Set<Order> orders;
+//    @OneToMany
+//    private Set<Order> orders;
 
     /**
      * Creates a bidder
@@ -81,41 +81,41 @@ public class Bidder extends User implements Serializable {
      * Sets the billing info
      * @param billingInfo - billing info
      */
-    public void setBillingInfo(Set<BillingInfo> billingInfo) {
-        this.billingInfo = billingInfo;
-    }
-
-
-    /**
-     * Returns the billing info
-     * @return billing info
-     */
-    public Set<BillingInfo> getBillingInfo() {
-        return billingInfo;
-    }
-
-    /**
-     * Sets the list of order
-     * @param orders - orders
-     */
-    public void setOrders(Set<Order> orders) {
-        this.orders = orders;
-    }
-
-    /**
-     * Adds an order
-     * @param order - order
-     */
-    public void addOrder(Order order) {
-        orders.add(order);
-    }
-
-    /**
-     * Returns the orders
-     * @return orders
-     */
-    public Set<Order> getOrders() {
-        return orders;
-    }
+//    public void setBillingInfo(Set<BillingInfo> billingInfo) {
+//        this.billingInfo = billingInfo;
+//    }
+//
+//
+//    /**
+//     * Returns the billing info
+//     * @return billing info
+//     */
+//    public Set<BillingInfo> getBillingInfo() {
+//        return billingInfo;
+//    }
+//
+//    /**
+//     * Sets the list of order
+//     * @param orders - orders
+//     */
+//    public void setOrders(Set<Order> orders) {
+//        this.orders = orders;
+//    }
+//
+//    /**
+//     * Adds an order
+//     * @param order - order
+//     */
+//    public void addOrder(Order order) {
+//        orders.add(order);
+//    }
+//
+//    /**
+//     * Returns the orders
+//     * @return orders
+//     */
+//    public Set<Order> getOrders() {
+//        return orders;
+//    }
 
 }

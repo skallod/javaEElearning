@@ -17,25 +17,21 @@
  */
 package com.actionbazaar.model;
 
-import com.actionbazaar.account.Seller;
-import java.io.Serializable;
-import java.math.BigDecimal;
-import java.util.Date;
-import java.util.List;
-import java.util.Set;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.TableGenerator;
 import javax.persistence.Temporal;
+import java.io.Serializable;
+import java.math.BigDecimal;
+import java.util.Date;
+import java.util.List;
+import java.util.Set;
+
+import com.actionbazaar.account.Seller;
 
 /**
  * Represents an item that is up for bidding.
@@ -102,21 +98,21 @@ public class Item implements Serializable {
     /**
      * List of bids
      */
-    @OneToMany(mappedBy = "item", cascade = CascadeType.ALL)
-    private List<Bid> bids;
+//    @OneToMany(mappedBy = "item", cascade = CascadeType.ALL)
+//    private List<Bid> bids;
 
     /**
      * Seller of this item
      */
-    @ManyToOne
-    @JoinColumn(name = "SELLER_ID", referencedColumnName = "USER_ID")
-    private Seller seller;
+//    @ManyToOne
+//    @JoinColumn(name = "SELLER_ID", referencedColumnName = "USER_ID")
+//    private Seller seller;
 
     /**
      * An item can be associated with 0 or more categories.
      */
-    @ManyToMany(mappedBy = "items")
-    private Set<Category> category;
+//    @ManyToMany(mappedBy = "items")
+//    private Set<Category> category;
 
     /**
      * Creates an Item
@@ -250,7 +246,7 @@ public class Item implements Serializable {
      * @return bids
      */
     public List<Bid> getBids() {
-        return bids;
+        return null;//bids;
     }
 
     /**
@@ -258,7 +254,7 @@ public class Item implements Serializable {
      * @param bids - bids
      */
     public void setBids(List<Bid> bids) {
-        this.bids = bids;
+        //this.bids = bids;
     }
 
     /**
@@ -267,7 +263,7 @@ public class Item implements Serializable {
      * @return Bid
      */
     public Bid addBid(Bid bid) {
-        getBids().add(bid);
+        //getBids().add(bid);
         return bid;
     }
 
@@ -277,7 +273,7 @@ public class Item implements Serializable {
      * @return Bid
      */
     public Bid removeBid(Bid bid) {
-        getBids().remove(bid);
+        //getBids().remove(bid);
         return bid;
     }
 
@@ -286,7 +282,7 @@ public class Item implements Serializable {
      * @param seller - seller
      */
     public void setSeller(Seller seller) {
-        this.seller = seller;
+        //this.seller = seller;
     }
 
     /**
@@ -294,15 +290,16 @@ public class Item implements Serializable {
      * @return seller
      */
     public Seller getSeller() {
-        return seller;
+        //return seller;
+        return null;
     }
 
     public Set<Category> getCategory() {
-        return category;
+        return null;//category;
     }
 
     public void setCategory(Set<Category> category) {
-        this.category = category;
+        //this.category = category;
     }
 
     public Category addCategory(Category category) {

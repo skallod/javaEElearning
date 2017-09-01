@@ -17,16 +17,15 @@
  */
 package com.actionbazaar.account;
 
-import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorType;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import java.io.Serializable;
 
 /**
  * Billing Info
@@ -41,12 +40,13 @@ public abstract class BillingInfo implements Serializable {
      */
     @Id
     @Column(name="BILLING_ID")
+    @GeneratedValue
     private Long userId;
 
     /**
      * Person that bid
      */
-    @ManyToOne
-    @JoinColumn
-    private Bidder bidder;
+//    @ManyToOne
+//    @JoinColumn
+//    private Bidder bidder;
 }

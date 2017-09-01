@@ -17,12 +17,11 @@
  */
 package com.actionbazaar.account;
 
-import java.io.Serializable;
-import java.util.Date;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
+import java.io.Serializable;
+import java.util.Date;
 
 /**
  * Represents an ActionBazaar employee
@@ -30,7 +29,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name="employees")
 @DiscriminatorValue(value="E")
-@PrimaryKeyJoinColumn(name="USER_ID")
+//@PrimaryKeyJoinColumn(name="USER_ID")
 public class Employee extends User implements Serializable {
 
     /**

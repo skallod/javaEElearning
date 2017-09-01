@@ -17,15 +17,6 @@
  */
 package com.actionbazaar.account;
 
-import java.io.Serializable;
-import java.io.UnsupportedEncodingException;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorColumn;
@@ -41,6 +32,16 @@ import javax.persistence.InheritanceType;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
+import java.io.Serializable;
+import java.io.UnsupportedEncodingException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import org.apache.commons.codec.binary.Base64;
 
 /**
@@ -304,7 +305,7 @@ public abstract class User implements Serializable {
         Group grp = new Group(groupId);
         grp.setUsername(username);
         groups.add(grp);
-        
+
     }
 
     /**
@@ -312,7 +313,7 @@ public abstract class User implements Serializable {
      * @return groups
      */
     public Set<Group> getGroups() {
-        return groups;
+        return null;//groups;
     }
 
     /**

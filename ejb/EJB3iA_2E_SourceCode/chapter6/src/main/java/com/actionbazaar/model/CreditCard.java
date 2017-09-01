@@ -17,20 +17,16 @@
  */
 package com.actionbazaar.model;
 
-import com.actionbazaar.account.BillingInfo;
-import java.io.Serializable;
-import java.util.logging.Logger;
-import javax.inject.Inject;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.PrimaryKeyJoinColumn;
 import javax.validation.constraints.DecimalMax;
 import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.io.Serializable;
+
+import com.actionbazaar.account.BillingInfo;
 
 /**
  * Encapsulates information about a credit card.
@@ -38,14 +34,14 @@ import javax.validation.constraints.Size;
  */
 @Entity
 @DiscriminatorValue(value="C")
-@PrimaryKeyJoinColumn(name="BILLING_ID")
+//@PrimaryKeyJoinColumn(name="BILLING_ID")
 public class CreditCard extends BillingInfo implements Serializable {
 
     /**
      * Credit card identifier
      */
-    @Id @GeneratedValue
-    private Long creditCardId;
+//    @Id @GeneratedValue
+//    private Long creditCardId;
 
     /**
      * Name appearing on the card
@@ -94,17 +90,17 @@ public class CreditCard extends BillingInfo implements Serializable {
      * Sets the credit card id
      * @param creditCardId - credit card id
      */
-    public void setCreditCardId(Long creditCardId) {
-        this.creditCardId = creditCardId;
-    }
+//    public void setCreditCardId(Long creditCardId) {
+//        this.creditCardId = creditCardId;
+//    }
 
     /**
      * Returns credit card id
      * @return credit card id
      */
-    public Long getCreditCardId() {
-        return creditCardId;
-    }
+//    public Long getCreditCardId() {
+//        return creditCardId;
+//    }
 
     /**
      * Returns the name that appears on the car
