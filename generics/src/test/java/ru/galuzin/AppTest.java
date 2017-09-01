@@ -7,7 +7,6 @@ import java.math.BigDecimal;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.text.DecimalFormat;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
@@ -23,6 +22,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import ru.galuzin.enum_test.GdsNameVo;
 import ru.galuzin.generics.Maximum;
+import ru.galuzin.generics.ValueHolder;
 
 /**
  * Unit test for simple App.
@@ -303,7 +303,9 @@ public class AppTest
         map.put(a1, a2);
         A a3 = map.get(a1);
         System.out.println("a3.name = " + a3.name);
-        new Date().compareTo(null);
+        a3.types = TYPES.valueOf("type1");
+        ValueHolder<Boolean> vh = new ValueHolder<>();
+        System.out.println("vh = " + vh.getValue());
     }
 
     private static enum TYPES{type1, type2}
