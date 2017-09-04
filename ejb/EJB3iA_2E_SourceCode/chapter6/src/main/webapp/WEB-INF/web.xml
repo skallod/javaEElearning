@@ -39,13 +39,17 @@
     </security-role>
 
     <login-config>
-        <auth-method>FORM</auth-method>
-        <realm-name>actionbazaar</realm-name>
-        <form-login-config>
-            <form-login-page>/login.faces</form-login-page>
-            <form-error-page>/login_error.faces</form-error-page>
-        </form-login-config>
+        <auth-method>BASIC</auth-method>
+        <realm-name>ApplicationRealm</realm-name>
     </login-config>
+    <!--<login-config>-->
+        <!--<auth-method>FORM</auth-method>-->
+        <!--<realm-name>actionbazaar</realm-name>-->
+        <!--<form-login-config>-->
+            <!--<form-login-page>/login.faces</form-login-page>-->
+            <!--<form-error-page>/login_error.faces</form-error-page>-->
+        <!--</form-login-config>-->
+    <!--</login-config>-->
 
     <!-- Database Realm -->
     <security-constraint>

@@ -17,7 +17,10 @@
  */
 package com.actionbazaar.buslogic;
 
+import java.util.List;
+
 import com.actionbazaar.account.Bidder;
+import com.actionbazaar.model.Bid;
 import com.actionbazaar.model.CreditCard;
 import com.actionbazaar.model.Item;
 
@@ -32,5 +35,7 @@ public interface BidManager {
      * @param bidder - bidder
      * @param card - credit card to be used
      */
-    void placeSnagItOrder(Item item, Bidder bidder, CreditCard card); 
+    void placeSnagItOrder(Item item, Bidder bidder, CreditCard card);
+    public void cancelBid(Bid bid);
+    public List<Bid> getBids(Item item);
 }

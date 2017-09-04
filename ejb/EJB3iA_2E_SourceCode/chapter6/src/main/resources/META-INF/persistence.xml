@@ -6,7 +6,7 @@
   <persistence-unit name="actionbazaar" transaction-type="JTA">
     <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
     <jta-data-source>java:/jdbc/JavaCourse</jta-data-source>
-    <class>com.actionbazaar.listing02.TurtleShippingRequest</class>
+    <!--<class>com.actionbazaar.listing02.TurtleShippingRequest</class>-->
     <properties>
       <property name="hibernate.hbm2ddl.auto" value="create-drop" />
       <property name="hibernate.format_sql" value="true"/>

@@ -15,7 +15,6 @@
 package com.actionbazaar.buslogic;
 
 import javax.annotation.Resource;
-import javax.annotation.security.PermitAll;
 import javax.annotation.security.RolesAllowed;
 import javax.annotation.security.RunAs;
 import javax.ejb.EJB;
@@ -23,6 +22,7 @@ import javax.ejb.SessionContext;
 import javax.ejb.Stateless;
 import javax.ejb.TransactionManagement;
 import javax.ejb.TransactionManagementType;
+import javax.interceptor.Interceptors;
 import javax.transaction.UserTransaction;
 import java.math.BigDecimal;
 import java.util.List;
@@ -35,6 +35,7 @@ import com.actionbazaar.buslogic.exceptions.CreditProcessingException;
 import com.actionbazaar.model.Bid;
 import com.actionbazaar.model.CreditCard;
 import com.actionbazaar.model.Item;
+import com.actionbazaar.security.SecurityInterceptor;
 
 /**
  * Demonstrates the BidManagerBean using Bean Managed Transactions (BMT).
@@ -74,6 +75,7 @@ public class BidManagerBeanBMT implements BidManager {
      * @param card - card
      */
     public void placeSnagItOrder(Item item, Bidder bidder, CreditCard card) {
+        logger.info("placeSnagItOrder begin");
         try {
             userTransaction.begin();
             if (!hasBids(item)) {
@@ -118,6 +120,7 @@ public class BidManagerBeanBMT implements BidManager {
      */
     @RolesAllowed({"CSR", "ADMIN"})
     public void cancelBid(Bid bid) {
+        logger.info("placeSnagItOrder begin");
         logger.log(Level.SEVERE,"cancel bid");
     }
 
@@ -126,8 +129,10 @@ public class BidManagerBeanBMT implements BidManager {
      * @param item - item
      * @return bids
      */
-    @PermitAll
+    //@PermitAll
+    @Interceptors(SecurityInterceptor.class)
     public List<Bid> getBids(Item item) {
+        logger.info("placeSnagItOrder begin");
         return item.getBids();
     }
 

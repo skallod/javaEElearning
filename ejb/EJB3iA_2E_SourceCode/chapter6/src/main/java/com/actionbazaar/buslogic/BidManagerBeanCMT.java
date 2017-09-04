@@ -17,20 +17,8 @@
  */
 package com.actionbazaar.buslogic;
 
-import com.actionbazaar.account.Bidder;
-import com.actionbazaar.buslogic.exceptions.CreditCardSystemException;
-import com.actionbazaar.buslogic.exceptions.CreditProcessingException;
-import com.actionbazaar.model.Bid;
-import com.actionbazaar.model.CreditCard;
-import com.actionbazaar.model.Item;
-import java.math.BigDecimal;
-import java.util.Date;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.annotation.Resource;
 import javax.annotation.security.PermitAll;
-import javax.annotation.security.RolesAllowed;
 import javax.annotation.security.RunAs;
 import javax.ejb.EJB;
 import javax.ejb.SessionContext;
@@ -39,6 +27,18 @@ import javax.ejb.TransactionAttribute;
 import javax.ejb.TransactionAttributeType;
 import javax.ejb.TransactionManagement;
 import javax.ejb.TransactionManagementType;
+import java.math.BigDecimal;
+import java.util.Date;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+import com.actionbazaar.account.Bidder;
+import com.actionbazaar.buslogic.exceptions.CreditCardSystemException;
+import com.actionbazaar.buslogic.exceptions.CreditProcessingException;
+import com.actionbazaar.model.Bid;
+import com.actionbazaar.model.CreditCard;
+import com.actionbazaar.model.Item;
 
 /**
  * Demonstrates the BidManagerBean using Container Managed Transactions.
