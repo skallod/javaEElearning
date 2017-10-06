@@ -2,6 +2,7 @@ package ru.galuzin.school.task2;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import org.apache.log4j.Logger;
@@ -16,6 +17,8 @@ import org.apache.log4j.Logger;
 public class Task2Main {
     static final Logger log = Logger.getLogger(Task2Main.class);
     static Integer[] simples;
+    static final int SLOW_VER=2;
+    static long iterations=0;
     public static void main(String[] args) {
 //        URL resource = Task2Main.class.getResource("log4j.properties");
 //        PropertyConfigurator.configure(resource);
@@ -27,15 +30,15 @@ public class Task2Main {
         int evristMinPos =maxdelta(simples);
         AtomicInteger allsum = new AtomicInteger();
         allsum.set(1);
-        for(int i=1; i <= 1000; i++)
-        //int i=992;
+        long time = System.nanoTime();
+        for(int i=3; i <= 11147; i++)
+        //int i=902;
         {
             Integer[] subSimple = subSimple(i,simples);
             log.debug("Arrays.asList(subSimple) = " + Arrays.asList(subSimple));
             int evristStartIdx = evristMinPos;
             boolean firstfound = true;
-            for(int j=1; j<=1000; j++)
-            //int j=2;
+            for(int j=1; j<=11147; j++)
             {
                 log.debug("p("+i+ ";" + j+")");
                 if(j==1){
@@ -48,25 +51,33 @@ public class Task2Main {
                 if(j*2>i){
                     break;
                 }
-                if(pFunc(i,j,subSimple,allsum,true)==1){
-                    if(firstfound) {
-                        evristStartIdx = (j<evristMinPos)?j:evristMinPos;
-                        firstfound = false;
-                    }
+                if(j<=20){
+                    pFunc(i,j,subSimple,allsum,false);
+                }else {
+                    pFunc(i, j, subSimple, allsum, true);
+//                    if ( == 1) {
+//                        if (firstfound) {
+//                            evristStartIdx = (j < evristMinPos) ? j : evristMinPos;
+//                            firstfound = false;
+//                        }
+//                    }
                 }
             }
-            log.debug("slow coutn "+evristStartIdx);
-            evristStartIdx =10;
-            //TODO Set less 20  last sum on 1000 248797
-            for(int k=2; k<evristStartIdx; k++){
-                if(k*2>i){
-                    break;
-                }
-                log.debug("slow p("+i+ ";" + k+")");
-                pFunc(i,k,subSimple,allsum,false);
-            }
+//            log.debug("slow coutn "+evristStartIdx);
+//            evristStartIdx =10;
+//            //TODO Set less 20  last sum on 1000 248797 248839_1 248806_2
+//            for(int k=2; k<evristStartIdx; k++){
+//                if(k*2>i){
+//                    break;
+//                }
+//                log.debug("slow p("+i+ ";" + k+")");
+//                pFunc(i,k,subSimple,allsum,false);
+//            }
         }
+        log.debug("slow ver "+SLOW_VER);
         log.debug("allsum = " + allsum);
+        log.debug("timing = " + TimeUnit.NANOSECONDS.toMillis(System.nanoTime()-time));
+        log.debug("iterations = " + iterations);
     }
 
     private static int maxdelta(Integer[] simples/*, int maxvalue*/) {
@@ -106,7 +117,14 @@ public class Task2Main {
                 }
                 evristAlg(subsimle, j, 0, 0, pairs, i);
             }else {
-                slowAlg(subsimle, j, 0, 0, new int[j], i);
+                switch (SLOW_VER){
+                    case 1:
+                        slowAlg1(subsimle, j, 0, 0, new int[j], i);
+                        break;
+                    case 2:
+                        slowAlg2(subsimle, j, 0, 0, new int[j], i);
+                        break;
+                }
             }
         }catch (FoundException fe){
             allsum.incrementAndGet();
@@ -127,50 +145,51 @@ public class Task2Main {
         log.debug("integers = " + integers);
         return integers.toArray(new Integer[integers.size()]);
     }
-//    static void combtest(){
-//        int number = 40;
-//        Integer[] subSimple= new Integer[]{2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37};
-//        try {
-//            combinations2(subSimple, 3, 0, new int[3], 40/*,new ValueHolder()*/);
-//        }catch (FoundException fe){
-//            log.debug("p() = 1");
-//        }
-//    }
-    static void slowAlg(Integer[] arr, int len, int startPosition,int ipos, int[] result,int check){
+    static void slowAlg1(Integer[] arr, int len, int startPosition,int ipos, int[] result,int check){
+        iterations++;
         if (len == 0){
             int sum =0;
-            //log.debug(Arrays.toString(result));
             for (int i = 0; i < result.length; i++) {
                 sum+=result[i];
             }
             if(sum==check){
-                log.debug("amazing "+Arrays.toString(result));
+                //log.debug("amazing "+Arrays.toString(result));
                 throw new FoundException();
             }
             return;
         }
         for (int i = ipos; i < arr.length; i++){
             result[startPosition] = arr[i];
-
-            slowAlg(arr, len-1, startPosition+1, i,  result,check);
+            slowAlg1(arr, len - 1, startPosition + 1, i, result, check);
+        }
+    }
+    static void slowAlg2(Integer[] arr, int len, int startPosition,int ipos, int[] result,int check){
+        iterations++;
+        for (int i = ipos; i < arr.length; i++){
+            result[startPosition] = arr[i];
+            //log.debug("iterate "+Arrays.toString(result));
+            int sum = arrSum(result);
+            if(sum==check){
+                //log.debug("amazing "+Arrays.toString(result));
+                throw new FoundException();
+            }else if(sum>check){
+                //log.debug("iterate return "+Arrays.toString(result));
+                if(ipos+1<arr.length)result[startPosition]=arr[ipos+1];
+                else result[startPosition]=arr[ipos];
+                return;
+            }
+            if(len-1!=0) {
+                slowAlg2(arr, len - 1, startPosition + 1, i, result, check);
+            }
+            if(i==arr.length-1){
+                if(ipos+1<arr.length)result[startPosition]=arr[ipos+1];
+                else result[startPosition]=arr[ipos];
+                return;
+            }
         }
     }
     static void evristAlg(Integer[] arr, int len, int startPosition,int ipos, Pair[] result, int check/*, ValueHolder vh*/){
-//        if (len == 0){
-//            int sum =0;
-//            //log.debug(Arrays.toString(result));
-//            for (int i = 0; i < result.length; i++) {
-//                sum+=result[i].value;
-//            }
-//            if(sum==check){
-//                log.debug(Arrays.toString(result));
-//                throw new FoundException();
-//            }
-//            else if(sum>check){
-//                return -1;
-//            }
-//            return 0;
-//        }
+        iterations++;
         for (int i = ipos; i < arr.length; i++){
             result[startPosition].value = arr[i];
 
@@ -181,7 +200,7 @@ public class Task2Main {
                     sum+=result[j].value;
                 }
                 if(sum==check){
-                    log.debug("amazing "+Arrays.toString(result));
+                    //log.debug("amazing "+Arrays.toString(result));
                     throw new FoundException();
                 }
                 else if(sum>check){
@@ -189,7 +208,7 @@ public class Task2Main {
                     if (i - 1 >= 0) {
                         result[startPosition].value = arr[i - 1];
                     }
-                    log.debug("updated "+"("+startPosition+";"+result[startPosition].value+")");
+                    //log.debug("updated "+"("+startPosition+";"+result[startPosition].value+")");
                     return ;
                 }
             }
@@ -203,7 +222,7 @@ public class Task2Main {
                     sum+=result[j].value;
                 }
                 if(sum==check){
-                    log.debug("amazing "+Arrays.toString(result));
+                    //log.debug("amazing "+Arrays.toString(result));
                     throw new FoundException();
                 }
                 else if(sum>check){

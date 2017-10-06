@@ -1,7 +1,6 @@
 package ru.galuzin.school.task1;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -17,6 +16,7 @@ import java.util.Set;
  Найдите количество этих замечательных чисел в интервале [1, 6_100_000] (обе границы — включительно).
  */
 public class Task1Main {
+    //static long allsum = 0;
     public static void main(String[] args) {
         //String[] arr = {"0","5","5"};
         /*Работает чеко ! задать len и размер массива*/
@@ -27,7 +27,8 @@ public class Task1Main {
             Set<Integer> indexes = new HashSet<Integer>();
             System.out.println("check = " + i);
             for(int j=2; j<=ciphers.length;j++){
-                combinations2(ciphers, j, 0, new Pair[j],indexes);
+                //combinations2(ciphers, j, 0, new Pair[j],indexes);
+                iteration(j,ciphers,indexes);
             }
             if(ciphers.length==indexes.size()){
                 System.out.println("amazing number = " + i);
@@ -37,25 +38,37 @@ public class Task1Main {
         System.out.println("amazingCount = " + amazingCount);
     }
 
-    /**
-     * Алгоритм сочетания без повторений
-     * @param arr
-     * @param len
-     * @param startPosition
-     * @param result
-     * @param indexes
-     */
-    static void combinations2(Integer[] arr, int len, int startPosition, Pair[] result, Set<Integer> indexes){
-        if (len == 0){
-            System.out.println(Arrays.toString(result));
-            checkSumAndUpdateIndexes(result,indexes);
-            return;
-        }
-        for (int i = startPosition; i <= arr.length-len; i++){
-            result[result.length - len] = new Pair(arr[i],i);
-            combinations2(arr, len-1, i+1, result,indexes);
+
+//    static void combinations2(Integer[] arr, int len, int startPosition, Pair[] result, Set<Integer> indexes){
+//        if (len == 0){
+//            System.out.println(Arrays.toString(result));
+//            checkSumAndUpdateIndexes(result,indexes);
+//            return;
+//        }
+//        for (int i = startPosition; i <= arr.length-len; i++){
+//            result[result.length - len] = new Pair(arr[i],i);
+//            combinations2(arr, len-1, i+1, result,indexes);
+//        }
+//    }
+
+    static void iteration(int length, Integer[] arr, Set<Integer> indexes){
+        for(int i=0; i<arr.length; i++){
+            for(int k=1; k<arr.length; k++){
+                if((k-i)==(length-1)){
+                    int localsum = 0;
+                    HashSet<Integer> localset = new HashSet<>();
+                    for(int s=i; s<=k; s++){
+                        localsum+=arr[s];
+                        localset.add(s);
+                    }
+                    if(localsum==10){
+                        indexes.addAll(localset);
+                    }
+                }
+            }
         }
     }
+
     static Integer[] split(int number){
         ArrayList<Integer> ciphers = new ArrayList<Integer>();
         int current = number;
@@ -68,34 +81,34 @@ public class Task1Main {
         return ciphers.toArray(new Integer[ciphers.size()]);
     }
 
-    static void checkSumAndUpdateIndexes(Pair[] arr, Set<Integer> indexes){
-        int sum =0;
-        for (int i=0; i<arr.length;i++){
-            int cipher = arr[i].first;
-            sum+=cipher;
-        }
-        if(sum==10){
-            for (int i=0; i<arr.length;i++){
-                indexes.add(arr[i].second);
-            }
-        }
-    }
+//    static void checkSumAndUpdateIndexes(Pair[] arr, Set<Integer> indexes){
+//        int sum =0;
+//        for (int i=0; i<arr.length;i++){
+//            int cipher = arr[i].value;
+//            sum+=cipher;
+//        }
+//        if(sum==10){
+//            for (int i=0; i<arr.length;i++){
+//                indexes.add(arr[i].position);
+//            }
+//        }
+//    }
 }
-class Pair{
-    public Integer first;
-    //index in checked array
-    public Integer second;
-
-    public Pair(Integer first, Integer second) {
-        this.first = first;
-        this.second = second;
-    }
-
-    @Override
-    public String toString() {
-        return "{"+ first + ';' + second + '}';
-    }
-}
+//class Pair{
+//    public Integer value;
+//    //index in checked array
+//    public Integer position;
+//
+//    public Pair(Integer first, Integer second) {
+//        this.value = first;
+//        this.position = second;
+//    }
+//
+//    @Override
+//    public String toString() {
+//        return "{"+ value + ';' + position + '}';
+//    }
+//}
 
 
 
