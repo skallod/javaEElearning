@@ -7,7 +7,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import ru.galuzin.payment_system.common_types.Account;
+import ru.galuzin.payment_system.common_types.EntityData;
 import ru.galuzin.payment_system.persistance.HibernateSession;
 
 /**
@@ -39,52 +39,40 @@ public class BasicDAO {
     public void updateEntity(Object entity){
         updateEntity(entity,false);
     }
+//    public void updateEntity(Object entity, boolean flag){
+//        updateEntity(Object entity, boolean flag){
+//    }
 
     public void updateEntity(Object entity, boolean flag){
-
         Session sess1 = HibernateSession.getSessionFactory().openSession();
-        sess1.flush();
         Transaction tx1=null;
-        Serializable id1=null;
-
-        //Session sess2 = HibernateSession.getSessionFactory().openSession();
-        sess1.flush();
-        Transaction tx2=null;
-        //Serializable id1=null;
         try {
-            System.out.println("Thread.currentThread().getName() = " + Thread.currentThread().getName());
             tx1 = sess1.beginTransaction();
-            //tx2 = sess1.beginTransaction();
-            if(flag) {
-                //sess1.delete(entity);
-                ((Account)entity).setMoney(22.4d);
-                sess1.update(entity);
-                Thread.sleep(500);
-                System.out.println("flush1");
-                sess1.flush();
-            }else{
-                ((Account)entity).setMoney(22.4d);
-                sess1.update(entity);
-                Thread.sleep(1_000);
-                System.out.println("flush2");
-                sess1.flush();
-            }
-//            ((Account)entity).setMoney(11.1d);
-//            sess1.update(entity);
+            entity = sess1.merge(entity);
+
+            EntityData ed = (EntityData)entity;
+            System.out.println("on update ed.getModified() = " + ed.getModified());
+//            List<VersionData> versions = ed.getVersions();
+//            System.out.println("versions = " + versions);
+
+            sess1.update(entity);
             tx1.commit();
-            //tx2.commit();
-            System.out.println("Thread.currentThread().getName() = " + Thread.currentThread().getName()+"after commit");
         }
         catch (Exception e) {
+            e.printStackTrace();
             if (tx1!=null) {
                 tx1.rollback();
             }
-            //if (tx2!=null) tx2.rollback();
-            throw new RuntimeException(e);
         }
         finally {
+            if ((tx1 != null) && tx1.isActive()) {
+                try {
+                    tx1.rollback();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
             sess1.close();
-            //sess2.close();
         }
 
     }
@@ -101,7 +89,6 @@ public class BasicDAO {
         }
         catch (Exception e) {
             if (tx!=null) tx.rollback();
-            throw new RuntimeException(e);
         }
         finally {
             sess.close();
