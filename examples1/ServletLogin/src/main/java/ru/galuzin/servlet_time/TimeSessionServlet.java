@@ -10,7 +10,7 @@ import javax.servlet.http.HttpSession;
  * Created by User on 30.12.2016.
  */
 public class TimeSessionServlet extends HttpServlet {
-    boolean flag = true;
+    volatile boolean flag = true;
 
     protected void doGet(
             HttpServletRequest req,
@@ -28,7 +28,7 @@ public class TimeSessionServlet extends HttpServlet {
         HttpSession session = null;
         if(flag){
             session = req.getSession();
-            int timeLive = 10;
+            int timeLive = 100;
             session.setMaxInactiveInterval(timeLive);
             flag=false;
         }else{

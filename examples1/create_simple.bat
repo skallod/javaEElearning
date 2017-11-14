@@ -1,8 +1,8 @@
 rem mvn archetype:generate maven-archetype-simple
 
 mvn -B archetype:generate ^
--DgroupId=ru.galuzin.tij4 ^
--DartifactId=tij4 ^
+-DgroupId=ru.galuzin.school ^
+-DartifactId=hhschool ^
 -DarchetypeArtifactId=maven-archetype-quickstart
 
 rem -DarchetypeGroupId=org.apache.maven.archetypes ^

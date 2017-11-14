@@ -10,7 +10,7 @@ import static java.lang.System.currentTimeMillis;
 public class LongMethod {
     public static double longTimeOperation(){
         double result= Math.log(Math.pow(Math.log(Math.pow(Math.log(Math.log(Math.log(Math.pow(Math.log(Math.log(Math.sqrt(Math.log(Math.random()*Math.PI)))),2d)))),2d)),2d));
-        for(int i=0; i<10000000;i++){
+        for(int i=0; i<1000000;i++){
             result+= Math.log(Math.pow(Math.log(Math.pow(Math.log(Math.log(Math.log(Math.pow(Math.log(Math.log(Math.sqrt(Math.log(Math.random()*Math.PI)))),2d)))),2d)),2d));
         }
         return result;

@@ -1,0 +1,41 @@
+HTTPS Server Configuration
+
+To only deliver the login page over HTTPS – your web-server must be able to serve HTTPS pages. This requires that SSL/TLS support is enabled.
+
+Note that you can either use a valid certificate or, for testing purposes, you can generate your own.
+
+Let’s say we’re using Tomcat and rolling our own certificate. We’ll first need to create a keystore with a self-signed certificate.
+
+Generating the keystore can be done issuing the following command in the terminal:
+
+1
+keytool -genkey -alias tomcat -keyalg RSA -storepass changeit -keypass changeit -dname 'CN=tomcat'
+This will create a private a key and a self-signed certificate in the default keystore for your user profile, in your home folder.
+
+The next step is to edit conf/server.xml to make it look like this:
+
+1
+2
+3
+4
+5
+6
+7
+8
+<Connector port="8080" protocol="HTTP/1.1"
+   connectionTimeout="20000"
+   redirectPort="8443" />
+ 
+<Connector port="8443" protocol="org.apache.coyote.http11.Http11NioProtocol"
+   maxThreads="150" SSLEnabled="true" scheme="https" secure="true"
+   clientAuth="false" sslProtocol="TLS"
+   keystoreFile="${user.home}/.keystore" keystorePass="changeit" />
+The second SSL/TLS <Connector> tag is usually commented out in the config file so uncommenting and adding keystore information is all that is needed. Further information is available in Tomcat’s related documentation.
+
+With the HTTPS configuration in place, the login page can now be served under the following URL as well:
+
+1
+https://localhost:8443/spring-security-login/login.html
+Web-servers other than Tomcat would require different but likely similar configuration.
+
+4. Configuring Channel Security
