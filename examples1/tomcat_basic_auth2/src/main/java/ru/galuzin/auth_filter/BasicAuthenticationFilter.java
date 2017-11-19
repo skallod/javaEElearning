@@ -3,6 +3,7 @@ package ru.galuzin.auth_filter;
 /**
  * Created by galuzin on 21.04.2017.
  */
+
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
@@ -13,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.util.Base64;
 import java.util.StringTokenizer;
 
 import org.slf4j.Logger;
@@ -43,7 +45,8 @@ public class BasicAuthenticationFilter implements Filter {
 
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain)
             throws IOException, ServletException {
-
+        LOG.info("basic START");
+        System.out.println("basic START sout");
         HttpServletRequest request = (HttpServletRequest) servletRequest;
         HttpServletResponse response = (HttpServletResponse) servletResponse;
 
@@ -55,7 +58,7 @@ public class BasicAuthenticationFilter implements Filter {
 
                 if (basic.equalsIgnoreCase("Basic")) {
                     try {
-                        String credentials = /*new String(Base64.decodeBase64(*/st.nextToken();/*), "UTF-8");*/
+                        String credentials = new String(Base64.getDecoder().decode(st.nextToken()), "UTF-8");
                         LOG.debug("Credentials: " + credentials);
                         int p = credentials.indexOf(":");
                         if (p != -1) {
