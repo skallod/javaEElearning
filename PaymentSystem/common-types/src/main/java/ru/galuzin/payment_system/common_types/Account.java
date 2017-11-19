@@ -9,6 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
+import javax.persistence.Version;
 
 /**
  * Created by LEONID on 14.02.2016.
@@ -18,7 +19,9 @@ import javax.persistence.SequenceGenerator;
 public class Account {
     private Long accountID;
     private Double money;
-    private Person person;
+    public Person person;
+    private long version;
+
 //    private List<Operation> operationsSrcAccount;
 //    private List<Operation> operationsDestAccount;
 
@@ -53,7 +56,16 @@ public class Account {
         this.person = person;
     }
 
-//    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "srcAccount")
+    @Version
+    @Column(name = "optlock", columnDefinition = "integer DEFAULT 0", nullable = false)
+    public long getVersion() {
+        return version;
+    }
+
+    public void setVersion(long version) {
+        this.version = version;
+    }
+    //    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "srcAccount")
 //    public List<Operation> getOperationsSrcAccount() {
 //        return operationsSrcAccount;
 //    }

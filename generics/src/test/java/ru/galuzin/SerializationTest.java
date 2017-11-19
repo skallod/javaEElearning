@@ -12,8 +12,11 @@ import java.math.RoundingMode;
 import java.text.SimpleDateFormat;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.LinkedList;
+import java.util.concurrent.TimeoutException;
 
 import org.junit.Test;
 
@@ -90,11 +93,11 @@ public class SerializationTest {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
         //simpleDateFormat.setTimeZone(TimeZone.getTimeZone("Greenwich"));
         System.out.println("simpleDateFormat.getTimeZone() = " + simpleDateFormat.getTimeZone());
-        Date parse = simpleDateFormat.parse("2017-08-25 21:00");
+        Date parse = simpleDateFormat.parse("2017-01-25 21:00");
         System.out.println("parse = " + simpleDateFormat.format(parse));
         Calendar cldr = Calendar.getInstance();
         cldr.setTime(parse);
-        ZonedDateTime d = ZonedDateTime.of(cldr.get(Calendar.YEAR), cldr.get(Calendar.MONTH)
+        ZonedDateTime d = ZonedDateTime.of(cldr.get(Calendar.YEAR), cldr.get(Calendar.MONTH)+1
                 , cldr.get(Calendar.DAY_OF_MONTH), cldr.get(Calendar.HOUR_OF_DAY), cldr.get(Calendar.MINUTE), 0, 0, ZoneId.of("Greenwich"));
         System.out.println("d = " + d);
         ZonedDateTime zonedDateTime = d.toInstant().atZone(ZoneId.of("Europe/Moscow"));
@@ -104,5 +107,31 @@ public class SerializationTest {
 //        ZonedDateTime departure = ZonedDateTime.of(2014, 5, 10, 15, 5, 0, 0, ZoneId.of("America/Los_Angeles"));
 //        ZonedDateTime arrival = departure.plusMinutes(650).toInstant().atZone(ZoneId.of("Europe/Berlin"));
 //        System.out.println(arrival);
+    }
+    @Test
+    public void test785(){
+        ArrayList<String> objects = new ArrayList<>();
+        objects.add("one");
+        objects.add("two");
+        System.out.println("objects = " + null);
+    }
+    @Test
+    public void test0807(){
+        try{
+            throw new TimeoutException();
+        }catch (Exception e){
+            e.printStackTrace();
+            System.out.println("catch");
+            return;
+        }finally {
+            System.out.println("finally");
+        }
+    }@Test
+    public void test0808(){
+        LinkedList<String> strings = new LinkedList<>();
+        strings.add("one");
+        System.out.println("strings = " + ((Object)strings));
+        strings.clear();
+        System.out.println("strings = " + strings);
     }
 }

@@ -4,20 +4,21 @@
 // */
 //package com.actionbazaar.buslogic;
 //
+//import javax.inject.Inject;
+//import javax.persistence.EntityManager;
+//import javax.persistence.PersistenceContext;
+//import javax.transaction.UserTransaction;
+//import java.math.BigDecimal;
+//import java.util.Calendar;
+//import java.util.Date;
+//import java.util.GregorianCalendar;
+//
 //import com.actionbazaar.State;
 //import com.actionbazaar.account.Address;
 //import com.actionbazaar.account.Bidder;
 //import com.actionbazaar.buslogic.exceptions.CreditCardSystemException;
 //import com.actionbazaar.model.Bid;
 //import com.actionbazaar.model.Item;
-//import java.math.BigDecimal;
-//import java.util.Calendar;
-//import java.util.Date;
-//import java.util.GregorianCalendar;
-//import javax.inject.Inject;
-//import javax.persistence.EntityManager;
-//import javax.persistence.PersistenceContext;
-//import javax.transaction.UserTransaction;
 //import org.jboss.arquillian.container.test.api.Deployment;
 //import org.jboss.arquillian.junit.Arquillian;
 //import org.jboss.shrinkwrap.api.Archive;

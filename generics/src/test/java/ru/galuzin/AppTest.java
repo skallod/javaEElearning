@@ -314,6 +314,41 @@ public class AppTest
         String lastname;
         TYPES types;
     }
+    static class B extends A{
+        String token;
+        public void print(){
+            System.out.println("fdas");
+        }
+    }
+
+    public void test15(){
+        Object b = new B();
+        if(b instanceof A){
+            System.out.println("success");
+            A c = (A)b;
+        }
+    }
+
+    public void test16() throws Exception {
+        int trycount = 10;
+        do{
+            try{
+                if(true){
+                    throw new NullPointerException();
+                }
+            }catch (Exception e){
+                trycount--;
+                System.out.println("e = " + e);
+                if(trycount==0){
+                    throw new Exception(e);
+                }else {
+                    continue;
+                }
+            }finally {
+                System.out.println("finally");
+            }
+        }while (true);
+    }
 
     protected final transient Log marketingInfolog =
             LogFactory.getLog(getClass().getName() + ".MARKETING");

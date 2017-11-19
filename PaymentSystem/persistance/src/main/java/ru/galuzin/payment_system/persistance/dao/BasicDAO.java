@@ -7,7 +7,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import ru.galuzin.payment_system.common_types.EntityData;
+import ru.galuzin.payment_system.common_types.Account;
 import ru.galuzin.payment_system.persistance.HibernateSession;
 
 /**
@@ -48,10 +48,14 @@ public class BasicDAO {
         Transaction tx1=null;
         try {
             tx1 = sess1.beginTransaction();
+            Account acc1 = (Account)entity;
+//            System.out.println("acc1.person = " + acc1.person);
+//            System.out.println("acc1.getPerson() = " + acc1.getPerson());
+//            System.out.println("acc1.getPerson().getName() = " + acc1.getPerson().getName());
             entity = sess1.merge(entity);
 
-            EntityData ed = (EntityData)entity;
-            System.out.println("on update ed.getModified() = " + ed.getModified());
+//            EntityData ed = (EntityData)entity;
+//            System.out.println("on update ed.getModified() = " + ed.getModified());
 //            List<VersionData> versions = ed.getVersions();
 //            System.out.println("versions = " + versions);
 

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title of the document</title>
+    <script type="text/javascript" src="jquery-3.2.1.slim.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#btn1").click(function() {
+                $("#test1").text("Hello world!");
+            });
+            $("input").keyup(function() {
+                var value1, value2, value3;
+                value1 = $("#va1").val();
+                value2 = $("#va2").val();
+                value1 = parseInt(value1);
+                value2 = parseInt(value2);
+                value3 = value1 * value2;
+                $("#rslt").text(value3);
+            });
+        });
+    </script>
+<!--        <script type="text/javascript" src="script.js"></script>-->
+</head>
+
+<body>
+    <h2>test2</h2>
+    <h2>test3</h2>
+    <p id="test1">This is a paragraph.</p>
+    <button id="btn1">Set Text</button><br/>
+    <input id="val1" type="number"><br/>
+    <input id="val2" type="number"><br/>
+    <p id="rslt"></p>
+</body>
+
+</html>

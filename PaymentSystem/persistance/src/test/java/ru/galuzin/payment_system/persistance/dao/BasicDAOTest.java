@@ -285,7 +285,7 @@ public class BasicDAOTest {
 
     }
 
-    //    @Test
+    @Test
     public void testGetEntity() throws Exception {
         BasicDAO basicDAO = new BasicDAO();
         Account account = (Account) basicDAO.getEntity(Account.class, 1L);
