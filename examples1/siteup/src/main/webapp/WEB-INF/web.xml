@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://java.sun.com/xml/ns/javaee"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+		  http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+         version="2.5">
+    <display-name>Web Application</display-name>
+    <listener>
+        <listener-class>ru.rearitem.listeners.RIRequestListener</listener-class>
+    </listener>
+    <filter>
+        <filter-name>myfilter</filter-name>
+        <filter-class>ru.rearitem.filters.RIFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>myfilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    <servlet>
+        <servlet-name>riservlet</servlet-name>
+        <servlet-class>ru.rearitem.servlets.RIServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>riservlet</servlet-name>
+        <url-pattern>/test</url-pattern>
+    </servlet-mapping>
+</web-app>
