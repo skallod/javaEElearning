@@ -1,8 +1,8 @@
 rem mvn archetype:generate maven-archetype-simple
 
 mvn -B archetype:generate ^
--DgroupId=ru.galuzin.school ^
--DartifactId=hhschool ^
+-DgroupId=ru.rearitem ^
+-DartifactId=siteup ^
 -DarchetypeArtifactId=maven-archetype-quickstart
 
 rem -DarchetypeGroupId=org.apache.maven.archetypes ^

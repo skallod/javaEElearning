@@ -4,24 +4,26 @@
 <head>
     <meta charset="UTF-8">
     <title>Title of the document</title>
-    <script type="text/javascript" src="jquery-3.2.1.slim.min.js"></script>
+    <script type="text/javascript" src="jquery-3.2.1.js"></script>
     <script>
         $(document).ready(function() {
             $("#btn1").click(function() {
                 $("#test1").text("Hello world!");
             });
-            $("input").keyup(function() {
-                var value1, value2, value3;
-                value1 = $("#va1").val();
-                value2 = $("#va2").val();
+            $("#val2").keyup(function() {
+                var value1 = $('#va1').val();
+                var value2 = $('#va2').val();
+                $("#out1").text("value1 "+typeof(value1));
+                $("#out2").text("value2 "+typeof(value2));
+                $("#out3").text("value1 "+value1);
+                $("#out4").text("value2 "+value2);
                 value1 = parseInt(value1);
                 value2 = parseInt(value2);
-                value3 = value1 * value2;
-                $("#rslt").text(value3);
+                var value3 = value1 * value2;
+                $("#rslt").text("result "+value3);
             });
         });
     </script>
-<!--        <script type="text/javascript" src="script.js"></script>-->
 </head>
 
 <body>
@@ -31,7 +33,11 @@
     <button id="btn1">Set Text</button><br/>
     <input id="val1" type="number"><br/>
     <input id="val2" type="number"><br/>
-    <p id="rslt"></p>
+    <input id="out1" type="text"><br/>
+    <input id="out2" type="text"><br/>
+    <input id="out3" type="text"><br/>
+    <input id="out4" type="text"><br/>
+    <input id="rslt" type="text"><br/>
 </body>
 
 </html>
