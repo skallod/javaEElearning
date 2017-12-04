@@ -223,9 +223,9 @@ public class BasicDAOTest {
         BasicDAO basicDAO = new BasicDAO();
         Account a1 = (Account) basicDAO.getEntity(Account.class, 1L);
         Account a2 = (Account) basicDAO.getEntity(Account.class, 1L);
-        a1.setMoney(115d);
+        a1.setMoney(44d);
         basicDAO.updateEntity(a1);
-        a2.setMoney(33d);
+        a2.setMoney(77d);
         basicDAO.updateEntity(a2);
         System.out.println("a1 = " + a1);
         System.out.println("a2 = " + a2);
@@ -248,15 +248,15 @@ public class BasicDAOTest {
 
                             getName() + " s1 a1.getModified() = " + a1.getModified());
                     Session sess1 = HibernateSession.getSessionFactory().openSession();
-                    //        try {
-                    //            EntityData entity1 = (EntityData) sess1.merge(a1);
-                    //            //Hibernate.initialize(a1.getVersions());
-                    //            //EntityData entity1 = (EntityData) sess1.get(EntityData.class, "uid_1");
-                    //            System.out.println("a1.getVersions() = " + entity1.getVersions());
-                    //            System.out.println(Thread.currentThread().getName()+" s2 a1.getModified() = " + entity1.getModified());
-                    //        }finally {
-                    //            sess1.close();
-                    //        }
+                    try {
+                        EntityData entity1 = (EntityData) sess1.merge(a1);
+                        //Hibernate.initialize(a1.getVersions());
+                        //EntityData entity1 = (EntityData) sess1.get(EntityData.class, "uid_1");
+                        System.out.println("a1.getVersions() = " + entity1.getVersions());
+                        System.out.println(Thread.currentThread().getName()+" s2 a1.getModified() = " + entity1.getModified());
+                    }finally {
+                        sess1.close();
+                    }
                     a1.setEntityType(Thread.currentThread().getName());
                     System.out.println(Thread.currentThread().getName() + " s3 a1.getModified() = " + a1.getModified());
                     if(singl.get(0)==1){

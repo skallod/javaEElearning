@@ -1,0 +1,17 @@
+Exporting your private key and certificate to PKCS12
+
+openssl pkcs12 -export -in <your_CA_signed_PEM_cert> -inkey <your_PEM_private.key> -out <your_certificate_name>.p12 -name tomcat -chain -CAFile <your_root_CA_certificate>
+
+alternative
+
+openssl pkcs12 -export -in newcert.pem -inkey newkey.pem -out server.p12 -name test_server -caname root_ca -chain -CAfile cacert.pem
+
+
+
+Importing your new PKCS12 certificate and key bundle into a Java keystore
+
+keytool -importkeystore -deststorepass <a_password_for_your_java_keystore> -destkeypass <a_password_for_the_key_in_the_keystore>-destkeystore tomcat.keystore -srckeystore <exported_private_key_and_cert.p12> -srcstoretype PKCS12 -srcstorepass <the_password_I_told_you_to_remember> -alias tomcat
+
+alternative
+
+keytool -importkeystore -deststorepass mypass -destkeypass mypass -destkeystore keystore.jks -srckeystore server.p12 -srcstoretype PKCS12 -srcstorepass p12pass -srcalias test_server -destalias test_server

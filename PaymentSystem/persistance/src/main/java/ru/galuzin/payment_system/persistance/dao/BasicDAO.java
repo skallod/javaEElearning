@@ -59,7 +59,7 @@ public class BasicDAO {
 //            List<VersionData> versions = ed.getVersions();
 //            System.out.println("versions = " + versions);
 
-            sess1.update(entity);
+            //sess1.update(entity);
             tx1.commit();
         }
         catch (Exception e) {

@@ -1,0 +1,39 @@
+ENV JAVA_JDK_DEBIAN_VERSION 7u85-2.6.1-6+deb8u1
+
+RUN apt-get update \
+    && apt-get install -yq build-essential openssl libssl-dev curl libapr1 libapr1-dev \
+        openjdk-7-jdk="$JAVA_JDK_DEBIAN_VERSION" \
+    && tar zxf /usr/local/tomcat/bin/tomcat-native.tar.gz -C /tmp 
+    && cd /tmp/tomcat-native*-src/jni/native/ \
+    && ./configure --with-apr=/usr/bin/apr-config --with-java-home=/usr/lib/jvm/java-7-openjdk-amd64/ \
+    && make \
+    && make install \
+finish in my case
+
+    && apt-get purge -y openjdk-7-jdk="$JAVA_JDK_DEBIAN_VERSION" build-essential libssl-dev libapr1-dev \
+    && apt-get -y autoremove \
+    && rm -rf /tmp/tomcat-native* \
+    && rm -rf /var/lib/apt/lists/*
+
+//export
+ENV LD_LIBRARY_PATH /usr/local/apr/lib:$LD_LIBRARY_PATH
+
+
+
+official doc http://tomcat.apache.org/tomcat-8.0-doc/apr.html
+
+./configure --with-apr=/usr/bin/apr-1-config \
+            --with-java-home=/home/jfclere/JAVA/jdk1.7.0_80/ \
+            --with-ssl=yes \
+            --prefix=$CATALINA_HOME
+To build the libraries and install them:
+
+make && make install
+Edit $CATALINA_HOME/bin/setenv.sh (creating the file if necessary) and add the path to the tc-native libraries to LD_LIBRARY_PATH. Something like:
+
+LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CATALINA_HOME/lib
+export LD_LIBRARY_PATH
+
+alternative
+
+https://web.liferay.com/community/wiki/-/wiki/Main/Tomcat+Native+Library

@@ -14,6 +14,7 @@ import java.util.List;
 import java.util.ListIterator;
 import java.util.Map;
 import java.util.Set;
+import java.util.UUID;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
@@ -353,5 +354,204 @@ public class AppTest
     protected final transient Log marketingInfolog =
             LogFactory.getLog(getClass().getName() + ".MARKETING");
 
+    /**
+     * good realisation
+     */
+    class HashTest{
+        String a;
+        int b;
 
+        public HashTest(String a, int b) {
+            this.a = a;
+            this.b = b;
+        }
+
+        public boolean equals(Object o){
+            if(o==null || !(o instanceof HashTest)){
+                return false;
+            }
+            HashTest h = (HashTest)o;
+            if((a==null && h.a!=null)||(a!=null && h.a==null)){
+                return false;
+            }
+            if(a==null && h.a==null && b==h.b){
+                return true;
+            }
+            if(a.equals(h.a) && b==h.b){
+                return true;
+            }
+            return false;
+        }
+
+        @Override
+        public int hashCode(){
+            int result = 17;
+            result = 31*result + b;
+            if(a!=null){
+                result = 31*result + a.hashCode();
+            }
+            return result;
+        }
+    }
+
+    public void testGoodHashTest() throws Exception {
+        System.out.println("\n\n");
+        System.out.println("First step");
+        HashSet<HashTest> hts = new HashSet<>();
+        HashTest ht1 = new HashTest("str1", 1);
+        System.out.println("ht1 = " + ht1+" ; "+ht1.a+" ; "+ht1.b);
+        hts.add(ht1);
+        System.out.println("hts = " + hts);
+        System.out.println("hts.contains ht1 = " + hts.contains(ht1));
+        System.out.println("hts.size " + hts.size());
+        System.out.println("\n======================================================\n");
+        System.out.println("Second step");
+        ht1.a = "change str1";
+        System.out.println("ht1 = " + ht1+" ; "+ht1.a+" ; "+ht1.b);
+        System.out.println("hts = " + hts);
+        System.out.println("hts.contains ht1 = " + hts.contains(ht1));
+        System.out.println("hts.size " + hts.size());
+        System.out.println("\n======================================================\n");
+        System.out.println("Third step");
+        hts.add(ht1);
+        System.out.println("hts = " + hts);
+        System.out.println("hts.contains ht1 = " + hts.contains(ht1));
+        System.out.println("hts.size " + hts.size());
+    }
+    public void testManyInserts(){
+        System.out.println("\n\n");
+        System.out.println("First step");
+        HashSet<HashTest> hts = new HashSet<>();
+        HashTest ht1 = new HashTest("str1", 1);
+        System.out.println("ht1 = " + ht1+" ; "+ht1.a+" ; "+ht1.b);
+        hts.add(ht1);
+        System.out.println("hts = " + hts);
+        System.out.println("hts.contains ht1 = " + hts.contains(ht1));
+        System.out.println("hts.size " + hts.size());
+        System.out.println("\n======================================================\n");
+        for(int i=0; i<1000; i++){
+            ht1.a = UUID.randomUUID().toString();
+            System.out.println("hts.contains ht1 = " + hts.contains(ht1));
+            System.out.println("hts.size " + hts.size());
+            hts.add(ht1);
+        }
+    }
+    /**
+     *
+     */
+    class HashTestConstantHash{
+        String a;
+        int b;
+
+        public HashTestConstantHash(String a, int b) {
+            this.a = a;
+            this.b = b;
+        }
+
+        public boolean equals(Object o){
+            if(o==null || !(o instanceof HashTestConstantHash)){
+                return false;
+            }
+            HashTestConstantHash h = (HashTestConstantHash)o;
+            if((a==null && h.a!=null)||(a!=null && h.a==null)){
+                return false;
+            }
+            if(a==null && h.a==null && b==h.b){
+                return true;
+            }
+            if(a.equals(h.a) && b==h.b){
+                return true;
+            }
+            return false;
+        }
+
+        @Override
+        public int hashCode(){
+            return 31;
+        }
+    }
+
+    public void testHashTestConstantHash() throws Exception {
+        System.out.println("\n\n");
+        System.out.println("First step");
+        HashSet<HashTestConstantHash> hts = new HashSet<>();
+        HashTestConstantHash ht1 = new HashTestConstantHash("str1", 1);
+        System.out.println("ht1 = " + ht1+" ; "+ht1.a+" ; "+ht1.b);
+        hts.add(ht1);
+        System.out.println("hts = " + hts);
+        System.out.println("hts.contains ht1 = " + hts.contains(ht1));
+        System.out.println("hts.size " + hts.size());
+        System.out.println("\n======================================================\n");
+        System.out.println("Second step");
+        ht1.a = "change str1";
+        System.out.println("ht1 = " + ht1+" ; "+ht1.a+" ; "+ht1.b);
+        System.out.println("hts = " + hts);
+        System.out.println("hts.contains ht1 = " + hts.contains(ht1));
+        System.out.println("hts.size " + hts.size());
+        System.out.println("\n======================================================\n");
+        System.out.println("Third step");
+        hts.add(ht1);
+        System.out.println("hts = " + hts);
+        System.out.println("hts.contains ht1 = " + hts.contains(ht1));
+        System.out.println("hts.size " + hts.size());
+        System.out.println("\n======================================================\n");
+        System.out.println("Forth step");
+        HashTestConstantHash ht2 = new HashTestConstantHash("str2", 10);
+        hts.add(ht2);
+        System.out.println("hts = " + hts);
+        System.out.println("hts.size " + hts.size());
+        System.out.println("ht1.hashCode(); ht2.hashCode " + ht1.hashCode()+" ; "+ht2.hashCode());
+    }
+
+    /**
+     * Хеш - константа
+     *
+     */
+    class HashTestConstantHashIgnoreAfield{
+        String a;
+        int b;
+
+        public HashTestConstantHashIgnoreAfield(String a, int b) {
+            this.a = a;
+            this.b = b;
+        }
+
+        public boolean equals(Object o){
+            if(o==null || !(o instanceof HashTestConstantHashIgnoreAfield)){
+                return false;
+            }
+            HashTestConstantHashIgnoreAfield h = (HashTestConstantHashIgnoreAfield)o;
+            if(b==h.b){
+                return true;
+            }
+            return false;
+        }
+
+        @Override
+        public int hashCode(){
+            return 31;
+        }
+    }
+    public void testHashTestConstantHashIgnoreAfield() throws Exception {
+        System.out.println("\n\n");
+        System.out.println("First step");
+        HashSet<HashTestConstantHashIgnoreAfield> hts = new HashSet<>();
+        HashTestConstantHashIgnoreAfield ht1 = new HashTestConstantHashIgnoreAfield("str1", 1);
+        HashTestConstantHashIgnoreAfield ht2 = new HashTestConstantHashIgnoreAfield("str2", 1);
+        System.out.println("ht2.equals(ht1) = " + ht2.equals(ht1));
+        hts.add(ht1);
+        boolean add = hts.add(ht2);
+        System.out.println("add second = " + add);
+        System.out.println("hts = " + hts.size());
+        HashTestConstantHashIgnoreAfield next = hts.iterator().next();
+        System.out.println("next.a = " + next.a);
+    }
+
+    //TODO HashDifferentIgnoreAfield
+    /**
+     * Тестируем что ограничены колво бакетов
+     * и что set заходит в бакет по хешу , а внутри ищет по equals
+     */
+
+    //TODO ResultSet with Postgres
 }

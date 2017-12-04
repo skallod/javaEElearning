@@ -22,6 +22,6 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>riservlet</servlet-name>
-        <url-pattern>/test</url-pattern>
+        <url-pattern>/info</url-pattern>
     </servlet-mapping>
 </web-app>

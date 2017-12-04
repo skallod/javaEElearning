@@ -1,6 +1,8 @@
 package ru.rearitem.filters;
 
 import javax.servlet.*;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 /**
@@ -20,7 +22,9 @@ public class RIFilter implements Filter {
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
-        System.out.println("filter enter");
+        HttpSession session = ((HttpServletRequest)servletRequest).getSession();
+        String uid = (String)session.getAttribute("_uid");
+        session.getServletContext().log("filter req uid = " + uid);
         //String val = "simple filter";
         //servletRequest.setAttribute("info",val);
         filterChain.doFilter(servletRequest,servletResponse);
