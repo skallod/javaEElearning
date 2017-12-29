@@ -9,3 +9,7 @@ div.capt1 {
 .carousel-inner > .item > img {
     width:100%; height:300px;
 }
+
+.nav-tabs {
+    margin-bottom: 15px;
+}
