@@ -25,7 +25,13 @@ $(function () {
     //                $('#info').text("Requesting new random value...");
     //            },
                 "success": function (data, textStatus, jqXHR) {
-                    $('#randomView').text(textStatus + ': ' + data);
+                    var json = $.parseJSON(data);
+                    var code = json.code;
+                    var descr = json.description;
+                    alert(code);
+                    console.log(code);
+                    $('#prodCode').text(code);
+                    $('#prodDescr').text(descr);
                 },
                 "error": function (jqXHR, textStatus, errorThrown) {
                     $('#randomView').text(textStatus + ':' + errorThrown);

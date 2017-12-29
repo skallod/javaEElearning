@@ -30,13 +30,6 @@ public class RIGetProductServlet extends HttpServlet{
     }
 
     private String getJson(){
-        return "{" +
-                "    \"product\":{" +
-                "        \"code\": \"HatProduct\"," +
-                "        \"price\": 11," +
-                "        \"description\": \"волшебный товар\"," +
-                "        \"exist\": \"true\"" +
-                "    }" +
-                "}";
+        return "{\"product\":{\"code\": \"HatProduct\",\"price\": 11,\"description\": \"волшебный товар\",\"exist\": \"true\"}}";
     }
 }

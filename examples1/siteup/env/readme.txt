@@ -63,6 +63,8 @@ request listener add attribute -> do get get attr
 установить postgres на ubuntu
 
 попробовать json положить в файл и отдать в браузер - там разложить по полям
+    норм json превратился в object
+        теперь надо научиться с ним работать с пом jquery
 
 сделать аутентификацию на tomcat
     скачать драйвер для postgres 9.6 +
