@@ -314,20 +314,52 @@ public class AppTest
         String name;
         String lastname;
         TYPES types;
+        public void print(){
+            System.out.println("this is A");
+        }
     }
     static class B extends A{
         String token;
         public void print(){
-            System.out.println("fdas");
+            System.out.println("this is B");
         }
     }
 
+//    @Test
+//    public void test11(){
+//        B b = new B();
+//        Set<Class<? super AtlassianServiceDeskEventProcessorTest.B>> classes = com.google.common.reflect.TypeToken.of(AtlassianServiceDeskEventProcessorTest.B.class).getTypes().rawTypes();
+//        System.out.println("classes = " + classes);
+//        classes.stream().filter(cls->cls.getName().contains("Test$A")).findAny().ifPresent(clzz-> {
+//            System.out.println("clzz.getName() = " + clzz.getName());
+//            Method[] methods = clzz.getMethods();
+//            Arrays.stream(methods).forEach(m-> System.out.println("m = " + m.getName()));
+//            Arrays.stream(methods).filter(m -> m.getName().contains("print")).findAny().ifPresent(m1 -> {
+//                try {
+//                    System.out.println("m1.getName() = " + m1.getName());
+//                    m1.invoke(b);
+//                } catch (IllegalAccessException e) {
+//                    e.printStackTrace();
+//                } catch (InvocationTargetException e) {
+//                    e.printStackTrace();
+//                }
+//            });
+//        });
+//    }
     public void test15(){
         Object b = new B();
         if(b instanceof A){
             System.out.println("success");
             A c = (A)b;
         }
+        TYPES a=null;
+        if(a==TYPES.type1){
+            System.out.println("a = " + a);
+        }else {
+            System.out.println("good");
+        }
+        B b1 = new B();
+
     }
 
     public void test16() throws Exception {

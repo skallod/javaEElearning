@@ -31,9 +31,7 @@ Connector port="80?
  Запрос текста по ajax и установка в container
  Вставить в listener, filter, servlet id через session
  Настроить логирование
- 
- 
- 
+  
  GC_LOG=" -verbose:gc -Xloggc:./logs/gc_pid_%p.log -XX:+PrintGCDateStamps -XX:+PrintGCDetails -XX:
 +UseGCLogFileRotation -XX:NumberOfGCLogFiles=10 -XX:GCLogFileSize=10M"
     
@@ -71,3 +69,26 @@ request listener add attribute -> do get get attr
     попытаться натроить аутентификацию
 
 столкнулся с проблемой : хочу чтобы везде были одинаковые относительные пути, но не получается index в основном каталоге остальное в подкаталогах
+
+восстановили сервер на ruvds, но не восстановился hldns , надо написать скрипт , который будет раз в сутки запускать hldns регистрацию
+    - найти на почте данные по hldns
+    - сделал скрипт как написано в письме на gmail в /usr/local/sbin/hldns_register
+    - сайт не поднимается - пробую подключиться напрямую
+        в логах пишет что не хватает библиотеки APR/native library
+        попробовал установить не получилось , позже попробую еще раз
+        заработало, надо было в setenv.sh прописать путь к билблиотеке apr
+проверка сервиса lets encrypt service certbot
+- при нажатии на кнопку скрывается одна область, открывается другая , расскладывается json.
+- сделать плитку мацони
+
+посмотреть как в проекте Якова делается раскладка json по полям и использовать
+    1 скачать исходники с гита
+    2 позапускать примеры с js
+    3 позапускать примеры jquery - перенести в свой проект
+
+- проверить compression для tomcat <Connector port="8090" protocol="HTTP/1.1" connectionTimeout="20000" redirectPort="8444"
+compression="on" compressableMimeType="text/html,
+text/xml,text/plain,text/javascript,text/css,application/json" />
+
+- посмотреть в сторону jmx http bridge https://jolokia.org/tutorial.html
+- посмотреть в сторону hystrix

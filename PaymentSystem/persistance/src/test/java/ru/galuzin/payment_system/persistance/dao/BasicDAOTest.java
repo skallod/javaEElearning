@@ -16,12 +16,15 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.Restrictions;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import ru.galuzin.payment_system.common_types.Account;
+import ru.galuzin.payment_system.common_types.DictionaryData;
 import ru.galuzin.payment_system.common_types.EntityData;
 import ru.galuzin.payment_system.common_types.Operation;
 import ru.galuzin.payment_system.common_types.OperationType;
@@ -304,6 +307,38 @@ public class BasicDAOTest {
 //            for (Operation oper : account.getOperationsDestAccount()){
 //                System.out.println("operDest = " + oper);
 //            }
+            tx.commit();
+        } catch (Exception e) {
+            if (tx != null) tx.rollback();
+            throw new RuntimeException(e);
+        } finally {
+            sess.close();
+        }
+
+    }
+
+    @Test
+    public void testCreateDictEntity() throws Exception {
+        BasicDAO basicDAO = new BasicDAO();
+
+        DictionaryData dictionaryData = new DictionaryData();
+        dictionaryData.setCode("MOW");
+        dictionaryData.setDictId("CITY");
+        dictionaryData.setUid("FDSSG23-EWR32WEWWW");
+        dictionaryData.setData("Город Москва".getBytes());
+
+        Session sess = HibernateSession.getSessionFactory().openSession();
+        Transaction tx = null;
+        tx = sess.beginTransaction();
+        Criteria criteria = sess.createCriteria(DictionaryData.class);
+        criteria.add(Restrictions.eq("uid",dictionaryData.getUid()));
+        DictionaryData o = (DictionaryData)criteria.uniqueResult();
+        tx.commit();
+        o.setData("Новая информация 3".getBytes());
+        try {
+            tx = sess.beginTransaction();
+            sess.saveOrUpdate(o);
+            sess.flush();//без транзакции все равно не работает
             tx.commit();
         } catch (Exception e) {
             if (tx != null) tx.rollback();

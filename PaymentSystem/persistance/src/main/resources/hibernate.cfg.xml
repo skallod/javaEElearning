@@ -22,6 +22,7 @@
         <property name="hbm2ddl.auto">update</property>
 
         <property name="show_sql">true</property>
+        <property name="hibernate.user_sql">true</property>
         <property name="hibernate.format_sql">true</property>
 
         <mapping class="ru.galuzin.payment_system.common_types.Account"/>
@@ -31,6 +32,7 @@
         <mapping class="ru.galuzin.payment_system.common_types.MetricsData"/>
         <mapping class="ru.galuzin.payment_system.common_types.EntityData"/>
         <mapping class="ru.galuzin.payment_system.common_types.VersionData"/>
+        <mapping class="ru.galuzin.payment_system.common_types.DictionaryData"/>
 
     </session-factory>
 </hibernate-configuration>

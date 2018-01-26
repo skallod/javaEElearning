@@ -3,7 +3,7 @@ ENV JAVA_JDK_DEBIAN_VERSION 7u85-2.6.1-6+deb8u1
 RUN apt-get update \
     && apt-get install -yq build-essential openssl libssl-dev curl libapr1 libapr1-dev \
         openjdk-7-jdk="$JAVA_JDK_DEBIAN_VERSION" \
-    && tar zxf /usr/local/tomcat/bin/tomcat-native.tar.gz -C /tmp 
+    && tar zxf /usr/local/tomcat/bin/tomcat-native.tar.gz -C /tmp \
     && cd /tmp/tomcat-native*-src/jni/native/ \
     && ./configure --with-apr=/usr/bin/apr-config --with-java-home=/usr/lib/jvm/java-7-openjdk-amd64/ \
     && make \
@@ -17,6 +17,22 @@ finish in my case
 
 //export
 ENV LD_LIBRARY_PATH /usr/local/apr/lib:$LD_LIBRARY_PATH
+
+??? ???????
+????????? ????? ?? ????? ???????
+apt-get update \
+&& apt-get install -yq build-essential openssl libssl-dev curl libapr1 libapr1-dev \
+&& tar zxf /opt/tomcat/bin/tomcat-native.tar.gz -C /tmp \
+&& cd /tmp/tomcat-native-1.2.14-src/native \
+&& ./configure --with-apr=/usr/bin/apr-1-config --with-java-home=/usr/lib/jvm/java-8-openjdk-amd64/ --with-ssl=yes \
+&& make \
+&& make install \
+?????? - ????????? ?? ????????
+? ????? ????????? ??????? ???? ???????????? apr
+$CATALINA_HOME/bin/setenv.sh ??????? ????, ?????????? ????? :
+LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/apr/lib/
+export LD_LIBRARY_PATH
+
 
 
 

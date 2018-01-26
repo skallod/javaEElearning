@@ -4,11 +4,7 @@
  *
  * $Id$
  *****************************************************************/
-package com.gridnine.bof.server.storage;
-
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.util.Date;
+package ru.galuzin.payment_system.common_types;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -19,16 +15,13 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.UniqueConstraint;
 import javax.persistence.Version;
+import java.util.Date;
 
 import org.hibernate.annotations.Index;
 
-import com.gridnine.bof.common.model.dict.BaseDictionary;
-import com.gridnine.bof.common.util.MiscUtil;
-import com.gridnine.bof.common.xml.XUtil;
-
 @Entity
 @Table(uniqueConstraints = @UniqueConstraint(columnNames = { "dictId", "code" }))
-class DictionaryData {
+public class DictionaryData {
     @Id
     private String uid;
 
@@ -57,11 +50,11 @@ class DictionaryData {
     @Column(length = 1024 * 1024 * 1024, nullable = false)
     private byte[] data = new byte[0];
 
-    DictionaryData() {
+    public DictionaryData() {
         // no-op
     }
 
-    String getUid() {
+    public String getUid() {
         return uid;
     }
 
@@ -77,36 +70,24 @@ class DictionaryData {
         deleted = value;
     }
 
-    void toDictionary(final BaseDictionary dict) throws Exception {
-        if (deleted) {
-            throw new IllegalStateException("dictionary item marked as deleted"); //$NON-NLS-1$
-        }
-        dict.setUid(uid);
-        if (data.length == 0) {
-            dict.fromXML(XUtil.getDocumentBuilder().newDocument()
-                .createElement("object")); //$NON-NLS-1$
-        } else {
-            dict.fromXML(XUtil.getDocumentBuilder()
-                .parse(XUtil.createSource(new ByteArrayInputStream(data)))
-                .getDocumentElement());
-        }
-        dict.setCreated(MiscUtil.cloneDate(created));
-        dict.setModified(MiscUtil.cloneDate(modified));
+    public void setUid(String uid) {
+        this.uid = uid;
     }
 
-    void fromDictionary(final BaseDictionary dict) throws Exception {
-        uid = dict.getUid();
-        dictId = dict.getClass().getName();
-        code = dict.getCode();
-        {
-            ByteArrayOutputStream strm = new ByteArrayOutputStream();
-            XUtil.serialize(dict, strm);
-            data = strm.toByteArray();
-        }
+    public void setModified(Date modified) {
+        this.modified = modified;
     }
 
-    void postSave(final BaseDictionary dict) {
-        dict.setCreated(MiscUtil.cloneDate(created));
-        dict.setModified(MiscUtil.cloneDate(modified));
+    public void setDictId(String dictId) {
+        this.dictId = dictId;
     }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public void setData(byte[] data) {
+        this.data = data;
+    }
+
 }

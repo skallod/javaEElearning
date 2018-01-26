@@ -8,15 +8,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Bootstrap CSS -->
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
-    <link href="../css/style.css" rel="stylesheet" >
+    <link href="../../assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../assets/css/style.css" rel="stylesheet" >
 </head>
 
 <body>
     <nav class="navbar navbar-inverse navbar-static-top" id="nav1">
         <div class="container">
             <div class="navbar-header">
-                <a href="../common/index.html" class="navbar-brand">Rear</a>
+                <a href="../../index.html" class="navbar-brand">Rear</a>
                 <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#navCollapse1" aria-expanded="false" aria-controls="navCollapse1">
                        <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>
@@ -54,7 +54,7 @@
                 <hr/>
             </div>
         </div>
-        <div class="row">
+        <div class="row" id="plitka">
             <div class="col-xs-6 col-sm-4 col-md-3">
                 <div class="thumbnail">
                     <img src="https://via.placeholder.com/300x240" alt="">
@@ -70,7 +70,7 @@
                     <img src="https://via.placeholder.com/300x240" alt="">
                     <div class="caption">
                         <h4>Название элемента</h4>
-                        <p>Короткое описание Двойное описание</p>
+                        <p>Короткое описание</p>
                         <a href="#" id="secondBtn" class="btn btn-success">Подробнее <i class="fa fa-arrow-right"></i></a>
                     </div>
                 </div>
@@ -117,7 +117,7 @@
             </div>
         </div>
     </div>
-    <div class="row">
+    <div class="row" id="details">
         <div class="col-xs-12">
             <div class="thumbnail">
                 <img src="https://via.placeholder.com/1024x970" alt="">
@@ -126,7 +126,8 @@
                     <div id="prodCode"></div>
                     <p>Короткое описание</p>
                     <div id="prodDescr"></div>
-                    <a href="#preLastEl" class="btn btn-success">Подробнее <i class="fa fa-arrow-right"></i></a>
+                    <a href="#preLastEl" id="catalogReturn" class="btn btn-success">Вернуться к выбору<i class="fa fa-arrow-right"></i></a>
+                    <a href="#preLastEl" class="btn btn-success">В корзину<i class="fa fa-arrow-right"></i></a>
                 </div>
             </div>
         </div>
@@ -140,8 +141,8 @@
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="../js/bootstrap.min.js"></script>
-    <script src="../js/doscript.js"></script>
+    <script src="../../js/bootstrap.min.js"></script>
+    <script src="../../js/doscript.js"></script>
 </body>
 
 </html>
