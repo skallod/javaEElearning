@@ -10,7 +10,7 @@
         <property name="hibernate.connection.username">postgres</property>
         <property name="hibernate.connection.password">12345678</property>
         <!--<property name="hibernate.connection.password">manager</property>-->
-        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/db1</property>
+        <property name="hibernate.connection.url">jdbc:postgresql://localhost:55444/bof</property>
         <!--<2-read_commited>-->
         <property name="hibernate.connection.isolation">2</property>
         <!-- Enable Hibernate's automatic session context management -->
@@ -24,6 +24,7 @@
         <property name="show_sql">true</property>
         <property name="hibernate.user_sql">true</property>
         <property name="hibernate.format_sql">true</property>
+        <property name="hibernate.connection.provider_class">ru.galuzin.hb_pool_impl.HBConnectionProvider</property>
 
         <mapping class="ru.galuzin.payment_system.common_types.Account"/>
         <mapping class="ru.galuzin.payment_system.common_types.Operation"/>

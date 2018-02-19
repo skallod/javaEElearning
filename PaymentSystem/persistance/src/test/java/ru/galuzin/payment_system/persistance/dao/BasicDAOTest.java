@@ -19,6 +19,7 @@ import java.util.concurrent.TimeUnit;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import org.junit.After;
 import org.junit.Before;
@@ -256,13 +257,13 @@ public class BasicDAOTest {
                         //Hibernate.initialize(a1.getVersions());
                         //EntityData entity1 = (EntityData) sess1.get(EntityData.class, "uid_1");
                         System.out.println("a1.getVersions() = " + entity1.getVersions());
-                        System.out.println(Thread.currentThread().getName()+" s2 a1.getModified() = " + entity1.getModified());
-                    }finally {
+                        System.out.println(Thread.currentThread().getName() + " s2 a1.getModified() = " + entity1.getModified());
+                    } finally {
                         sess1.close();
                     }
                     a1.setEntityType(Thread.currentThread().getName());
                     System.out.println(Thread.currentThread().getName() + " s3 a1.getModified() = " + a1.getModified());
-                    if(singl.get(0)==1){
+                    if (singl.get(0) == 1) {
                         TimeUnit.SECONDS.sleep(1);
                     }
                     basicDAO.updateEntity(a1);
@@ -331,8 +332,8 @@ public class BasicDAOTest {
         Transaction tx = null;
         tx = sess.beginTransaction();
         Criteria criteria = sess.createCriteria(DictionaryData.class);
-        criteria.add(Restrictions.eq("uid",dictionaryData.getUid()));
-        DictionaryData o = (DictionaryData)criteria.uniqueResult();
+        criteria.add(Restrictions.eq("uid", dictionaryData.getUid()));
+        DictionaryData o = (DictionaryData) criteria.uniqueResult();
         tx.commit();
         o.setData("Новая информация 3".getBytes());
         try {
@@ -349,9 +350,40 @@ public class BasicDAOTest {
 
     }
 
-    //    @Test
-    public void testGetAllEntities() throws Exception {
-
+    @Test
+    public void getAllDicts() {
+        while (true) {
+            long t = System.nanoTime();
+            Transaction tx = null;
+            Session sess = null;
+            try {
+                sess = HibernateSession.getSessionFactory().openSession();
+                tx = sess.beginTransaction();
+                Criteria criteria = sess.createCriteria(DictionaryData.class);
+                criteria.addOrder(Order.desc("modified"));
+                criteria.setMaxResults(50);
+                List<DictionaryData> list = (List<DictionaryData>) criteria.list();
+                list.forEach(dd -> System.out.println("; " + dd.getUid()));
+                tx.commit();
+            } catch (Exception e) {
+                if (tx != null) {
+                    try {
+                        tx.rollback();
+                    } catch (Exception e1) {
+                        System.out.println("rollback exp " + e1.getMessage());
+                    }
+                }
+                e.printStackTrace();
+            } finally {
+                sess.close();
+                System.out.println("timing = " + TimeUnit.NANOSECONDS.toMillis(System.nanoTime() - t));
+            }
+            try {
+                TimeUnit.MILLISECONDS.sleep(300);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     @After
