@@ -17,17 +17,17 @@ public class C3p0pool {
 //        System.setProperties(p);
             ds = new ComboPooledDataSource();
             ds.setDriverClass("org.postgresql.Driver");
-            ds.setJdbcUrl("jdbc:postgresql://localhost:55444/bof?loginTimeout=10");
+            ds.setJdbcUrl("jdbc:postgresql://localhost:55433/bof?loginTimeout=10");
             ds.setUser("postgres");
             ds.setPassword("12345678");
             ds.setMaxIdleTime(1800);
             ds.setMinPoolSize(3);
-            ds.setMaxPoolSize(20);
+            ds.setMaxPoolSize(100);
             ds.setAcquireIncrement(5);
-            ds.setAcquireRetryAttempts(2);
+            ds.setAcquireRetryAttempts(3);
             //ds.getProperties().setProperty("unreturnedConnectionTimeout","10");
             //ds.getProperties().setProperty("debugUnreturnedConnectionStackTraces","true");
-            ds.setUnreturnedConnectionTimeout(10);
+            ds.setUnreturnedConnectionTimeout(60);
             ds.setDebugUnreturnedConnectionStackTraces(true);
             //Properties properties = new Properties();
             //ds.getProperties().put("com.mchange.v2.log.MLog","log4j");
@@ -39,15 +39,19 @@ public class C3p0pool {
 
     }
 
-    public Connection getConnection() {
-        Connection con = null;
+    public Connection getConnection() throws SQLException {
+        Connection connection = null;
         try {
-            con = ds.getConnection();
-        } catch (SQLException ex) {
-            ex.printStackTrace();
+            connection = ds.getConnection();
+        }catch (Exception e){
+            System.out.println("get connection from pool exception "+ e.getMessage());
+            if(connection!=null && !connection.isClosed()){
+                System.out.println("closed");
+                connection.close();
+            }
+            throw e;
         }
-
-        return con;
+        return ds.getConnection();
     }
 
     public void close() {

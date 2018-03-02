@@ -11,14 +11,16 @@ import ru.galuzin.hb_pool_impl.C3p0pool;
 
 public class C3p0Test {
     private static final Logger log = Logger.getLogger(C3p0Test.class);
+    private C3p0pool c3p0pool = new C3p0pool();
 
     @Test
     public void testGetAllEntities() throws Exception {
         log.info("test start");
         Thread t = new Thread(() -> {
-            try {
-                C3p0pool c3p0pool = new C3p0pool();
-                while (true) {
+
+
+            while (true) {
+                try {
                     Connection conn = c3p0pool.getConnection();
                     try {
                         Statement primarySt = conn.createStatement();
@@ -28,19 +30,20 @@ public class C3p0Test {
                         System.out.println("prim data " + Arrays.asList(primaryData));
                         primaryRes.close();
                         primarySt.close();
-                    }catch (Exception e ){
+                    } catch (Exception e) {
                         e.printStackTrace();
                     } finally {
-                        if (conn != null) {
-                            //conn.close();
+                        if (conn != null && !conn.isClosed()) {
+                            conn.close();
                         }
                     }
-                    Thread.sleep(2000);
+                    Thread.sleep(1000);
+                } catch (Exception e) {
+                    log.error("tt ", e);
+                    e.printStackTrace();
                 }
-            } catch (Exception e) {
-                log.error("tt ", e);
-                e.printStackTrace();
             }
+
         });
         t.setDaemon(true);
         t.start();
@@ -48,4 +51,5 @@ public class C3p0Test {
             Thread.sleep(1000);
         }
     }
+
 }
