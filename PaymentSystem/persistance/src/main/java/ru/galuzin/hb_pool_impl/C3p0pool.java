@@ -21,14 +21,15 @@ public class C3p0pool {
             ds.setUser("postgres");
             ds.setPassword("12345678");
             ds.setMaxIdleTime(1800);
-            ds.setMinPoolSize(3);
-            ds.setMaxPoolSize(100);
+            ds.setMinPoolSize(1);
+            ds.setMaxPoolSize(1);
             ds.setAcquireIncrement(5);
             ds.setAcquireRetryAttempts(3);
             //ds.getProperties().setProperty("unreturnedConnectionTimeout","10");
             //ds.getProperties().setProperty("debugUnreturnedConnectionStackTraces","true");
-            ds.setUnreturnedConnectionTimeout(60);
-            ds.setDebugUnreturnedConnectionStackTraces(true);
+            ds.setUnreturnedConnectionTimeout(30);
+            //ds.setDebugUnreturnedConnectionStackTraces(true);
+            ds.setTestConnectionOnCheckin(true);
             //Properties properties = new Properties();
             //ds.getProperties().put("com.mchange.v2.log.MLog","log4j");
             System.out.println("ds = " + ds);
@@ -53,6 +54,8 @@ public class C3p0pool {
         }
         return ds.getConnection();
     }
+
+
 
     public void close() {
         ds.close();

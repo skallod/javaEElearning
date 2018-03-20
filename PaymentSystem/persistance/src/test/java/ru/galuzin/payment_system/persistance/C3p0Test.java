@@ -2,7 +2,9 @@ package ru.galuzin.payment_system.persistance;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 import org.apache.log4j.Logger;
@@ -17,38 +19,97 @@ public class C3p0Test {
     public void testGetAllEntities() throws Exception {
         log.info("test start");
         Thread t = new Thread(() -> {
-
-
-            while (true) {
+            //while (true) {
                 try {
-                    Connection conn = c3p0pool.getConnection();
+                    Connection conn = null;
+                    Connection conn2 = null;
+                    Statement primarySt = null;
+                    ArrayList<Exception> exceptions = new ArrayList<>();
                     try {
-                        Statement primarySt = conn.createStatement();
+                        conn = c3p0pool.getConnection();
+                        //conn2 = c3p0pool.getConnection();
+                        primarySt = conn.createStatement();
                         ResultSet primaryRes = primarySt.executeQuery("SELECT * from entitydata limit 1;");//"SELECT pg_current_xlog_location();");
                         primaryRes.next();
                         String[] primaryData = primaryRes.getString(1).split("/");
                         System.out.println("prim data " + Arrays.asList(primaryData));
-                        primaryRes.close();
+                        //primaryRes.close();
                         primarySt.close();
+                        //throw new SQLException("test2");
                     } catch (Exception e) {
-                        e.printStackTrace();
+                        //throw new RuntimeException(e);
+                        //exceptions.add(e);
+                        //e.printStackTrace();*/
                     } finally {
-                        if (conn != null && !conn.isClosed()) {
-                            conn.close();
+                        try {
+                            if (conn != null && !conn.isClosed()) {
+                                conn.close();
+                                throw new SQLException("test");
+                            }
+                        }catch (SQLException e){
+                            exceptions.add(e);
+                        }
+                        try {
+                            System.gc();
+                            Thread.sleep(1000);
+                            if (conn2 != null && !conn2.isClosed()) {
+                                conn2.close();
+                            }
+                        }catch (SQLException e){
+                            exceptions.add(e);
+                        }
+                        if(!exceptions.isEmpty()){
+                            throw exceptions.get(0);
                         }
                     }
-                    Thread.sleep(1000);
+                    //Thread.sleep(1000);
                 } catch (Exception e) {
                     log.error("tt ", e);
                     e.printStackTrace();
                 }
-            }
+            //}
 
         });
         t.setDaemon(true);
         t.start();
         while (true) {
-            Thread.sleep(1000);
+            Thread.sleep(10000);
+        }
+    }
+
+    @Test
+    public void testGetAllEntities2() throws Exception {
+        log.info("test start");
+        Thread t = new Thread(() -> {
+            try {
+                ArrayList<Exception> exceptions = new ArrayList<>();
+                try (MyConnection conn = new MyConnection(1);
+                    MyConnection conn2 = new MyConnection(2);){
+                    conn.test();
+                }
+            } catch (Exception e) {
+                log.error("tt ", e);
+                e.printStackTrace();
+            }
+        });
+        t.setDaemon(true);
+        t.start();
+        Thread.sleep(2000);
+    }
+
+    class MyConnection implements AutoCloseable{
+        int id;
+        MyConnection(int id){
+            this.id = id;
+        }
+        @Override
+        public void close() throws Exception {
+            System.out.println("CLOSE CONNECTION "+this.id);
+            //throw new SQLException("test");
+        }
+
+        void test() throws Exception{
+            //throw new Exception("test2");
         }
     }
 
