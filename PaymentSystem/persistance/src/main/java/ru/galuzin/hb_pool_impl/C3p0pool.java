@@ -24,12 +24,12 @@ public class C3p0pool {
             ds.setMinPoolSize(1);
             ds.setMaxPoolSize(1);
             ds.setAcquireIncrement(5);
-            ds.setAcquireRetryAttempts(3);
+            ds.setAcquireRetryAttempts(5);
             //ds.getProperties().setProperty("unreturnedConnectionTimeout","10");
             //ds.getProperties().setProperty("debugUnreturnedConnectionStackTraces","true");
-            ds.setUnreturnedConnectionTimeout(30);
+            ds.setUnreturnedConnectionTimeout(10);
             //ds.setDebugUnreturnedConnectionStackTraces(true);
-            ds.setTestConnectionOnCheckin(true);
+            //ds.setTestConnectionOnCheckin(true);
             //Properties properties = new Properties();
             //ds.getProperties().put("com.mchange.v2.log.MLog","log4j");
             System.out.println("ds = " + ds);

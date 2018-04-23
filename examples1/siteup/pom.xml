@@ -79,6 +79,42 @@
         <artifactId>tomcat7-maven-plugin</artifactId>
         <version>2.2</version>
       </plugin>
+      <plugin>
+        <artifactId>maven-antrun-plugin</artifactId>
+        <version>1.8</version>
+        <executions>
+          <execution>
+            <id>deploy</id>
+            <phase>package</phase>
+            <configuration>
+              <target>
+                <copy file="${basedir}/target/siteup.war"
+                      todir="c:/Dev/Distr/tomcat/tomcat8_5/webapps"/>
+                <get src="http://127.0.0.1:8080/manager/text/reload?path=/siteup" dest="deploy_response.txt"
+                     username="galuza" password="galuza2"
+                />
+              </target>
+            </configuration>
+            <goals>
+              <goal>run</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>check</id>
+            <phase>test</phase>
+            <configuration>
+              <target>
+                <get src="http://127.0.0.1:8080/manager/status?XML=true" dest="check_response.xml"
+                     username="galuza" password="galuza2"
+                />
+              </target>
+            </configuration>
+            <goals>
+              <goal>run</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
     </plugins>
   </build>
 </project>

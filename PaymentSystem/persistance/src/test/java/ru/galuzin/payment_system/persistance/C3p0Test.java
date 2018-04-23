@@ -2,7 +2,6 @@ package ru.galuzin.payment_system.persistance;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -19,65 +18,35 @@ public class C3p0Test {
     public void testGetAllEntities() throws Exception {
         log.info("test start");
         Thread t = new Thread(() -> {
-            //while (true) {
+            for (int i=0 ; i<1 ;i++){
+                log.info("iteration");
                 try {
-                    Connection conn = null;
-                    Connection conn2 = null;
                     Statement primarySt = null;
-                    ArrayList<Exception> exceptions = new ArrayList<>();
                     try {
-                        conn = c3p0pool.getConnection();
-                        //conn2 = c3p0pool.getConnection();
+                        Connection conn = c3p0pool.getConnection();
                         primarySt = conn.createStatement();
                         ResultSet primaryRes = primarySt.executeQuery("SELECT * from entitydata limit 1;");//"SELECT pg_current_xlog_location();");
                         primaryRes.next();
                         String[] primaryData = primaryRes.getString(1).split("/");
-                        System.out.println("prim data " + Arrays.asList(primaryData));
-                        //primaryRes.close();
+                        log.info("prim data " + Arrays.asList(primaryData));
                         primarySt.close();
-                        //throw new SQLException("test2");
-                    } catch (Exception e) {
-                        //throw new RuntimeException(e);
-                        //exceptions.add(e);
-                        //e.printStackTrace();*/
-                    } finally {
-                        try {
-                            if (conn != null && !conn.isClosed()) {
-                                conn.close();
-                                throw new SQLException("test");
-                            }
-                        }catch (SQLException e){
-                            exceptions.add(e);
-                        }
-                        try {
-                            System.gc();
-                            Thread.sleep(1000);
-                            if (conn2 != null && !conn2.isClosed()) {
-                                conn2.close();
-                            }
-                        }catch (SQLException e){
-                            exceptions.add(e);
-                        }
-                        if(!exceptions.isEmpty()){
-                            throw exceptions.get(0);
-                        }
+                    }finally {
+
                     }
-                    //Thread.sleep(1000);
                 } catch (Exception e) {
                     log.error("tt ", e);
                     e.printStackTrace();
                 }
-            //}
-
+                log.info("iteration finish");
+            }
         });
         t.setDaemon(true);
         t.start();
-        while (true) {
-            Thread.sleep(10000);
-        }
+        t.join();
+        Thread.sleep(20_000);
     }
 
-    @Test
+    //@Test
     public void testGetAllEntities2() throws Exception {
         log.info("test start");
         Thread t = new Thread(() -> {
