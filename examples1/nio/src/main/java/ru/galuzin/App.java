@@ -26,7 +26,8 @@ public class App
         serverChannel.register(selector, SelectionKey.OP_ACCEPT);
 
         ByteBuffer buffer = ByteBuffer.allocate(1024*1024);
-
+        int count = 0;
+        StringBuilder stringBuilder = new StringBuilder();
         while (true){
             int select = selector.select();
             if(select==0){
@@ -47,7 +48,14 @@ public class App
                             buffer.flip();
                             byte[] bytes = Arrays.copyOfRange(buffer.array(), buffer.position(), buffer.remaining());
                             System.out.println("bytes = " + new String(bytes));
-                            buffer.clear();
+
+                            //do {
+                                channel.write(buffer);
+                                System.out.println("write " + count++);
+                                //count++;
+                            //}while (buffer.hasRemaining());
+                            //buffer.clear();
+                            buffer.compact();
                         }else if(readCount == -1){
                             System.out.println("conn close");
                             channel.close();
