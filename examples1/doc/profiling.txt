@@ -1,0 +1,19 @@
+https://github.com/jvm-profiling-tools/async-profiler - pangin profiler
+
+https://github.com/aragozin/jvm-tools/blob/master/sjk-core/COMMANDS.md - ragozin profiler
+
+https://stackoverflow.com/questions/6846049/profiling-a-running-java-application-in-command-line
+
+https://serverfault.com/questions/308662/how-do-i-fix-a-failed-to-retrieve-rmiserver-stub-jmx-error
+
+https://github.com/patric-r/jvmtop - требует JDK
+
+http://blog.ragozin.info/2016/01/flame-graphs-vs-cold-numbers.html
+
+https://github.com/apangin
+
+https://github.com/jvm-profiling-tools
+
+
+
+slowhttp test - может быть такая атака - можно проверить сервер

@@ -3,6 +3,7 @@ package ru.galuzin.nio;
 import java.nio.channels.SocketChannel;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -52,8 +53,7 @@ class EchoWorker implements Runnable {
             result += Math.log(Math.pow(Math.log(Math.pow(Math.log(Math.log(Math.log(Math.pow(Math.log(Math.log(Math.sqrt(Math.log(Math.random() * Math.PI)))), 2d)))), 2d)), 2d));
         }
         time = System.nanoTime()-time;
-        String resultStr = receivedData + " handled " + time + " nanos";
-        System.out.println("result = " + result);
+        String resultStr = receivedData + " handled " + TimeUnit.NANOSECONDS.toMillis(time) + " nanos";
         LOG.info(resultStr);
         return resultStr;
     }

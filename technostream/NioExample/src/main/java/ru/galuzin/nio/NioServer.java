@@ -27,7 +27,7 @@ import static ru.galuzin.nio.NioClient.ADDRESS;
 import static ru.galuzin.nio.NioClient.PORT;
 
 public class NioServer {
-    private static Logger LOG= LoggerFactory.getLogger(NioServer.class);
+    private static Logger log = LoggerFactory.getLogger(NioServer.class);
     private Selector selector;
     private ByteBuffer readBuffer = ByteBuffer.allocate(18192);
     private EchoWorker worker = new EchoWorker();
@@ -53,13 +53,13 @@ public class NioServer {
 
     private void run() throws IOException {
         while (true) {
-            LOG.info("changerequests before read critical");
+            log.info("changerequests before read critical");
             synchronized (changeRequests) {
-                LOG.info("changerequests in read critical");
+                log.info("changerequests in read critical");
                 for (ChangeRequest change : changeRequests) {
                     switch (change.type) {
                         case ChangeRequest.CHANGEOPS:
-                            LOG.info("change ops");
+                            log.info("change ops");
                             SelectionKey key = change.socket.keyFor(selector);
                             key.interestOps(change.ops);
                             break;
@@ -68,9 +68,9 @@ public class NioServer {
                 }
                 changeRequests.clear();
             }
-            LOG.info("befor select");
+            log.info("befor select");
             selector.select();
-            LOG.info("after select");
+            log.info("after select");
             Iterator<SelectionKey> selectedKeys = selector.selectedKeys().iterator();
             while (selectedKeys.hasNext()) {
                 SelectionKey key = selectedKeys.next();
@@ -94,13 +94,13 @@ public class NioServer {
     }
 
     void send(SocketChannel socket, byte[] data) {
-        LOG.info("before changeRequests write critical sec");
+        log.info("before changeRequests write critical sec");
         synchronized (changeRequests) {
-            LOG.info("in changeRequests write critical sec");
+            log.info("in changeRequests write critical sec");
             changeRequests.add(new ChangeRequest(socket, ChangeRequest.CHANGEOPS, OP_WRITE));
-            LOG.info("op_write added");
+            log.info("op_write added");
             synchronized (pendingData) {
-                LOG.info("pending data write in critical sec");
+                log.info("pending data write in critical sec");
                 List<ByteBuffer> queue = pendingData.get(socket);
                 if (queue == null) {
                     queue = new ArrayList<>();
@@ -109,34 +109,42 @@ public class NioServer {
                 queue.add(ByteBuffer.wrap(data));
             }
         }
-        LOG.info("before wakeup");
+        log.info("before wakeup");
         selector.wakeup();
-        LOG.info("after wakup");
+        log.info("after wakup");
     }
 
     private void accept(SelectionKey key) throws IOException {
-        LOG.info("accept");
+        log.info("accept");
         ServerSocketChannel serverSocketChannel = (ServerSocketChannel) key.channel();
         SocketChannel socketChannel = serverSocketChannel.accept();
         socketChannel.configureBlocking(false);
         socketChannel.register(selector, OP_READ);
-        LOG.info("accept end");
+        log.info("accept end");
     }
 
     private void read(SelectionKey key) throws IOException {
-        LOG.info("read");
+        log.info("read");
         SocketChannel socketChannel = (SocketChannel) key.channel();
         readBuffer.clear();
-        int numRead = socketChannel.read(readBuffer);
-        worker.processData(this, socketChannel, readBuffer.array(), numRead);
-        LOG.info("read end");
+        try {
+            int numRead = socketChannel.read(readBuffer);
+            if (numRead == -1) {
+                socketChannel.close();
+            }
+            worker.processData(this, socketChannel, readBuffer.array(), numRead);
+        }catch (IOException e){
+            log.warn(e.getMessage());
+            socketChannel.close();
+        }
+        log.info("read end");
     }
 
     private void write(SelectionKey key) throws IOException {
-        LOG.info("write");
+        log.info("write");
         SocketChannel socketChannel = (SocketChannel) key.channel();
         synchronized (pendingData) {
-            LOG.info("pending data read in critical sec");
+            log.info("pending data read in critical sec");
             List<ByteBuffer> queue = pendingData.get(socketChannel);
             while (!queue.isEmpty()) {
                 ByteBuffer buf = queue.get(0);
@@ -144,13 +152,13 @@ public class NioServer {
                 if (buf.remaining() > 0) {
                     break;
                 }
-                LOG.info("Send echo = " + new String(queue.get(0).array()));
+                log.info("Send echo = " + new String(queue.get(0).array()));
                 queue.remove(0);
             }
             if (queue.isEmpty()) {
                 key.interestOps(OP_READ);
             }
         }
-        LOG.info("write end");
+        log.info("write end");
     }
 }

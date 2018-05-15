@@ -1,0 +1,77 @@
+сделать redirect c 80 порта на 443 +
+Connector port="80?
+ enableLookups="false"
+ redirectPort="443?
+ web.xml /web-app
+ <security-constraint>
+ <web-resource-collection>
+ <web-resource-name>Protected Context</web-resource-name>
+ <url-pattern>/*</url-pattern>
+ </web-resource-collection>
+ <!-- auth-constraint goes here if you requre authentication -->
+ <user-data-constraint>
+ <transport-guarantee>CONFIDENTIAL</transport-guarantee>
+ </user-data-constraint>
+ </security-constraint>
+
+при логоут надо делать в сервлете HttpSession.invalidate() - сброс сессии ,  затем делать форвард на index.html
+проверить compression для tomcat <Connector port="8090" protocol="HTTP/1.1" 
+connectionTimeout="20000" redirectPort="8444"
+compression="on" compressableMimeType="text/html,
+text/xml,text/plain,text/javascript,text/css,application/json" />
+
+manager,host-manager
+     tomcat/conf/tomcat-users.xml 
+     <user username="galuza" password="galuza" roles="role1,manager-script,manager-gui,admin-gui"/>
+     роли перечислены в webapps/manager/WEB-INF/web.xml
+     ограничения откуда можно подключиться webapps/manager/META-INF/context.xml
+     <Context privileged="true" antiResourceLocking="false"
+         docBase="${catalina.home}/webapps/manager">
+       <Valve className="org.apache.catalina.valves.RemoteAddrValve"
+          allow="127\.0\.0\.1" />
+     </Context>
+<plugin>
+  <artifactId>maven-antrun-plugin</artifactId>
+  <version>1.8</version>
+  <executions>
+    <execution>
+      <phase>package</phase>
+      <configuration>
+        <target>
+          <copy file="${basedir}/target/siteup.war"
+                todir="c:/Dev/Distr/tomcat/tomcat8_5/webapps"/>
+          <get src="http://127.0.0.1:8080/manager/text/reload?path=/siteup" dest="deploy_response.txt"
+               username="galuza" password="galuza2"
+        />
+        </target>
+      </configuration>
+      <goals>
+        <goal>run</goal>
+      </goals>
+    </execution>
+  </executions>
+</plugin>
+
+<Host "wildfly.local"> можно добавить хост для нашего приложения 
+     <Context path="" docBase="siteup" debug="0" privileged="true"/> - делает сайт без подпути , т.е. localhost:8080
+
+apt-get update \
+&& apt-get install -yq build-essential openssl libssl-dev curl libapr1 libapr1-dev \
+&& tar zxf /opt/tomcat/bin/tomcat-native.tar.gz -C /tmp \
+&& cd /tmp/tomcat-native-1.2.14-src/native \
+&& ./configure --with-apr=/usr/bin/apr-1-config --with-java-home=/usr/lib/jvm/java-8-openjdk-amd64/ --with-ssl=yes \
+&& make \
+&& make install
+
+$CATALINA_HOME/bin/setenv.sh environment params
+LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/apr/lib/
+export LD_LIBRARY_PATH
+     прописать путь к билблиотеке apr
+     export/set JAVA_HOME
+     export JAVA_OPTS=-Xmx500m
+     export CATALINA_OPTS=GC - проверить
+
+https://www.digitalocean.com/community/tutorials/how-to-install-apache-tomcat-8-on-ubuntu-16-04
+
+tomcat 8 vs slow http attack
+https://stackoverflow.com/questions/49442855/mitigating-slow-http-post-vulnerability-on-tomcat-8

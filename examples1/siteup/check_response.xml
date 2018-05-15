@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xsl" href="/manager/xform.xsl" ?>
 <status>
     <jvm>
-        <memory free='189518200' total='253231104' max='466092032'/>
+        <memory free='186054144' total='253231104' max='466092032'/>
         <memorypool name='PS Eden Space' type='Heap memory' usageInit='66060288' usageCommitted='66060288'
-                    usageMax='152567808' usageUsed='48189968'/>
+                    usageMax='152567808' usageUsed='41492688'/>
         <memorypool name='PS Old Gen' type='Heap memory' usageInit='176160768' usageCommitted='176160768'
-                    usageMax='349700096' usageUsed='4543888'/>
+                    usageMax='349700096' usageUsed='15044208'/>
         <memorypool name='PS Survivor Space' type='Heap memory' usageInit='11010048' usageCommitted='11010048'
-                    usageMax='11010048' usageUsed='10979048'/>
-        <memorypool name='Code Cache' type='Non-heap memory' usageInit='2555904' usageCommitted='7798784'
-                    usageMax='251658240' usageUsed='7723264'/>
-        <memorypool name='Compressed Class Space' type='Non-heap memory' usageInit='0' usageCommitted='2359296'
-                    usageMax='1073741824' usageUsed='2116936'/>
-        <memorypool name='Metaspace' type='Non-heap memory' usageInit='0' usageCommitted='19398656' usageMax='-1'
-                    usageUsed='18556112'/>
+                    usageMax='11010048' usageUsed='10640064'/>
+        <memorypool name='Code Cache' type='Non-heap memory' usageInit='2555904' usageCommitted='8192000'
+                    usageMax='251658240' usageUsed='8037312'/>
+        <memorypool name='Compressed Class Space' type='Non-heap memory' usageInit='0' usageCommitted='2621440'
+                    usageMax='1073741824' usageUsed='2259512'/>
+        <memorypool name='Metaspace' type='Non-heap memory' usageInit='0' usageCommitted='21233664' usageMax='-1'
+                    usageUsed='20087504'/>
     </jvm>
     <connector name='"ajp-nio-8009"'>
         <threadInfo maxThreads="200" currentThreadCount="10" currentThreadsBusy="0"/>
@@ -22,9 +22,12 @@
     </connector>
     <connector name='"http-nio-8080"'>
         <threadInfo maxThreads="200" currentThreadCount="10" currentThreadsBusy="1"/>
-        <requestInfo maxTime="0" processingTime="0" requestCount="0" errorCount="0" bytesReceived="0" bytesSent="0"/>
+        <requestInfo maxTime="249" processingTime="368" requestCount="9" errorCount="6" bytesReceived="0"
+                     bytesSent="28991"/>
         <workers>
-            <worker stage="S" requestProcessingTime="46" requestBytesSent="0" requestBytesReceived="0"
+            <worker stage="R" requestProcessingTime="0" requestBytesSent="0" requestBytesReceived="0" remoteAddr="&#63;"
+                    virtualHost="&#63;" method="&#63;" currentUri="&#63;" currentQueryString="&#63;" protocol="&#63;"/>
+            <worker stage="S" requestProcessingTime="171" requestBytesSent="0" requestBytesReceived="0"
                     remoteAddr="127.0.0.1" virtualHost="127.0.0.1" method="GET" currentUri="/manager/status"
                     currentQueryString="XML=true" protocol="HTTP/1.1"/>
         </workers>

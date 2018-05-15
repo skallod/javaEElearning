@@ -1,0 +1,38 @@
+loader
+
+-verbose:class - debug class loading загрузка классов
+
+вывести 200 свежих файлов и поискать по их содержимому ls -t | head -200 | xargs -d'\n' grep -i -- '88'
+
+ls -t | head -200 | xargs -d'\n' grep '77' -i
+
+git reset --soft "HEAD^" - uncommit
+
+classloader loader - Arrays.asList(((URLClassLoader)ScheduleSearchResult.class.getClassLoader().getParent()).getURLs())
+
+-Dlog4j.debug=true
+
+
+git checkout -b [имя] - новый branch
+git branch -d [name] - удалить
+
+Thread dump:
+StringBuilder dump = new StringBuilder();
+ThreadMXBean threadMXBean = ManagementFactory.getThreadMXBean();
+ThreadInfo[] threadInfos = threadMXBean.getThreadInfo(threadMXBean.getAllThreadIds(), 100);
+for(ThreadInfo ti : threadInfos){
+    dump.append('"').append(ti.getThreadName()).append("\" ");
+    java.lang.Thread.State threadState = ti.getThreadState();
+    dump.append("\n java.lang.thred.State: ").append(threadState);
+    Arrays.stream(ti.getStackTrace()).forEach(st->dump.append("\n   at").append(st));
+    dump.append("\n").append("\n");
+}
+
+return dump.toString();
+
+sudo -u tomcat7 запуск команды от имени пользователя
+
+cat /etc/passwd - посмотреть пользователей и их возможности
+
+
+

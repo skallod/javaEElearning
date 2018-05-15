@@ -12,6 +12,10 @@
     <servlet-name>TimeServlet</servlet-name>
     <servlet-class>ru.galuzin.servlet_time.TimeSessionServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>ServletTest</servlet-name>
+    <servlet-class>ru.galuzin.test.ServletTest</servlet-class>
+  </servlet>
   <servlet-mapping>
     <servlet-name>SessionServlet</servlet-name>
     <url-pattern>/session</url-pattern>
@@ -19,6 +23,10 @@
   <servlet-mapping>
     <servlet-name>TimeServlet</servlet-name>
     <url-pattern>/time</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ServletTest</servlet-name>
+    <url-pattern>/test</url-pattern>
   </servlet-mapping>
   <listener>
     <listener-class>ru.galuzin.attribute_listener.MyAttributeListener</listener-class>
