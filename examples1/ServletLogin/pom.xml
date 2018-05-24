@@ -41,6 +41,12 @@
       <artifactId>log4j</artifactId>
       <version>1.2.17</version>
     </dependency>
+    <!--<dependency>-->
+      <!--<groupId>ant</groupId>-->
+      <!--<artifactId>ant-optional</artifactId>-->
+      <!--<version>1.5.3-1</version>-->
+      <!--<scope>system</scope>-->
+    <!--</dependency>-->
   </dependencies>
   <build>
     <finalName>ServletLogin</finalName>
@@ -67,59 +73,67 @@
         <artifactId>tomcat7-maven-plugin</artifactId>
         <version>2.2</version>
       </plugin>
-      <plugin>
-        <artifactId>maven-antrun-plugin</artifactId>
-        <version>1.8</version>
-        <executions>
-          <execution>
-            <id>deploy</id>
-            <phase>package</phase>
-            <configuration>
-              <target>
-                <copy file="${basedir}/target/ServletLogin.war"
-                      todir="c:/Dev/Distr/tomcat/tomcat8_5/webapps"/>
-                <get src="http://127.0.0.1:8080/manager/text/reload?path=/ServletLogin" dest="deploy_response.txt"
-                     username="galuza" password="galuza2"
-                />
-              </target>
-            </configuration>
-            <goals>
-              <goal>run</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
+      <!--<plugin>-->
+        <!--<artifactId>maven-antrun-plugin</artifactId>-->
+        <!--<version>1.8</version>-->
+        <!--<executions>-->
+          <!--<execution>-->
+            <!--<id>deploy</id>-->
+            <!--<phase>package</phase>-->
+            <!--<configuration>-->
+              <!--<target>-->
+                <!--&lt;!&ndash;<copy file="${basedir}/target/ServletLogin.war"&ndash;&gt;-->
+                      <!--&lt;!&ndash;todir="c:/Dev/Distr/tomcat/tomcat8_5/webapps"/>&ndash;&gt;-->
+                <!--&lt;!&ndash;passphrase=""&ndash;&gt;-->
+
+                <!--<echo>current directory: ${library.jansi.path}</echo>-->
+
+                <!--<scp file="${basedir}/target/ServletLogin.war"-->
+                     <!--todir="root@192.168.165.3:/tmp/"-->
+                     <!--keyfile="c:/temp/1005"-->
+                     <!--/>-->
+                <!--&lt;!&ndash;<get src="http://127.0.0.1:8080/manager/text/reload?path=/ServletLogin" dest="deploy_response.txt"&ndash;&gt;-->
+                     <!--&lt;!&ndash;username="galuza" password="galuza2"&ndash;&gt;-->
+                <!--&lt;!&ndash;/>&ndash;&gt;-->
+              <!--</target>-->
+            <!--</configuration>-->
+            <!--<goals>-->
+              <!--<goal>run</goal>-->
+            <!--</goals>-->
+          <!--</execution>-->
+        <!--</executions>-->
+      <!--</plugin>-->
     </plugins>
   </build>
-  <profiles>
-    <profile>
-      <id>build-dist</id>
-      <build>
-        <plugins>
-          <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-assembly-plugin</artifactId>
-            <version>2.2-beta-5</version>
-            <executions>
-              <execution>
-                <id>make-assembly-dist</id>
-                <phase>package</phase>
-                <goals>
-                  <goal>attached</goal>
-                </goals>
-                <configuration>
-                  <descriptors>
-                    <descriptor>${basedir}/src/assembly/sources.xml</descriptor>
-                  </descriptors>
-                  <appendAssemblyId>true</appendAssemblyId>
-                  <finalName>${project.groupId}-${project.artifactId}-${project.version}</finalName>
-                </configuration>
-              </execution>
-            </executions>
-          </plugin>
-        </plugins>
-      </build>
-    </profile>
+  <!--<profiles>-->
+    <!--<profile>-->
+      <!--<id>build-dist</id>-->
+      <!--<build>-->
+        <!--<plugins>-->
+          <!--<plugin>-->
+            <!--<groupId>org.apache.maven.plugins</groupId>-->
+            <!--<artifactId>maven-assembly-plugin</artifactId>-->
+            <!--<version>2.2-beta-5</version>-->
+            <!--<executions>-->
+              <!--<execution>-->
+                <!--<id>make-assembly-dist</id>-->
+                <!--<phase>package</phase>-->
+                <!--<goals>-->
+                  <!--<goal>attached</goal>-->
+                <!--</goals>-->
+                <!--<configuration>-->
+                  <!--<descriptors>-->
+                    <!--<descriptor>${basedir}/src/assembly/sources.xml</descriptor>-->
+                  <!--</descriptors>-->
+                  <!--<appendAssemblyId>true</appendAssemblyId>-->
+                  <!--<finalName>${project.groupId}-${project.artifactId}-${project.version}</finalName>-->
+                <!--</configuration>-->
+              <!--</execution>-->
+            <!--</executions>-->
+          <!--</plugin>-->
+        <!--</plugins>-->
+      <!--</build>-->
+    <!--</profile>-->
 
-  </profiles>
+  <!--</profiles>-->
 </project>

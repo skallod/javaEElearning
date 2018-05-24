@@ -1,0 +1,57 @@
+plugins {
+    id 'base'
+    id 'war'
+    id 'org.hidetake.ssh' version '2.9.0'
+}
+
+remotes {
+    webServer {
+        host = '192.168.165.3'
+        user = 'root'
+        identity = file('c:/temp/1005')
+    }
+}
+task deploy {
+    doLast {
+        ssh.run {
+            session(remotes.webServer) {
+                put from: 'res/install_tomcat.sh', into: '/tmp'
+//                put from: 'target/ServletLogin.war', into: '/tmp'
+                //execute 'sudo service tomcat restart'
+            }
+        }
+    }
+}
+//task copy(type: Copy, group: "Custom", description: "Copies sources to the dest directory") {
+//    from "src"
+//    into "dest"
+//}
+
+//task zip(type: Zip, group: "Archive", description: "Archives sources in a zip file") {
+//    from "src"
+//}
+//apply plugin: 'java'
+//apply plugin: 'maven'
+//
+//group = 'ru.galuzin'
+//version = '1.0-SNAPSHOT'
+//
+//description = """ServletLogin Maven Webapp"""
+//
+//sourceCompatibility = 1.8
+//targetCompatibility = 1.8
+//
+//
+//
+//repositories {
+//    mavenCentral()
+//    // maven { url "http://repo.maven.apache.org/maven2" }
+//}
+//dependencies {
+//    compile group: 'org.slf4j', name: 'slf4j-api', version:'1.7.13'
+//    compile group: 'org.slf4j', name: 'slf4j-log4j12', version:'1.7.13'
+//    compile group: 'org.slf4j', name: 'slf4j-simple', version:'1.7.13'
+//    compile group: 'log4j', name: 'log4j', version:'1.2.17'
+//    testCompile group: 'junit', name: 'junit', version:'3.8.1'
+//    providedCompile group: 'javax.servlet', name: 'servlet-api', version:'3.1'
+//}

@@ -10,7 +10,7 @@ import java.util.concurrent.TimeUnit;
  */
 public class QueueTest {
 
-    BlockingQueue<TaskParameters> queue = new LinkedBlockingQueue<TaskParameters>();
+    BlockingQueue<TaskParameters> queue = new LinkedBlockingQueue<TaskParameters>(3);
     final Thread processingThread;
 
     QueueTest(){
@@ -18,17 +18,21 @@ public class QueueTest {
         {
             do {
                 TaskParameters tp = null;
-                do {
-                    tp = queue.poll();
-                    if(tp==null) {
-                        System.out.println("time out");
-                        try {
-                            TimeUnit.SECONDS.sleep(10);
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                }while (tp == null);
+                //do {
+                try {
+                    tp = queue.take();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+//                    if(tp==null) {
+//                        System.out.println("time out");
+//                        try {
+//                            TimeUnit.SECONDS.sleep(1);
+//                        } catch (InterruptedException e) {
+//                            e.printStackTrace();
+//                        }
+//                    }
+//                }while (tp == null);
                 processing(tp);
                 tp = null;
             } while (!Thread.currentThread().isInterrupted());
@@ -62,6 +66,7 @@ public class QueueTest {
         QueueTest queueTest = new QueueTest();
         for (int i=0; i<10; i++){
             queueTest.receive(new TaskParameters("name", i, new Date()));
+            System.out.println("received i = " + i);
         }
     }
 }

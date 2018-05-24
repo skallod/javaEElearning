@@ -8,7 +8,7 @@ import java.util.concurrent.atomic.AtomicReference;
  */
 public class CommonObject {
 
-    private static volatile CommonObject instance = new CommonObject();
+    private static final CommonObject instance = new CommonObject();
 
     private static AtomicReference<CommonObject> ar = new AtomicReference<>(instance);
 
