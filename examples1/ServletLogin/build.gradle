@@ -15,9 +15,9 @@ task deploy {
     doLast {
         ssh.run {
             session(remotes.webServer) {
-                put from: 'res/install_tomcat.sh', into: '/tmp'
-//                put from: 'target/ServletLogin.war', into: '/tmp'
-                //execute 'sudo service tomcat restart'
+//                put from: 'res/install_tomcat2.sh', into: '/tmp'
+                put from: 'target/ServletLogin.war', into: '/opt/tomcat/webapps'
+                execute 'systemctl restart tomcat'
             }
         }
     }
