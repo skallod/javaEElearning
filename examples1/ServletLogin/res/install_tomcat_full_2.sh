@@ -41,3 +41,9 @@ sudo ufw allow 8080
 sudo systemctl daemon-reload
 sudo systemctl start tomcat
 sudo systemctl status tomcat
+
+rm -r ROOT
+rm -r docs
+rm -r examples
+rm -r host-manager
+rm -r manager
