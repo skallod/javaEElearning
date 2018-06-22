@@ -21,6 +21,11 @@
       <version>3.8.1</version>
       <scope>test</scope>
     </dependency>
+    <dependency>
+      <groupId>ru.galuzin.payment_system.spring</groupId>
+      <artifactId>persistance</artifactId>
+      <version>1.0</version>
+    </dependency>
   </dependencies>
   <build>
     <finalName>web-ui</finalName>

@@ -16,15 +16,23 @@ task deploy {
         ssh.run {
             session(remotes.webServer) {
 //                put from: 'res/install_tomcat2.sh', into: '/tmp'
-                put from: 'target/ServletLogin.war', into: '/opt/tomcat/webapps'
+                put from: 'target/ROOT.war', into: '/opt/tomcat/webapps'
                 execute 'systemctl restart tomcat'
             }
         }
     }
 }
-//task copy(type: Copy, group: "Custom", description: "Copies sources to the dest directory") {
-//    from "src"
-//    into "dest"
+task copy(type: Copy, group: "Custom", description: "Copies sources to the dest directory") {
+    from("target")
+    into("target")
+    include("ServletLogin.war")
+    rename("ServletLogin.war","ROOT.war")
+}
+
+deploy.dependsOn copy
+
+//if (project.hasProperty("doDeploy")) {
+//    deploy.finalizedBy copy
 //}
 
 //task zip(type: Zip, group: "Archive", description: "Archives sources in a zip file") {
@@ -45,7 +53,6 @@ task deploy {
 //
 //repositories {
 //    mavenCentral()
-//    // maven { url "http://repo.maven.apache.org/maven2" }
 //}
 //dependencies {
 //    compile group: 'org.slf4j', name: 'slf4j-api', version:'1.7.13'

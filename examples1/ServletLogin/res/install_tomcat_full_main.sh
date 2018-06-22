@@ -2,7 +2,7 @@ sudo apt-get update
 sudo apt-get install default-jdk
 sudo apt-get install unzip
 cd /tmp
-#TODO set correct version of tomcat
+#TODO is version of tomcat actual ?
 curl -O http://apache.mirrors.ionfish.org/tomcat/tomcat-8/v8.5.31/bin/apache-tomcat-8.5.31.tar.gz
 sudo mkdir /opt/tomcat
 sudo tar xzvf apache-tomcat-8*tar.gz -C /opt/tomcat --strip-components=1
@@ -31,8 +31,8 @@ echo '
 Environment=CATALINA_PID=/opt/tomcat/temp/tomcat.pid
 Environment=CATALINA_HOME=/opt/tomcat
 Environment=CATALINA_BASE=/opt/tomcat
-Environment='CATALINA_OPTS=-Xms256M -Xmx512M -server -XX:+UseParallelGC'
-Environment='JAVA_OPTS=-Djava.awt.headless=true -Djava.security.egd=file:/dev/./urandom'
+Environment="CATALINA_OPTS=-Xms256M -Xmx512M -server -XX:+UseG1GC"
+Environment="JAVA_OPTS=-Djava.awt.headless=true -Djava.security.egd=file:/dev/./urandom"
 ExecStart=/opt/tomcat/bin/startup.sh
 ExecStop=/opt/tomcat/bin/shutdown.sh
 User=tomcat
