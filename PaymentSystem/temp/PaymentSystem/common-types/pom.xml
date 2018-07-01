@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>ru.galuzin.payment_system</groupId>
+    <artifactId>parent</artifactId>
+    <version>1.0</version>
+    <relativePath>../parent</relativePath>
+  </parent>
+  <groupId>ru.galuzin.payment_system</groupId>
+  <artifactId>common-types</artifactId>
+  <version>1.0</version>
+  <name>common-types</name>
+  <url>http://maven.apache.org</url>
+  <packaging>jar</packaging>
+  <dependencies>
+
+  </dependencies>
+</project>

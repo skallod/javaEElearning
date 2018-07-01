@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>ru.galuzin.payment_system</groupId>
+    <artifactId>parent</artifactId>
+    <version>1.0</version>
+    <relativePath>../parent</relativePath>
+  </parent>
+  <groupId>ru.galuzin.payment_system</groupId>
+  <artifactId>persistance</artifactId>
+  <version>1.0</version>
+  <name>persistance</name>
+  <url>http://maven.apache.org</url>
+  <dependencies>
+
+    <dependency>
+      <groupId>ru.galuzin.payment_system</groupId>
+      <artifactId>common-types</artifactId>
+      <version>1.0</version>
+    </dependency>
+    <dependency>
+      <groupId>postgresql</groupId>
+      <artifactId>postgresql</artifactId>
+      <version>9.1-901-1.jdbc4</version>
+    </dependency>
+    <!--<dependency>-->
+      <!--<groupId>org.postgresql</groupId>-->
+      <!--<artifactId>postgresql</artifactId>-->
+      <!--<version>9.4.1208.jre6</version>-->
+    <!--</dependency>-->
+    <!--<dependency>-->
+      <!--<groupId>postgresql</groupId>-->
+      <!--<artifactId>postgresql</artifactId>-->
+      <!--<version>8.4-702.jdbc4</version>-->
+    <!--</dependency>-->
+  </dependencies>
+</project>

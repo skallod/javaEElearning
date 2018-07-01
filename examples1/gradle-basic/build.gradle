@@ -4,36 +4,42 @@
  * This is a general purpose Gradle build.
  * Learn how to create Gradle builds at https://guides.gradle.org/creating-new-gradle-builds/
  */
-plugins {
-    id 'base'
-    id 'war'
-    id 'org.hidetake.ssh' version '2.9.0'
-}
+//plugins {
+//    id 'base'
+//    //id 'war'
+//    //id 'org.hidetake.ssh' version '2.9.0'
+//}
 
-remotes {
-  webServer {
-    host = '192.168.165.3'
-    user = 'root'
-    identity = file('c:/temp/1005')
-  }
-}
-
-task copy(type: Copy, group: "Custom", description: "Copies sources to the dest directory") {
-    from "src"
-    into "dest"
-}
-
-task zip(type: Zip, group: "Archive", description: "Archives sources in a zip file") {
-    from "src"
-}
-
-task deploy {
-  doLast {
-    ssh.run {
-      session(remotes.webServer) {
-        put from: 'src/myfile.txt', into: '/tmp'
-        //execute 'sudo service tomcat restart'
-      }
+task hello {
+    doLast {
+        println 'Hello world!'
     }
-  }
 }
+
+//remotes {
+//  webServer {
+//    host = '192.168.165.3'
+//    user = 'root'
+//    identity = file('c:/temp/1005')
+//  }
+//}
+//
+//task copy(type: Copy, group: "Custom", description: "Copies sources to the dest directory") {
+//    from "src"
+//    into "dest"
+//}
+//
+//task zip(type: Zip, group: "Archive", description: "Archives sources in a zip file") {
+//    from "src"
+//}
+//
+//task deploy {
+//  doLast {
+//    ssh.run {
+//      session(remotes.webServer) {
+//        put from: 'src/myfile.txt', into: '/tmp'
+//        //execute 'sudo service tomcat restart'
+//      }
+//    }
+//  }
+//}
