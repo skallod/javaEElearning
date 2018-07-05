@@ -68,7 +68,7 @@
           <webXml>src/main/webapp/WEB-INF/web.xml</webXml>
           <webResources>
             <resource>
-              <directory>static_html</directory>
+              <directory>html</directory>
             </resource>
           </webResources>
         </configuration>

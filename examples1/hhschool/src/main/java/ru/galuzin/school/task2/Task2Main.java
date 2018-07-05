@@ -13,6 +13,11 @@ import org.apache.log4j.Logger;
  Определим функцию S(n) как сумму значений функции P(i,k) для всех i и k, таких что 1≤i≤n, 1≤k≤n. Таким образом, S(2) = P(1,1) + P(2,1) + P(1,2) + P(2,2) = 1, S(10) = 20, S(1000) = 248838.
 
  Найдите S(11147).
+
+ PS Есть теорема о простых числах для решения этой задачи. Оригинальность этого решения в отстутствии использования этой теоремы.
+ Решено с помощью рекурсии с возвратом и некоторых наблюдений в ходе решения.
+
+ Можно еще разбить на несколько потоков.
  */
 public class Task2Main {
     static final Logger log = Logger.getLogger(Task2Main.class);
@@ -22,22 +27,16 @@ public class Task2Main {
     public static void main(String[] args) {
 //        URL resource = Task2Main.class.getResource("log4j.properties");
 //        PropertyConfigurator.configure(resource);
-//        String str = Arrays.toString(((URLClassLoader)Task2Main.class.getClassLoader()).getURLs());
-//        System.out.println("str = " + str);
         simples = loadSimples(11147);
 
-//        combtest();
         int evristMinPos =maxdelta(simples);
         AtomicInteger allsum = new AtomicInteger();
         allsum.set(1);
         long time = System.nanoTime();
         for(int i=3; i <= 11147; i++)
-        //int i=902;
         {
             Integer[] subSimple = subSimple(i,simples);
             log.debug("Arrays.asList(subSimple) = " + Arrays.asList(subSimple));
-            int evristStartIdx = evristMinPos;
-            boolean firstfound = true;
             for(int j=1; j<=11147; j++)
             {
                 log.debug("p("+i+ ";" + j+")");
@@ -48,31 +47,15 @@ public class Task2Main {
                         continue;
                     }
                 }
-                if(j*2>i){
+                if(j*2>i){ //2 - minimal simple numeric
                     break;
                 }
                 if(j<=20){
                     pFunc(i,j,subSimple,allsum,false);
                 }else {
                     pFunc(i, j, subSimple, allsum, true);
-//                    if ( == 1) {
-//                        if (firstfound) {
-//                            evristStartIdx = (j < evristMinPos) ? j : evristMinPos;
-//                            firstfound = false;
-//                        }
-//                    }
                 }
             }
-//            log.debug("slow coutn "+evristStartIdx);
-//            evristStartIdx =10;
-//            //TODO Set less 20  last sum on 1000 248797 248839_1 248806_2
-//            for(int k=2; k<evristStartIdx; k++){
-//                if(k*2>i){
-//                    break;
-//                }
-//                log.debug("slow p("+i+ ";" + k+")");
-//                pFunc(i,k,subSimple,allsum,false);
-//            }
         }
         log.debug("slow ver "+SLOW_VER);
         log.debug("allsum = " + allsum);
@@ -153,7 +136,6 @@ public class Task2Main {
                 sum+=result[i];
             }
             if(sum==check){
-                //log.debug("amazing "+Arrays.toString(result));
                 throw new FoundException();
             }
             return;
@@ -167,13 +149,10 @@ public class Task2Main {
         iterations++;
         for (int i = ipos; i < arr.length; i++){
             result[startPosition] = arr[i];
-            //log.debug("iterate "+Arrays.toString(result));
             int sum = arrSum(result);
             if(sum==check){
-                //log.debug("amazing "+Arrays.toString(result));
                 throw new FoundException();
             }else if(sum>check){
-                //log.debug("iterate return "+Arrays.toString(result));
                 if(ipos+1<arr.length)result[startPosition]=arr[ipos+1];
                 else result[startPosition]=arr[ipos];
                 return;
@@ -195,12 +174,10 @@ public class Task2Main {
 
             if(len -1 ==0){
                 int sum =0;
-                //log.debug(Arrays.toString(result));
                 for (int j = 0; j < result.length; j++) {
                     sum+=result[j].value;
                 }
                 if(sum==check){
-                    //log.debug("amazing "+Arrays.toString(result));
                     throw new FoundException();
                 }
                 else if(sum>check){
@@ -208,7 +185,6 @@ public class Task2Main {
                     if (i - 1 >= 0) {
                         result[startPosition].value = arr[i - 1];
                     }
-                    //log.debug("updated "+"("+startPosition+";"+result[startPosition].value+")");
                     return ;
                 }
             }
@@ -217,12 +193,10 @@ public class Task2Main {
                     evristAlg(arr, len - 1, startPosition + 1/*i*//*+1*/, i, result, check);
                 }
                 int sum = 0;
-                //log.debug(Arrays.toString(result));
                 for (int j = 0; j < result.length; j++) {
                     sum+=result[j].value;
                 }
                 if(sum==check){
-                    //log.debug("amazing "+Arrays.toString(result));
                     throw new FoundException();
                 }
                 else if(sum>check){
@@ -259,22 +233,12 @@ public class Task2Main {
         }
         return sum;
     }
-// TODO   static int arrSumPair(int[] arr){
-//        int sum = 0 ;
-//        for (int j = 0; j < arr.length; j++) {
-//            sum+=arr[j];
-//        }
-//        return sum;
-//    }
 
 }
-//class ValueHolder{
-//    int sum=0;
-//}
+
 class FoundException extends RuntimeException{
 }
-class ExitException extends RuntimeException{
-}
+
 class Pair {
     int value;
     boolean updated;

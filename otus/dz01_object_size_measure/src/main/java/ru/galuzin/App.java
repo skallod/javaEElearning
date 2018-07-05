@@ -46,7 +46,7 @@ public class App
 
     static void gcInvoke() throws Exception {
         System.gc();
-        Thread.sleep(200);
+        Thread.sleep(100);
     }
 
     /**

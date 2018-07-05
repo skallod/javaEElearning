@@ -1,21 +1,20 @@
 plugins {
     id 'base'
-    id 'war'
     id 'org.hidetake.ssh' version '2.9.0'
 }
 
 remotes {
     webServer {
-        host = '192.168.165.3'
+        host = '192.168.165.4'
         user = 'root'
-        identity = file('c:/temp/1005')
+        identity = file('c:/Dev/Doc/SSH_keys/local_vm/1005')
     }
 }
 task deploy {
     doLast {
         ssh.run {
             session(remotes.webServer) {
-//                put from: 'res/install_tomcat2.sh', into: '/tmp'
+                put from: 'html', into: '/var/www'
                 put from: 'target/ROOT.war', into: '/opt/tomcat/webapps'
                 execute 'systemctl restart tomcat'
             }
@@ -35,9 +34,6 @@ deploy.dependsOn copy
 //    deploy.finalizedBy copy
 //}
 
-//task zip(type: Zip, group: "Archive", description: "Archives sources in a zip file") {
-//    from "src"
-//}
 //apply plugin: 'java'
 //apply plugin: 'maven'
 //

@@ -19,6 +19,7 @@
       <artifactId>javassist</artifactId>
       <version>2.5.1</version>
     </dependency>
+    <!--new version of javassist-->
     <!--<dependency>-->
       <!--<groupId>org.javassist</groupId>-->
       <!--<artifactId>javassist</artifactId>-->
