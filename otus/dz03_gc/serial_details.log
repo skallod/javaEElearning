@@ -1,0 +1,24 @@
+com.sun.management.internal.GarbageCollectorExtImpl@2f8f5f62
+com.sun.management.internal.GarbageCollectorExtImpl@b9afc07
+
+Young Gen GC: - 1 G1 Young Generation (from G1 Evacuation Pause) 13 milliseconds; start-end times 03:00:08.065 -> 03:00:08.078
+CodeHeap 'profiled nmethods'(still expandable)used before (Kb): 205 ->after used 205
+G1 Old Gen(still expandable)used before (Kb): 25600 ->after used 0
+G1 Survivor Space(still expandable)used before (Kb): 0 ->after used 4096
+CodeHeap 'non-profiled nmethods'(still expandable)used before (Kb): 3072 ->after used 10200
+Compressed Class Space(still expandable)used before (Kb): 8612 ->after used 8612
+Metaspace(still expandable)used before (Kb): 1089 ->after used 1089
+G1 Eden Space(still expandable)used before (Kb): 908 ->after used 908
+CodeHeap 'non-nmethods'(still expandable)used before (Kb): 1079 ->after used 1079
+
+
+Young Gen GC: - 2 G1 Young Generation (from G1 Evacuation Pause) 32 milliseconds; start-end times 03:00:17.618 -> 03:00:17.650
+CodeHeap 'profiled nmethods'(still expandable)used before (Kb): 286 ->after used 286
+G1 Old Gen(still expandable)used before (Kb): 21504 ->after used 0
+G1 Survivor Space(still expandable)used before (Kb): 4096 ->after used 4096
+CodeHeap 'non-profiled nmethods'(still expandable)used before (Kb): 16344 ->after used 27938
+Compressed Class Space(still expandable)used before (Kb): 9264 ->after used 9264
+Metaspace(still expandable)used before (Kb): 1245 ->after used 1245
+G1 Eden Space(still expandable)used before (Kb): 984 ->after used 984
+CodeHeap 'non-nmethods'(still expandable)used before (Kb): 1088 ->after used 1088
+
