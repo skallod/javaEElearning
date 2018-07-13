@@ -15,7 +15,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j(topic = "gc-notification-details")
 public class GcNotification {
-    public static void installGCMonitoring(){
+    public static void installGCMonitoring(SharedObject sharedObject){
         //get all the GarbageCollectorMXBeans - there's one for each heap generation
         //so probably two - the old generation and young generation
         List<GarbageCollectorMXBean> gcbeans = java.lang.management.ManagementFactory.getGarbageCollectorMXBeans();
@@ -42,8 +42,10 @@ public class GcNotification {
                         String gctype = info.getGcAction();
                         if ("end of minor GC".equals(gctype)) {
                             gctype = "Young Gen GC";
+                            sharedObject.updateMinor(duration, info.getGcInfo().getId());
                         } else if ("end of major GC".equals(gctype)) {
                             gctype = "Old Gen GC";
+                            sharedObject.updateMajor(duration, info.getGcInfo().getId());
                         }
                         log.info("");
                         log.info(gctype + ": - " + info.getGcInfo().getId()+ " " + info.getGcName() + " (from " + info.getGcCause()+") "+duration

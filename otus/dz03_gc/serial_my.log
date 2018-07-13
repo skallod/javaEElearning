@@ -1,0 +1,44 @@
+gc test start
+=====================================================================
+minor count per minute 1
+minor duration per minute 242
+minor duration percent per minute 0.4
+major count per minute 0
+minor duration per minute 0
+minor duration percent per minute 0.0
+=====================================================================
+minor count per minute 1
+minor duration per minute 119
+minor duration percent per minute 0.1
+major count per minute 0
+minor duration per minute 0
+minor duration percent per minute 0.0
+=====================================================================
+minor count per minute 2
+minor duration per minute 234
+minor duration percent per minute 0.3
+major count per minute 3
+minor duration per minute 16643
+minor duration percent per minute 27.7
+=====================================================================
+minor count per minute 1
+minor duration per minute 145
+minor duration percent per minute 0.2
+major count per minute 20
+minor duration per minute 22266
+minor duration percent per minute 37.1
+out of memory time 276
+=====================================================================
+minor count per minute 2
+minor duration per minute 0
+minor duration percent per minute 0.0
+major count per minute 17
+minor duration per minute 11187
+minor duration percent per minute 18.6
+=====================================================================
+minor count per minute 0
+minor duration per minute 0
+minor duration percent per minute 0.0
+major count per minute 0
+minor duration per minute 0
+minor duration percent per minute 0.0
