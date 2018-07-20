@@ -28,8 +28,6 @@ jar {
         configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
     }
 }
-task hello {
-    doLast {
-        println 'Hello world!'
-    }
+task wrapper(type: Wrapper) {
+    gradleVersion = '4.7'
 }

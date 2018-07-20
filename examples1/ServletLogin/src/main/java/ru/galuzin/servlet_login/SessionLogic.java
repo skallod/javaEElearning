@@ -26,7 +26,7 @@ public class SessionLogic {
             StringBuffer url =  req.getRequestURL();
             session.setAttribute("URL", url);
             out.write("<html><body>");
-            out.write("My session counter:");
+            out.write("No My session counter :");
             out.write(String.valueOf(
                     prepareSessionCounter(session)
             ));

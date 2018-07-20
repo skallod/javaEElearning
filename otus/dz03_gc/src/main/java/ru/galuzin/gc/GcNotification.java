@@ -6,7 +6,6 @@ import javax.management.NotificationListener;
 import javax.management.openmbean.CompositeData;
 import java.lang.management.GarbageCollectorMXBean;
 import java.lang.management.MemoryUsage;
-import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Map;
 
@@ -15,11 +14,10 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j(topic = "gc-notification-details")
 public class GcNotification {
-    public static void installGCMonitoring(SharedObject sharedObject){
+    public static void installGCMonitoring(GcStatistics gcStatistics){
         //get all the GarbageCollectorMXBeans - there's one for each heap generation
         //so probably two - the old generation and young generation
         List<GarbageCollectorMXBean> gcbeans = java.lang.management.ManagementFactory.getGarbageCollectorMXBeans();
-        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss.SSS");
         //Install a notifcation handler for each bean
         for (GarbageCollectorMXBean gcbean : gcbeans) {
             log.info(gcbean.toString());
@@ -42,14 +40,14 @@ public class GcNotification {
                         String gctype = info.getGcAction();
                         if ("end of minor GC".equals(gctype)) {
                             gctype = "Young Gen GC";
-                            sharedObject.updateMinor(duration, info.getGcInfo().getId());
+                            gcStatistics.update(duration, info.getGcInfo().getId(), GcStatistics.Gc.MINOR);
                         } else if ("end of major GC".equals(gctype)) {
                             gctype = "Old Gen GC";
-                            sharedObject.updateMajor(duration, info.getGcInfo().getId());
+                            gcStatistics.update(duration, info.getGcInfo().getId(), GcStatistics.Gc.MAJOR);
                         }
                         log.info("");
                         log.info(gctype + ": - " + info.getGcInfo().getId()+ " " + info.getGcName() + " (from " + info.getGcCause()+") "+duration
-                                + " milliseconds; start-end times " + sdf.format(info.getGcInfo().getStartTime())+ " -> " + sdf.format(info.getGcInfo().getEndTime()));
+                                + " milliseconds; start-end times " + info.getGcInfo().getStartTime() + " -> " + info.getGcInfo().getEndTime());
                         
                         //Get the information about each memory space, and pretty print it
                         Map<String, MemoryUsage> membefore = info.getGcInfo().getMemoryUsageBeforeGc();

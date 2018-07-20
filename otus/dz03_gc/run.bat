@@ -1,14 +1,18 @@
 call gradlew.bat build
 
-set MEMORY=-Xmx500m -Xms500m
-set LOG_FILENAME=serial
+set LOG_FILENAME=reports/current
+set GC_ALG=-XX:+UseG1GC
 
-@rem set GC_ALG="-XX:+UseSerialGC"
-@set GC_ALG="-XX:+UseParallelGC"
+set MEMORY=-Xmx500m -Xms500m
+
+@rem -XX:+UseSerialGC
+@rem -XX:+UseParallelGC
 @rem -XX:-UseParallelOldGC
-set GC_ALG="-XX:+UseConcMarkSweepGC"
+@rem -XX:+UseConcMarkSweepGC
 @rem -XX:+UseG1GC
-set GC_LOG="-verbose:gc -Xloggc:./%LOG_FILENAME%.log -XX:+PrintGCDateStamps -XX:+PrintGCDetails -XX: +UseGCLogFileRotation -XX:NumberOfGCLogFiles=10 -XX:GCLogFileSize=100M"
+
+set GC_LOG=-verbose:gc -Xloggc:%LOG_FILENAME%.log
+@rem set GC_LOG="-verbose:gc -Xloggc:%LOG_FILENAME%.log -XX:+PrintGCDateStamps -XX:+PrintGCDetails -XX: +UseGCLogFileRotation -XX:NumberOfGCLogFiles=10 -XX:GCLogFileSize=100M"
 
 %JAVA_HOME%/bin/java %MEMORY% %GC_ALG% %GC_LOG% -jar build/libs/dz03_gc-1.jar
 

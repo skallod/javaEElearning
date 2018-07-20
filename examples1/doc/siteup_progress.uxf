@@ -4,8 +4,8 @@
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>140</x>
-      <y>70</y>
+      <x>180</x>
+      <y>0</y>
       <w>210</w>
       <h>70</h>
     </coordinates>
@@ -17,8 +17,8 @@ bg=yellow</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>250</x>
-      <y>150</y>
+      <x>290</x>
+      <y>80</y>
       <w>170</w>
       <h>50</h>
     </coordinates>
@@ -29,8 +29,8 @@ bg=green</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>250</x>
-      <y>210</y>
+      <x>290</x>
+      <y>140</y>
       <w>170</w>
       <h>50</h>
     </coordinates>
@@ -41,8 +41,8 @@ bg=green</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>450</x>
-      <y>210</y>
+      <x>490</x>
+      <y>140</y>
       <w>170</w>
       <h>50</h>
     </coordinates>
@@ -54,34 +54,22 @@ bg=gray</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>250</x>
-      <y>350</y>
+      <x>180</x>
+      <y>230</y>
       <w>200</w>
       <h>80</h>
     </coordinates>
     <panel_attributes>compile and build
 and deploy
 by one click via gradle
-bg=gray</panel_attributes>
+bg=green</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>260</x>
-      <y>440</y>
-      <w>160</w>
-      <h>50</h>
-    </coordinates>
-    <panel_attributes>install postgres script
-bg=gray</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLUseCase</id>
-    <coordinates>
-      <x>260</x>
-      <y>500</y>
+      <x>470</x>
+      <y>650</y>
       <w>180</w>
       <h>70</h>
     </coordinates>
@@ -93,13 +81,78 @@ bg=gray</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>450</x>
-      <y>440</y>
+      <x>660</x>
+      <y>580</y>
       <w>160</w>
       <h>50</h>
     </coordinates>
     <panel_attributes>postgres backups
 bg=gray</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLState</id>
+    <coordinates>
+      <x>400</x>
+      <y>230</y>
+      <w>180</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>siteup main project
+one click deploing 
+-
+war for tomcat
+-
+static html for nginx
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLState</id>
+    <coordinates>
+      <x>570</x>
+      <y>400</y>
+      <w>320</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>chose db sql or nosql
+-
++ nosql - without schema support
++ sql postgres - basic knowlege, big community</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>460</x>
+      <y>580</y>
+      <w>160</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>install postgres script
+bg=gray</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLState</id>
+    <coordinates>
+      <x>110</x>
+      <y>370</y>
+      <w>160</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>доделать 3 домашку</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLState</id>
+    <coordinates>
+      <x>110</x>
+      <y>400</y>
+      <w>240</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>добиться вывода в памяти в лог</panel_attributes>
     <additional_attributes/>
   </element>
 </diagram>

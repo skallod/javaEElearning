@@ -9,6 +9,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 public class MemInfo {
+
     static void info(){
         Thread memInfoT = new Thread(() -> {
             while (true) {
@@ -26,16 +27,21 @@ public class MemInfo {
     }
 
 
-    private static void memInfo() {
+    static void memInfo() {
         final MemoryMXBean memBean = ManagementFactory.getMemoryMXBean();
         final MemoryUsage heap = memBean.getHeapMemoryUsage();
-        final MemoryUsage nonHeap = memBean.getNonHeapMemoryUsage();
-        log.info("==================================== Mem usage ==========================");
+        //final MemoryUsage nonHeap = memBean.getNonHeapMemoryUsage();
+        //log.info("==================================== Mem usage ==========================");
         // init: Amount of memory in bytes that the JVM initially requests from the OS.
         // used: Amount of memory used.
         // committed: Amount of memory that is committed for the JVM to use.
         // max: Maximum amount of memory that can be used for memory management.
-        log.info(String.format("Heap: Used: %d, Committed: %d",heap.getUsed(), heap.getCommitted()));
-        log.info(String.format("Non-Heap: Used: %d, Committed: %d",nonHeap.getUsed(), nonHeap.getCommitted()));
+        log.info("Heap: Used percent: " + percentage(heap.getUsed(), heap.getCommitted()));
+        //log.info(String.format("Non-Heap: Used: %d, Committed: %d",nonHeap.getUsed(), nonHeap.getCommitted()));
+    }
+
+    static String percentage(long used, long all){
+        long temp = used*1000L/all;
+        return "" + temp/10L + "." + temp%10L;
     }
 }
