@@ -1,0 +1,221 @@
+sun.management.GarbageCollectorImpl@79fc0f2f
+sun.management.GarbageCollectorImpl@5e9f23b4
+
+Young Gen GC: - 1 Copy (from Allocation Failure) 110 milliseconds; start-end times 82980 -> 83090
+Eden Space(fully expanded)used before (Kb): 136576 ->after used 0
+Code Cache(still expandable)used before (Kb): 1797 ->after used 1797
+Survivor Space(fully expanded)used before (Kb): 0 ->after used 17023
+Compressed Class Space(still expandable)used before (Kb): 705 ->after used 705
+Metaspace(still expandable)used before (Kb): 5925 ->after used 5925
+Tenured Gen(fully expanded)used before (Kb): 0 ->after used 43733
+
+
+Young Gen GC: - 2 Copy (from Allocation Failure) 132 milliseconds; start-end times 169440 -> 169572
+Eden Space(fully expanded)used before (Kb): 125899 ->after used 0
+Code Cache(still expandable)used before (Kb): 1849 ->after used 1849
+Survivor Space(fully expanded)used before (Kb): 17023 ->after used 17023
+Compressed Class Space(still expandable)used before (Kb): 748 ->after used 748
+Metaspace(still expandable)used before (Kb): 6338 ->after used 6338
+Tenured Gen(fully expanded)used before (Kb): 43733 ->after used 101920
+
+
+Young Gen GC: - 3 Copy (from Allocation Failure) 118 milliseconds; start-end times 254101 -> 254219
+Eden Space(fully expanded)used before (Kb): 126281 ->after used 0
+Code Cache(still expandable)used before (Kb): 1870 ->after used 1870
+Survivor Space(fully expanded)used before (Kb): 17023 ->after used 17023
+Compressed Class Space(still expandable)used before (Kb): 748 ->after used 748
+Metaspace(still expandable)used before (Kb): 6348 ->after used 6348
+Tenured Gen(fully expanded)used before (Kb): 101920 ->after used 160682
+
+
+Young Gen GC: - 4 Copy (from Allocation Failure) 142 milliseconds; start-end times 342377 -> 342519
+Eden Space(fully expanded)used before (Kb): 136576 ->after used 0
+Code Cache(still expandable)used before (Kb): 1911 ->after used 1911
+Survivor Space(fully expanded)used before (Kb): 17023 ->after used 17024
+Compressed Class Space(still expandable)used before (Kb): 748 ->after used 748
+Metaspace(still expandable)used before (Kb): 6359 ->after used 6359
+Tenured Gen(fully expanded)used before (Kb): 160682 ->after used 224240
+
+
+Young Gen GC: - 5 Copy (from Allocation Failure) 159 milliseconds; start-end times 420756 -> 420915
+Eden Space(fully expanded)used before (Kb): 136576 ->after used 0
+Code Cache(still expandable)used before (Kb): 1996 ->after used 1996
+Survivor Space(fully expanded)used before (Kb): 17024 ->after used 17024
+Compressed Class Space(still expandable)used before (Kb): 748 ->after used 748
+Metaspace(still expandable)used before (Kb): 6383 ->after used 6383
+Tenured Gen(fully expanded)used before (Kb): 224240 ->after used 309648
+
+
+Young Gen GC: - 6 Copy (from Allocation Failure) 0 milliseconds; start-end times 528165 -> 528165
+Eden Space(fully expanded)used before (Kb): 136576 ->after used 136576
+Code Cache(still expandable)used before (Kb): 2025 ->after used 2025
+Survivor Space(fully expanded)used before (Kb): 17024 ->after used 17024
+Compressed Class Space(still expandable)used before (Kb): 748 ->after used 748
+Metaspace(still expandable)used before (Kb): 6386 ->after used 6386
+Tenured Gen(fully expanded)used before (Kb): 309648 ->after used 309648
+
+
+Old Gen GC: - 1 MarkSweepCompact (from Allocation Failure) 683 milliseconds; start-end times 528165 -> 528848
+Eden Space(fully expanded)used before (Kb): 136576 ->after used 28931
+Code Cache(still expandable)used before (Kb): 2025 ->after used 2025
+Survivor Space(fully expanded)used before (Kb): 17024 ->after used 0
+Compressed Class Space(still expandable)used before (Kb): 748 ->after used 748
+Metaspace(still expandable)used before (Kb): 6386 ->after used 6386
+Tenured Gen(fully expanded)used before (Kb): 309648 ->after used 341376
+
+
+Old Gen GC: - 2 MarkSweepCompact (from Allocation Failure) 622 milliseconds; start-end times 572775 -> 573397
+Eden Space(fully expanded)used before (Kb): 85856 ->after used 56664
+Code Cache(still expandable)used before (Kb): 2080 ->after used 2080
+Survivor Space(fully expanded)used before (Kb): 0 ->after used 0
+Compressed Class Space(still expandable)used before (Kb): 748 ->after used 748
+Metaspace(still expandable)used before (Kb): 6391 ->after used 6391
+Tenured Gen(fully expanded)used before (Kb): 341376 ->after used 341376
+
+
+Old Gen GC: - 3 MarkSweepCompact (from Allocation Failure) 727 milliseconds; start-end times 606891 -> 607618
+Eden Space(fully expanded)used before (Kb): 136576 ->after used 95843
+Code Cache(still expandable)used before (Kb): 2103 ->after used 2103
+Survivor Space(fully expanded)used before (Kb): 17023 ->after used 0
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6391 ->after used 6391
+Tenured Gen(fully expanded)used before (Kb): 341376 ->after used 341375
+
+
+Old Gen GC: - 4 MarkSweepCompact (from Allocation Failure) 910 milliseconds; start-end times 653122 -> 654032
+Eden Space(fully expanded)used before (Kb): 136576 ->after used 124117
+Code Cache(still expandable)used before (Kb): 2114 ->after used 2114
+Survivor Space(fully expanded)used before (Kb): 17023 ->after used 0
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6392 ->after used 6392
+Tenured Gen(fully expanded)used before (Kb): 341375 ->after used 341375
+
+
+Old Gen GC: - 5 MarkSweepCompact (from Allocation Failure) 742 milliseconds; start-end times 677118 -> 677860
+Eden Space(fully expanded)used before (Kb): 136576 ->after used 136575
+Code Cache(still expandable)used before (Kb): 2142 ->after used 2142
+Survivor Space(fully expanded)used before (Kb): 17023 ->after used 2140
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6401 ->after used 6401
+Tenured Gen(fully expanded)used before (Kb): 341375 ->after used 341375
+
+
+Old Gen GC: - 6 MarkSweepCompact (from Allocation Failure) 704 milliseconds; start-end times 689625 -> 690329
+Eden Space(fully expanded)used before (Kb): 136576 ->after used 136576
+Code Cache(still expandable)used before (Kb): 2148 ->after used 2148
+Survivor Space(fully expanded)used before (Kb): 17023 ->after used 9572
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6403 ->after used 6403
+Tenured Gen(fully expanded)used before (Kb): 341375 ->after used 341375
+
+
+Old Gen GC: - 7 MarkSweepCompact (from Allocation Failure) 706 milliseconds; start-end times 696202 -> 696908
+Eden Space(fully expanded)used before (Kb): 136576 ->after used 136576
+Code Cache(still expandable)used before (Kb): 2153 ->after used 2153
+Survivor Space(fully expanded)used before (Kb): 17023 ->after used 13283
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6404 ->after used 6404
+Tenured Gen(fully expanded)used before (Kb): 341375 ->after used 341375
+
+
+Old Gen GC: - 8 MarkSweepCompact (from Allocation Failure) 921 milliseconds; start-end times 699850 -> 700771
+Eden Space(fully expanded)used before (Kb): 136576 ->after used 136576
+Code Cache(still expandable)used before (Kb): 2162 ->after used 2162
+Survivor Space(fully expanded)used before (Kb): 17023 ->after used 15138
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6408 ->after used 6408
+Tenured Gen(fully expanded)used before (Kb): 341375 ->after used 341375
+
+
+Old Gen GC: - 9 MarkSweepCompact (from Allocation Failure) 701 milliseconds; start-end times 702257 -> 702958
+Eden Space(fully expanded)used before (Kb): 136576 ->after used 136576
+Code Cache(still expandable)used before (Kb): 2166 ->after used 2166
+Survivor Space(fully expanded)used before (Kb): 17023 ->after used 16057
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6408 ->after used 6408
+Tenured Gen(fully expanded)used before (Kb): 341375 ->after used 341375
+
+
+Old Gen GC: - 10 MarkSweepCompact (from Allocation Failure) 697 milliseconds; start-end times 703701 -> 704398
+Eden Space(fully expanded)used before (Kb): 136576 ->after used 136576
+Code Cache(still expandable)used before (Kb): 2203 ->after used 2203
+Survivor Space(fully expanded)used before (Kb): 17024 ->after used 16525
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6411 ->after used 6411
+Tenured Gen(fully expanded)used before (Kb): 341375 ->after used 341375
+
+
+Old Gen GC: - 11 MarkSweepCompact (from Allocation Failure) 703 milliseconds; start-end times 704768 -> 705471
+Eden Space(fully expanded)used before (Kb): 136576 ->after used 136576
+Code Cache(still expandable)used before (Kb): 2209 ->after used 2209
+Survivor Space(fully expanded)used before (Kb): 17024 ->after used 16760
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6412 ->after used 6412
+Tenured Gen(fully expanded)used before (Kb): 341375 ->after used 341375
+
+
+Old Gen GC: - 12 MarkSweepCompact (from Allocation Failure) 714 milliseconds; start-end times 705657 -> 706371
+Eden Space(fully expanded)used before (Kb): 136576 ->after used 136576
+Code Cache(still expandable)used before (Kb): 2209 ->after used 2209
+Survivor Space(fully expanded)used before (Kb): 17024 ->after used 16877
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6412 ->after used 6412
+Tenured Gen(fully expanded)used before (Kb): 341375 ->after used 341375
+
+
+Old Gen GC: - 13 MarkSweepCompact (from Allocation Failure) 709 milliseconds; start-end times 706463 -> 707172
+Eden Space(fully expanded)used before (Kb): 136576 ->after used 136576
+Code Cache(still expandable)used before (Kb): 2234 ->after used 2234
+Survivor Space(fully expanded)used before (Kb): 17024 ->after used 16935
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6416 ->after used 6416
+Tenured Gen(fully expanded)used before (Kb): 341375 ->after used 341375
+
+
+Old Gen GC: - 14 MarkSweepCompact (from Allocation Failure) 742 milliseconds; start-end times 707204 -> 707946
+Eden Space(fully expanded)used before (Kb): 136576 ->after used 136576
+Code Cache(still expandable)used before (Kb): 2240 ->after used 2240
+Survivor Space(fully expanded)used before (Kb): 17024 ->after used 16975
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6418 ->after used 6418
+Tenured Gen(fully expanded)used before (Kb): 341375 ->after used 341375
+
+
+
+Old Gen GC: - 16 MarkSweepCompact (from Allocation Failure) 717 milliseconds; start-end times 708684 -> 709401
+Eden Space(fully expanded)used before (Kb): 136576 ->after used 136576
+Code Cache(still expandable)used before (Kb): 2242 ->after used 2242
+Survivor Space(fully expanded)used before (Kb): 17023 ->after used 17015
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6420 ->after used 6420
+Tenured Gen(fully expanded)used before (Kb): 341375 ->after used 341375
+
+
+Old Gen GC: - 17 MarkSweepCompact (from Allocation Failure) 699 milliseconds; start-end times 709401 -> 710100
+Eden Space(fully expanded)used before (Kb): 136576 ->after used 136576
+Code Cache(still expandable)used before (Kb): 2242 ->after used 2242
+Survivor Space(fully expanded)used before (Kb): 17023 ->after used 17004
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6420 ->after used 6420
+Tenured Gen(fully expanded)used before (Kb): 341375 ->after used 341375
+
+
+Old Gen GC: - 18 MarkSweepCompact (from Allocation Failure) 714 milliseconds; start-end times 710100 -> 710814
+Eden Space(fully expanded)used before (Kb): 136576 ->after used 136576
+Code Cache(still expandable)used before (Kb): 2242 ->after used 2242
+Survivor Space(fully expanded)used before (Kb): 17024 ->after used 17023
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6420 ->after used 6420
+Tenured Gen(fully expanded)used before (Kb): 341375 ->after used 341375
+
+
+Old Gen GC: - 19 MarkSweepCompact (from Allocation Failure) 703 milliseconds; start-end times 710814 -> 711517
+Eden Space(fully expanded)used before (Kb): 136576 ->after used 136576
+Code Cache(still expandable)used before (Kb): 2264 ->after used 2264
+Survivor Space(fully expanded)used before (Kb): 17023 ->after used 17023
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6420 ->after used 6420
+Tenured Gen(fully expanded)used before (Kb): 341375 ->after used 341375
+
+
+Old Gen GC: - 20 MarkSweepCompact (from Allocation Failure) 704 milliseconds; start-end times 711517 -> 712221

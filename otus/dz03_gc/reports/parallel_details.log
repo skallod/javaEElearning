@@ -1,0 +1,227 @@
+sun.management.GarbageCollectorImpl@79fc0f2f
+sun.management.GarbageCollectorImpl@5e9f23b4
+
+Young Gen GC: - 1 PS Scavenge (from Allocation Failure) 43 milliseconds; start-end times 76947 -> 76990
+PS Eden Space(fully expanded)used before (Kb): 128512 ->after used 0
+Code Cache(still expandable)used before (Kb): 1794 ->after used 1794
+Compressed Class Space(still expandable)used before (Kb): 705 ->after used 705
+PS Survivor Space(fully expanded)used before (Kb): 0 ->after used 20962
+PS Old Gen(fully expanded)used before (Kb): 0 ->after used 36104
+Metaspace(still expandable)used before (Kb): 5925 ->after used 5925
+
+
+Young Gen GC: - 2 PS Scavenge (from Allocation Failure) 70 milliseconds; start-end times 166421 -> 166491
+PS Eden Space(fully expanded)used before (Kb): 128512 ->after used 0
+Code Cache(still expandable)used before (Kb): 1856 ->after used 1856
+Compressed Class Space(still expandable)used before (Kb): 748 ->after used 748
+PS Survivor Space(fully expanded)used before (Kb): 20962 ->after used 20971
+PS Old Gen(fully expanded)used before (Kb): 36104 ->after used 96328
+Metaspace(still expandable)used before (Kb): 6350 ->after used 6350
+
+
+Young Gen GC: - 3 PS Scavenge (from Allocation Failure) 56 milliseconds; start-end times 253869 -> 253925
+PS Eden Space(fully expanded)used before (Kb): 128512 ->after used 0
+Code Cache(still expandable)used before (Kb): 1875 ->after used 1875
+Compressed Class Space(still expandable)used before (Kb): 748 ->after used 748
+PS Survivor Space(fully expanded)used before (Kb): 20971 ->after used 20968
+PS Old Gen(fully expanded)used before (Kb): 96328 ->after used 157104
+Metaspace(still expandable)used before (Kb): 6359 ->after used 6359
+
+
+Young Gen GC: - 4 PS Scavenge (from Allocation Failure) 67 milliseconds; start-end times 335618 -> 335685
+PS Eden Space(fully expanded)used before (Kb): 128512 ->after used 0
+Code Cache(still expandable)used before (Kb): 1896 ->after used 1896
+Compressed Class Space(still expandable)used before (Kb): 748 ->after used 748
+PS Survivor Space(fully expanded)used before (Kb): 20968 ->after used 20976
+PS Old Gen(fully expanded)used before (Kb): 157104 ->after used 216852
+Metaspace(still expandable)used before (Kb): 6365 ->after used 6365
+
+
+Young Gen GC: - 5 PS Scavenge (from Allocation Failure) 90 milliseconds; start-end times 407679 -> 407769
+PS Eden Space(still expandable)used before (Kb): 128512 ->after used 0
+Code Cache(still expandable)used before (Kb): 1994 ->after used 1994
+Compressed Class Space(still expandable)used before (Kb): 748 ->after used 748
+PS Survivor Space(fully expanded)used before (Kb): 20976 ->after used 20976
+PS Old Gen(fully expanded)used before (Kb): 216852 ->after used 298491
+Metaspace(still expandable)used before (Kb): 6395 ->after used 6395
+
+
+Old Gen GC: - 1 PS MarkSweep (from Ergonomics) 1400 milliseconds; start-end times 407769 -> 409169
+PS Eden Space(still expandable)used before (Kb): 0 ->after used 0
+Code Cache(still expandable)used before (Kb): 1994 ->after used 1994
+Compressed Class Space(still expandable)used before (Kb): 748 ->after used 748
+PS Survivor Space(fully expanded)used before (Kb): 20976 ->after used 0
+PS Old Gen(fully expanded)used before (Kb): 298491 ->after used 294986
+Metaspace(still expandable)used before (Kb): 6395 ->after used 6395
+
+
+Old Gen GC: - 2 PS MarkSweep (from Ergonomics) 2752 milliseconds; start-end times 507576 -> 510328
+PS Eden Space(still expandable)used before (Kb): 125440 ->after used 14607
+Code Cache(still expandable)used before (Kb): 2028 ->after used 2028
+Compressed Class Space(still expandable)used before (Kb): 748 ->after used 745
+PS Survivor Space(fully expanded)used before (Kb): 0 ->after used 0
+PS Old Gen(fully expanded)used before (Kb): 294986 ->after used 341476
+Metaspace(still expandable)used before (Kb): 6400 ->after used 6393
+
+
+Old Gen GC: - 3 PS MarkSweep (from Ergonomics) 1583 milliseconds; start-end times 576193 -> 577776
+PS Eden Space(still expandable)used before (Kb): 99416 ->after used 56141
+Code Cache(still expandable)used before (Kb): 2087 ->after used 2087
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+PS Survivor Space(fully expanded)used before (Kb): 0 ->after used 0
+PS Old Gen(fully expanded)used before (Kb): 341476 ->after used 341476
+Metaspace(still expandable)used before (Kb): 6402 ->after used 6402
+
+
+Old Gen GC: - 4 PS MarkSweep (from Ergonomics) 1422 milliseconds; start-end times 589554 -> 590976
+PS Eden Space(still expandable)used before (Kb): 125440 ->after used 81807
+Code Cache(still expandable)used before (Kb): 2095 ->after used 2095
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+PS Survivor Space(fully expanded)used before (Kb): 0 ->after used 0
+PS Old Gen(fully expanded)used before (Kb): 341476 ->after used 341260
+Metaspace(still expandable)used before (Kb): 6404 ->after used 6404
+
+
+Old Gen GC: - 5 PS MarkSweep (from Ergonomics) 1578 milliseconds; start-end times 625252 -> 626830
+PS Eden Space(still expandable)used before (Kb): 125440 ->after used 103462
+Code Cache(still expandable)used before (Kb): 2115 ->after used 2115
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+PS Survivor Space(fully expanded)used before (Kb): 0 ->after used 0
+PS Old Gen(fully expanded)used before (Kb): 341260 ->after used 341260
+Metaspace(still expandable)used before (Kb): 6407 ->after used 6407
+
+
+Old Gen GC: - 6 PS MarkSweep (from Ergonomics) 1572 milliseconds; start-end times 644062 -> 645634
+PS Eden Space(still expandable)used before (Kb): 125440 ->after used 114365
+Code Cache(still expandable)used before (Kb): 2127 ->after used 2127
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+PS Survivor Space(fully expanded)used before (Kb): 0 ->after used 0
+PS Old Gen(fully expanded)used before (Kb): 341260 ->after used 341260
+Metaspace(still expandable)used before (Kb): 6411 ->after used 6411
+
+
+Old Gen GC: - 7 PS MarkSweep (from Ergonomics) 1562 milliseconds; start-end times 654323 -> 655885
+PS Eden Space(still expandable)used before (Kb): 125440 ->after used 119849
+Code Cache(still expandable)used before (Kb): 2145 ->after used 2145
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+PS Survivor Space(fully expanded)used before (Kb): 0 ->after used 0
+PS Old Gen(fully expanded)used before (Kb): 341260 ->after used 341260
+Metaspace(still expandable)used before (Kb): 6418 ->after used 6418
+
+
+Old Gen GC: - 8 PS MarkSweep (from Ergonomics) 1731 milliseconds; start-end times 660185 -> 661916
+PS Eden Space(still expandable)used before (Kb): 125440 ->after used 122599
+Code Cache(still expandable)used before (Kb): 2146 ->after used 2146
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+PS Survivor Space(fully expanded)used before (Kb): 0 ->after used 0
+PS Old Gen(fully expanded)used before (Kb): 341260 ->after used 341260
+Metaspace(still expandable)used before (Kb): 6418 ->after used 6418
+
+
+Old Gen GC: - 9 PS MarkSweep (from Ergonomics) 1627 milliseconds; start-end times 664070 -> 665697
+PS Eden Space(still expandable)used before (Kb): 125440 ->after used 123964
+Code Cache(still expandable)used before (Kb): 2163 ->after used 2163
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+PS Survivor Space(fully expanded)used before (Kb): 0 ->after used 0
+PS Old Gen(fully expanded)used before (Kb): 341260 ->after used 341258
+Metaspace(still expandable)used before (Kb): 6423 ->after used 6423
+
+
+Old Gen GC: - 10 PS MarkSweep (from Ergonomics) 1542 milliseconds; start-end times 666843 -> 668385
+PS Eden Space(still expandable)used before (Kb): 125440 ->after used 124683
+Code Cache(still expandable)used before (Kb): 2166 ->after used 2166
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+PS Survivor Space(fully expanded)used before (Kb): 0 ->after used 0
+PS Old Gen(fully expanded)used before (Kb): 341258 ->after used 341258
+Metaspace(still expandable)used before (Kb): 6423 ->after used 6423
+
+
+Old Gen GC: - 11 PS MarkSweep (from Ergonomics) 1582 milliseconds; start-end times 668912 -> 670494
+PS Eden Space(still expandable)used before (Kb): 125440 ->after used 125037
+Code Cache(still expandable)used before (Kb): 2201 ->after used 2201
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+PS Survivor Space(fully expanded)used before (Kb): 0 ->after used 0
+PS Old Gen(fully expanded)used before (Kb): 341258 ->after used 341258
+Metaspace(still expandable)used before (Kb): 6426 ->after used 6426
+
+
+Old Gen GC: - 12 PS MarkSweep (from Ergonomics) 1593 milliseconds; start-end times 670800 -> 672393
+PS Eden Space(still expandable)used before (Kb): 125440 ->after used 125212
+Code Cache(still expandable)used before (Kb): 2208 ->after used 2208
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+PS Survivor Space(fully expanded)used before (Kb): 0 ->after used 0
+PS Old Gen(fully expanded)used before (Kb): 341258 ->after used 341258
+Metaspace(still expandable)used before (Kb): 6427 ->after used 6427
+
+
+Old Gen GC: - 13 PS MarkSweep (from Ergonomics) 1524 milliseconds; start-end times 672548 -> 674072
+PS Eden Space(still expandable)used before (Kb): 125440 ->after used 125312
+Code Cache(still expandable)used before (Kb): 2218 ->after used 2218
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+PS Survivor Space(fully expanded)used before (Kb): 0 ->after used 0
+PS Old Gen(fully expanded)used before (Kb): 341258 ->after used 341258
+Metaspace(still expandable)used before (Kb): 6429 ->after used 6429
+
+
+Old Gen GC: - 14 PS MarkSweep (from Ergonomics) 1559 milliseconds; start-end times 674134 -> 675693
+PS Eden Space(still expandable)used before (Kb): 125440 ->after used 125369
+Code Cache(still expandable)used before (Kb): 2236 ->after used 2236
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+PS Survivor Space(fully expanded)used before (Kb): 0 ->after used 0
+PS Old Gen(fully expanded)used before (Kb): 341258 ->after used 341258
+Metaspace(still expandable)used before (Kb): 6432 ->after used 6432
+
+
+Old Gen GC: - 15 PS MarkSweep (from Ergonomics) 1616 milliseconds; start-end times 675693 -> 677309
+PS Eden Space(still expandable)used before (Kb): 125440 ->after used 125394
+Code Cache(still expandable)used before (Kb): 2236 ->after used 2236
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+PS Survivor Space(fully expanded)used before (Kb): 0 ->after used 0
+PS Old Gen(fully expanded)used before (Kb): 341258 ->after used 341258
+Metaspace(still expandable)used before (Kb): 6432 ->after used 6432
+
+
+Old Gen GC: - 17 PS MarkSweep (from Ergonomics) 1545 milliseconds; start-end times 678919 -> 680464
+PS Eden Space(still expandable)used before (Kb): 125440 ->after used 125418
+Code Cache(still expandable)used before (Kb): 2237 ->after used 2237
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+PS Survivor Space(fully expanded)used before (Kb): 0 ->after used 0
+PS Old Gen(fully expanded)used before (Kb): 341258 ->after used 341258
+Metaspace(still expandable)used before (Kb): 6433 ->after used 6433
+
+
+Old Gen GC: - 18 PS MarkSweep (from Ergonomics) 1573 milliseconds; start-end times 680464 -> 682037
+PS Eden Space(still expandable)used before (Kb): 125440 ->after used 125434
+Code Cache(still expandable)used before (Kb): 2237 ->after used 2237
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+PS Survivor Space(fully expanded)used before (Kb): 0 ->after used 0
+PS Old Gen(fully expanded)used before (Kb): 341258 ->after used 341258
+Metaspace(still expandable)used before (Kb): 6433 ->after used 6433
+
+
+Old Gen GC: - 19 PS MarkSweep (from Ergonomics) 1563 milliseconds; start-end times 682037 -> 683600
+PS Eden Space(still expandable)used before (Kb): 125440 ->after used 125420
+Code Cache(still expandable)used before (Kb): 2237 ->after used 2237
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+PS Survivor Space(fully expanded)used before (Kb): 0 ->after used 0
+PS Old Gen(fully expanded)used before (Kb): 341258 ->after used 341258
+Metaspace(still expandable)used before (Kb): 6433 ->after used 6433
+
+
+Old Gen GC: - 20 PS MarkSweep (from Ergonomics) 1580 milliseconds; start-end times 683601 -> 685181
+PS Eden Space(still expandable)used before (Kb): 125440 ->after used 125439
+Code Cache(still expandable)used before (Kb): 2237 ->after used 2237
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+PS Survivor Space(fully expanded)used before (Kb): 0 ->after used 0
+PS Old Gen(fully expanded)used before (Kb): 341258 ->after used 341258
+Metaspace(still expandable)used before (Kb): 6433 ->after used 6433
+
+
+Old Gen GC: - 21 PS MarkSweep (from Ergonomics) 1554 milliseconds; start-end times 685181 -> 686735
+PS Eden Space(still expandable)used before (Kb): 125440 ->after used 125439
+Code Cache(still expandable)used before (Kb): 2237 ->after used 2237
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+PS Survivor Space(fully expanded)used before (Kb): 0 ->after used 0
+PS Old Gen(fully expanded)used before (Kb): 341258 ->after used 341258
+Metaspace(still expandable)used before (Kb): 6433 ->after used 6433
+

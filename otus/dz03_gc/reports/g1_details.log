@@ -1,0 +1,461 @@
+sun.management.GarbageCollectorImpl@79fc0f2f
+sun.management.GarbageCollectorImpl@5e9f23b4
+
+Young Gen GC: - 1 G1 Young Generation (from G1 Evacuation Pause) 13 milliseconds; start-end times 14542 -> 14555
+G1 Old Gen(still expandable)used before (Kb): 539 ->after used 7960
+Code Cache(still expandable)used before (Kb): 1799 ->after used 1799
+G1 Survivor Space(still expandable)used before (Kb): 0 ->after used 4096
+Compressed Class Space(still expandable)used before (Kb): 694 ->after used 694
+Metaspace(still expandable)used before (Kb): 5831 ->after used 5831
+G1 Eden Space(still expandable)used before (Kb): 25600 ->after used 0
+
+
+Young Gen GC: - 2 G1 Young Generation (from G1 Evacuation Pause) 14 milliseconds; start-end times 31303 -> 31317
+G1 Old Gen(still expandable)used before (Kb): 10453 ->after used 25048
+Code Cache(still expandable)used before (Kb): 1844 ->after used 1844
+G1 Survivor Space(still expandable)used before (Kb): 4096 ->after used 4096
+Compressed Class Space(still expandable)used before (Kb): 736 ->after used 736
+Metaspace(still expandable)used before (Kb): 6249 ->after used 6249
+G1 Eden Space(still expandable)used before (Kb): 21504 ->after used 0
+
+
+Young Gen GC: - 3 G1 Young Generation (from G1 Evacuation Pause) 17 milliseconds; start-end times 50624 -> 50641
+G1 Old Gen(still expandable)used before (Kb): 31937 ->after used 47297
+Code Cache(still expandable)used before (Kb): 1860 ->after used 1860
+G1 Survivor Space(still expandable)used before (Kb): 4096 ->after used 4096
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6327 ->after used 6327
+G1 Eden Space(still expandable)used before (Kb): 24576 ->after used 0
+
+
+Young Gen GC: - 4 G1 Young Generation (from G1 Evacuation Pause) 24 milliseconds; start-end times 79118 -> 79142
+G1 Old Gen(still expandable)used before (Kb): 53395 ->after used 74387
+Code Cache(still expandable)used before (Kb): 1880 ->after used 1880
+G1 Survivor Space(still expandable)used before (Kb): 4096 ->after used 5120
+Compressed Class Space(still expandable)used before (Kb): 746 ->after used 746
+Metaspace(still expandable)used before (Kb): 6338 ->after used 6338
+G1 Eden Space(still expandable)used before (Kb): 36864 ->after used 0
+
+
+Young Gen GC: - 5 G1 Young Generation (from G1 Evacuation Pause) 28 milliseconds; start-end times 117129 -> 117157
+G1 Old Gen(still expandable)used before (Kb): 84046 ->after used 108110
+Code Cache(still expandable)used before (Kb): 1896 ->after used 1896
+G1 Survivor Space(still expandable)used before (Kb): 5120 ->after used 7168
+Compressed Class Space(still expandable)used before (Kb): 746 ->after used 746
+Metaspace(still expandable)used before (Kb): 6343 ->after used 6343
+G1 Eden Space(still expandable)used before (Kb): 48128 ->after used 0
+
+
+Young Gen GC: - 6 G1 Young Generation (from G1 Evacuation Pause) 33 milliseconds; start-end times 166259 -> 166292
+G1 Old Gen(still expandable)used before (Kb): 108110 ->after used 139342
+Code Cache(still expandable)used before (Kb): 1922 ->after used 1922
+G1 Survivor Space(still expandable)used before (Kb): 7168 ->after used 9216
+Compressed Class Space(still expandable)used before (Kb): 748 ->after used 748
+Metaspace(still expandable)used before (Kb): 6360 ->after used 6360
+G1 Eden Space(still expandable)used before (Kb): 62464 ->after used 0
+
+
+Young Gen GC: - 7 G1 Young Generation (from G1 Evacuation Pause) 40 milliseconds; start-end times 224392 -> 224432
+G1 Old Gen(still expandable)used before (Kb): 154343 ->after used 192743
+Code Cache(still expandable)used before (Kb): 1955 ->after used 1955
+G1 Survivor Space(still expandable)used before (Kb): 9216 ->after used 11264
+Compressed Class Space(still expandable)used before (Kb): 748 ->after used 748
+Metaspace(still expandable)used before (Kb): 6366 ->after used 6366
+G1 Eden Space(still expandable)used before (Kb): 73728 ->after used 0
+
+
+Young Gen GC: - 8 G1 Young Generation (from G1 Evacuation Pause) 41 milliseconds; start-end times 290749 -> 290790
+G1 Old Gen(still expandable)used before (Kb): 215755 ->after used 259787
+Code Cache(still expandable)used before (Kb): 1988 ->after used 1988
+G1 Survivor Space(still expandable)used before (Kb): 11264 ->after used 12288
+Compressed Class Space(still expandable)used before (Kb): 748 ->after used 748
+Metaspace(still expandable)used before (Kb): 6372 ->after used 6372
+G1 Eden Space(still expandable)used before (Kb): 83968 ->after used 0
+
+
+Young Gen GC: - 9 G1 Young Generation (from G1 Evacuation Pause) 54 milliseconds; start-end times 373877 -> 373931
+G1 Old Gen(still expandable)used before (Kb): 259787 ->after used 311499
+Code Cache(still expandable)used before (Kb): 2069 ->after used 2069
+G1 Survivor Space(still expandable)used before (Kb): 12288 ->after used 15360
+Compressed Class Space(still expandable)used before (Kb): 748 ->after used 748
+Metaspace(still expandable)used before (Kb): 6399 ->after used 6399
+G1 Eden Space(still expandable)used before (Kb): 105472 ->after used 0
+
+
+Young Gen GC: - 10 G1 Young Generation (from G1 Evacuation Pause) 48 milliseconds; start-end times 437984 -> 438032
+G1 Old Gen(still expandable)used before (Kb): 299707 ->after used 347323
+Code Cache(still expandable)used before (Kb): 2082 ->after used 2082
+G1 Survivor Space(still expandable)used before (Kb): 15360 ->after used 12288
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6396 ->after used 6396
+G1 Eden Space(still expandable)used before (Kb): 80896 ->after used 0
+
+
+Young Gen GC: - 11 G1 Young Generation (from G1 Evacuation Pause) 36 milliseconds; start-end times 489688 -> 489724
+G1 Old Gen(still expandable)used before (Kb): 347323 ->after used 384699
+Code Cache(still expandable)used before (Kb): 2123 ->after used 2123
+G1 Survivor Space(still expandable)used before (Kb): 12288 ->after used 10240
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6402 ->after used 6402
+G1 Eden Space(still expandable)used before (Kb): 65536 ->after used 0
+
+
+Young Gen GC: - 12 G1 Young Generation (from G1 Evacuation Pause) 26 milliseconds; start-end times 523003 -> 523029
+G1 Old Gen(still expandable)used before (Kb): 384699 ->after used 410299
+Code Cache(still expandable)used before (Kb): 2131 ->after used 2131
+G1 Survivor Space(still expandable)used before (Kb): 10240 ->after used 7168
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6405 ->after used 6405
+G1 Eden Space(still expandable)used before (Kb): 41984 ->after used 0
+
+
+Young Gen GC: - 13 G1 Young Generation (from G1 Evacuation Pause) 18 milliseconds; start-end times 544840 -> 544858
+G1 Old Gen(still expandable)used before (Kb): 385239 ->after used 404183
+Code Cache(still expandable)used before (Kb): 2188 ->after used 2188
+G1 Survivor Space(still expandable)used before (Kb): 7168 ->after used 5120
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6409 ->after used 6409
+G1 Eden Space(still expandable)used before (Kb): 27648 ->after used 0
+
+
+Young Gen GC: - 14 G1 Young Generation (from G1 Evacuation Pause) 18 milliseconds; start-end times 570771 -> 570789
+G1 Old Gen(still expandable)used before (Kb): 404183 ->after used 422103
+Code Cache(still expandable)used before (Kb): 2196 ->after used 2196
+G1 Survivor Space(still expandable)used before (Kb): 5120 ->after used 5120
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6409 ->after used 6409
+G1 Eden Space(still expandable)used before (Kb): 32768 ->after used 0
+
+
+Young Gen GC: - 15 G1 Young Generation (from G1 Humongous Allocation) 9 milliseconds; start-end times 572523 -> 572532
+G1 Old Gen(still expandable)used before (Kb): 422103 ->after used 428247
+Code Cache(still expandable)used before (Kb): 2197 ->after used 2197
+G1 Survivor Space(still expandable)used before (Kb): 5120 ->after used 4096
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6410 ->after used 6410
+G1 Eden Space(still expandable)used before (Kb): 2048 ->after used 0
+
+
+Young Gen GC: - 16 G1 Young Generation (from G1 Evacuation Pause) 246 milliseconds; start-end times 589553 -> 589799
+G1 Old Gen(still expandable)used before (Kb): 481305 ->after used 506905
+Code Cache(still expandable)used before (Kb): 2210 ->after used 2210
+G1 Survivor Space(still expandable)used before (Kb): 4096 ->after used 3072
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6413 ->after used 6413
+G1 Eden Space(still expandable)used before (Kb): 21504 ->after used 0
+
+
+Young Gen GC: - 17 G1 Young Generation (from G1 Evacuation Pause) 85 milliseconds; start-end times 590605 -> 590690
+G1 Old Gen(fully expanded)used before (Kb): 506905 ->after used 511001
+Code Cache(still expandable)used before (Kb): 2219 ->after used 2219
+G1 Survivor Space(still expandable)used before (Kb): 3072 ->after used 0
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6414 ->after used 6414
+G1 Eden Space(still expandable)used before (Kb): 1024 ->after used 0
+
+
+Young Gen GC: - 18 G1 Young Generation (from G1 Evacuation Pause) 1 milliseconds; start-end times 590691 -> 590692
+G1 Old Gen(fully expanded)used before (Kb): 511001 ->after used 511001
+Code Cache(still expandable)used before (Kb): 2219 ->after used 2219
+G1 Survivor Space(still expandable)used before (Kb): 0 ->after used 0
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6414 ->after used 6414
+G1 Eden Space(still expandable)used before (Kb): 0 ->after used 0
+
+
+Old Gen GC: - 1 G1 Old Generation (from Allocation Failure) 1075 milliseconds; start-end times 590692 -> 591767
+G1 Old Gen(still expandable)used before (Kb): 511001 ->after used 426870
+Code Cache(still expandable)used before (Kb): 2219 ->after used 2219
+G1 Survivor Space(still expandable)used before (Kb): 0 ->after used 0
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6414 ->after used 6414
+G1 Eden Space(still expandable)used before (Kb): 0 ->after used 0
+
+
+Young Gen GC: - 19 G1 Young Generation (from G1 Evacuation Pause) 10 milliseconds; start-end times 611895 -> 611905
+G1 Old Gen(still expandable)used before (Kb): 426870 ->after used 435682
+Code Cache(still expandable)used before (Kb): 2250 ->after used 2250
+G1 Survivor Space(still expandable)used before (Kb): 0 ->after used 4096
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6421 ->after used 6421
+G1 Eden Space(still expandable)used before (Kb): 25600 ->after used 0
+
+
+Young Gen GC: - 20 G1 Young Generation (from G1 Evacuation Pause) 14 milliseconds; start-end times 628906 -> 628920
+G1 Old Gen(still expandable)used before (Kb): 435682 ->after used 449910
+Code Cache(still expandable)used before (Kb): 2257 ->after used 2257
+G1 Survivor Space(still expandable)used before (Kb): 4096 ->after used 4096
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6424 ->after used 6424
+G1 Eden Space(still expandable)used before (Kb): 21504 ->after used 0
+
+
+Young Gen GC: - 21 G1 Young Generation (from G1 Evacuation Pause) 15 milliseconds; start-end times 645857 -> 645872
+G1 Old Gen(still expandable)used before (Kb): 448886 ->after used 462710
+Code Cache(still expandable)used before (Kb): 2275 ->after used 2275
+G1 Survivor Space(still expandable)used before (Kb): 4096 ->after used 4096
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6426 ->after used 6426
+G1 Eden Space(still expandable)used before (Kb): 21504 ->after used 0
+
+
+Young Gen GC: - 22 G1 Young Generation (from G1 Evacuation Pause) 11 milliseconds; start-end times 662813 -> 662824
+G1 Old Gen(still expandable)used before (Kb): 462710 ->after used 474998
+Code Cache(still expandable)used before (Kb): 2304 ->after used 2304
+G1 Survivor Space(still expandable)used before (Kb): 4096 ->after used 4096
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6433 ->after used 6433
+G1 Eden Space(still expandable)used before (Kb): 21504 ->after used 0
+
+
+Young Gen GC: - 23 G1 Young Generation (from G1 Evacuation Pause) 98 milliseconds; start-end times 679808 -> 679906
+G1 Old Gen(still expandable)used before (Kb): 474998 ->after used 494454
+Code Cache(still expandable)used before (Kb): 2316 ->after used 2316
+G1 Survivor Space(still expandable)used before (Kb): 4096 ->after used 4096
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6435 ->after used 6435
+G1 Eden Space(still expandable)used before (Kb): 21504 ->after used 0
+
+
+Young Gen GC: - 24 G1 Young Generation (from G1 Evacuation Pause) 205 milliseconds; start-end times 689617 -> 689822
+G1 Old Gen(still expandable)used before (Kb): 493430 ->after used 510838
+Code Cache(still expandable)used before (Kb): 2318 ->after used 2318
+G1 Survivor Space(still expandable)used before (Kb): 4096 ->after used 0
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6435 ->after used 6435
+G1 Eden Space(still expandable)used before (Kb): 12288 ->after used 0
+
+
+Young Gen GC: - 25 G1 Young Generation (from G1 Evacuation Pause) 1 milliseconds; start-end times 689822 -> 689823
+G1 Old Gen(still expandable)used before (Kb): 510838 ->after used 510838
+Code Cache(still expandable)used before (Kb): 2318 ->after used 2318
+G1 Survivor Space(still expandable)used before (Kb): 0 ->after used 0
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6435 ->after used 6435
+G1 Eden Space(still expandable)used before (Kb): 0 ->after used 0
+
+
+Young Gen GC: - 26 G1 Young Generation (from G1 Evacuation Pause) 1 milliseconds; start-end times 689823 -> 689824
+G1 Old Gen(still expandable)used before (Kb): 510838 ->after used 510838
+Code Cache(still expandable)used before (Kb): 2318 ->after used 2318
+G1 Survivor Space(still expandable)used before (Kb): 0 ->after used 0
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6435 ->after used 6435
+G1 Eden Space(still expandable)used before (Kb): 0 ->after used 0
+
+
+Old Gen GC: - 2 G1 Old Generation (from Allocation Failure) 1265 milliseconds; start-end times 689824 -> 691089
+G1 Old Gen(still expandable)used before (Kb): 510838 ->after used 488621
+Code Cache(still expandable)used before (Kb): 2318 ->after used 2318
+G1 Survivor Space(still expandable)used before (Kb): 0 ->after used 0
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6435 ->after used 6435
+G1 Eden Space(still expandable)used before (Kb): 0 ->after used 0
+
+
+Young Gen GC: - 27 G1 Young Generation (from G1 Evacuation Pause) 273 milliseconds; start-end times 708822 -> 709095
+G1 Old Gen(fully expanded)used before (Kb): 488621 ->after used 511149
+Code Cache(still expandable)used before (Kb): 2325 ->after used 2325
+G1 Survivor Space(still expandable)used before (Kb): 0 ->after used 0
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6436 ->after used 6436
+G1 Eden Space(still expandable)used before (Kb): 22528 ->after used 0
+
+
+Young Gen GC: - 28 G1 Young Generation (from G1 Evacuation Pause) 2 milliseconds; start-end times 709095 -> 709097
+G1 Old Gen(fully expanded)used before (Kb): 511149 ->after used 511149
+Code Cache(still expandable)used before (Kb): 2325 ->after used 2325
+G1 Survivor Space(still expandable)used before (Kb): 0 ->after used 0
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6436 ->after used 6436
+G1 Eden Space(still expandable)used before (Kb): 0 ->after used 0
+
+
+Old Gen GC: - 3 G1 Old Generation (from Allocation Failure) 974 milliseconds; start-end times 709097 -> 710071
+G1 Old Gen(still expandable)used before (Kb): 511149 ->after used 499819
+Code Cache(still expandable)used before (Kb): 2325 ->after used 2325
+G1 Survivor Space(still expandable)used before (Kb): 0 ->after used 0
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6436 ->after used 6436
+G1 Eden Space(still expandable)used before (Kb): 0 ->after used 0
+
+
+Young Gen GC: - 29 G1 Young Generation (from G1 Evacuation Pause) 148 milliseconds; start-end times 718920 -> 719068
+G1 Old Gen(fully expanded)used before (Kb): 499819 ->after used 511083
+Code Cache(still expandable)used before (Kb): 2349 ->after used 2349
+G1 Survivor Space(still expandable)used before (Kb): 0 ->after used 0
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6442 ->after used 6442
+G1 Eden Space(still expandable)used before (Kb): 11264 ->after used 0
+
+
+Young Gen GC: - 30 G1 Young Generation (from G1 Evacuation Pause) 2 milliseconds; start-end times 719068 -> 719070
+G1 Old Gen(fully expanded)used before (Kb): 511083 ->after used 511083
+Code Cache(still expandable)used before (Kb): 2349 ->after used 2349
+G1 Survivor Space(still expandable)used before (Kb): 0 ->after used 0
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6442 ->after used 6442
+G1 Eden Space(still expandable)used before (Kb): 0 ->after used 0
+
+
+Old Gen GC: - 4 G1 Old Generation (from Allocation Failure) 1016 milliseconds; start-end times 719070 -> 720086
+G1 Old Gen(still expandable)used before (Kb): 511083 ->after used 505385
+Code Cache(still expandable)used before (Kb): 2349 ->after used 2349
+G1 Survivor Space(still expandable)used before (Kb): 0 ->after used 0
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6442 ->after used 6442
+G1 Eden Space(still expandable)used before (Kb): 0 ->after used 0
+
+
+Young Gen GC: - 31 G1 Young Generation (from G1 Evacuation Pause) 82 milliseconds; start-end times 724790 -> 724872
+G1 Old Gen(fully expanded)used before (Kb): 505385 ->after used 511529
+Code Cache(still expandable)used before (Kb): 2346 ->after used 2346
+G1 Survivor Space(still expandable)used before (Kb): 0 ->after used 0
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6449 ->after used 6449
+G1 Eden Space(still expandable)used before (Kb): 6144 ->after used 0
+
+
+Young Gen GC: - 32 G1 Young Generation (from G1 Evacuation Pause) 1 milliseconds; start-end times 724873 -> 724874
+G1 Old Gen(fully expanded)used before (Kb): 511529 ->after used 511529
+Code Cache(still expandable)used before (Kb): 2346 ->after used 2346
+G1 Survivor Space(still expandable)used before (Kb): 0 ->after used 0
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6449 ->after used 6449
+G1 Eden Space(still expandable)used before (Kb): 0 ->after used 0
+
+
+Old Gen GC: - 5 G1 Old Generation (from Allocation Failure) 1048 milliseconds; start-end times 724874 -> 725922
+G1 Old Gen(still expandable)used before (Kb): 511529 ->after used 508386
+Code Cache(still expandable)used before (Kb): 2346 ->after used 2346
+G1 Survivor Space(still expandable)used before (Kb): 0 ->after used 0
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6449 ->after used 6449
+G1 Eden Space(still expandable)used before (Kb): 0 ->after used 0
+
+
+Young Gen GC: - 33 G1 Young Generation (from G1 Evacuation Pause) 43 milliseconds; start-end times 728262 -> 728305
+G1 Old Gen(fully expanded)used before (Kb): 508386 ->after used 511458
+Code Cache(still expandable)used before (Kb): 2384 ->after used 2384
+G1 Survivor Space(still expandable)used before (Kb): 0 ->after used 0
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6468 ->after used 6468
+G1 Eden Space(still expandable)used before (Kb): 3072 ->after used 0
+
+
+Young Gen GC: - 34 G1 Young Generation (from G1 Evacuation Pause) 2 milliseconds; start-end times 728305 -> 728307
+G1 Old Gen(fully expanded)used before (Kb): 511458 ->after used 511458
+Code Cache(still expandable)used before (Kb): 2384 ->after used 2384
+G1 Survivor Space(still expandable)used before (Kb): 0 ->after used 0
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6468 ->after used 6468
+G1 Eden Space(still expandable)used before (Kb): 0 ->after used 0
+
+
+Old Gen GC: - 6 G1 Old Generation (from Allocation Failure) 984 milliseconds; start-end times 728307 -> 729291
+G1 Old Gen(still expandable)used before (Kb): 511458 ->after used 509859
+Code Cache(still expandable)used before (Kb): 2384 ->after used 2384
+G1 Survivor Space(still expandable)used before (Kb): 0 ->after used 0
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6468 ->after used 6468
+G1 Eden Space(still expandable)used before (Kb): 0 ->after used 0
+
+
+Young Gen GC: - 35 G1 Young Generation (from G1 Evacuation Pause) 14 milliseconds; start-end times 730029 -> 730043
+G1 Old Gen(still expandable)used before (Kb): 509859 ->after used 510883
+Code Cache(still expandable)used before (Kb): 2387 ->after used 2387
+G1 Survivor Space(still expandable)used before (Kb): 0 ->after used 0
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6468 ->after used 6468
+G1 Eden Space(still expandable)used before (Kb): 1024 ->after used 0
+
+
+Young Gen GC: - 36 G1 Young Generation (from G1 Evacuation Pause) 1 milliseconds; start-end times 730043 -> 730044
+G1 Old Gen(still expandable)used before (Kb): 510883 ->after used 510883
+Code Cache(still expandable)used before (Kb): 2387 ->after used 2387
+G1 Survivor Space(still expandable)used before (Kb): 0 ->after used 0
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6468 ->after used 6468
+G1 Eden Space(still expandable)used before (Kb): 0 ->after used 0
+
+
+Old Gen GC: - 7 G1 Old Generation (from Allocation Failure) 1010 milliseconds; start-end times 730044 -> 731054
+G1 Old Gen(still expandable)used before (Kb): 510883 ->after used 510322
+Code Cache(still expandable)used before (Kb): 2387 ->after used 2387
+G1 Survivor Space(still expandable)used before (Kb): 0 ->after used 0
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6468 ->after used 6468
+G1 Eden Space(still expandable)used before (Kb): 0 ->after used 0
+
+
+Young Gen GC: - 38 G1 Young Generation (from G1 Evacuation Pause) 1 milliseconds; start-end times 731778 -> 731779
+G1 Old Gen(fully expanded)used before (Kb): 511346 ->after used 511346
+Code Cache(still expandable)used before (Kb): 2419 ->after used 2419
+G1 Survivor Space(still expandable)used before (Kb): 0 ->after used 0
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6473 ->after used 6473
+G1 Eden Space(still expandable)used before (Kb): 0 ->after used 0
+
+
+Old Gen GC: - 8 G1 Old Generation (from Allocation Failure) 991 milliseconds; start-end times 731779 -> 732770
+G1 Old Gen(still expandable)used before (Kb): 511346 ->after used 510787
+Code Cache(still expandable)used before (Kb): 2419 ->after used 2419
+G1 Survivor Space(still expandable)used before (Kb): 0 ->after used 0
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6473 ->after used 6473
+G1 Eden Space(still expandable)used before (Kb): 0 ->after used 0
+
+
+Old Gen GC: - 9 G1 Old Generation (from Allocation Failure) 982 milliseconds; start-end times 732770 -> 733752
+G1 Old Gen(still expandable)used before (Kb): 510787 ->after used 510787
+Code Cache(still expandable)used before (Kb): 2419 ->after used 2419
+G1 Survivor Space(still expandable)used before (Kb): 0 ->after used 0
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6473 ->after used 6473
+G1 Eden Space(still expandable)used before (Kb): 0 ->after used 0
+
+
+Young Gen GC: - 39 G1 Young Generation (from G1 Evacuation Pause) 1 milliseconds; start-end times 733752 -> 733753
+G1 Old Gen(still expandable)used before (Kb): 510787 ->after used 510787
+Code Cache(still expandable)used before (Kb): 2419 ->after used 2419
+G1 Survivor Space(still expandable)used before (Kb): 0 ->after used 0
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6473 ->after used 6473
+G1 Eden Space(still expandable)used before (Kb): 0 ->after used 0
+
+
+Young Gen GC: - 40 G1 Young Generation (from G1 Evacuation Pause) 0 milliseconds; start-end times 733753 -> 733753
+G1 Old Gen(still expandable)used before (Kb): 510787 ->after used 510787
+Code Cache(still expandable)used before (Kb): 2419 ->after used 2419
+G1 Survivor Space(still expandable)used before (Kb): 0 ->after used 0
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6473 ->after used 6473
+G1 Eden Space(still expandable)used before (Kb): 0 ->after used 0
+
+
+Old Gen GC: - 10 G1 Old Generation (from Allocation Failure) 1001 milliseconds; start-end times 733753 -> 734754
+G1 Old Gen(still expandable)used before (Kb): 510787 ->after used 510787
+Code Cache(still expandable)used before (Kb): 2419 ->after used 2419
+G1 Survivor Space(still expandable)used before (Kb): 0 ->after used 0
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6473 ->after used 6473
+G1 Eden Space(still expandable)used before (Kb): 0 ->after used 0
+
+
+Old Gen GC: - 11 G1 Old Generation (from Allocation Failure) 989 milliseconds; start-end times 734754 -> 735743
+G1 Old Gen(still expandable)used before (Kb): 510787 ->after used 510787
+Code Cache(still expandable)used before (Kb): 2419 ->after used 2419
+G1 Survivor Space(still expandable)used before (Kb): 0 ->after used 0
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6473 ->after used 6473
+G1 Eden Space(still expandable)used before (Kb): 0 ->after used 0
+
+
+Young Gen GC: - 41 G1 Young Generation (from G1 Evacuation Pause) 0 milliseconds; start-end times 735744 -> 735744
+G1 Old Gen(still expandable)used before (Kb): 510787 ->after used 510787
+Code Cache(still expandable)used before (Kb): 2419 ->after used 2419
+G1 Survivor Space(still expandable)used before (Kb): 0 ->after used 0
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6473 ->after used 6473
+G1 Eden Space(still expandable)used before (Kb): 0 ->after used 0
+

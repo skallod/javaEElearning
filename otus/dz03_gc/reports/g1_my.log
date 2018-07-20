@@ -1,0 +1,99 @@
+gc test start
+===========================minute left 1; ms 60067==================================
+Heap: Used percent: 12.4
+MINOR count per minute 3
+MINOR duration per minute ms 44
+MINOR duration percent per minute 0.0
+MAJOR count per minute 0
+MAJOR duration per minute ms 0
+MAJOR duration percent per minute 0.0
+===========================minute left 2; ms 120067==================================
+Heap: Used percent: 23.3
+MINOR count per minute 2
+MINOR duration per minute ms 52
+MINOR duration percent per minute 0.0
+MAJOR count per minute 0
+MAJOR duration per minute ms 0
+MAJOR duration percent per minute 0.0
+===========================minute left 3; ms 180067==================================
+Heap: Used percent: 35.3
+MINOR count per minute 1
+MINOR duration per minute ms 33
+MINOR duration percent per minute 0.0
+MAJOR count per minute 0
+MAJOR duration per minute ms 0
+MAJOR duration percent per minute 0.0
+===========================minute left 4; ms 240066==================================
+Heap: Used percent: 43.6
+MINOR count per minute 1
+MINOR duration per minute ms 40
+MINOR duration percent per minute 0.0
+MAJOR count per minute 0
+MAJOR duration per minute ms 0
+MAJOR duration percent per minute 0.0
+===========================minute left 5; ms 300066==================================
+Heap: Used percent: 55.5
+MINOR count per minute 1
+MINOR duration per minute ms 41
+MINOR duration percent per minute 0.0
+MAJOR count per minute 0
+MAJOR duration per minute ms 0
+MAJOR duration percent per minute 0.0
+===========================minute left 6; ms 360067==================================
+Heap: Used percent: 70.3
+MINOR count per minute 0
+MINOR duration per minute ms 0
+MINOR duration percent per minute 0.0
+MAJOR count per minute 0
+MAJOR duration per minute ms 0
+MAJOR duration percent per minute 0.0
+===========================minute left 7; ms 420066==================================
+Heap: Used percent: 72.9
+MINOR count per minute 1
+MINOR duration per minute ms 54
+MINOR duration percent per minute 0.0
+MAJOR count per minute 0
+MAJOR duration per minute ms 0
+MAJOR duration percent per minute 0.0
+===========================minute left 8; ms 480068==================================
+Heap: Used percent: 80.6
+MINOR count per minute 1
+MINOR duration per minute ms 48
+MINOR duration percent per minute 0.0
+MAJOR count per minute 0
+MAJOR duration per minute ms 0
+MAJOR duration percent per minute 0.0
+===========================minute left 9; ms 540067==================================
+Heap: Used percent: 80.8
+MINOR count per minute 2
+MINOR duration per minute ms 62
+MINOR duration percent per minute 0.1
+MAJOR count per minute 0
+MAJOR duration per minute ms 0
+MAJOR duration percent per minute 0.0
+===========================minute left 10; ms 600068==================================
+Heap: Used percent: 85.5
+MINOR count per minute 6
+MINOR duration per minute ms 377
+MINOR duration percent per minute 0.6
+MAJOR count per minute 1
+MAJOR duration per minute ms 1075
+MAJOR duration percent per minute 1.7
+===========================minute left 11; ms 660068==================================
+Heap: Used percent: 94.5
+MINOR count per minute 3
+MINOR duration per minute ms 39
+MINOR duration percent per minute 0.0
+MAJOR count per minute 0
+MAJOR duration per minute ms 0
+MAJOR duration percent per minute 0.0
+===========================minute left 12; ms 720068==================================
+Heap: Used percent: 98.7
+MINOR count per minute 9
+MINOR duration per minute ms 741
+MINOR duration percent per minute 1.2
+MAJOR count per minute 3
+MAJOR duration per minute ms 3255
+MAJOR duration percent per minute 5.4
+=====================
+out of memory time sec 738

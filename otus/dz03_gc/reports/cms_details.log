@@ -1,0 +1,731 @@
+sun.management.GarbageCollectorImpl@79fc0f2f
+sun.management.GarbageCollectorImpl@5e9f23b4
+
+Young Gen GC: - 1 ParNew (from Allocation Failure) 259 milliseconds; start-end times 83035 -> 83294
+Par Survivor Space(fully expanded)used before (Kb): 0 ->after used 17024
+Code Cache(still expandable)used before (Kb): 1786 ->after used 1786
+Compressed Class Space(still expandable)used before (Kb): 705 ->after used 705
+Metaspace(still expandable)used before (Kb): 5916 ->after used 5916
+Par Eden Space(fully expanded)used before (Kb): 136576 ->after used 0
+CMS Old Gen(fully expanded)used before (Kb): 0 ->after used 57068
+
+
+Young Gen GC: - 2 ParNew (from Allocation Failure) 106 milliseconds; start-end times 169640 -> 169746
+Par Survivor Space(fully expanded)used before (Kb): 17024 ->after used 17024
+Code Cache(still expandable)used before (Kb): 1842 ->after used 1842
+Compressed Class Space(still expandable)used before (Kb): 748 ->after used 748
+Metaspace(still expandable)used before (Kb): 6337 ->after used 6337
+Par Eden Space(fully expanded)used before (Kb): 125899 ->after used 0
+CMS Old Gen(fully expanded)used before (Kb): 57068 ->after used 123816
+
+
+Young Gen GC: - 3 ParNew (from Allocation Failure) 92 milliseconds; start-end times 254476 -> 254568
+Par Survivor Space(fully expanded)used before (Kb): 17024 ->after used 17024
+Code Cache(still expandable)used before (Kb): 1864 ->after used 1864
+Compressed Class Space(still expandable)used before (Kb): 748 ->after used 748
+Metaspace(still expandable)used before (Kb): 6349 ->after used 6349
+Par Eden Space(fully expanded)used before (Kb): 126281 ->after used 0
+CMS Old Gen(fully expanded)used before (Kb): 123816 ->after used 186847
+
+
+Old Gen GC: - 1 ConcurrentMarkSweep (from No GC) 5604 milliseconds; start-end times 254578 -> 260182
+Par Survivor Space(fully expanded)used before (Kb): 17024 ->after used 17024
+Code Cache(still expandable)used before (Kb): 1875 ->after used 1875
+Compressed Class Space(still expandable)used before (Kb): 748 ->after used 748
+Metaspace(still expandable)used before (Kb): 6352 ->after used 6352
+Par Eden Space(fully expanded)used before (Kb): 27572 ->after used 32865
+CMS Old Gen(fully expanded)used before (Kb): 186847 ->after used 170530
+
+
+Young Gen GC: - 4 ParNew (from Allocation Failure) 118 milliseconds; start-end times 342619 -> 342737
+Par Survivor Space(fully expanded)used before (Kb): 17024 ->after used 17024
+Code Cache(still expandable)used before (Kb): 1906 ->after used 1906
+Compressed Class Space(still expandable)used before (Kb): 748 ->after used 748
+Metaspace(still expandable)used before (Kb): 6358 ->after used 6358
+Par Eden Space(fully expanded)used before (Kb): 136576 ->after used 0
+CMS Old Gen(fully expanded)used before (Kb): 170530 ->after used 255951
+
+
+Old Gen GC: - 2 ConcurrentMarkSweep (from No GC) 5597 milliseconds; start-end times 342737 -> 348334
+Par Survivor Space(fully expanded)used before (Kb): 17024 ->after used 17024
+Code Cache(still expandable)used before (Kb): 1906 ->after used 1920
+Compressed Class Space(still expandable)used before (Kb): 748 ->after used 748
+Metaspace(still expandable)used before (Kb): 6358 ->after used 6362
+Par Eden Space(fully expanded)used before (Kb): 3254 ->after used 9494
+CMS Old Gen(fully expanded)used before (Kb): 255951 ->after used 255832
+
+
+Old Gen GC: - 3 ConcurrentMarkSweep (from No GC) 5453 milliseconds; start-end times 350335 -> 355788
+Par Survivor Space(fully expanded)used before (Kb): 17024 ->after used 17024
+Code Cache(still expandable)used before (Kb): 1934 ->after used 1934
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6358 ->after used 6358
+Par Eden Space(fully expanded)used before (Kb): 12171 ->after used 20200
+CMS Old Gen(fully expanded)used before (Kb): 255832 ->after used 255832
+
+
+Old Gen GC: - 4 ConcurrentMarkSweep (from No GC) 5551 milliseconds; start-end times 357789 -> 363340
+Par Survivor Space(fully expanded)used before (Kb): 17024 ->after used 17024
+Code Cache(still expandable)used before (Kb): 1937 ->after used 2028
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6359 ->after used 6383
+Par Eden Space(fully expanded)used before (Kb): 22876 ->after used 28605
+CMS Old Gen(fully expanded)used before (Kb): 255832 ->after used 255812
+
+
+Old Gen GC: - 5 ConcurrentMarkSweep (from No GC) 5630 milliseconds; start-end times 365341 -> 370971
+Par Survivor Space(fully expanded)used before (Kb): 17024 ->after used 17024
+Code Cache(still expandable)used before (Kb): 2031 ->after used 2031
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6384 ->after used 6384
+Par Eden Space(fully expanded)used before (Kb): 31282 ->after used 39311
+CMS Old Gen(fully expanded)used before (Kb): 255812 ->after used 255812
+
+
+Old Gen GC: - 6 ConcurrentMarkSweep (from No GC) 5695 milliseconds; start-end times 372973 -> 378668
+Par Survivor Space(fully expanded)used before (Kb): 17024 ->after used 17024
+Code Cache(still expandable)used before (Kb): 2040 ->after used 2040
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6384 ->after used 6384
+Par Eden Space(fully expanded)used before (Kb): 41987 ->after used 47340
+CMS Old Gen(fully expanded)used before (Kb): 255812 ->after used 255812
+
+
+Old Gen GC: - 7 ConcurrentMarkSweep (from No GC) 1275 milliseconds; start-end times 380668 -> 381943
+Par Survivor Space(fully expanded)used before (Kb): 17024 ->after used 17024
+Code Cache(still expandable)used before (Kb): 2062 ->after used 2062
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6391 ->after used 6391
+Par Eden Space(fully expanded)used before (Kb): 50016 ->after used 88748
+CMS Old Gen(fully expanded)used before (Kb): 255812 ->after used 255811
+
+
+Old Gen GC: - 8 ConcurrentMarkSweep (from No GC) 493 milliseconds; start-end times 383943 -> 384436
+Par Survivor Space(fully expanded)used before (Kb): 17024 ->after used 17024
+Code Cache(still expandable)used before (Kb): 2068 ->after used 2068
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6393 ->after used 6393
+Par Eden Space(fully expanded)used before (Kb): 91424 ->after used 91424
+CMS Old Gen(fully expanded)used before (Kb): 255811 ->after used 231775
+
+
+Old Gen GC: - 9 ConcurrentMarkSweep (from No GC) 5556 milliseconds; start-end times 386436 -> 391992
+Par Survivor Space(fully expanded)used before (Kb): 17024 ->after used 17024
+Code Cache(still expandable)used before (Kb): 2075 ->after used 2075
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6395 ->after used 6395
+Par Eden Space(fully expanded)used before (Kb): 94100 ->after used 102130
+CMS Old Gen(fully expanded)used before (Kb): 231775 ->after used 231775
+
+
+Old Gen GC: - 10 ConcurrentMarkSweep (from No GC) 5710 milliseconds; start-end times 393992 -> 399702
+Par Survivor Space(fully expanded)used before (Kb): 17024 ->after used 17024
+Code Cache(still expandable)used before (Kb): 2081 ->after used 2081
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6396 ->after used 6396
+Par Eden Space(fully expanded)used before (Kb): 104806 ->after used 110159
+CMS Old Gen(fully expanded)used before (Kb): 231775 ->after used 231775
+
+
+Old Gen GC: - 11 ConcurrentMarkSweep (from No GC) 5704 milliseconds; start-end times 401703 -> 407407
+Par Survivor Space(fully expanded)used before (Kb): 17024 ->after used 17024
+Code Cache(still expandable)used before (Kb): 2088 ->after used 2088
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6398 ->after used 6398
+Par Eden Space(fully expanded)used before (Kb): 112835 ->after used 120864
+CMS Old Gen(fully expanded)used before (Kb): 231775 ->after used 231775
+
+
+Old Gen GC: - 12 ConcurrentMarkSweep (from No GC) 5694 milliseconds; start-end times 409407 -> 415101
+Par Survivor Space(fully expanded)used before (Kb): 17024 ->after used 17024
+Code Cache(still expandable)used before (Kb): 2125 ->after used 2125
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6401 ->after used 6401
+Par Eden Space(fully expanded)used before (Kb): 123541 ->after used 128893
+CMS Old Gen(fully expanded)used before (Kb): 231775 ->after used 231775
+
+
+Young Gen GC: - 5 ParNew (from Allocation Failure) 146 milliseconds; start-end times 421525 -> 421671
+Par Survivor Space(fully expanded)used before (Kb): 17024 ->after used 17024
+Code Cache(still expandable)used before (Kb): 2159 ->after used 2159
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6410 ->after used 6410
+Par Eden Space(fully expanded)used before (Kb): 136576 ->after used 0
+CMS Old Gen(fully expanded)used before (Kb): 231775 ->after used 322227
+
+
+Old Gen GC: - 13 ConcurrentMarkSweep (from No GC) 4776 milliseconds; start-end times 417102 -> 421878
+Par Survivor Space(fully expanded)used before (Kb): 17024 ->after used 17024
+Code Cache(still expandable)used before (Kb): 2138 ->after used 2159
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6403 ->after used 6410
+Par Eden Space(fully expanded)used before (Kb): 131570 ->after used 3058
+CMS Old Gen(fully expanded)used before (Kb): 231775 ->after used 322227
+
+
+Old Gen GC: - 14 ConcurrentMarkSweep (from No GC) 521 milliseconds; start-end times 423879 -> 424400
+Par Survivor Space(fully expanded)used before (Kb): 17024 ->after used 17024
+Code Cache(still expandable)used before (Kb): 2175 ->after used 2175
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6412 ->after used 6412
+Par Eden Space(fully expanded)used before (Kb): 5741 ->after used 5741
+CMS Old Gen(fully expanded)used before (Kb): 322227 ->after used 322224
+
+
+Old Gen GC: - 15 ConcurrentMarkSweep (from No GC) 515 milliseconds; start-end times 426400 -> 426915
+Par Survivor Space(fully expanded)used before (Kb): 17024 ->after used 17024
+Code Cache(still expandable)used before (Kb): 2184 ->after used 2184
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6415 ->after used 6415
+Par Eden Space(fully expanded)used before (Kb): 8424 ->after used 8424
+CMS Old Gen(fully expanded)used before (Kb): 322224 ->after used 322224
+
+
+Old Gen GC: - 16 ConcurrentMarkSweep (from No GC) 513 milliseconds; start-end times 428916 -> 429429
+Par Survivor Space(fully expanded)used before (Kb): 17024 ->after used 17024
+Code Cache(still expandable)used before (Kb): 2194 ->after used 2194
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6415 ->after used 6415
+Par Eden Space(fully expanded)used before (Kb): 11107 ->after used 11107
+CMS Old Gen(fully expanded)used before (Kb): 322224 ->after used 322224
+
+
+Old Gen GC: - 17 ConcurrentMarkSweep (from No GC) 527 milliseconds; start-end times 431429 -> 431956
+Par Survivor Space(fully expanded)used before (Kb): 17024 ->after used 17024
+Code Cache(still expandable)used before (Kb): 2211 ->after used 2211
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6417 ->after used 6417
+Par Eden Space(fully expanded)used before (Kb): 14367 ->after used 14367
+CMS Old Gen(fully expanded)used before (Kb): 322224 ->after used 322224
+
+
+Old Gen GC: - 18 ConcurrentMarkSweep (from No GC) 536 milliseconds; start-end times 433957 -> 434493
+Par Survivor Space(fully expanded)used before (Kb): 17024 ->after used 17024
+Code Cache(still expandable)used before (Kb): 2216 ->after used 2216
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6419 ->after used 6419
+Par Eden Space(fully expanded)used before (Kb): 17049 ->after used 19732
+CMS Old Gen(fully expanded)used before (Kb): 322224 ->after used 322224
+
+
+Old Gen GC: - 19 ConcurrentMarkSweep (from No GC) 500 milliseconds; start-end times 436494 -> 436994
+Par Survivor Space(fully expanded)used before (Kb): 17024 ->after used 17024
+Code Cache(still expandable)used before (Kb): 2224 ->after used 2224
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6420 ->after used 6420
+Par Eden Space(fully expanded)used before (Kb): 19732 ->after used 22415
+CMS Old Gen(fully expanded)used before (Kb): 322224 ->after used 322224
+
+
+Old Gen GC: - 20 ConcurrentMarkSweep (from No GC) 524 milliseconds; start-end times 438995 -> 439519
+Par Survivor Space(fully expanded)used before (Kb): 17024 ->after used 17024
+Code Cache(still expandable)used before (Kb): 2229 ->after used 2229
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6423 ->after used 6423
+Par Eden Space(fully expanded)used before (Kb): 25098 ->after used 25098
+CMS Old Gen(fully expanded)used before (Kb): 322224 ->after used 322224
+
+
+Old Gen GC: - 21 ConcurrentMarkSweep (from No GC) 525 milliseconds; start-end times 441519 -> 442044
+Par Survivor Space(fully expanded)used before (Kb): 17024 ->after used 17024
+Code Cache(still expandable)used before (Kb): 2229 ->after used 2229
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6423 ->after used 6423
+Par Eden Space(fully expanded)used before (Kb): 27781 ->after used 27781
+CMS Old Gen(fully expanded)used before (Kb): 322224 ->after used 322224
+
+
+Old Gen GC: - 22 ConcurrentMarkSweep (from No GC) 520 milliseconds; start-end times 444045 -> 444565
+Par Survivor Space(fully expanded)used before (Kb): 17024 ->after used 17024
+Code Cache(still expandable)used before (Kb): 2229 ->after used 2229
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6423 ->after used 6423
+Par Eden Space(fully expanded)used before (Kb): 30463 ->after used 30463
+CMS Old Gen(fully expanded)used before (Kb): 322224 ->after used 322224
+
+
+Old Gen GC: - 23 ConcurrentMarkSweep (from No GC) 535 milliseconds; start-end times 446566 -> 447101
+Par Survivor Space(fully expanded)used before (Kb): 17024 ->after used 17024
+Code Cache(still expandable)used before (Kb): 2231 ->after used 2231
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6424 ->after used 6424
+Par Eden Space(fully expanded)used before (Kb): 33146 ->after used 33146
+CMS Old Gen(fully expanded)used before (Kb): 322224 ->after used 322224
+
+
+Old Gen GC: - 24 ConcurrentMarkSweep (from No GC) 520 milliseconds; start-end times 449101 -> 449621
+Par Survivor Space(fully expanded)used before (Kb): 17024 ->after used 17024
+Code Cache(still expandable)used before (Kb): 2232 ->after used 2232
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6424 ->after used 6424
+Par Eden Space(fully expanded)used before (Kb): 35829 ->after used 38512
+CMS Old Gen(fully expanded)used before (Kb): 322224 ->after used 322224
+
+
+Old Gen GC: - 25 ConcurrentMarkSweep (from No GC) 539 milliseconds; start-end times 451622 -> 452161
+Par Survivor Space(fully expanded)used before (Kb): 17024 ->after used 17024
+Code Cache(still expandable)used before (Kb): 2241 ->after used 2241
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6425 ->after used 6425
+Par Eden Space(fully expanded)used before (Kb): 41571 ->after used 41571
+CMS Old Gen(fully expanded)used before (Kb): 322224 ->after used 322224
+
+
+Old Gen GC: - 26 ConcurrentMarkSweep (from No GC) 526 milliseconds; start-end times 454162 -> 454688
+Par Survivor Space(fully expanded)used before (Kb): 17024 ->after used 17024
+Code Cache(still expandable)used before (Kb): 2268 ->after used 2268
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6431 ->after used 6431
+Par Eden Space(fully expanded)used before (Kb): 44253 ->after used 44253
+CMS Old Gen(fully expanded)used before (Kb): 322224 ->after used 322224
+
+
+Old Gen GC: - 27 ConcurrentMarkSweep (from No GC) 542 milliseconds; start-end times 456689 -> 457231
+Par Survivor Space(fully expanded)used before (Kb): 17024 ->after used 17024
+Code Cache(still expandable)used before (Kb): 2268 ->after used 2268
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6431 ->after used 6431
+Par Eden Space(fully expanded)used before (Kb): 46936 ->after used 46936
+CMS Old Gen(fully expanded)used before (Kb): 322224 ->after used 322224
+
+
+Old Gen GC: - 28 ConcurrentMarkSweep (from No GC) 517 milliseconds; start-end times 459230 -> 459747
+Par Survivor Space(fully expanded)used before (Kb): 17024 ->after used 17024
+Code Cache(still expandable)used before (Kb): 2296 ->after used 2296
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6436 ->after used 6436
+Par Eden Space(fully expanded)used before (Kb): 49619 ->after used 49619
+CMS Old Gen(fully expanded)used before (Kb): 322224 ->after used 322224
+
+
+Old Gen GC: - 29 ConcurrentMarkSweep (from No GC) 538 milliseconds; start-end times 461748 -> 462286
+Par Survivor Space(fully expanded)used before (Kb): 17024 ->after used 17024
+Code Cache(still expandable)used before (Kb): 2296 ->after used 2296
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6436 ->after used 6436
+Par Eden Space(fully expanded)used before (Kb): 52302 ->after used 54985
+CMS Old Gen(fully expanded)used before (Kb): 322224 ->after used 322224
+
+
+Old Gen GC: - 30 ConcurrentMarkSweep (from No GC) 563 milliseconds; start-end times 464286 -> 464849
+Par Survivor Space(fully expanded)used before (Kb): 17024 ->after used 17024
+Code Cache(still expandable)used before (Kb): 2300 ->after used 2300
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6437 ->after used 6437
+Par Eden Space(fully expanded)used before (Kb): 57667 ->after used 57667
+CMS Old Gen(fully expanded)used before (Kb): 322224 ->after used 322224
+
+
+Old Gen GC: - 31 ConcurrentMarkSweep (from No GC) 541 milliseconds; start-end times 466850 -> 467391
+Par Survivor Space(fully expanded)used before (Kb): 17024 ->after used 17024
+Code Cache(still expandable)used before (Kb): 2302 ->after used 2302
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6438 ->after used 6438
+Par Eden Space(fully expanded)used before (Kb): 60350 ->after used 60350
+CMS Old Gen(fully expanded)used before (Kb): 322224 ->after used 322224
+
+
+Old Gen GC: - 32 ConcurrentMarkSweep (from No GC) 557 milliseconds; start-end times 469391 -> 469948
+Par Survivor Space(fully expanded)used before (Kb): 17024 ->after used 17024
+Code Cache(still expandable)used before (Kb): 2285 ->after used 2285
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6439 ->after used 6439
+Par Eden Space(fully expanded)used before (Kb): 63033 ->after used 63033
+CMS Old Gen(fully expanded)used before (Kb): 322224 ->after used 322224
+
+
+Old Gen GC: - 33 ConcurrentMarkSweep (from No GC) 576 milliseconds; start-end times 471949 -> 472525
+Par Survivor Space(fully expanded)used before (Kb): 17024 ->after used 17024
+Code Cache(still expandable)used before (Kb): 2287 ->after used 2287
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6443 ->after used 6443
+Par Eden Space(fully expanded)used before (Kb): 65716 ->after used 65716
+CMS Old Gen(fully expanded)used before (Kb): 322224 ->after used 322224
+
+
+Old Gen GC: - 34 ConcurrentMarkSweep (from No GC) 555 milliseconds; start-end times 474525 -> 475080
+Par Survivor Space(fully expanded)used before (Kb): 17024 ->after used 17024
+Code Cache(still expandable)used before (Kb): 2287 ->after used 2287
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6443 ->after used 6443
+Par Eden Space(fully expanded)used before (Kb): 68398 ->after used 71081
+CMS Old Gen(fully expanded)used before (Kb): 322224 ->after used 322224
+
+
+Old Gen GC: - 35 ConcurrentMarkSweep (from No GC) 565 milliseconds; start-end times 477081 -> 477646
+Par Survivor Space(fully expanded)used before (Kb): 17024 ->after used 17024
+Code Cache(still expandable)used before (Kb): 2284 ->after used 2284
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6444 ->after used 6444
+Par Eden Space(fully expanded)used before (Kb): 73764 ->after used 73764
+CMS Old Gen(fully expanded)used before (Kb): 322224 ->after used 322224
+
+
+Old Gen GC: - 36 ConcurrentMarkSweep (from No GC) 546 milliseconds; start-end times 479647 -> 480193
+Par Survivor Space(fully expanded)used before (Kb): 17024 ->after used 17024
+Code Cache(still expandable)used before (Kb): 2284 ->after used 2284
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6444 ->after used 6444
+Par Eden Space(fully expanded)used before (Kb): 76447 ->after used 76447
+CMS Old Gen(fully expanded)used before (Kb): 322224 ->after used 322224
+
+
+Old Gen GC: - 37 ConcurrentMarkSweep (from No GC) 540 milliseconds; start-end times 482194 -> 482734
+Par Survivor Space(fully expanded)used before (Kb): 17024 ->after used 17024
+Code Cache(still expandable)used before (Kb): 2287 ->after used 2287
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6445 ->after used 6445
+Par Eden Space(fully expanded)used before (Kb): 79374 ->after used 79374
+CMS Old Gen(fully expanded)used before (Kb): 322224 ->after used 322224
+
+
+Old Gen GC: - 38 ConcurrentMarkSweep (from No GC) 552 milliseconds; start-end times 484735 -> 485287
+Par Survivor Space(fully expanded)used before (Kb): 17024 ->after used 17024
+Code Cache(still expandable)used before (Kb): 2289 ->after used 2289
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6445 ->after used 6445
+Par Eden Space(fully expanded)used before (Kb): 82433 ->after used 82433
+CMS Old Gen(fully expanded)used before (Kb): 322224 ->after used 322224
+
+
+Old Gen GC: - 39 ConcurrentMarkSweep (from No GC) 583 milliseconds; start-end times 487287 -> 487870
+Par Survivor Space(fully expanded)used before (Kb): 17024 ->after used 17024
+Code Cache(still expandable)used before (Kb): 2321 ->after used 2321
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6463 ->after used 6463
+Par Eden Space(fully expanded)used before (Kb): 85116 ->after used 87799
+CMS Old Gen(fully expanded)used before (Kb): 322224 ->after used 322224
+
+
+Old Gen GC: - 40 ConcurrentMarkSweep (from No GC) 591 milliseconds; start-end times 489870 -> 490461
+Par Survivor Space(fully expanded)used before (Kb): 17024 ->after used 17024
+Code Cache(still expandable)used before (Kb): 2321 ->after used 2321
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6463 ->after used 6463
+Par Eden Space(fully expanded)used before (Kb): 90482 ->after used 90482
+CMS Old Gen(fully expanded)used before (Kb): 322224 ->after used 322224
+
+
+Old Gen GC: - 41 ConcurrentMarkSweep (from No GC) 579 milliseconds; start-end times 492461 -> 493040
+Par Survivor Space(fully expanded)used before (Kb): 17024 ->after used 17024
+Code Cache(still expandable)used before (Kb): 2330 ->after used 2330
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6463 ->after used 6463
+Par Eden Space(fully expanded)used before (Kb): 93164 ->after used 93164
+CMS Old Gen(fully expanded)used before (Kb): 322224 ->after used 322224
+
+
+Old Gen GC: - 42 ConcurrentMarkSweep (from No GC) 594 milliseconds; start-end times 495040 -> 495634
+Par Survivor Space(fully expanded)used before (Kb): 17024 ->after used 17024
+Code Cache(still expandable)used before (Kb): 2330 ->after used 2330
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6463 ->after used 6463
+Par Eden Space(fully expanded)used before (Kb): 95847 ->after used 95847
+CMS Old Gen(fully expanded)used before (Kb): 322224 ->after used 322224
+
+
+Old Gen GC: - 43 ConcurrentMarkSweep (from No GC) 588 milliseconds; start-end times 497635 -> 498223
+Par Survivor Space(fully expanded)used before (Kb): 17024 ->after used 17024
+Code Cache(still expandable)used before (Kb): 2331 ->after used 2331
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6463 ->after used 6463
+Par Eden Space(fully expanded)used before (Kb): 98530 ->after used 98530
+CMS Old Gen(fully expanded)used before (Kb): 322224 ->after used 322224
+
+
+Old Gen GC: - 44 ConcurrentMarkSweep (from No GC) 602 milliseconds; start-end times 500223 -> 500825
+Par Survivor Space(fully expanded)used before (Kb): 17024 ->after used 17024
+Code Cache(still expandable)used before (Kb): 2332 ->after used 2332
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6464 ->after used 6464
+Par Eden Space(fully expanded)used before (Kb): 101213 ->after used 103895
+CMS Old Gen(fully expanded)used before (Kb): 322224 ->after used 322224
+
+
+Old Gen GC: - 45 ConcurrentMarkSweep (from No GC) 545 milliseconds; start-end times 502826 -> 503371
+Par Survivor Space(fully expanded)used before (Kb): 17024 ->after used 17024
+Code Cache(still expandable)used before (Kb): 2332 ->after used 2332
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6464 ->after used 6464
+Par Eden Space(fully expanded)used before (Kb): 106578 ->after used 106578
+CMS Old Gen(fully expanded)used before (Kb): 322224 ->after used 322224
+
+
+Old Gen GC: - 46 ConcurrentMarkSweep (from No GC) 568 milliseconds; start-end times 505372 -> 505940
+Par Survivor Space(fully expanded)used before (Kb): 17024 ->after used 17024
+Code Cache(still expandable)used before (Kb): 2333 ->after used 2333
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6465 ->after used 6465
+Par Eden Space(fully expanded)used before (Kb): 109261 ->after used 109261
+CMS Old Gen(fully expanded)used before (Kb): 322224 ->after used 322224
+
+
+Old Gen GC: - 47 ConcurrentMarkSweep (from No GC) 574 milliseconds; start-end times 507941 -> 508515
+Par Survivor Space(fully expanded)used before (Kb): 17024 ->after used 17024
+Code Cache(still expandable)used before (Kb): 2334 ->after used 2334
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6465 ->after used 6465
+Par Eden Space(fully expanded)used before (Kb): 111944 ->after used 111944
+CMS Old Gen(fully expanded)used before (Kb): 322224 ->after used 322224
+
+
+Old Gen GC: - 48 ConcurrentMarkSweep (from No GC) 574 milliseconds; start-end times 510516 -> 511090
+Par Survivor Space(fully expanded)used before (Kb): 17024 ->after used 17024
+Code Cache(still expandable)used before (Kb): 2334 ->after used 2334
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6465 ->after used 6465
+Par Eden Space(fully expanded)used before (Kb): 114627 ->after used 114627
+CMS Old Gen(fully expanded)used before (Kb): 322224 ->after used 322224
+
+
+Old Gen GC: - 49 ConcurrentMarkSweep (from No GC) 588 milliseconds; start-end times 513090 -> 513678
+Par Survivor Space(fully expanded)used before (Kb): 17024 ->after used 17024
+Code Cache(still expandable)used before (Kb): 2335 ->after used 2335
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6465 ->after used 6465
+Par Eden Space(fully expanded)used before (Kb): 117309 ->after used 119992
+CMS Old Gen(fully expanded)used before (Kb): 322224 ->after used 322224
+
+
+Old Gen GC: - 50 ConcurrentMarkSweep (from No GC) 563 milliseconds; start-end times 515678 -> 516241
+Par Survivor Space(fully expanded)used before (Kb): 17024 ->after used 17024
+Code Cache(still expandable)used before (Kb): 2335 ->after used 2335
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6465 ->after used 6465
+Par Eden Space(fully expanded)used before (Kb): 123051 ->after used 123051
+CMS Old Gen(fully expanded)used before (Kb): 322224 ->after used 322224
+
+
+Old Gen GC: - 51 ConcurrentMarkSweep (from No GC) 563 milliseconds; start-end times 518241 -> 518804
+Par Survivor Space(fully expanded)used before (Kb): 17024 ->after used 17024
+Code Cache(still expandable)used before (Kb): 2335 ->after used 2335
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6465 ->after used 6465
+Par Eden Space(fully expanded)used before (Kb): 125734 ->after used 125734
+CMS Old Gen(fully expanded)used before (Kb): 322224 ->after used 322224
+
+
+Old Gen GC: - 52 ConcurrentMarkSweep (from No GC) 603 milliseconds; start-end times 520837 -> 521440
+Par Survivor Space(fully expanded)used before (Kb): 17024 ->after used 17024
+Code Cache(still expandable)used before (Kb): 2335 ->after used 2335
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6465 ->after used 6465
+Par Eden Space(fully expanded)used before (Kb): 128417 ->after used 128417
+CMS Old Gen(fully expanded)used before (Kb): 322224 ->after used 322224
+
+
+Old Gen GC: - 53 ConcurrentMarkSweep (from No GC) 613 milliseconds; start-end times 523441 -> 524054
+Par Survivor Space(fully expanded)used before (Kb): 17024 ->after used 17024
+Code Cache(still expandable)used before (Kb): 2356 ->after used 2356
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6475 ->after used 6475
+Par Eden Space(fully expanded)used before (Kb): 131100 ->after used 131100
+CMS Old Gen(fully expanded)used before (Kb): 322224 ->after used 322224
+
+
+Old Gen GC: - 54 ConcurrentMarkSweep (from No GC) 571 milliseconds; start-end times 526055 -> 526626
+Par Survivor Space(fully expanded)used before (Kb): 17024 ->after used 17024
+Code Cache(still expandable)used before (Kb): 2366 ->after used 2366
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6477 ->after used 6477
+Par Eden Space(fully expanded)used before (Kb): 133782 ->after used 136465
+CMS Old Gen(fully expanded)used before (Kb): 322224 ->after used 322224
+
+
+Young Gen GC: - 6 ParNew (from Allocation Failure) 0 milliseconds; start-end times 528463 -> 528463
+Par Survivor Space(fully expanded)used before (Kb): 17024 ->after used 17024
+Code Cache(still expandable)used before (Kb): 2367 ->after used 2367
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6477 ->after used 6477
+Par Eden Space(fully expanded)used before (Kb): 136576 ->after used 136576
+CMS Old Gen(fully expanded)used before (Kb): 322224 ->after used 322224
+
+
+Old Gen GC: - 55 ConcurrentMarkSweep (from Allocation Failure) 892 milliseconds; start-end times 528463 -> 529355
+Par Survivor Space(fully expanded)used before (Kb): 17024 ->after used 0
+Code Cache(still expandable)used before (Kb): 2367 ->after used 2367
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6477 ->after used 6477
+Par Eden Space(fully expanded)used before (Kb): 136576 ->after used 55623
+CMS Old Gen(fully expanded)used before (Kb): 322224 ->after used 341376
+
+
+Old Gen GC: - 56 ConcurrentMarkSweep (from No GC) 944 milliseconds; start-end times 529355 -> 530299
+Par Survivor Space(fully expanded)used before (Kb): 0 ->after used 0
+Code Cache(still expandable)used before (Kb): 2367 ->after used 2370
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6477 ->after used 6477
+Par Eden Space(fully expanded)used before (Kb): 58562 ->after used 58562
+CMS Old Gen(fully expanded)used before (Kb): 341376 ->after used 341376
+
+
+Old Gen GC: - 57 ConcurrentMarkSweep (from No GC) 700 milliseconds; start-end times 532300 -> 533000
+Par Survivor Space(fully expanded)used before (Kb): 0 ->after used 0
+Code Cache(still expandable)used before (Kb): 2370 ->after used 2370
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6477 ->after used 6477
+Par Eden Space(fully expanded)used before (Kb): 61245 ->after used 61245
+CMS Old Gen(fully expanded)used before (Kb): 341376 ->after used 341376
+
+
+Old Gen GC: - 58 ConcurrentMarkSweep (from No GC) 687 milliseconds; start-end times 535000 -> 535687
+Par Survivor Space(fully expanded)used before (Kb): 0 ->after used 0
+Code Cache(still expandable)used before (Kb): 2371 ->after used 2371
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6477 ->after used 6477
+Par Eden Space(fully expanded)used before (Kb): 63929 ->after used 63929
+CMS Old Gen(fully expanded)used before (Kb): 341376 ->after used 341376
+
+
+Old Gen GC: - 59 ConcurrentMarkSweep (from No GC) 709 milliseconds; start-end times 537689 -> 538398
+Par Survivor Space(fully expanded)used before (Kb): 0 ->after used 0
+Code Cache(still expandable)used before (Kb): 2377 ->after used 2377
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6479 ->after used 6479
+Par Eden Space(fully expanded)used before (Kb): 66612 ->after used 69296
+CMS Old Gen(fully expanded)used before (Kb): 341376 ->after used 341376
+
+
+Old Gen GC: - 60 ConcurrentMarkSweep (from No GC) 674 milliseconds; start-end times 540399 -> 541073
+Par Survivor Space(fully expanded)used before (Kb): 0 ->after used 0
+Code Cache(still expandable)used before (Kb): 2412 ->after used 2412
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6480 ->after used 6480
+Par Eden Space(fully expanded)used before (Kb): 72139 ->after used 72139
+CMS Old Gen(fully expanded)used before (Kb): 341376 ->after used 341374
+
+
+Old Gen GC: - 61 ConcurrentMarkSweep (from No GC) 690 milliseconds; start-end times 543073 -> 543763
+Par Survivor Space(fully expanded)used before (Kb): 0 ->after used 0
+Code Cache(still expandable)used before (Kb): 2412 ->after used 2412
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6480 ->after used 6480
+Par Eden Space(fully expanded)used before (Kb): 74823 ->after used 74823
+CMS Old Gen(fully expanded)used before (Kb): 341374 ->after used 341374
+
+
+Old Gen GC: - 62 ConcurrentMarkSweep (from No GC) 680 milliseconds; start-end times 545763 -> 546443
+Par Survivor Space(fully expanded)used before (Kb): 0 ->after used 0
+Code Cache(still expandable)used before (Kb): 2412 ->after used 2412
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6480 ->after used 6480
+Par Eden Space(fully expanded)used before (Kb): 77506 ->after used 77506
+CMS Old Gen(fully expanded)used before (Kb): 341374 ->after used 341374
+
+
+Old Gen GC: - 63 ConcurrentMarkSweep (from No GC) 673 milliseconds; start-end times 548444 -> 549117
+Par Survivor Space(fully expanded)used before (Kb): 0 ->after used 0
+Code Cache(still expandable)used before (Kb): 2412 ->after used 2412
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6480 ->after used 6480
+Par Eden Space(fully expanded)used before (Kb): 80445 ->after used 83128
+CMS Old Gen(fully expanded)used before (Kb): 341374 ->after used 341374
+
+
+Old Gen GC: - 64 ConcurrentMarkSweep (from No GC) 694 milliseconds; start-end times 551118 -> 551812
+Par Survivor Space(fully expanded)used before (Kb): 0 ->after used 0
+Code Cache(still expandable)used before (Kb): 2428 ->after used 2428
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6482 ->after used 6482
+Par Eden Space(fully expanded)used before (Kb): 83128 ->after used 85812
+CMS Old Gen(fully expanded)used before (Kb): 341374 ->after used 341374
+
+
+Old Gen GC: - 65 ConcurrentMarkSweep (from No GC) 651 milliseconds; start-end times 553813 -> 554464
+Par Survivor Space(fully expanded)used before (Kb): 0 ->after used 0
+Code Cache(still expandable)used before (Kb): 2432 ->after used 2432
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6484 ->after used 6484
+Par Eden Space(fully expanded)used before (Kb): 88495 ->after used 88495
+CMS Old Gen(fully expanded)used before (Kb): 341374 ->after used 341374
+
+
+Old Gen GC: - 66 ConcurrentMarkSweep (from No GC) 725 milliseconds; start-end times 556465 -> 557190
+Par Survivor Space(fully expanded)used before (Kb): 0 ->after used 0
+Code Cache(still expandable)used before (Kb): 2436 ->after used 2436
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6484 ->after used 6484
+Par Eden Space(fully expanded)used before (Kb): 91179 ->after used 91179
+CMS Old Gen(fully expanded)used before (Kb): 341374 ->after used 341374
+
+
+Old Gen GC: - 67 ConcurrentMarkSweep (from No GC) 698 milliseconds; start-end times 559190 -> 559888
+Par Survivor Space(fully expanded)used before (Kb): 0 ->after used 0
+Code Cache(still expandable)used before (Kb): 2437 ->after used 2437
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6484 ->after used 6484
+Par Eden Space(fully expanded)used before (Kb): 93862 ->after used 93862
+CMS Old Gen(fully expanded)used before (Kb): 341374 ->after used 341374
+
+
+Old Gen GC: - 68 ConcurrentMarkSweep (from No GC) 700 milliseconds; start-end times 561889 -> 562589
+Par Survivor Space(fully expanded)used before (Kb): 0 ->after used 0
+Code Cache(still expandable)used before (Kb): 2438 ->after used 2438
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6485 ->after used 6485
+Par Eden Space(fully expanded)used before (Kb): 96921 ->after used 99605
+CMS Old Gen(fully expanded)used before (Kb): 341374 ->after used 341374
+
+
+Old Gen GC: - 69 ConcurrentMarkSweep (from No GC) 680 milliseconds; start-end times 564589 -> 565269
+Par Survivor Space(fully expanded)used before (Kb): 0 ->after used 0
+Code Cache(still expandable)used before (Kb): 2438 ->after used 2438
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6485 ->after used 6485
+Par Eden Space(fully expanded)used before (Kb): 102288 ->after used 102288
+CMS Old Gen(fully expanded)used before (Kb): 341374 ->after used 341374
+
+
+Old Gen GC: - 70 ConcurrentMarkSweep (from No GC) 693 milliseconds; start-end times 567269 -> 567962
+Par Survivor Space(fully expanded)used before (Kb): 0 ->after used 0
+Code Cache(still expandable)used before (Kb): 2439 ->after used 2439
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6486 ->after used 6486
+Par Eden Space(fully expanded)used before (Kb): 104972 ->after used 104972
+CMS Old Gen(fully expanded)used before (Kb): 341374 ->after used 341374
+
+
+Old Gen GC: - 71 ConcurrentMarkSweep (from No GC) 675 milliseconds; start-end times 569962 -> 570637
+Par Survivor Space(fully expanded)used before (Kb): 0 ->after used 0
+Code Cache(still expandable)used before (Kb): 2439 ->after used 2439
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6486 ->after used 6486
+Par Eden Space(fully expanded)used before (Kb): 107655 ->after used 107655
+CMS Old Gen(fully expanded)used before (Kb): 341374 ->after used 341374
+
+
+Old Gen GC: - 72 ConcurrentMarkSweep (from No GC) 677 milliseconds; start-end times 572638 -> 573315
+Par Survivor Space(fully expanded)used before (Kb): 0 ->after used 0
+Code Cache(still expandable)used before (Kb): 2446 ->after used 2446
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6487 ->after used 6487
+Par Eden Space(fully expanded)used before (Kb): 110594 ->after used 113277
+CMS Old Gen(fully expanded)used before (Kb): 341374 ->after used 341374
+
+
+Young Gen GC: - 7 ParNew (from Allocation Failure) 0 milliseconds; start-end times 575420 -> 575420
+Par Survivor Space(fully expanded)used before (Kb): 0 ->after used 0
+Code Cache(still expandable)used before (Kb): 2446 ->after used 2446
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6487 ->after used 6487
+Par Eden Space(fully expanded)used before (Kb): 115961 ->after used 115961
+CMS Old Gen(fully expanded)used before (Kb): 341374 ->after used 341374
+
+
+Old Gen GC: - 73 ConcurrentMarkSweep (from Allocation Failure) 1325 milliseconds; start-end times 575420 -> 576745
+Par Survivor Space(fully expanded)used before (Kb): 0 ->after used 0
+Code Cache(still expandable)used before (Kb): 2446 ->after used 2446
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6487 ->after used 6487
+Par Eden Space(fully expanded)used before (Kb): 115961 ->after used 83925
+CMS Old Gen(fully expanded)used before (Kb): 341374 ->after used 341375
+
+
+Old Gen GC: - 74 ConcurrentMarkSweep (from Allocation Failure) 959 milliseconds; start-end times 576745 -> 577704
+Par Survivor Space(fully expanded)used before (Kb): 0 ->after used 0
+Code Cache(still expandable)used before (Kb): 2446 ->after used 2446
+Compressed Class Space(still expandable)used before (Kb): 745 ->after used 745
+Metaspace(still expandable)used before (Kb): 6487 ->after used 6487
+Par Eden Space(fully expanded)used before (Kb): 83925 ->after used 83913
+CMS Old Gen(fully expanded)used before (Kb): 341375 ->after used 341375
+
