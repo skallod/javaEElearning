@@ -1,14 +1,11 @@
 package ru.galuzin.payment_system.persistance.dao;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Random;
 import java.util.Set;
-import java.util.UUID;
 import java.util.concurrent.Callable;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
@@ -27,11 +24,7 @@ import org.junit.Test;
 import ru.galuzin.payment_system.common_types.Account;
 import ru.galuzin.payment_system.common_types.DictionaryData;
 import ru.galuzin.payment_system.common_types.EntityData;
-import ru.galuzin.payment_system.common_types.Operation;
-import ru.galuzin.payment_system.common_types.OperationType;
 import ru.galuzin.payment_system.common_types.Person;
-import ru.galuzin.payment_system.common_types.Terminal;
-import ru.galuzin.payment_system.common_types.VersionData;
 import ru.galuzin.payment_system.persistance.HibernateSession;
 
 /**
@@ -55,9 +48,11 @@ public class BasicDAOTest {
         BasicDAO basicDAO = new BasicDAO();
 
         Account account = new Account();
-        account.setMoney(10D);
+        account.setMoney(11D);
         Account account2 = new Account();
-        account2.setMoney(10D);
+        account2.setMoney(12D);
+        Account account3 = new Account();
+        account3.setMoney(13D);
 
         Person person = new Person();
         person.setAddress("Spb");
@@ -69,69 +64,73 @@ public class BasicDAOTest {
         person2.setName("Den");
 
         account.setPerson(person);
-        account2.setPerson(person2);
+        account2.setPerson(person);
+        account3.setPerson(person2);
 
-        Terminal terminal = new Terminal();
-        terminal.setAddress("Generala belogo 14");
-
-        //====== операция "перевод денег" ======
-        Operation operation = new Operation();
-        operation.setMoney(5D);
-        operation.setDate(new Date());
-        operation.setOperationType(OperationType.MONEY_ORDER.toString());
-//        operation.setSrcAccount(account);
-//        operation.setDestAccount(account2);
-        operation.setTerminal(terminal);
-
-        //====== операция "положить деньги на счет" ====
-        Operation operation2 = new Operation();
-        operation2.setMoney(15.5D);
-        operation2.setDate(new Date());
-        operation2.setOperationType(OperationType.PUT_MONEY.toString());
-//        operation2.setSrcAccount(null);
-//        operation2.setDestAccount(account);
-        operation2.setTerminal(terminal);
-
-        //====== операция "снять деньги со счета" ====
-        Operation operation3 = new Operation();
-        operation3.setMoney(9.99D);
-        operation3.setDate(new Date());
-        operation3.setOperationType(OperationType.GET_MONEY.toString());
-//        operation3.setSrcAccount(account);
-//        operation3.setDestAccount(null);
-        operation3.setTerminal(terminal);
+//        Terminal terminal = new Terminal();
+//        terminal.setAddress("Generala belogo 14");
+//
+//        //====== операция "перевод денег" ======
+//        Operation operation = new Operation();
+//        operation.setMoney(5D);
+//        operation.setDate(new Date());
+//        operation.setOperationType(OperationType.MONEY_ORDER.toString());
+////        operation.setSrcAccount(account);
+////        operation.setDestAccount(account2);
+//        operation.setTerminal(terminal);
+//
+//        //====== операция "положить деньги на счет" ====
+//        Operation operation2 = new Operation();
+//        operation2.setMoney(15.5D);
+//        operation2.setDate(new Date());
+//        operation2.setOperationType(OperationType.PUT_MONEY.toString());
+////        operation2.setSrcAccount(null);
+////        operation2.setDestAccount(account);
+//        operation2.setTerminal(terminal);
+//
+//        //====== операция "снять деньги со счета" ====
+//        Operation operation3 = new Operation();
+//        operation3.setMoney(9.99D);
+//        operation3.setDate(new Date());
+//        operation3.setOperationType(OperationType.GET_MONEY.toString());
+////        operation3.setSrcAccount(account);
+////        operation3.setDestAccount(null);
+//        operation3.setTerminal(terminal);
 
         basicDAO.addEntity(person);
         basicDAO.addEntity(person2);
         basicDAO.addEntity(account);
         basicDAO.addEntity(account2);
-        basicDAO.addEntity(terminal);
-        basicDAO.addEntity(operation);
-        basicDAO.addEntity(operation2);
-        basicDAO.addEntity(operation3);
+        basicDAO.addEntity(account3);
+        //basicDAO.addEntity(terminal);
+        //basicDAO.addEntity(operation);
+        //basicDAO.addEntity(operation2);
+        //basicDAO.addEntity(operation3);
 
-        System.out.println(account);
+        System.out.println("done !");
 
+        Account entity = (Account) basicDAO.getEntity(Account.class, 1L);
+        System.out.println("entity = " + entity);
 
-        EntityData ed = new EntityData();
-        ed.setUid("uid_1");
-        ed.setCreatedBy("leo");
-        ed.setEntityType("air");
-        ed.setLastVersionCreated(new Date());
-        ed.setLastVersionData("last version".getBytes());
-        ed.setLastVersionCreatedBy("vad");
-        ed.setLastVersionModified(new Date());
-        ed.setLastVersionModifiedBy("vad");
-        ed.setModifiedBy("kost");
-        ed.setVersionsCount(3);
-        ed.setLastVersionUid("last_version_uid_1");
-        VersionData versionData = new VersionData();
-        versionData.setCreated(new Date());
-        versionData.setUid(UUID.randomUUID().toString());
-        versionData.setEntityData(ed);
-        ed.setVersions(new ArrayList<>());
-        ed.getVersions().add(versionData);
-        basicDAO.addEntity(ed);
+//        EntityData ed = new EntityData();
+//        ed.setUid("uid_1");
+//        ed.setCreatedBy("leo");
+//        ed.setEntityType("air");
+//        ed.setLastVersionCreated(new Date());
+//        ed.setLastVersionData("last version".getBytes());
+//        ed.setLastVersionCreatedBy("vad");
+//        ed.setLastVersionModified(new Date());
+//        ed.setLastVersionModifiedBy("vad");
+//        ed.setModifiedBy("kost");
+//        ed.setVersionsCount(3);
+//        ed.setLastVersionUid("last_version_uid_1");
+//        VersionData versionData = new VersionData();
+//        versionData.setCreated(new Date());
+//        versionData.setUid(UUID.randomUUID().toString());
+//        versionData.setEntityData(ed);
+//        ed.setVersions(new ArrayList<>());
+//        ed.getVersions().add(versionData);
+//        basicDAO.addEntity(ed);
 //        basicDAO.addEntity(versionData);
     }
 

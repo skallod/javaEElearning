@@ -52,7 +52,7 @@ public class BasicDAO {
 //            System.out.println("acc1.person = " + acc1.person);
 //            System.out.println("acc1.getPerson() = " + acc1.getPerson());
 //            System.out.println("acc1.getPerson().getName() = " + acc1.getPerson().getName());
-            entity = sess1.merge(entity);
+            entity = sess1.merge(entity);//return entity to the transaction
 
 //            EntityData ed = (EntityData)entity;
 //            System.out.println("on update ed.getModified() = " + ed.getModified());

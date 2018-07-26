@@ -41,7 +41,7 @@ public class Person {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "person")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "person")
     public Set<Account> getAccounts() {
         return accounts;
     }

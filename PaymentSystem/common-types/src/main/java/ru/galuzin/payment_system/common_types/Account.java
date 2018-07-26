@@ -47,7 +47,7 @@ public class Account {
     }
 
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="PERSON",unique = false, nullable = false)
     public Person getPerson() {
         return person;
