@@ -1,0 +1,2 @@
+threadLocal.get() = 1
+threadLocal.get() = 2

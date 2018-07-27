@@ -43,6 +43,10 @@ public class SessionLogic {
             session.setMaxInactiveInterval(timeLive);
             out.write("<br>Set max inactive interval :"+
             timeLive+"sec");
+            out.write("<br>Remote ip : " + req.getRemoteAddr());
+            out.write("<br>Remote ip : " + req.getHeader("X-Real-IP"));
+            out.write("<br>Remote ip : " + req.getHeader("X-Forwarded-For"));
+            out.write("<br>Host : " + req.getHeader("Host"));
 
             out.write("</body></hmtl>");
         } catch (IOException e) {

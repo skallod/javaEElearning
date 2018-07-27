@@ -1,0 +1,7 @@
+function is_cached(src) {
+    var image = new Image();
+    image.src = src;
+
+    return image.complete;
+}
+is_cached('http://siteup.local/assets/images/pexels-photo-310452.jpeg')

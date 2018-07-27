@@ -23,7 +23,7 @@ task deploy {
       session(remotes.webServer) {
         //put from: 'devops/nginx.sh', into: '/tmp'
         //execute 'chmod +x /tmp/nginx.sh'
-        get from: '/etc/nginx/sites-available/html', into: 'devops/nginx'
+        get from: '/etc/nginx/nginx.conf', into: 'devops/nginx'
       }
     }
   }

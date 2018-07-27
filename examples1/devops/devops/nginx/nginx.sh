@@ -4,7 +4,9 @@ apt-get install nginx
 ##./sites_available may have simbolic link to ./sites_enabled
 ##default user www-data
 ##service nginx restart
-##service nginx reload -reload config file
+##nginx -t : check config file
+##service nginx reload : reload config file
+##ps -ef --forest | grep nginx
 cd /var/www
 sudo mkdir main
 cp /tmp/devops/nginx/main /etc/nginx/sites-available

@@ -1,0 +1,21 @@
+You have two independent projects and you need to use one of them as a dependency
+
+When both project are on the same level in a directory structure you are not doing it as gradle team wish, but it is more real world situation in my opinion :) This is because you have your library project that can be easily used in several other projects as a dependency.
+
+So you have directory structure like this:
+
+Project
+  |--build.gradle
+  |--settings.gradle
+Dependency
+  |--build.gradle
+To add Dependency to the Project, you need to include it, and show Dependency path manually. So the Project/settings.gradle content should be like this:
+
+include ':Dependency'
+project(':Dependency').projectDir = new File(settingsDir, '../Dependency')
+and in a Project/build.gradle dependencies section you need to compile the dependent project by adding:
+
+dependencies {
+   compile project(':Dependency')
+}
+Notice that tis is build.gradle is exactly the same as in previous section.

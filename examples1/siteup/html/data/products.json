@@ -1,0 +1,9 @@
+{
+  "products": [
+    {
+      "code": "HatProduct",
+      "price": 11,
+      "description": "волшебный товар"
+    }
+  ]
+}

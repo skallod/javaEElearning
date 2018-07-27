@@ -1,0 +1,1 @@
+events { worker connections } # read and configure

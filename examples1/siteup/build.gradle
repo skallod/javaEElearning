@@ -1,0 +1,52 @@
+plugins {
+    id 'war'
+    id 'org.hidetake.ssh' version '2.9.0'
+}
+group = 'ru.rearitem'
+version = '1'
+description = """ServletLogin Maven Webapp"""
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+repositories {
+    jcenter()
+}
+dependencies {
+    compile group: 'org.slf4j', name: 'slf4j-api', version:'1.7.13'
+    compile group: 'org.slf4j', name: 'slf4j-log4j12', version:'1.7.13'
+    compile group: 'org.slf4j', name: 'slf4j-simple', version:'1.7.13'
+    compile group: 'log4j', name: 'log4j', version:'1.2.17'
+    providedCompile group: 'javax.servlet', name: 'servlet-api', version:'3.0-alpha-1'
+    testCompile group: 'junit', name: 'junit', version:'3.8.1'
+}
+remotes {
+    webServer {
+        host = '192.168.165.4'
+        user = 'root'
+        identity = file('c:/Dev/Doc/SSH_keys/local_vm/1005')
+    }
+}
+task deploy {
+    doLast {
+        ssh.run {
+            session(remotes.webServer) {
+                remove '/var/www/html'
+                put from: 'html', into: '/var/www'
+                execute 'systemctl stop tomcat'
+                remove '/opt/tomcat/webapps/ROOT'
+                remove '/opt/tomcat/webapps/ROOT.war'
+                put from: 'build/libs/ROOT.war', into: '/opt/tomcat/webapps'
+                execute 'systemctl start tomcat'
+            }
+        }
+    }
+}
+task copy(type: Copy, group: "Custom", description: "Copies sources to the dest directory") {
+    from("build/libs")
+    into("build/libs")
+    include("siteup-1.war")
+    rename("siteup-1.war","ROOT.war")
+}
+
+copy.dependsOn build
+deploy.dependsOn copy
+
