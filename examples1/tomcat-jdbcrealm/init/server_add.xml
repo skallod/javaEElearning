@@ -1,0 +1,9 @@
+<!--tomcat server.xml add as Engine child-->
+<Realm className="org.apache.catalina.realm.JDBCRealm"
+       connectionURL="jdbc:postgresql://localhost:5433/dbrealm?user=postgres&amp;password=postgres"
+       driverName="org.postgresql.Driver"
+       roleNameCol="role_name"
+       userCredCol="user_pass"
+       userNameCol="user_name"
+       userRoleTable="user_roles"
+       userTable="users"/>
