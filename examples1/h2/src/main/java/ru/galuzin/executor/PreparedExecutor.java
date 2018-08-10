@@ -13,10 +13,8 @@ public class PreparedExecutor {
     }
 
     public void execUpdate(String update, ExecuteHandler prepare) {
-        try {
-            PreparedStatement stmt = getConnection().prepareStatement(update);
+        try(PreparedStatement stmt = getConnection().prepareStatement(update)) {
             prepare.accept(stmt);
-            stmt.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }

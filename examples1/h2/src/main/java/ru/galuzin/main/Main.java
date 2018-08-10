@@ -7,23 +7,12 @@ import java.util.concurrent.TimeUnit;
 
 import ru.galuzin.connection.DBServiceUpdate;
 
-/**
- * mysql> CREATE USER 'tully'@'localhost' IDENTIFIED BY 'tully';
- * mysql> GRANT ALL PRIVILEGES ON * . * TO 'tully'@'localhost';
- * mysql> select user, host from mysql.user;
- * mysql> create database db_example;
- * mysql> SET GLOBAL time_zone = '+3:00';
- */
-
 public class Main {
     public static void main(String[] args) throws Exception {
         new Main().run();
     }
 
     private void run() throws Exception {
-        //try(DBService dbService = new DBServiceConnection()) {
-        //try (DBService dbService = new DBServiceUpdate()) {
-        //try (DBService dbService = new DBServiceSimple()) {
         try (DBServiceUpdate dbService = new DBServiceUpdate()) {
             System.out.println(dbService.getMetaData());
             final String tablename = "tablename_";

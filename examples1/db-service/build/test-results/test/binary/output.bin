@@ -1,0 +1,39 @@
+L2018-08-08 18:16:55 DEBUG HikariConfig:919 - HikariPool-1 - configuration:
+T2018-08-08 18:16:55 DEBUG HikariConfig:948 - allowPoolSuspension.............false
+S2018-08-08 18:16:55 DEBUG HikariConfig:948 - autoCommit......................true
+S2018-08-08 18:16:55 DEBUG HikariConfig:948 - catalog.........................none
+S2018-08-08 18:16:55 DEBUG HikariConfig:948 - connectionInitSql...............none
+S2018-08-08 18:16:55 DEBUG HikariConfig:948 - connectionTestQuery.............none
+T2018-08-08 18:16:55 DEBUG HikariConfig:948 - connectionTimeout...............30000
+S2018-08-08 18:16:55 DEBUG HikariConfig:948 - dataSource......................none
+S2018-08-08 18:16:55 DEBUG HikariConfig:948 - dataSourceClassName.............none
+S2018-08-08 18:16:55 DEBUG HikariConfig:948 - dataSourceJNDI..................none
+³2018-08-08 18:16:55 DEBUG HikariConfig:948 - dataSourceProperties............{user=sa, password=<masked>, prepStmtCacheSqlLimit=1024, cachePrepStmts=true, prepStmtCacheSize=125}
+S2018-08-08 18:16:55 DEBUG HikariConfig:948 - driverClassName.................none
+Q2018-08-08 18:16:55 DEBUG HikariConfig:948 - healthCheckProperties...........{}
+S2018-08-08 18:16:55 DEBUG HikariConfig:948 - healthCheckRegistry.............none
+U2018-08-08 18:16:55 DEBUG HikariConfig:948 - idleTimeout.....................600000
+S2018-08-08 18:16:55 DEBUG HikariConfig:948 - initializationFailFast..........true
+P2018-08-08 18:16:55 DEBUG HikariConfig:948 - initializationFailTimeout.......1
+T2018-08-08 18:16:55 DEBUG HikariConfig:948 - isolateInternalQueries..........false
+T2018-08-08 18:16:55 DEBUG HikariConfig:948 - jdbc4ConnectionTest.............false
+«2018-08-08 18:16:55 DEBUG HikariConfig:948 - jdbcUrl........................."jdbc:h2:mem:test;MODE=PostgreSQL;DB_CLOSE_DELAY=-1;INIT=runscript from 'classpath:/db.sql'"
+P2018-08-08 18:16:55 DEBUG HikariConfig:948 - leakDetectionThreshold..........0
+V2018-08-08 18:16:55 DEBUG HikariConfig:948 - maxLifetime.....................1800000
+Q2018-08-08 18:16:55 DEBUG HikariConfig:948 - maximumPoolSize.................10
+S2018-08-08 18:16:55 DEBUG HikariConfig:948 - metricRegistry..................none
+S2018-08-08 18:16:55 DEBUG HikariConfig:948 - metricsTrackerFactory...........none
+Q2018-08-08 18:16:55 DEBUG HikariConfig:948 - minimumIdle.....................10
+W2018-08-08 18:16:55 DEBUG HikariConfig:948 - password........................<masked>
+]2018-08-08 18:16:55 DEBUG HikariConfig:948 - poolName........................"HikariPool-1"
+T2018-08-08 18:16:55 DEBUG HikariConfig:948 - readOnly........................false
+T2018-08-08 18:16:55 DEBUG HikariConfig:948 - registerMbeans..................false
+S2018-08-08 18:16:55 DEBUG HikariConfig:948 - scheduledExecutor...............none
+W2018-08-08 18:16:55 DEBUG HikariConfig:948 - scheduledExecutorService........internal
+W2018-08-08 18:16:55 DEBUG HikariConfig:948 - threadFactory...................internal
+V2018-08-08 18:16:55 DEBUG HikariConfig:948 - transactionIsolation............default
+S2018-08-08 18:16:55 DEBUG HikariConfig:948 - username........................none
+S2018-08-08 18:16:55 DEBUG HikariConfig:948 - validationTimeout...............5000
+L2018-08-08 18:16:55 INFO  HikariDataSource:71 - HikariPool-1 - Starting...
+p2018-08-08 18:16:55 DEBUG HikariPool:519 - HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:test user=SA
+Q2018-08-08 18:16:55 INFO  HikariDataSource:73 - HikariPool-1 - Start completed.

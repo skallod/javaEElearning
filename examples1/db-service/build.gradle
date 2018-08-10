@@ -6,6 +6,29 @@
  */
 apply plugin: 'java'
 
+group = 'ru.galuzin'
+version = '1'
+description = "db service"
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile group: 'com.zaxxer', name: 'HikariCP', version:'2.6.1'
+    compile project(':stp-model')
+    compile group: 'org.slf4j', name: 'slf4j-api', version:'1.7.13'
+    compile group: 'org.slf4j', name: 'slf4j-log4j12', version:'1.7.13'
+    compile group: 'log4j', name: 'log4j', version:'1.2.17'
+// https://mvnrepository.com/artifact/org.postgresql/postgresql
+    compile group: 'org.postgresql', name: 'postgresql', version: '42.2.4'
+
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    testCompile group: 'com.h2database', name: 'h2', version: '1.4.195'
+}
+
 task wrapper(type: Wrapper) {
     gradleVersion = '4.7'
 }

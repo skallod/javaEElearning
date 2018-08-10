@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="ru.galuzin.servlet_test.FirstTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2018-07-27T08:14:22" hostname="WS-GALUZIN" time="0.003">
+<testsuite name="ru.galuzin.servlet_test.FirstTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2018-08-08T15:25:30" hostname="WS-GALUZIN" time="0.003">
   <properties/>
   <testcase name="test1" classname="ru.galuzin.servlet_test.FirstTest" time="0.003"/>
   <system-out><![CDATA[threadLocal.get() = 1

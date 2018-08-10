@@ -4,13 +4,22 @@
  * This is a general purpose Gradle build.
  * Learn how to create Gradle builds at https://guides.gradle.org/creating-new-gradle-builds/
  */
-apply plugin: 'java'
+plugins {
+    id 'java'
+    id 'net.ltgt.apt' version '0.17'
+}
+
+group = 'ru.galuzin'
+version = '1'
+description = "stp model"
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+dependencies {
+    compileOnly 'org.projectlombok:lombok:1.18.0'
+    annotationProcessor "org.projectlombok:lombok:1.18.0"
+}
 
 task wrapper(type: Wrapper) {
     gradleVersion = '4.7'
-}
-
-task task1 << {
-    println("task 1 invoked")
-    println("task 1 body")
 }

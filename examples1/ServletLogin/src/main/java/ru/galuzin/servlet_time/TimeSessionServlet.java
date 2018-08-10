@@ -34,6 +34,7 @@ public class TimeSessionServlet extends HttpServlet {
         }else{
             session = req.getSession(false);
         }
+        System.out.println("session = " + session);
         TimeSession.go(req,resp,session);
     }
 }
