@@ -5,16 +5,35 @@
 		  http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
          version="2.5">
     <display-name>Web Application</display-name>
+
     <listener>
-        <listener-class>ru.rearitem.listeners.RIRequestListener</listener-class>
+        <listener-class>ru.rearitem.listeners.ServletContextListener</listener-class>
     </listener>
+
     <filter>
-        <filter-name>myfilter</filter-name>
-        <filter-class>ru.rearitem.filters.RIFilter</filter-class>
+        <filter-name>adminFilter</filter-name>
+        <filter-class>ru.rearitem.filters.AdminFilter</filter-class>
+        <init-param>
+            <param-name>role</param-name>
+            <param-value>ADMIN</param-value>
+        </init-param>
     </filter>
     <filter-mapping>
-        <filter-name>myfilter</filter-name>
-        <url-pattern>/*</url-pattern>
+        <filter-name>adminFilter</filter-name>
+        <url-pattern>/api/admin/*</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>userFilter</filter-name>
+        <filter-class>ru.rearitem.filters.AdminFilter</filter-class>
+        <init-param>
+            <param-name>role</param-name>
+            <param-value>USER</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>adminFilter</filter-name>
+        <url-pattern>/api/user/*</url-pattern>
     </filter-mapping>
 
     <servlet>
@@ -23,7 +42,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>riservlet</servlet-name>
-        <url-pattern>/info</url-pattern>
+        <url-pattern>/api/admin/info</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -32,7 +51,34 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>getproduct</servlet-name>
-        <url-pattern>/product/get</url-pattern>
+        <url-pattern>/api/product/get</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>auth</servlet-name>
+        <servlet-class>ru.rearitem.servlets.AuthServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>auth</servlet-name>
+        <url-pattern>/api/auth</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>logout</servlet-name>
+        <servlet-class>ru.rearitem.servlets.LogoutServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>logout</servlet-name>
+        <url-pattern>/api/logout</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>account</servlet-name>
+        <servlet-class>ru.rearitem.servlets.CreateAccountServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>account</servlet-name>
+        <url-pattern>/api/account</url-pattern>
     </servlet-mapping>
 
     <!--<welcome-file-list>-->

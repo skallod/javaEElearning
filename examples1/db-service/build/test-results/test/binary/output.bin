@@ -1,39 +1,211 @@
-L2018-08-08 18:16:55 DEBUG HikariConfig:919 - HikariPool-1 - configuration:
-T2018-08-08 18:16:55 DEBUG HikariConfig:948 - allowPoolSuspension.............false
-S2018-08-08 18:16:55 DEBUG HikariConfig:948 - autoCommit......................true
-S2018-08-08 18:16:55 DEBUG HikariConfig:948 - catalog.........................none
-S2018-08-08 18:16:55 DEBUG HikariConfig:948 - connectionInitSql...............none
-S2018-08-08 18:16:55 DEBUG HikariConfig:948 - connectionTestQuery.............none
-T2018-08-08 18:16:55 DEBUG HikariConfig:948 - connectionTimeout...............30000
-S2018-08-08 18:16:55 DEBUG HikariConfig:948 - dataSource......................none
-S2018-08-08 18:16:55 DEBUG HikariConfig:948 - dataSourceClassName.............none
-S2018-08-08 18:16:55 DEBUG HikariConfig:948 - dataSourceJNDI..................none
-�2018-08-08 18:16:55 DEBUG HikariConfig:948 - dataSourceProperties............{user=sa, password=<masked>, prepStmtCacheSqlLimit=1024, cachePrepStmts=true, prepStmtCacheSize=125}
-S2018-08-08 18:16:55 DEBUG HikariConfig:948 - driverClassName.................none
-Q2018-08-08 18:16:55 DEBUG HikariConfig:948 - healthCheckProperties...........{}
-S2018-08-08 18:16:55 DEBUG HikariConfig:948 - healthCheckRegistry.............none
-U2018-08-08 18:16:55 DEBUG HikariConfig:948 - idleTimeout.....................600000
-S2018-08-08 18:16:55 DEBUG HikariConfig:948 - initializationFailFast..........true
-P2018-08-08 18:16:55 DEBUG HikariConfig:948 - initializationFailTimeout.......1
-T2018-08-08 18:16:55 DEBUG HikariConfig:948 - isolateInternalQueries..........false
-T2018-08-08 18:16:55 DEBUG HikariConfig:948 - jdbc4ConnectionTest.............false
-�2018-08-08 18:16:55 DEBUG HikariConfig:948 - jdbcUrl........................."jdbc:h2:mem:test;MODE=PostgreSQL;DB_CLOSE_DELAY=-1;INIT=runscript from 'classpath:/db.sql'"
-P2018-08-08 18:16:55 DEBUG HikariConfig:948 - leakDetectionThreshold..........0
-V2018-08-08 18:16:55 DEBUG HikariConfig:948 - maxLifetime.....................1800000
-Q2018-08-08 18:16:55 DEBUG HikariConfig:948 - maximumPoolSize.................10
-S2018-08-08 18:16:55 DEBUG HikariConfig:948 - metricRegistry..................none
-S2018-08-08 18:16:55 DEBUG HikariConfig:948 - metricsTrackerFactory...........none
-Q2018-08-08 18:16:55 DEBUG HikariConfig:948 - minimumIdle.....................10
-W2018-08-08 18:16:55 DEBUG HikariConfig:948 - password........................<masked>
-]2018-08-08 18:16:55 DEBUG HikariConfig:948 - poolName........................"HikariPool-1"
-T2018-08-08 18:16:55 DEBUG HikariConfig:948 - readOnly........................false
-T2018-08-08 18:16:55 DEBUG HikariConfig:948 - registerMbeans..................false
-S2018-08-08 18:16:55 DEBUG HikariConfig:948 - scheduledExecutor...............none
-W2018-08-08 18:16:55 DEBUG HikariConfig:948 - scheduledExecutorService........internal
-W2018-08-08 18:16:55 DEBUG HikariConfig:948 - threadFactory...................internal
-V2018-08-08 18:16:55 DEBUG HikariConfig:948 - transactionIsolation............default
-S2018-08-08 18:16:55 DEBUG HikariConfig:948 - username........................none
-S2018-08-08 18:16:55 DEBUG HikariConfig:948 - validationTimeout...............5000
-L2018-08-08 18:16:55 INFO  HikariDataSource:71 - HikariPool-1 - Starting...
-p2018-08-08 18:16:55 DEBUG HikariPool:519 - HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:test user=SA
-Q2018-08-08 18:16:55 INFO  HikariDataSource:73 - HikariPool-1 - Start completed.
+�2018-08-17 18:19:10 INFO  DataSource:32 - hikari props {autoCommit=false, dataSource.cachePrepStmts=true, dataSource.password="", dataSource.prepStmtCacheSize=125, dataSource.user=sa, jdbcUrl=jdbc:h2:mem:test;MODE=PostgreSQL;DB_CLOSE_DELAY=-1;INIT=runscript from 'classpath:/db.sql', dataSource.prepStmtCacheSqlLimit=1024}
+L2018-08-17 18:19:10 DEBUG HikariConfig:919 - HikariPool-1 - configuration:
+T2018-08-17 18:19:10 DEBUG HikariConfig:948 - allowPoolSuspension.............false
+T2018-08-17 18:19:10 DEBUG HikariConfig:948 - autoCommit......................false
+S2018-08-17 18:19:10 DEBUG HikariConfig:948 - catalog.........................none
+S2018-08-17 18:19:10 DEBUG HikariConfig:948 - connectionInitSql...............none
+S2018-08-17 18:19:10 DEBUG HikariConfig:948 - connectionTestQuery.............none
+T2018-08-17 18:19:10 DEBUG HikariConfig:948 - connectionTimeout...............30000
+S2018-08-17 18:19:10 DEBUG HikariConfig:948 - dataSource......................none
+S2018-08-17 18:19:10 DEBUG HikariConfig:948 - dataSourceClassName.............none
+S2018-08-17 18:19:10 DEBUG HikariConfig:948 - dataSourceJNDI..................none
+�2018-08-17 18:19:10 DEBUG HikariConfig:948 - dataSourceProperties............{user=sa, password=<masked>, prepStmtCacheSqlLimit=1024, cachePrepStmts=true, prepStmtCacheSize=125}
+S2018-08-17 18:19:10 DEBUG HikariConfig:948 - driverClassName.................none
+Q2018-08-17 18:19:10 DEBUG HikariConfig:948 - healthCheckProperties...........{}
+S2018-08-17 18:19:10 DEBUG HikariConfig:948 - healthCheckRegistry.............none
+U2018-08-17 18:19:10 DEBUG HikariConfig:948 - idleTimeout.....................600000
+S2018-08-17 18:19:10 DEBUG HikariConfig:948 - initializationFailFast..........true
+P2018-08-17 18:19:10 DEBUG HikariConfig:948 - initializationFailTimeout.......1
+T2018-08-17 18:19:10 DEBUG HikariConfig:948 - isolateInternalQueries..........false
+T2018-08-17 18:19:10 DEBUG HikariConfig:948 - jdbc4ConnectionTest.............false
+�2018-08-17 18:19:10 DEBUG HikariConfig:948 - jdbcUrl........................."jdbc:h2:mem:test;MODE=PostgreSQL;DB_CLOSE_DELAY=-1;INIT=runscript from 'classpath:/db.sql'"
+P2018-08-17 18:19:10 DEBUG HikariConfig:948 - leakDetectionThreshold..........0
+V2018-08-17 18:19:10 DEBUG HikariConfig:948 - maxLifetime.....................1800000
+Q2018-08-17 18:19:10 DEBUG HikariConfig:948 - maximumPoolSize.................10
+S2018-08-17 18:19:10 DEBUG HikariConfig:948 - metricRegistry..................none
+S2018-08-17 18:19:10 DEBUG HikariConfig:948 - metricsTrackerFactory...........none
+Q2018-08-17 18:19:10 DEBUG HikariConfig:948 - minimumIdle.....................10
+W2018-08-17 18:19:10 DEBUG HikariConfig:948 - password........................<masked>
+]2018-08-17 18:19:10 DEBUG HikariConfig:948 - poolName........................"HikariPool-1"
+T2018-08-17 18:19:10 DEBUG HikariConfig:948 - readOnly........................false
+T2018-08-17 18:19:10 DEBUG HikariConfig:948 - registerMbeans..................false
+S2018-08-17 18:19:10 DEBUG HikariConfig:948 - scheduledExecutor...............none
+W2018-08-17 18:19:10 DEBUG HikariConfig:948 - scheduledExecutorService........internal
+W2018-08-17 18:19:10 DEBUG HikariConfig:948 - threadFactory...................internal
+V2018-08-17 18:19:10 DEBUG HikariConfig:948 - transactionIsolation............default
+S2018-08-17 18:19:10 DEBUG HikariConfig:948 - username........................none
+S2018-08-17 18:19:10 DEBUG HikariConfig:948 - validationTimeout...............5000
+L2018-08-17 18:19:10 INFO  HikariDataSource:71 - HikariPool-1 - Starting...
+�2018-08-17 18:19:10 DEBUG PoolBase:370 - HikariPool-1 - Failed to create/setup connection: Шестнадцатиричная строка содержит нешестнадцатиричные символы: "\xbf323e6dc49b2917e85077b29490a6ccb340a479e1b06c943b98e6acedb55a01"
+�Hexadecimal string contains non-hex character: "\xbf323e6dc49b2917e85077b29490a6ccb340a479e1b06c943b98e6acedb55a01"; SQL statement:
+�insert into accounts(account_uid,account_name,account_email,account_pass) values('6508d24e-e1bc-431b-b996-b12b251fe74c', 'tt','tt','\xbf323e6dc49b2917e85077b29490a6ccb340a479e1b06c943b98e6acedb55a01') -- ('6508d24e-e1bc-431b-b996-b12b251fe74c', 'tt', 'tt', '\xbf323e6dc49b2917e85077b29490a6ccb340a479e1b06c943b98e6acedb55a01') [90004-195]
+f2018-08-17 18:19:10 DEBUG HikariPool:464 - HikariPool-1 - Cannot acquire connection from data source
+�org.h2.jdbc.JdbcSQLException: Шестнадцатиричная строка содержит нешестнадцатиричные символы: "\xbf323e6dc49b2917e85077b29490a6ccb340a479e1b06c943b98e6acedb55a01"
+�Hexadecimal string contains non-hex character: "\xbf323e6dc49b2917e85077b29490a6ccb340a479e1b06c943b98e6acedb55a01"; SQL statement:
+�insert into accounts(account_uid,account_name,account_email,account_pass) values('6508d24e-e1bc-431b-b996-b12b251fe74c', 'tt','tt','\xbf323e6dc49b2917e85077b29490a6ccb340a479e1b06c943b98e6acedb55a01') -- ('6508d24e-e1bc-431b-b996-b12b251fe74c', 'tt', 'tt', '\xbf323e6dc49b2917e85077b29490a6ccb340a479e1b06c943b98e6acedb55a01') [90004-195]
+J	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+:	at org.h2.message.DbException.get(DbException.java:179)
+:	at org.h2.message.DbException.get(DbException.java:155)
+E	at org.h2.util.StringUtils.convertHexToBytes(StringUtils.java:943)
+2	at org.h2.value.Value.convertTo(Value.java:954)
+2	at org.h2.table.Column.convert(Column.java:167)
+;	at org.h2.command.dml.Insert.insertRows(Insert.java:143)
+7	at org.h2.command.dml.Insert.update(Insert.java:114)
+K	at org.h2.command.dml.RunScriptCommand.execute(RunScriptCommand.java:78)
+J	at org.h2.command.dml.RunScriptCommand.update(RunScriptCommand.java:57)
+G	at org.h2.command.CommandContainer.update(CommandContainer.java:101)
+<	at org.h2.command.Command.executeUpdate(Command.java:260)
+7	at org.h2.engine.Engine.openSession(Engine.java:224)
+D	at org.h2.engine.Engine.createSessionAndValidate(Engine.java:154)
+9	at org.h2.engine.Engine.createSession(Engine.java:137)
+8	at org.h2.engine.Engine.createSession(Engine.java:27)
+Q	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:354)
+@	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:116)
+@	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:100)
++	at org.h2.Driver.connect(Driver.java:69)
+U	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:95)
+F	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:356)
+E	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:199)
+L	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:444)
+J	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:515)
+C	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:112)
+I	at com.zaxxer.hikari.HikariDataSource.<init>(HikariDataSource.java:72)
+A	at ru.galuzin.db_service.DataSource.<init>(DataSource.java:33)
+C	at ru.galuzin.db_service.DataSource.<clinit>(DataSource.java:17)
+T	at ru.galuzin.db_service.PreparedExecutor.getConnection(PreparedExecutor.java:69)
+Q	at ru.galuzin.db_service.PreparedExecutor.execUpdate(PreparedExecutor.java:26)
+L	at ru.galuzin.db_service.DbServiceImpl.saveAccount(DbServiceImpl.java:29)
+L	at ru.galuzin.db_service.DbServiceImpl.saveAccount(DbServiceImpl.java:26)
+T	at ru.galuzin.db_service.DbServiceTest.shouldCreateAccount(DbServiceTest.java:26)
+A	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+S	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+[	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+6	at java.lang.reflect.Method.invoke(Method.java:498)
+Z	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+Y	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+X	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+W	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+C	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+W	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+W	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+A	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+E	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+G	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+E	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+F	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+?	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+v	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.runTestClass(JUnitTestClassExecutor.java:106)
+p	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.execute(JUnitTestClassExecutor.java:58)
+p	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.execute(JUnitTestClassExecutor.java:38)
+�	at org.gradle.api.internal.tasks.testing.junit.AbstractJUnitTestClassProcessor.processTestClass(AbstractJUnitTestClassProcessor.java:66)
+u	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.processTestClass(SuiteTestClassProcessor.java:51)
+A	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+S	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+[	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+6	at java.lang.reflect.Method.invoke(Method.java:498)
+Z	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:35)
+Z	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+j	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:32)
+y	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:93)
+<	at com.sun.proxy.$Proxy1.processTestClass(Unknown Source)
+c	at org.gradle.api.internal.tasks.testing.worker.TestWorker.processTestClass(TestWorker.java:109)
+A	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+S	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+[	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+6	at java.lang.reflect.Method.invoke(Method.java:498)
+Z	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:35)
+Z	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+�	at org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper.dispatch(MessageHubBackedObjectConnection.java:155)
+�	at org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper.dispatch(MessageHubBackedObjectConnection.java:137)
+Y	at org.gradle.internal.remote.internal.hub.MessageHub$Handler.run(MessageHub.java:404)
+l	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:63)
+[	at org.gradle.internal.concurrent.ManagedExecutorImpl$1.run(ManagedExecutorImpl.java:46)
+U	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+U	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+k	at org.gradle.internal.concurrent.ThreadFactoryImpl$ManagedThreadRunnable.run(ThreadFactoryImpl.java:55)
++	at java.lang.Thread.run(Thread.java:745)
+a2018-08-17 18:19:11 ERROR HikariPool:542 - HikariPool-1 - Exception during pool initialization.
+�org.h2.jdbc.JdbcSQLException: Шестнадцатиричная строка содержит нешестнадцатиричные символы: "\xbf323e6dc49b2917e85077b29490a6ccb340a479e1b06c943b98e6acedb55a01"
+�Hexadecimal string contains non-hex character: "\xbf323e6dc49b2917e85077b29490a6ccb340a479e1b06c943b98e6acedb55a01"; SQL statement:
+�insert into accounts(account_uid,account_name,account_email,account_pass) values('6508d24e-e1bc-431b-b996-b12b251fe74c', 'tt','tt','\xbf323e6dc49b2917e85077b29490a6ccb340a479e1b06c943b98e6acedb55a01') -- ('6508d24e-e1bc-431b-b996-b12b251fe74c', 'tt', 'tt', '\xbf323e6dc49b2917e85077b29490a6ccb340a479e1b06c943b98e6acedb55a01') [90004-195]
+J	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+:	at org.h2.message.DbException.get(DbException.java:179)
+:	at org.h2.message.DbException.get(DbException.java:155)
+E	at org.h2.util.StringUtils.convertHexToBytes(StringUtils.java:943)
+2	at org.h2.value.Value.convertTo(Value.java:954)
+2	at org.h2.table.Column.convert(Column.java:167)
+;	at org.h2.command.dml.Insert.insertRows(Insert.java:143)
+7	at org.h2.command.dml.Insert.update(Insert.java:114)
+K	at org.h2.command.dml.RunScriptCommand.execute(RunScriptCommand.java:78)
+J	at org.h2.command.dml.RunScriptCommand.update(RunScriptCommand.java:57)
+G	at org.h2.command.CommandContainer.update(CommandContainer.java:101)
+<	at org.h2.command.Command.executeUpdate(Command.java:260)
+7	at org.h2.engine.Engine.openSession(Engine.java:224)
+D	at org.h2.engine.Engine.createSessionAndValidate(Engine.java:154)
+9	at org.h2.engine.Engine.createSession(Engine.java:137)
+8	at org.h2.engine.Engine.createSession(Engine.java:27)
+Q	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:354)
+@	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:116)
+@	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:100)
++	at org.h2.Driver.connect(Driver.java:69)
+U	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:95)
+F	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:356)
+E	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:199)
+L	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:444)
+J	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:515)
+C	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:112)
+I	at com.zaxxer.hikari.HikariDataSource.<init>(HikariDataSource.java:72)
+A	at ru.galuzin.db_service.DataSource.<init>(DataSource.java:33)
+C	at ru.galuzin.db_service.DataSource.<clinit>(DataSource.java:17)
+T	at ru.galuzin.db_service.PreparedExecutor.getConnection(PreparedExecutor.java:69)
+Q	at ru.galuzin.db_service.PreparedExecutor.execUpdate(PreparedExecutor.java:26)
+L	at ru.galuzin.db_service.DbServiceImpl.saveAccount(DbServiceImpl.java:29)
+L	at ru.galuzin.db_service.DbServiceImpl.saveAccount(DbServiceImpl.java:26)
+T	at ru.galuzin.db_service.DbServiceTest.shouldCreateAccount(DbServiceTest.java:26)
+A	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+S	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+[	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+6	at java.lang.reflect.Method.invoke(Method.java:498)
+Z	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+Y	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+X	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+W	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+C	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+W	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+W	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+A	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+E	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+G	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+E	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+F	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+?	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+v	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.runTestClass(JUnitTestClassExecutor.java:106)
+p	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.execute(JUnitTestClassExecutor.java:58)
+p	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.execute(JUnitTestClassExecutor.java:38)
+�	at org.gradle.api.internal.tasks.testing.junit.AbstractJUnitTestClassProcessor.processTestClass(AbstractJUnitTestClassProcessor.java:66)
+u	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.processTestClass(SuiteTestClassProcessor.java:51)
+A	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+S	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+[	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+6	at java.lang.reflect.Method.invoke(Method.java:498)
+Z	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:35)
+Z	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+j	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:32)
+y	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:93)
+<	at com.sun.proxy.$Proxy1.processTestClass(Unknown Source)
+c	at org.gradle.api.internal.tasks.testing.worker.TestWorker.processTestClass(TestWorker.java:109)
+A	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+S	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+[	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+6	at java.lang.reflect.Method.invoke(Method.java:498)
+Z	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:35)
+Z	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+�	at org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper.dispatch(MessageHubBackedObjectConnection.java:155)
+�	at org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper.dispatch(MessageHubBackedObjectConnection.java:137)
+Y	at org.gradle.internal.remote.internal.hub.MessageHub$Handler.run(MessageHub.java:404)
+l	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:63)
+[	at org.gradle.internal.concurrent.ManagedExecutorImpl$1.run(ManagedExecutorImpl.java:46)
+U	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+U	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+k	at org.gradle.internal.concurrent.ThreadFactoryImpl$ManagedThreadRunnable.run(ThreadFactoryImpl.java:55)
++	at java.lang.Thread.run(Thread.java:745)

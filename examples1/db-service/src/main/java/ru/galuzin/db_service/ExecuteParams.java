@@ -4,6 +4,6 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 @FunctionalInterface
-public interface ExecuteParams {
+interface ExecuteParams {
     void accept(PreparedStatement statement) throws SQLException;
 }

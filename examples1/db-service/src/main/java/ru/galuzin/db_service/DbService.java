@@ -1,8 +1,8 @@
 package ru.galuzin.db_service;
 
 import java.sql.SQLException;
-import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 import ru.galuzin.model.Account;
 import ru.galuzin.model.Role;
@@ -25,9 +25,11 @@ public interface DbService {
      * @param accountId
      * @return
      */
-    List<Role> getRoles(String accountId) throws SQLException;
+    Set<Role> getRoles(String accountId) throws SQLException;
 
     void saveRole(String accountUid, Role role) throws SQLException;
+
+    public void saveAccountWithRole(Account account, Role role) throws SQLException;
 
     void shutdown();
 }

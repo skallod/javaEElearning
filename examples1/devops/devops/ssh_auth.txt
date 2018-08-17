@@ -1,5 +1,5 @@
 ssh-keygen -t rsa -f /c/temp/1005
-| passwd - задать пароль root
+| passwd - set password for user root
 ssh-copy-id -i /c/temp/1005.pub root@192.168.56.101
 | nano /etc/ssh/sshd_config
 |    PermitRootLogin without-password

@@ -4,6 +4,7 @@ import java.security.MessageDigest;
 import java.util.Objects;
 
 public class HashUtil {
+
     public static byte[] hash(byte[] psw) throws Exception{
         Objects.requireNonNull(psw);
         byte[] sault =

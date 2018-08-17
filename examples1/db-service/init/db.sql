@@ -1,6 +1,6 @@
 --Ref: https://tomcat.apache.org/tomcat-3.3-doc/JDBCRealm-howto.html
---CREATE DATABASE dbservice encoding 'utf8';
---\c dbservice;
+CREATE DATABASE dbservice encoding 'utf8';
+\c dbservice;
 create table accounts(
     account_uid text not null primary key,
     account_name text not null,
@@ -15,9 +15,14 @@ create table user_roles(
     account_uid text not null references accounts
     ,  role_id smallint not null references roles
     ,  primary key( account_uid, role_id ));
+create table version(
+    version_id smallint not null primary key
+    );
 
 --Populate tables with user data
 INSERT INTO roles (role_id, role_name) VALUES (1,'ADMIN');
+INSERT INTO roles (role_id, role_name) VALUES (2,'USER');
+INSERT INTO version (version_id) VALUES (1);
 --INSERT INTO accounts (
 --    account_uid,
 --    account_name,

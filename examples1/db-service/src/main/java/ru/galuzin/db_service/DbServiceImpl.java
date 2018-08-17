@@ -1,22 +1,31 @@
 package ru.galuzin.db_service;
 
+import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.Set;
 
 import ru.galuzin.model.Account;
 import ru.galuzin.model.Role;
 
 public class DbServiceImpl implements DbService{
 
-    private static final Map<Role,Integer> rolesMap = new HashMap<Role,Integer>(){{
+    private static final Map<Role,Integer> rolesMap = Collections.unmodifiableMap(new HashMap<Role,Integer>(){{
         put(Role.ADMIN,1);
-    }};
+        put(Role.USER,2);
+    }});
 
     @Override
     public void saveAccount(Account account) throws SQLException {
+
+        saveAccount(account,null);
+    }
+    private void saveAccount(Account account, Connection conn) throws SQLException {
         PreparedExecutor.execUpdate("insert into accounts" +
                 "(account_uid,account_name,account_email,account_pass)" +
                 " values(?,?,?,?);",(st)->{
@@ -24,7 +33,7 @@ public class DbServiceImpl implements DbService{
             st.setString(2,account.getName());
             st.setString(3,account.getEmail());
             st.setBytes(4,account.getPassword());
-        });
+        },conn);
     }
 
     @Override
@@ -53,21 +62,37 @@ public class DbServiceImpl implements DbService{
     }
 
     @Override
-    public List<Role> getRoles(String accountUid) throws SQLException{
+    public Set<Role> getRoles(String accountUid) throws SQLException{
         List<Role> roles = PreparedExecutor.execQuery("select role_name from user_roles ur join roles r " +
                         "on ur.role_id=r.role_id where account_uid=?;",
                 (st) -> st.setString(1, accountUid),
                 (rs) -> Role.valueOf(rs.getString("role_name")));
-        return roles;
+        return new HashSet<Role>(roles);
     }
 
-    public void saveRole(String accountUid, Role role) throws SQLException{
+    public void saveRole(String accountUid, Role role) throws SQLException {
+        saveRole(accountUid,role,null);
+    }
+
+    private void saveRole(String accountUid, Role role, Connection conn) throws SQLException{
         PreparedExecutor.execUpdate("insert into user_roles(account_uid,role_id) " +
                         "values(?,?);",
                 (st) -> {
                     st.setString(1,accountUid);
                     st.setInt(2,rolesMap.get(role));
                 });
+    }
+
+    public void saveAccountWithRole(Account account, Role role) throws SQLException{
+        try(Connection connection = getConnection()){
+            saveAccount(account,connection);
+            saveRole(account.getUid(),role,connection);
+            connection.commit();
+        }
+    }
+
+    static Connection getConnection() throws SQLException {
+        return DataSource.getInstance().getConnection();
     }
 
     @Override

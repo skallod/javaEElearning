@@ -2,8 +2,8 @@ package ru.galuzin.db_service;
 
 import java.nio.charset.StandardCharsets;
 import java.sql.SQLException;
-import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 import org.junit.Test;
 import ru.galuzin.model.Account;
@@ -44,7 +44,7 @@ public class DbServiceTest {
             e.printStackTrace();
             System.out.println("already exist");
         }
-        List<Role> roles = dbService.getRoles("cbe39ff4-7c38-4f29-bd39-75a057042234");
+        Set<Role> roles = dbService.getRoles("cbe39ff4-7c38-4f29-bd39-75a057042234");
         assertThat(roles.stream().findAny().get(),is(Role.ADMIN));
     }
 

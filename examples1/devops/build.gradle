@@ -9,7 +9,7 @@ plugins {
 //    //id 'war'
     id 'org.hidetake.ssh' version '2.9.0'
 }
-
+group = 'ru.galuzin.devops'
 remotes {
   webServer {
     host = '192.168.165.4'
@@ -21,9 +21,12 @@ task deploy {
   doLast {
     ssh.run {
       session(remotes.webServer) {
-        //put from: 'devops/nginx.sh', into: '/tmp'
-        //execute 'chmod +x /tmp/nginx.sh'
-        get from: '/etc/nginx/nginx.conf', into: 'devops/nginx'
+        //good - owner not changed
+        put from: 'devops/postgres/postgresql.conf', into: '/etc/postgresql/9.6/main'
+        execute 'service postgresql restart'
+//        execute 'chmod +x /tmp/nginx.sh'
+//        get from: '/etc/nginx/nginx.conf', into: 'devops/postgres'
+//        get from: '/etc/postgresql/9.6/main/postgresql.conf', into: 'devops/postgres'
       }
     }
   }

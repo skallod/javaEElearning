@@ -18,6 +18,8 @@ create table user_roles(
 
 --Populate tables with user data
 INSERT INTO roles (role_id, role_name) VALUES (1,'ADMIN');
+
+insert into accounts(account_uid,account_name,account_email,account_pass) values('6508d24e-e1bc-431b-b996-b12b251fe74c', 'tt','tt','\xbf323e6dc49b2917e85077b29490a6ccb340a479e1b06c943b98e6acedb55a01');
 --INSERT INTO accounts (
 --    account_uid,
 --    account_name,

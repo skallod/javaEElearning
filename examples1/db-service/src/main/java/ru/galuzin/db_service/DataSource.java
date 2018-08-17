@@ -8,20 +8,16 @@ import java.util.Properties;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 class DataSource {
+    private static final Logger log = LoggerFactory.getLogger(DataSource.class);
 
     private static final DataSource instance = new DataSource();
 
     private final HikariConfig config;
     private final HikariDataSource ds;
-
-////        config.setJdbcUrl( "jdbc:postgresql://localhost:5432/dbservice" );
-////        config.setUsername( "postgres" );
-////        config.setPassword( "12345678" );
-////        config.addDataSourceProperty( "cachePrepStmts" , "true" );
-////        config.addDataSourceProperty( "prepStmtCacheSize" , "250" );
-////        config.addDataSourceProperty( "prepStmtCacheSqlLimit" , "1024" );
 
     static DataSource getInstance(){
         return instance;
@@ -33,6 +29,7 @@ class DataSource {
             InputStream input = Thread.currentThread().getContextClassLoader().getResourceAsStream("db.properties");
             props.load(input);
             config = new HikariConfig(props);
+            log.info("hikari props "+ props);
             ds = new HikariDataSource(config);
         } catch (IOException e) {
             throw new RuntimeException(e);
