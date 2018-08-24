@@ -30,3 +30,4 @@ INSERT INTO version (version_id) VALUES (1);
 --    account_pass)
 --    VALUES ("3214ws-65756fg",'tomcat',E'\\xDEADBEEF');
 --INSERT INTO user_roles(user_name,role_name)VALUES('tomcat','admin');
+--insert into accounts(account_uid,account_name,account_email,account_pass) values('6508d24e-e1bc-431b-b996-b12b251fe74c', 'tt','tt','\xbf323e6dc49b2917e85077b29490a6ccb340a479e1b06c943b98e6acedb55a01');

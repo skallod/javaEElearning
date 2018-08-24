@@ -1,11 +1,17 @@
 package ru.galuzin.db_service;
 
 import java.nio.charset.StandardCharsets;
+import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.Optional;
 import java.util.Set;
+import java.util.UUID;
 
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import ru.galuzin.model.Account;
 import ru.galuzin.model.Role;
 
@@ -14,39 +20,78 @@ import static org.junit.Assert.assertThat;
 
 public class DbServiceTest {
 
+    private static final Logger log = LoggerFactory.getLogger(DbServiceTest.class);
+
+    static DbServiceImpl dbService;
+
+    @BeforeClass
+    public static void beforeClass(){
+        dbService = new DbServiceImpl(new DataSourceTest());
+    }
+
     @Test
     public void shouldCreateAccount() throws Exception {
-        DbService dbService = new DbServiceImpl();
+        String uuid = UUID.randomUUID().toString();
         Account account = new Account(
-                "cbe39ff4-7c38-4f29-bd39-75a057042234",
+                uuid,
                 "temp@temp.ru",
                 "temp",
                 HashUtil.hash("password".getBytes(StandardCharsets.UTF_8))
                 );
         dbService.saveAccount(account);
-        isAccountExistTest();
-        getRolesTest();
+        isAccountExistTest(uuid);
+        getRolesTest(uuid);
     }
 
-    public void isAccountExistTest() throws Exception{
-        DbService dbService = new DbServiceImpl();
+    void isAccountExistTest(String uuid) throws Exception{
         Optional<String> accountExist = dbService.isAccountExist("temp@temp.ru"
                 , HashUtil.hash("password".getBytes(StandardCharsets.UTF_8)));
         assertThat(accountExist.isPresent(),is(true));
-        assertThat(accountExist.get(),is("cbe39ff4-7c38-4f29-bd39-75a057042234"));
+        assertThat(accountExist.get(),is(uuid));
     }
 
-    public void getRolesTest() throws SQLException {
-        DbService dbService = new DbServiceImpl();
-        try {
-            dbService.saveRole("cbe39ff4-7c38-4f29-bd39-75a057042234", Role.ADMIN);
-        }catch (SQLException e){
-            e.printStackTrace();
-            System.out.println("already exist");
-        }
-        Set<Role> roles = dbService.getRoles("cbe39ff4-7c38-4f29-bd39-75a057042234");
+    void getRolesTest(String uuid) throws SQLException {
+        dbService.saveRole(uuid, Role.ADMIN);
+        Set<Role> roles = dbService.getRoles(uuid);
         assertThat(roles.stream().findAny().get(),is(Role.ADMIN));
     }
+    @Test
+    public void saveAccountWithRole() throws Exception {
+        String uuid = UUID.randomUUID().toString();
+        Account account = new Account(
+                uuid,
+                "tt@tt.ru",
+                "tt",
+                HashUtil.hash("tt".getBytes(StandardCharsets.UTF_8))
+        );
+        dbService.saveAccountWithRole(account, Role.USER);
+        Set<Role> roles = dbService.getRoles(uuid);
+        assertThat(roles.stream().findAny().get(), is(Role.USER));
+    }
+    @Test
+    public void shouldRollback() throws Exception{
+        Account account = new Account(
+                UUID.randomUUID().toString(),
+                "tt@tt.ru",
+                "tt",
+                HashUtil.hash("tt".getBytes(StandardCharsets.UTF_8))
+        );
+        try(Connection connection = dbService.getConnection()) {
+            dbService.saveAccount(account, connection);
+            //another uid
+            dbService.saveRole(UUID.randomUUID().toString()
+                    , Role.USER, connection);
+            connection.commit();
+        }catch (Exception e){
+            log.info("EXPECTED EXCEPTION "+e.getMessage());
+        }
+        boolean accountExist = dbService.isEmailExist("tt@tt.ru");
+        assertThat(accountExist, is(false));
+    }
 
+    @AfterClass
+    public static void afterClass(){
+        dbService.shutdown();
+    }
 
 }

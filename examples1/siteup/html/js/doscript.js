@@ -64,7 +64,6 @@ $(function () {
         xhr.onreadystatechange = function () {
             if (xhr.readyState == 4) {
                 if (xhr.status == 200) {
-
                     //parse jsoon data
                     var products = JSON.parse(xhr.responseText).products;
                     //var code = products[0].code;

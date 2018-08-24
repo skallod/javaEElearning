@@ -14,11 +14,17 @@ class PreparedExecutor {
 
     private static final Logger log = LoggerFactory.getLogger(PreparedExecutor.class);
 
-    static int execUpdate(String update, ExecuteParams prepare) throws SQLException {
+    private final DataSource dataSource;
+
+    public PreparedExecutor(DataSource dataSource) {
+        this.dataSource = dataSource;
+    }
+
+    int execUpdate(String update, ExecuteParams prepare) throws SQLException {
         return execUpdate(update, prepare, null);
     }
 
-    static int execUpdate(String update, ExecuteParams prepare, Connection masterConn) throws SQLException {
+    int execUpdate(String update, ExecuteParams prepare, Connection masterConn) throws SQLException {
         Connection connection = null;
         PreparedStatement stmt = null;
         try {
@@ -48,7 +54,7 @@ class PreparedExecutor {
         }
     }
 
-    static <T> List<T> execQuery(String update, ExecuteParams prepare, TResultHandler<T> resultHandler) throws SQLException {
+    <T> List<T> execQuery(String update, ExecuteParams prepare, TResultHandler<T> resultHandler) throws SQLException {
         try (Connection connection = getConnection();
              PreparedStatement stmt = connection.prepareStatement(update);
         ) {
@@ -65,7 +71,7 @@ class PreparedExecutor {
         }
     }
 
-    static Connection getConnection() throws SQLException {
-        return DataSource.getInstance().getConnection();
+    private Connection getConnection() throws SQLException {
+        return dataSource.getConnection();
     }
 }

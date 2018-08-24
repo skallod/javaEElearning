@@ -19,7 +19,7 @@ repositories {
 }
 
 dependencies {
-    compile group: 'com.zaxxer', name: 'HikariCP', version:'2.6.1'
+    compile group: 'com.zaxxer', name: 'HikariCP', version:'3.1.0'
     compile project(':stp-model')
     compile group: 'org.slf4j', name: 'slf4j-api', version:'1.7.13'
     compile group: 'org.slf4j', name: 'slf4j-log4j12', version:'1.7.13'
@@ -29,6 +29,17 @@ dependencies {
 
     testCompile group: 'junit', name: 'junit', version: '4.12'
     testCompile group: 'com.h2database', name: 'h2', version: '1.4.195'
+}
+
+configurations {
+    testArtifacts
+}
+task testJar (type: Jar) {
+    baseName = "${project.name}-test"
+    from sourceSets.test.output
+}
+artifacts {
+    testArtifacts testJar
 }
 
 task wrapper(type: Wrapper) {

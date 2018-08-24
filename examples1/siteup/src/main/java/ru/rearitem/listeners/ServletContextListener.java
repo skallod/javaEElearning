@@ -4,6 +4,7 @@ import javax.servlet.ServletContextEvent;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import ru.galuzin.db_service.DataSourceImpl;
 import ru.galuzin.db_service.DbService;
 import ru.galuzin.db_service.DbServiceImpl;
 
@@ -13,7 +14,7 @@ public class ServletContextListener implements javax.servlet.ServletContextListe
     @Override
     public void contextInitialized(ServletContextEvent sce) {
         log.info("context initializing");
-        sce.getServletContext().setAttribute("dbservice", new DbServiceImpl());
+        sce.getServletContext().setAttribute("dbservice", new DbServiceImpl(new DataSourceImpl()));
     }
 
     @Override
@@ -23,7 +24,4 @@ public class ServletContextListener implements javax.servlet.ServletContextListe
         dbService.shutdown();
     }
 
-    void createAdmin(){
-
-    }
 }

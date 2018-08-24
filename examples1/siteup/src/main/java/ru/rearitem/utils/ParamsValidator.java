@@ -39,16 +39,18 @@ public class ParamsValidator {
                 errors.add(new Error("error req param "+param));
             }
         }
-        String s = EMPTY_STRING;
-        try {
-            s = JsonConverter.toJson(errors);
-        } catch (Exception e) {
-            log.error("convert fail",e);
-        }
-        try(PrintWriter writer = resp.getWriter();){
-            resp.setStatus(400);
-            resp.setContentType("application/json");
-            writer.write(s);
+        if(!errors.isEmpty()) {
+            String s = EMPTY_STRING;
+            try {
+                s = JsonConverter.toJson(errors);
+            } catch (Exception e) {
+                log.error("convert fail", e);
+            }
+            try (PrintWriter writer = resp.getWriter();) {
+                resp.setStatus(400);
+                resp.setContentType("application/json");
+                writer.write(s);
+            }
         }
         return errors;
     }
