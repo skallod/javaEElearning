@@ -13,11 +13,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ru.galuzin.model.Error;
 
-public class ParamsValidator {
+public class ParamsValidator implements Constants{
 
     private static final Logger log = LoggerFactory.getLogger(ParamsValidator.class);
-
-    private static final String EMPTY_STRING = "";
 
     /**
      *
@@ -40,16 +38,15 @@ public class ParamsValidator {
             }
         }
         if(!errors.isEmpty()) {
-            String s = EMPTY_STRING;
             try {
-                s = JsonConverter.toJson(errors);
+                String s = JsonConverter.toJson(errors);
+                try (PrintWriter writer = resp.getWriter();) {
+                    resp.setStatus(400);
+                    resp.setContentType(APPLICATION_JSON);
+                    writer.write(s);
+                }
             } catch (Exception e) {
                 log.error("convert fail", e);
-            }
-            try (PrintWriter writer = resp.getWriter();) {
-                resp.setStatus(400);
-                resp.setContentType("application/json");
-                writer.write(s);
             }
         }
         return errors;

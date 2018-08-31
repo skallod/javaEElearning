@@ -4,7 +4,7 @@ plugins {
 }
 group = 'ru.rearitem'
 version = '1'
-description = """ServletLogin Maven Webapp"""
+description = "siteup"
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 repositories {
@@ -16,12 +16,11 @@ dependencies {
     compile group: 'org.slf4j', name: 'slf4j-api', version:'1.7.13'
     compile group: 'org.slf4j', name: 'slf4j-log4j12', version:'1.7.13'
     compile group: 'log4j', name: 'log4j', version:'1.2.17'
-    // https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind
     compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.9.6'
     compileOnly group: 'javax.servlet', name: 'javax.servlet-api', version: '3.0.1'
     testCompile group: 'junit', name: 'junit', version:'4.12'
-    testCompile group: 'io.undertow', name: 'undertow-core', version: '1.4.16.Final'
-    testCompile group: 'io.undertow', name: 'undertow-servlet', version: '1.4.16.Final'
+    testCompile group: 'io.undertow', name: 'undertow-core', version: '2.0.13.Final'
+    testCompile group: 'io.undertow', name: 'undertow-servlet', version: '2.0.13.Final'
     testCompile project (path: ":db-service", configuration: 'testArtifacts')
     testCompile group: 'com.h2database', name: 'h2', version: '1.4.195'
 }
@@ -36,8 +35,8 @@ task deploy {
     doLast {
         ssh.run {
             session(remotes.webServer) {
-                remove '/var/www/html'
-                put from: 'html', into: '/var/www'
+//                remove '/var/www/html'
+//                put from: 'html', into: '/var/www'
 //                execute 'systemctl stop tomcat'
 //                remove '/opt/tomcat/webapps/ROOT'
 //                remove '/opt/tomcat/webapps/ROOT.war'

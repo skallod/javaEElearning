@@ -5,13 +5,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import java.io.IOException;
 
-import ru.rearitem.utils.Constants;
-
-@WebServlet(name = "userLK", urlPatterns = "/api/user/lk")
-public class UserLkServlet  extends HttpServlet implements Constants {
+@WebServlet(name = "adminLK", urlPatterns = "/api/admin/lk")
+public class AdminLkServlet extends HttpServlet{
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setStatus(200);

@@ -1,55 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="ru.galuzin.db_service.DbServiceTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2018-08-24T10:01:27" hostname="WS-GALUZIN" time="0.077">
+<testsuite name="ru.galuzin.db_service.DbServiceTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2018-08-28T10:02:18" hostname="WS-GALUZIN" time="0.072">
   <properties/>
-  <testcase name="shouldRollback" classname="ru.galuzin.db_service.DbServiceTest" time="0.062"/>
+  <testcase name="shouldRollback" classname="ru.galuzin.db_service.DbServiceTest" time="0.056"/>
   <testcase name="saveAccountWithRole" classname="ru.galuzin.db_service.DbServiceTest" time="0.012"/>
   <testcase name="shouldCreateAccount" classname="ru.galuzin.db_service.DbServiceTest" time="0.003"/>
-  <system-out><![CDATA[2018-08-24 13:01:27 DEBUG HikariConfig:1035 - HikariPool-1 - configuration:
-2018-08-24 13:01:27 DEBUG HikariConfig:1067 - allowPoolSuspension.............false
-2018-08-24 13:01:27 DEBUG HikariConfig:1067 - autoCommit......................false
-2018-08-24 13:01:27 DEBUG HikariConfig:1067 - catalog.........................none
-2018-08-24 13:01:27 DEBUG HikariConfig:1067 - connectionInitSql...............none
-2018-08-24 13:01:27 DEBUG HikariConfig:1067 - connectionTestQuery.............none
-2018-08-24 13:01:27 DEBUG HikariConfig:1067 - connectionTimeout...............30000
-2018-08-24 13:01:27 DEBUG HikariConfig:1067 - dataSource......................none
-2018-08-24 13:01:27 DEBUG HikariConfig:1067 - dataSourceClassName.............none
-2018-08-24 13:01:27 DEBUG HikariConfig:1067 - dataSourceJNDI..................none
-2018-08-24 13:01:27 DEBUG HikariConfig:1067 - dataSourceProperties............{password=<masked>, prepStmtCacheSqlLimit=2048, cachePrepStmts=true, prepStmtCacheSize=250}
-2018-08-24 13:01:27 DEBUG HikariConfig:1067 - driverClassName.................none
-2018-08-24 13:01:27 DEBUG HikariConfig:1067 - healthCheckProperties...........{}
-2018-08-24 13:01:27 DEBUG HikariConfig:1067 - healthCheckRegistry.............none
-2018-08-24 13:01:27 DEBUG HikariConfig:1067 - idleTimeout.....................600000
-2018-08-24 13:01:27 DEBUG HikariConfig:1067 - initializationFailTimeout.......1
-2018-08-24 13:01:27 DEBUG HikariConfig:1067 - isolateInternalQueries..........false
-2018-08-24 13:01:27 DEBUG HikariConfig:1067 - jdbcUrl.........................jdbc:h2:mem:test;MODE=PostgreSQL;DB_CLOSE_DELAY=-1;INIT=runscript from 'classpath:/db.sql'
-2018-08-24 13:01:27 DEBUG HikariConfig:1067 - leakDetectionThreshold..........0
-2018-08-24 13:01:27 DEBUG HikariConfig:1067 - maxLifetime.....................1800000
-2018-08-24 13:01:27 DEBUG HikariConfig:1067 - maximumPoolSize.................10
-2018-08-24 13:01:27 DEBUG HikariConfig:1067 - metricRegistry..................none
-2018-08-24 13:01:27 DEBUG HikariConfig:1067 - metricsTrackerFactory...........none
-2018-08-24 13:01:27 DEBUG HikariConfig:1067 - minimumIdle.....................10
-2018-08-24 13:01:27 DEBUG HikariConfig:1067 - password........................<masked>
-2018-08-24 13:01:27 DEBUG HikariConfig:1067 - poolName........................"HikariPool-1"
-2018-08-24 13:01:27 DEBUG HikariConfig:1067 - readOnly........................false
-2018-08-24 13:01:27 DEBUG HikariConfig:1067 - registerMbeans..................false
-2018-08-24 13:01:27 DEBUG HikariConfig:1067 - scheduledExecutor...............none
-2018-08-24 13:01:27 DEBUG HikariConfig:1067 - schema..........................none
-2018-08-24 13:01:27 DEBUG HikariConfig:1067 - threadFactory...................internal
-2018-08-24 13:01:27 DEBUG HikariConfig:1067 - transactionIsolation............default
-2018-08-24 13:01:27 DEBUG HikariConfig:1067 - username........................"sa"
-2018-08-24 13:01:27 DEBUG HikariConfig:1067 - validationTimeout...............5000
-2018-08-24 13:01:27 INFO  HikariDataSource:80 - HikariPool-1 - Starting...
-2018-08-24 13:01:27 DEBUG HikariPool:545 - HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:test user=SA
-2018-08-24 13:01:27 INFO  HikariDataSource:82 - HikariPool-1 - Start completed.
-2018-08-24 13:01:27 DEBUG ProxyConnection:242 - HikariPool-1 - Executed rollback on connection conn0: url=jdbc:h2:mem:test user=SA due to dirty commit state on close().
-2018-08-24 13:01:27 INFO  DbServiceTest:86 - EXPECTED EXCEPTION Нарушение ссылочной целостности: "CONSTRAINT_C: PUBLIC.USER_ROLES FOREIGN KEY(ACCOUNT_UID) REFERENCES PUBLIC.ACCOUNTS(ACCOUNT_UID) ('1708e4df-5013-407f-8637-5e26e1f964e4')"
-Referential integrity constraint violation: "CONSTRAINT_C: PUBLIC.USER_ROLES FOREIGN KEY(ACCOUNT_UID) REFERENCES PUBLIC.ACCOUNTS(ACCOUNT_UID) ('1708e4df-5013-407f-8637-5e26e1f964e4')"; SQL statement:
+  <system-out><![CDATA[2018-08-28 13:02:18 DEBUG HikariConfig:1035 - HikariPool-1 - configuration:
+2018-08-28 13:02:18 DEBUG HikariConfig:1067 - allowPoolSuspension.............false
+2018-08-28 13:02:18 DEBUG HikariConfig:1067 - autoCommit......................false
+2018-08-28 13:02:18 DEBUG HikariConfig:1067 - catalog.........................none
+2018-08-28 13:02:18 DEBUG HikariConfig:1067 - connectionInitSql...............none
+2018-08-28 13:02:18 DEBUG HikariConfig:1067 - connectionTestQuery.............none
+2018-08-28 13:02:18 DEBUG HikariConfig:1067 - connectionTimeout...............30000
+2018-08-28 13:02:18 DEBUG HikariConfig:1067 - dataSource......................none
+2018-08-28 13:02:18 DEBUG HikariConfig:1067 - dataSourceClassName.............none
+2018-08-28 13:02:18 DEBUG HikariConfig:1067 - dataSourceJNDI..................none
+2018-08-28 13:02:18 DEBUG HikariConfig:1067 - dataSourceProperties............{password=<masked>, prepStmtCacheSqlLimit=2048, cachePrepStmts=true, prepStmtCacheSize=250}
+2018-08-28 13:02:18 DEBUG HikariConfig:1067 - driverClassName.................none
+2018-08-28 13:02:18 DEBUG HikariConfig:1067 - healthCheckProperties...........{}
+2018-08-28 13:02:18 DEBUG HikariConfig:1067 - healthCheckRegistry.............none
+2018-08-28 13:02:18 DEBUG HikariConfig:1067 - idleTimeout.....................600000
+2018-08-28 13:02:18 DEBUG HikariConfig:1067 - initializationFailTimeout.......1
+2018-08-28 13:02:18 DEBUG HikariConfig:1067 - isolateInternalQueries..........false
+2018-08-28 13:02:18 DEBUG HikariConfig:1067 - jdbcUrl.........................jdbc:h2:mem:test;MODE=PostgreSQL;DB_CLOSE_DELAY=-1;INIT=runscript from 'classpath:/db.sql'
+2018-08-28 13:02:18 DEBUG HikariConfig:1067 - leakDetectionThreshold..........0
+2018-08-28 13:02:18 DEBUG HikariConfig:1067 - maxLifetime.....................1800000
+2018-08-28 13:02:18 DEBUG HikariConfig:1067 - maximumPoolSize.................1
+2018-08-28 13:02:18 DEBUG HikariConfig:1067 - metricRegistry..................none
+2018-08-28 13:02:18 DEBUG HikariConfig:1067 - metricsTrackerFactory...........none
+2018-08-28 13:02:18 DEBUG HikariConfig:1067 - minimumIdle.....................1
+2018-08-28 13:02:18 DEBUG HikariConfig:1067 - password........................<masked>
+2018-08-28 13:02:18 DEBUG HikariConfig:1067 - poolName........................"HikariPool-1"
+2018-08-28 13:02:18 DEBUG HikariConfig:1067 - readOnly........................false
+2018-08-28 13:02:18 DEBUG HikariConfig:1067 - registerMbeans..................false
+2018-08-28 13:02:18 DEBUG HikariConfig:1067 - scheduledExecutor...............none
+2018-08-28 13:02:18 DEBUG HikariConfig:1067 - schema..........................none
+2018-08-28 13:02:18 DEBUG HikariConfig:1067 - threadFactory...................internal
+2018-08-28 13:02:18 DEBUG HikariConfig:1067 - transactionIsolation............default
+2018-08-28 13:02:18 DEBUG HikariConfig:1067 - username........................"sa"
+2018-08-28 13:02:18 DEBUG HikariConfig:1067 - validationTimeout...............5000
+2018-08-28 13:02:18 INFO  HikariDataSource:80 - HikariPool-1 - Starting...
+2018-08-28 13:02:18 DEBUG HikariPool:545 - HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:test user=SA
+2018-08-28 13:02:18 INFO  HikariDataSource:82 - HikariPool-1 - Start completed.
+2018-08-28 13:02:18 DEBUG ProxyConnection:242 - HikariPool-1 - Executed rollback on connection conn0: url=jdbc:h2:mem:test user=SA due to dirty commit state on close().
+2018-08-28 13:02:18 INFO  DbServiceTest:86 - EXPECTED EXCEPTION Нарушение ссылочной целостности: "CONSTRAINT_C: PUBLIC.USER_ROLES FOREIGN KEY(ACCOUNT_UID) REFERENCES PUBLIC.ACCOUNTS(ACCOUNT_UID) ('9ab074d9-91c9-4df4-b060-f41457880dde')"
+Referential integrity constraint violation: "CONSTRAINT_C: PUBLIC.USER_ROLES FOREIGN KEY(ACCOUNT_UID) REFERENCES PUBLIC.ACCOUNTS(ACCOUNT_UID) ('9ab074d9-91c9-4df4-b060-f41457880dde')"; SQL statement:
 insert into user_roles(account_uid,role_id) values(?,?); [23506-195]
-2018-08-24 13:01:28 INFO  HikariDataSource:350 - HikariPool-1 - Shutdown initiated...
-2018-08-24 13:01:28 DEBUG HikariPool:411 - HikariPool-1 - Before shutdown stats (total=1, active=0, idle=1, waiting=0)
-2018-08-24 13:01:28 DEBUG PoolBase:129 - HikariPool-1 - Closing connection conn0: url=jdbc:h2:mem:test user=SA: (connection evicted)
-2018-08-24 13:01:28 DEBUG HikariPool:411 - HikariPool-1 - After shutdown stats (total=0, active=0, idle=0, waiting=0)
-2018-08-24 13:01:28 INFO  HikariDataSource:352 - HikariPool-1 - Shutdown completed.
+2018-08-28 13:02:18 INFO  HikariDataSource:350 - HikariPool-1 - Shutdown initiated...
+2018-08-28 13:02:18 DEBUG HikariPool:411 - HikariPool-1 - Before shutdown stats (total=1, active=0, idle=1, waiting=0)
+2018-08-28 13:02:18 DEBUG PoolBase:129 - HikariPool-1 - Closing connection conn0: url=jdbc:h2:mem:test user=SA: (connection evicted)
+2018-08-28 13:02:18 DEBUG HikariPool:411 - HikariPool-1 - After shutdown stats (total=0, active=0, idle=0, waiting=0)
+2018-08-28 13:02:18 INFO  HikariDataSource:352 - HikariPool-1 - Shutdown completed.
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

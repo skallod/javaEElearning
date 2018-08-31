@@ -1,14 +1,13 @@
 package ru.rearitem.servlets;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
-import java.sql.SQLException;
-import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
 
@@ -16,30 +15,26 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ru.galuzin.db_service.DbService;
 import ru.galuzin.model.Role;
-import ru.rearitem.utils.TextUtil;
+import ru.rearitem.utils.Constants;
+import ru.rearitem.utils.HashUtil;
+import ru.rearitem.utils.ParamsValidator;
 
-public class AuthServlet extends HttpServlet {
-    private static final Logger log = LoggerFactory.getLogger(AuthServlet.class);
+@WebServlet(name="login", urlPatterns = "/api/login")
+public class LoginServlet extends HttpServlet implements Constants{
+    private static final Logger log = LoggerFactory.getLogger(LoginServlet.class);
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Optional.ofNullable(req.getSession(false)).ifPresent(HttpSession::invalidate);
-        Map<String, String[]> parameterMap = req.getParameterMap();
-        Optional<String> user = Optional.ofNullable(parameterMap.get("email")).map(strings -> strings[0]);
-        if (!user.isPresent() || TextUtil.isEmpty(user.get())) {
-            resp.sendError(HttpServletResponse.SC_BAD_REQUEST);
+        if(!ParamsValidator.validate(req, resp, "email", "password").isEmpty()){
             return;
         }
-        Optional<String> password = Optional.ofNullable(parameterMap.get("password")).map(strings
-                -> strings[0]);
-        if (!password.isPresent() || TextUtil.isEmpty(password.get())) {
-            resp.sendError(HttpServletResponse.SC_BAD_REQUEST);
-            return;
-        }
+        String email = req.getParameter("email");
+        String password = req.getParameter("password");
         DbService dbservice = (DbService) req.getServletContext().getAttribute("dbservice");
         try {
-            Optional<String> accountUid = dbservice.isAccountExist(user.get(), password.get()
-                    .getBytes(StandardCharsets.UTF_8));
+            Optional<String> accountUid = dbservice.isAccountExist(email
+                    , HashUtil.hash(password.getBytes(StandardCharsets.UTF_8)));
             if (accountUid.isPresent()) {
                 Set<Role> roles = dbservice.getRoles(accountUid.get());
                 log.info("roles " + roles);
@@ -50,9 +45,10 @@ public class AuthServlet extends HttpServlet {
                     return;
                 }
             }
-        } catch (SQLException e) {
+        } catch (Exception e) {
             log.error("account check", e);
         }
+        resp.setContentType(APPLICATION_JSON);
         resp.sendError(HttpServletResponse.SC_UNAUTHORIZED);
     }
 

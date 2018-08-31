@@ -1,21 +1,19 @@
 package ru.rearitem.utils;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class JsonConverter {
-    static final ThreadLocal<DateFormat> DATE_FORMAT =
-            new ThreadLocal<DateFormat>() {
-                @Override
-                protected DateFormat initialValue() {
-                    return new SimpleDateFormat("yyyy-MM-dd");
-                }
-            };
+//    static final ThreadLocal<DateFormat> DATE_FORMAT =
+//            new ThreadLocal<DateFormat>() {
+//                @Override
+//                protected DateFormat initialValue() {
+//                    return new SimpleDateFormat("yyyy-MM-dd");
+//                }
+//            };
+    private static ObjectMapper mapper = new ObjectMapper();
 
     public static <T> String toJson(T sdi) throws Exception {
-        ObjectMapper mapper = new ObjectMapper();
+
 //        mapper.setDateFormat(DATE_FORMAT.get());
         return mapper.writeValueAsString(sdi);
     }
@@ -24,7 +22,7 @@ public class JsonConverter {
         if (json == null) {
             return null;
         }
-        ObjectMapper mapper = new ObjectMapper();
+//        ObjectMapper mapper = new ObjectMapper();
 //        mapper.setDateFormat(DATE_FORMAT.get());
         return mapper.readValue(json, cls);
     }
