@@ -37,9 +37,9 @@ public class LoginServlet extends HttpServlet implements Constants{
                     , HashUtil.hash(password.getBytes(StandardCharsets.UTF_8)));
             if (accountUid.isPresent()) {
                 Set<Role> roles = dbservice.getRoles(accountUid.get());
-                log.info("roles " + roles);
                 if (!roles.isEmpty()) {
                     HttpSession session = req.getSession(true);
+                    log.info("session id "+session.getId());
                     session.setAttribute("roles", roles);
                     resp.setStatus(200);
                     return;

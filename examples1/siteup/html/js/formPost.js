@@ -1,6 +1,6 @@
 $(function () {
     console.log("ready");
-    $("#createaccount").submit(function (e) {
+    $("#form").submit(function (e) {
         console.log("submit");
         var postData = $(this).serializeArray();
         var formURL = $(this).attr("action");

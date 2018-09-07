@@ -64,6 +64,7 @@ public class CreateAccountServlet extends HttpServlet implements Constants{
                         HashUtil.hash(password.getBytes(StandardCharsets.UTF_8))
                 );
                 dbservice.saveAccountWithRole(account, Role.USER);
+                //resp.addCookie(new Cookie("test","test"));
                 resp.setStatus(SC_OK);
                 return;
             }

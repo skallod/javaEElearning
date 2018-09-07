@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.Collections;
 import java.util.Optional;
 import java.util.Set;
 
@@ -18,7 +19,7 @@ import org.slf4j.LoggerFactory;
 import ru.galuzin.model.Role;
 import ru.rearitem.servlets.CreateAccountServlet;
 
-public class AdminFilter implements Filter {
+public class AdminFilter implements Filter {//todo rename AuthFilter
 
     private static final Logger log = LoggerFactory.getLogger(CreateAccountServlet.class);
 
@@ -33,13 +34,11 @@ public class AdminFilter implements Filter {
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-        log.info("filter auth "+role.name());
-        HttpSession session = ((HttpServletRequest)request).getSession();
-        HttpServletResponse httpresponse = (HttpServletResponse)response;
-        Optional<Set<Role>> roleSetOpt = Optional
-                .ofNullable((Set<Role>)session.getAttribute("roles"));
-        if(!roleSetOpt.isPresent() || !roleSetOpt.get().contains(role/*Role.ADMIN*/)){
-            httpresponse.sendError(HttpServletResponse.SC_FORBIDDEN);
+        log.debug("filter auth "+role.name());
+        Optional<HttpSession> session = Optional.ofNullable(((HttpServletRequest)request).getSession(false));
+        Set<Role> roleSet = session.map(s -> (Set<Role>)s.getAttribute("roles")).orElse(Collections.emptySet());
+        if(!roleSet.contains(role)){
+            ((HttpServletResponse) response).sendError(HttpServletResponse.SC_FORBIDDEN);
         }else{
             chain.doFilter(request,response);
         }

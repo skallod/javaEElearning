@@ -23,6 +23,8 @@ dependencies {
     testCompile group: 'io.undertow', name: 'undertow-servlet', version: '2.0.13.Final'
     testCompile project (path: ":db-service", configuration: 'testArtifacts')
     testCompile group: 'com.h2database', name: 'h2', version: '1.4.195'
+    testCompile group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.5.5'
+
 }
 remotes {
     webServer {
@@ -35,8 +37,8 @@ task deploy {
     doLast {
         ssh.run {
             session(remotes.webServer) {
-//                remove '/var/www/html'
-//                put from: 'html', into: '/var/www'
+                remove '/var/www/html'
+                put from: 'html', into: '/var/www'
 //                execute 'systemctl stop tomcat'
 //                remove '/opt/tomcat/webapps/ROOT'
 //                remove '/opt/tomcat/webapps/ROOT.war'

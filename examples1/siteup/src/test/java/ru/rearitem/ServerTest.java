@@ -1,9 +1,11 @@
 package ru.rearitem;
 
 import javax.servlet.DispatcherType;
+import javax.servlet.SessionTrackingMode;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.HashSet;
 
 import io.undertow.Handlers;
 import io.undertow.Undertow;
@@ -13,6 +15,7 @@ import io.undertow.servlet.api.DeploymentInfo;
 import io.undertow.servlet.api.DeploymentManager;
 import io.undertow.servlet.api.FilterInfo;
 import io.undertow.servlet.api.ServletInfo;
+import io.undertow.servlet.api.ServletSessionConfig;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.slf4j.Logger;
@@ -20,26 +23,32 @@ import org.slf4j.LoggerFactory;
 import ru.galuzin.db_service.DataSourceTest;
 import ru.galuzin.db_service.DbServiceImpl;
 import ru.rearitem.filters.AdminFilter;
+import ru.rearitem.httpclient.HttpClientAdapter;
 import ru.rearitem.servlets.AdminLkServlet;
 import ru.rearitem.servlets.LoginServlet;
 import ru.rearitem.servlets.CreateAccountServlet;
+import ru.rearitem.servlets.LogoutServlet;
 import ru.rearitem.servlets.UserLkServlet;
 
 public class ServerTest {
     private static final Logger log = LoggerFactory.getLogger(ServerTest.class);
-    static Undertow server;
-    static DbServiceImpl dbService;
-    volatile static boolean stop;
+    private static Undertow server;
+    private static DbServiceImpl dbService;
+    private volatile static boolean stop;
+    protected static HttpClientAdapter client;
     @BeforeClass
     public static void beforeClass() throws Exception{
         DataSourceTest dataSourceTest = new DataSourceTest();
         dbService = new DbServiceImpl(dataSourceTest);
-        //if(false) {
+        ServletSessionConfig servletSessionConfig = new ServletSessionConfig();
+        servletSessionConfig.setSessionTrackingModes(
+                new HashSet<SessionTrackingMode>(){{add(SessionTrackingMode.COOKIE);}});
         DeploymentInfo myApp =
             Servlets.deployment()
             .setClassLoader(ServerTest.class.getClassLoader())
             .setContextPath("/")
             .setDeploymentName("test.war")
+            .setServletSessionConfig(servletSessionConfig)
             .addServletContextAttribute("dbservice", dbService)
             .addFilters(
                     new FilterInfo("userFilter", AdminFilter.class).addInitParam("role","USER"),
@@ -49,7 +58,7 @@ public class ServerTest {
             .addFilterUrlMapping("adminFilter","/api/admin/*", DispatcherType.REQUEST)
             .addServlets(
                 new ServletInfo("login", LoginServlet.class).addMapping("/api/login"),
-                new ServletInfo("logout", LoginServlet.class).addMapping("/api/logout"),
+                new ServletInfo("logout", LogoutServlet.class).addMapping("/api/logout"),
                 new ServletInfo("createAccount", CreateAccountServlet.class).addMapping("/api/account"),
                 new ServletInfo("userLK", UserLkServlet.class).addMapping("/api/user/lk"),
                 new ServletInfo("adminLK", AdminLkServlet.class).addMapping("/api/admin/lk")
@@ -65,13 +74,12 @@ public class ServerTest {
                 .setHandler(path)
                 .build();
         server.start();
-        //}
+        client = new HttpClientAdapter();
     }
 
     public static void main(String[] args) throws Exception {
         try {
             beforeClass();
-            Thread mainThread = Thread.currentThread();
             new Thread(()->{
                 try {
                     ServerSocket serverSocket = new ServerSocket(58089);
@@ -97,5 +105,6 @@ public class ServerTest {
     public static void afterClass(){
         server.stop();
         dbService.shutdown();
+        client.dispose();
     }
 }

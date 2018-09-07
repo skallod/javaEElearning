@@ -19,6 +19,7 @@ public class LogoutServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Optional.ofNullable(req.getSession(false)).ifPresent(HttpSession::invalidate);
         log.info("invalidate");
+        resp.setStatus(200);
     }
 
     /*void test(){
