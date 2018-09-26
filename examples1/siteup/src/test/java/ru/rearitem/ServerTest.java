@@ -25,6 +25,7 @@ import ru.galuzin.db_service.DbServiceImpl;
 import ru.rearitem.filters.AdminFilter;
 import ru.rearitem.httpclient.HttpClientAdapter;
 import ru.rearitem.servlets.AdminLkServlet;
+import ru.rearitem.servlets.AsyncServletTest;
 import ru.rearitem.servlets.LoginServlet;
 import ru.rearitem.servlets.CreateAccountServlet;
 import ru.rearitem.servlets.LogoutServlet;
@@ -61,7 +62,8 @@ public class ServerTest {
                 new ServletInfo("logout", LogoutServlet.class).addMapping("/api/logout"),
                 new ServletInfo("createAccount", CreateAccountServlet.class).addMapping("/api/account"),
                 new ServletInfo("userLK", UserLkServlet.class).addMapping("/api/user/lk"),
-                new ServletInfo("adminLK", AdminLkServlet.class).addMapping("/api/admin/lk")
+                new ServletInfo("adminLK", AdminLkServlet.class).addMapping("/api/admin/lk"),
+                new ServletInfo("asyncTest", AsyncServletTest.class).addMapping("/api/async").setAsyncSupported(true)
                 //new ServletInfo("h2", org.h2.server.web.WebServlet.class).addMapping("/api/h2")
             );
         DeploymentManager manager = Servlets.defaultContainer().addDeployment(myApp);

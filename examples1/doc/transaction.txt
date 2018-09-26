@@ -1,0 +1,18 @@
+##serialization phantom which serializable level resolves (throw error)
+
+create table school( id int primary key, count int, class int);
+insert into school values(1,10,1);
+insert into school values(2,100,2);
+begin isolation level serializable;
+|begin isolation level serializable;
+select sum(count) where class=1;
+|select sum(count) where class=2;
+insert into school values(3,100,2);
+|insert into school values(4,10,1);
+commit;
+|commit;
+ОШИБКА:  не удалось сериализовать доступ из-за зависимостей чтения/записи между транзакциями
+ПОДРОБНОСТИ:  Reason code: Canceled on identification as a pivot, during commit attempt.
+ПОДСКАЗКА:  Транзакция может завершиться успешно при следующей попытке.
+if isolation level repeatable read no errors;
+r1(x)r2(y)w1(y)w2(x)

@@ -39,11 +39,11 @@ task deploy {
             session(remotes.webServer) {
                 remove '/var/www/html'
                 put from: 'html', into: '/var/www'
-//                execute 'systemctl stop tomcat'
-//                remove '/opt/tomcat/webapps/ROOT'
-//                remove '/opt/tomcat/webapps/ROOT.war'
+                execute 'systemctl stop tomcat'
+                remove '/opt/tomcat/webapps/ROOT'
+                remove '/opt/tomcat/webapps/ROOT.war'
                 put from: 'build/libs/ROOT.war', into: '/opt/tomcat/webapps'
-//                execute 'systemctl start tomcat'
+                execute 'systemctl start tomcat'
             }
         }
     }
