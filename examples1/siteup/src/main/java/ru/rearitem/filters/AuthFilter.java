@@ -19,7 +19,7 @@ import org.slf4j.LoggerFactory;
 import ru.galuzin.model.Role;
 import ru.rearitem.servlets.CreateAccountServlet;
 
-public class AdminFilter implements Filter {//todo rename AuthFilter
+public class AuthFilter implements Filter {//todo rename AuthFilter
 
     private static final Logger log = LoggerFactory.getLogger(CreateAccountServlet.class);
 

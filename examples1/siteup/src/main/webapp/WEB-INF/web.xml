@@ -12,7 +12,7 @@
 
     <filter>
         <filter-name>adminFilter</filter-name>
-        <filter-class>ru.rearitem.filters.AdminFilter</filter-class>
+        <filter-class>ru.rearitem.filters.AuthFilter</filter-class>
         <init-param>
             <param-name>role</param-name>
             <param-value>ADMIN</param-value>
@@ -25,7 +25,7 @@
 
     <filter>
         <filter-name>userFilter</filter-name>
-        <filter-class>ru.rearitem.filters.AdminFilter</filter-class>
+        <filter-class>ru.rearitem.filters.AuthFilter</filter-class>
         <init-param>
             <param-name>role</param-name>
             <param-value>USER</param-value>

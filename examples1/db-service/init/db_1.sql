@@ -20,8 +20,8 @@ create table version(
     );
 
 --Populate tables with user data
-INSERT INTO roles (role_id, role_name) VALUES (1,'ADMIN');
-INSERT INTO roles (role_id, role_name) VALUES (2,'USER');
+--INSERT INTO roles (role_id, role_name) VALUES (1,'ADMIN');
+--INSERT INTO roles (role_id, role_name) VALUES (2,'USER');
 INSERT INTO version (version_id) VALUES (1);
 --INSERT INTO accounts (
 --    account_uid,

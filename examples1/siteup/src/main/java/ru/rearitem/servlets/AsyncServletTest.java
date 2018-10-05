@@ -19,26 +19,29 @@ public class AsyncServletTest extends HttpServlet{
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         AsyncContext ctx = req.startAsync(req, resp);
         log.info("async start");
-        ctx.start(()->{
+        new Thread(()-> {
             try {
-                Thread.sleep(2_000);
+                Thread.sleep(2_000);//do any job
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            PrintWriter pw = null;
-            try {
-                pw = ctx.getResponse().getWriter();
-                pw.write("async finish");
-            }catch (Exception e){
-                log.error("ctx print fail",e);
-            }finally {
-                if(pw!=null) {
-                    pw.close();
+            ctx.start(()->
+            {
+                PrintWriter pw = null;
+                try {
+                    pw = ctx.getResponse().getWriter();
+                    pw.write("async finish");
+                } catch (Exception e) {
+                    log.error("ctx print fail", e);
+                } finally {
+                    if (pw != null) {
+                        pw.close();
+                    }
+                    ctx.complete();
+                    //ctx.dispatch();
                 }
-                ctx.complete();
-                //ctx.dispatch();
-            }
-            //log.info("response class "+response.getClass().getName());
-        });
+                //log.info("response class "+response.getClass().getName());
+            });
+        }).start();
     }
 }

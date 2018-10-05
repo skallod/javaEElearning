@@ -22,7 +22,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ru.galuzin.db_service.DataSourceTest;
 import ru.galuzin.db_service.DbServiceImpl;
-import ru.rearitem.filters.AdminFilter;
+import ru.rearitem.filters.AuthFilter;
 import ru.rearitem.httpclient.HttpClientAdapter;
 import ru.rearitem.servlets.AdminLkServlet;
 import ru.rearitem.servlets.AsyncServletTest;
@@ -52,8 +52,8 @@ public class ServerTest {
             .setServletSessionConfig(servletSessionConfig)
             .addServletContextAttribute("dbservice", dbService)
             .addFilters(
-                    new FilterInfo("userFilter", AdminFilter.class).addInitParam("role","USER"),
-                    new FilterInfo("adminFilter", AdminFilter.class).addInitParam("role","ADMIN")
+                    new FilterInfo("userFilter", AuthFilter.class).addInitParam("role","USER"),
+                    new FilterInfo("adminFilter", AuthFilter.class).addInitParam("role","ADMIN")
             )
             .addFilterUrlMapping("userFilter","/api/user/*", DispatcherType.REQUEST)
             .addFilterUrlMapping("adminFilter","/api/admin/*", DispatcherType.REQUEST)

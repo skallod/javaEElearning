@@ -76,10 +76,10 @@ public class DbServiceImpl implements DbService{
 
     @Override
     public Set<Role> getRoles(String accountUid) throws SQLException{
-        List<Role> roles = preparedExecutor.execQuery("select role_name from user_roles ur join roles r " +
-                        "on ur.role_id=r.role_id where account_uid=?;",
+        List<Role> roles = preparedExecutor.execQuery("select role_id from user_roles" +
+                        " where account_uid=?;",
                 (st) -> st.setString(1, accountUid),
-                (rs) -> Role.valueOf(rs.getString("role_name")));
+                (rs) -> Role.getByCode(rs.getInt("role_id")));
         return new HashSet<Role>(roles);
     }
 
