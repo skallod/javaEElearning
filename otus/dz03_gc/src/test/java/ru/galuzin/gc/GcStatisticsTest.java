@@ -3,18 +3,24 @@ package ru.galuzin.gc;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.concurrent.Future;
+
 
 public class GcStatisticsTest {
     @Test
-    public void test1(){
+    public void test1() throws Exception{
         System.out.println("hello !");
         GcStatistics statistics = new GcStatistics();
-        Assert.assertEquals(statistics.getGcStatistic(GcStatistics.Gc.MINOR).getFullCounts(),0);
-        statistics.update(1,1,GcStatistics.Gc.MINOR);
-        Assert.assertEquals(statistics.getGcStatistic(GcStatistics.Gc.MINOR).getFullCounts(),1);
+        GcStatisticsUpdateService updateService = new GcStatisticsUpdateService(statistics);
+        Assert.assertEquals(0,statistics.getGcStatistic(GcStatistics.Gc.MINOR).getFullCounts());
+        Future<?> update = updateService.update(1, 1, GcStatistics.Gc.MINOR);
+        update.get();
+        Assert.assertEquals(1,statistics.getGcStatistic(GcStatistics.Gc.MINOR).getFullCounts());
         GcStatistics cloned = statistics.cloneInstance();
-        cloned.update(2,2,GcStatistics.Gc.MINOR);
-        Assert.assertEquals(statistics.getGcStatistic(GcStatistics.Gc.MINOR).getFullCounts(),1);
-        Assert.assertEquals(cloned.getGcStatistic(GcStatistics.Gc.MINOR).getFullCounts(),2);
+        GcStatisticsUpdateService updateServiceCloned = new GcStatisticsUpdateService(cloned);
+        Future<?> updateCloned = updateServiceCloned.update(2, 2, GcStatistics.Gc.MINOR);
+        updateCloned.get();
+        Assert.assertEquals(1,statistics.getGcStatistic(GcStatistics.Gc.MINOR).getFullCounts());
+        Assert.assertEquals(2,cloned.getGcStatistic(GcStatistics.Gc.MINOR).getFullCounts());
     }
 }

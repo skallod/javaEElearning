@@ -1,9 +1,9 @@
 package ru.galuzin.gc;
 
 import jdk.nashorn.internal.ir.annotations.Immutable;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
+
+import java.util.concurrent.atomic.AtomicLong;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -15,7 +15,10 @@ public class GcStatistics {
         return new GcStatistics(this.minor, this.major);
     }
 
-    void update(long duration, long counts, Gc type){
+    /**
+     * Invoke only through GcStaticsUpdateService
+     */
+    void update(long duration, long counts, @NonNull Gc type){
         switch (type){
             case MINOR:
                 minor = new GcStatistic(minor.getFullDuration()+duration,counts);
@@ -26,7 +29,7 @@ public class GcStatistics {
         }
     }
 
-    GcStatistic getGcStatistic(Gc type){
+    GcStatistic getGcStatistic(@NonNull Gc type){
         switch (type){
             case MINOR:
                 return minor;
@@ -37,8 +40,7 @@ public class GcStatistics {
     }
 
     @Getter
-    @AllArgsConstructor
-    @Immutable
+    @Value
     class GcStatistic{
         private final long fullDuration;
         private final long fullCounts;

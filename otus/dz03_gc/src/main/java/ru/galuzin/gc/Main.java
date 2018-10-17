@@ -13,8 +13,9 @@ public class Main {
         long appStartTime = System.nanoTime();
         log.info("gc test start");
         GcStatistics sharedObject = new GcStatistics();
-        GcNotification.installGCMonitoring(sharedObject);
-        try(ReportMaker reportMaker = new ReportMaker(sharedObject,appStartTime)) {
+        try(ReportMaker reportMaker = new ReportMaker(sharedObject,appStartTime);
+            GcStatisticsUpdateService updateService = new GcStatisticsUpdateService(sharedObject)) {
+            GcNotification.installGCMonitoring(updateService);
             reportMaker.start();
             startMemoryFilling();
         }finally {

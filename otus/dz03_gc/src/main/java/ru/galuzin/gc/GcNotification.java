@@ -14,7 +14,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j(topic = "gc-notification-details")
 public class GcNotification {
-    public static void installGCMonitoring(GcStatistics gcStatistics){
+    public static void installGCMonitoring(GcStatisticsUpdateService gcStatistics){
         //get all the GarbageCollectorMXBeans - there's one for each heap generation
         //so probably two - the old generation and young generation
         List<GarbageCollectorMXBean> gcbeans = java.lang.management.ManagementFactory.getGarbageCollectorMXBeans();
