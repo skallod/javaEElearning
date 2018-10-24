@@ -5,6 +5,7 @@ import java.sql.SQLException;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
+import ru.galuzin.db_service.connection.DataSource;
 
 public class DataSourceTest implements DataSource {
 

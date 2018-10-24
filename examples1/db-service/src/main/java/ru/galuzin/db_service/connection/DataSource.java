@@ -1,4 +1,4 @@
-package ru.galuzin.db_service;
+package ru.galuzin.db_service.connection;
 
 import java.sql.Connection;
 import java.sql.SQLException;

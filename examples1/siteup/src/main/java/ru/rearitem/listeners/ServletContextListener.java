@@ -4,7 +4,7 @@ import javax.servlet.ServletContextEvent;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import ru.galuzin.db_service.DataSourceImpl;
+import ru.galuzin.db_service.connection.DataSourceImpl;
 import ru.galuzin.db_service.DbService;
 import ru.galuzin.db_service.DbServiceImpl;
 

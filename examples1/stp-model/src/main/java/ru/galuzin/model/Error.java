@@ -1,13 +1,10 @@
 package ru.galuzin.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
+@AllArgsConstructor
+@Getter
 public class Error {
-    String message;
-
-    public Error(String message) {
-        this.message = message;
-    }
-
-    public String getMessage() {
-        return message;
-    }
+    final String message;
 }

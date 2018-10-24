@@ -1,4 +1,4 @@
-package ru.galuzin.db_service;
+package ru.galuzin.db_service.connection;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -14,14 +14,9 @@ import org.slf4j.LoggerFactory;
 public class DataSourceImpl implements DataSource{
     private static final Logger log = LoggerFactory.getLogger(DataSourceImpl.class);
 
-//    private static final DataSource instance = new DataSource();
-
     private final HikariConfig config;
-    private final HikariDataSource ds;
 
-//    static DataSource getInstance(){
-//        return instance;
-//    }
+    private final HikariDataSource ds;
 
     public DataSourceImpl() {
         Properties props = new Properties();

@@ -34,10 +34,12 @@ public class AuthFilter implements Filter {//todo rename AuthFilter
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-        log.debug("filter auth "+role.name());
-        Optional<HttpSession> session = Optional.ofNullable(((HttpServletRequest)request).getSession(false));
-        Set<Role> roleSet = session.map(s -> (Set<Role>)s.getAttribute("roles")).orElse(Collections.emptySet());
-        if(!roleSet.contains(role)){
+        log.debug("filter auth " + role.name());
+        Optional<HttpSession> session = Optional.ofNullable(((HttpServletRequest) request).getSession(false));
+        Set<Role> roleSet = session.map(s -> (Set<Role>) s.getAttribute("roles")).orElse(Collections.emptySet());
+        if(roleSet.isEmpty()){
+            ((HttpServletResponse) response).sendError(HttpServletResponse.SC_UNAUTHORIZED);
+        }else if(!roleSet.contains(role)){
             ((HttpServletResponse) response).sendError(HttpServletResponse.SC_FORBIDDEN);
         }else{
             chain.doFilter(request,response);

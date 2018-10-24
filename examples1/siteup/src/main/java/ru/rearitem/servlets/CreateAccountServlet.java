@@ -11,8 +11,7 @@ import java.io.PrintWriter;
 import java.nio.charset.StandardCharsets;
 import java.util.UUID;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import ru.galuzin.db_service.DbService;
 import ru.galuzin.model.Account;
 import ru.galuzin.model.Role;
@@ -24,9 +23,8 @@ import static javax.servlet.http.HttpServletResponse.SC_BAD_REQUEST;
 import static javax.servlet.http.HttpServletResponse.SC_OK;
 
 @WebServlet(name = "createAccount", urlPatterns = "/api/account")
+@Slf4j
 public class CreateAccountServlet extends HttpServlet implements Constants{
-
-    private static final Logger log = LoggerFactory.getLogger(CreateAccountServlet.class);
 
     public static final String MESSAGE_ACCOUNT_ALREADY_EXISTS = "{\"message\":\"account already exists\"}";
 

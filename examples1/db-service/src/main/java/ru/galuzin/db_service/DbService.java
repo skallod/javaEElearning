@@ -29,7 +29,7 @@ public interface DbService {
 
     void saveRole(String accountUid, Role role) throws SQLException;
 
-    public void saveAccountWithRole(Account account, Role role) throws SQLException;
+    void saveAccountWithRole(Account account, Role role) throws SQLException;
 
     void shutdown();
 }

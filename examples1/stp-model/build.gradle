@@ -6,7 +6,6 @@
  */
 plugins {
     id 'java'
-    //id 'net.ltgt.apt' version '0.17'
 }
 
 group = 'ru.galuzin'
@@ -15,9 +14,13 @@ description = "stp model"
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
+repositories {
+    mavenCentral()
+}
+
 dependencies {
-    //compileOnly 'org.projectlombok:lombok:1.18.0'
-    //annotationProcessor "org.projectlombok:lombok:1.18.0"
+    compileOnly 'org.projectlombok:lombok:1.18.0'
+    annotationProcessor "org.projectlombok:lombok:1.18.0"
 }
 
 task wrapper(type: Wrapper) {

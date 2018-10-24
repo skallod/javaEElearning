@@ -12,7 +12,7 @@ public enum Role {
         this.code=code;
     }
 
-    private int getCode() {
+    public int getCode() {
         return code;
     }
 

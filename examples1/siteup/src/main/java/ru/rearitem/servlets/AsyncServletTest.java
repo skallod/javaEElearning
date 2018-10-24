@@ -27,20 +27,15 @@ public class AsyncServletTest extends HttpServlet{
             }
             ctx.start(()->
             {
-                PrintWriter pw = null;
                 try {
-                    pw = ctx.getResponse().getWriter();
-                    pw.write("async finish");
+                    try(PrintWriter pw = ctx.getResponse().getWriter()) {
+                        pw.write("async finish");
+                    }
                 } catch (Exception e) {
                     log.error("ctx print fail", e);
                 } finally {
-                    if (pw != null) {
-                        pw.close();
-                    }
                     ctx.complete();
-                    //ctx.dispatch();
                 }
-                //log.info("response class "+response.getClass().getName());
             });
         }).start();
     }

@@ -68,25 +68,9 @@ public class DbServiceTest {
         Set<Role> roles = dbService.getRoles(uuid);
         assertThat(roles.stream().findAny().get(), is(Role.USER));
     }
-    @Test
-    public void shouldRollback() throws Exception{
-        Account account = new Account(
-                UUID.randomUUID().toString(),
-                "tt@tt.ru",
-                "tt",
-                HashUtil.hash("tt".getBytes(StandardCharsets.UTF_8))
-        );
-        try(Connection connection = dbService.getConnection()) {
-            dbService.saveAccount(account, connection);
-            //another uid
-            dbService.saveRole(UUID.randomUUID().toString()
-                    , Role.USER, connection);
-            connection.commit();
-        }catch (Exception e){
-            log.info("EXPECTED EXCEPTION "+e.getMessage());
-        }
-        boolean accountExist = dbService.isEmailExist("tt@tt.ru");
-        assertThat(accountExist, is(false));
+    @Test(expected = SQLException.class)
+    public void shouldException() throws Exception{
+        dbService.saveRole(UUID.randomUUID().toString(), Role.USER);
     }
 
     @AfterClass
