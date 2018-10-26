@@ -1,19 +1,17 @@
 package ru.galuzin.db_service.executor;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.sql.Connection;
 
+@Setter
+@Getter
 public class TransactionContext {
 
     private Connection connection;
 
-    TransactionContext() {
-    }
-
-    void setConnection(Connection connection) {
-        this.connection = connection;
-    }
-
-    Connection getConnection() {
-        return connection;
+    //must be package access
+    TransactionContext(){
     }
 }

@@ -18,34 +18,25 @@ public class PreparedExecutor{
     }
 
     public int execUpdate(@NonNull String update, ExecuteParams prepare, TransactionContext transactionContext) throws SQLException {
-        PreparedStatement stmt = null;
-        try {
-            stmt = transactionContext.getConnection().prepareStatement(update);
+        try(PreparedStatement stmt = transactionContext.getConnection().prepareStatement(update)) {
             prepare.accept(stmt);
             int i = stmt.executeUpdate();
             return i;
-        } finally {
-            DbUtils.close(stmt);
         }
     }
 
     public <T> List<T> execQuery(String update, ExecuteParams prepare
             , TResultHandler<T> resultHandler, TransactionContext transactionContext) throws SQLException {
-        PreparedStatement stmt = null;
-        ResultSet rs = null;
-        try{
-            stmt = transactionContext.getConnection().prepareStatement(update);
+        try(PreparedStatement stmt = transactionContext.getConnection().prepareStatement(update)){
             prepare.accept(stmt);
-            rs = stmt.executeQuery();
             ArrayList<T> result = new ArrayList<>();
-            while (rs.next()) {
-                T el = resultHandler.handle(rs);
-                result.add(el);
+            try(ResultSet rs = stmt.executeQuery()) {
+                while (rs.next()) {
+                    T el = resultHandler.handle(rs);
+                    result.add(el);
+                }
             }
             return result;
-        }finally {
-            DbUtils.close(rs);
-            DbUtils.close(stmt);
         }
     }
 

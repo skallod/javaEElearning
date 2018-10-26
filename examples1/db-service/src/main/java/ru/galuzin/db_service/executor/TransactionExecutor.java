@@ -14,16 +14,16 @@ public class TransactionExecutor {
     }
 
     public void exec(ExecuteSQL query) throws SQLException {
-        TransactionContext tContext = new TransactionContext();
-        try{
-            tContext.setConnection(getConnection());
-            query.exec(tContext);
-            tContext.getConnection().commit();
-        }catch (SQLException e){
-            DbUtils.rollback(tContext.getConnection());
-            throw e;
-        }finally {
-            DbUtils.close(tContext.getConnection());
+        TransactionContext txContext = new TransactionContext();
+        try(Connection conn = getConnection()) {
+            txContext.setConnection(conn);
+            try{
+                query.exec(txContext);
+                txContext.getConnection().commit();
+            }catch (SQLException e){
+                txContext.getConnection().rollback();
+                throw e;
+            }
         }
     }
 
