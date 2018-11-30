@@ -1,0 +1,19 @@
+plugins{
+    id 'java'
+}
+
+group = 'ru.galuzin'
+version = '1'
+description = "my junit"
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+repositories {
+    mavenCentral()
+}
+dependencies {
+    compileOnly 'org.projectlombok:lombok:1.18.0'
+    annotationProcessor "org.projectlombok:lombok:1.18.0"
+}
+task wrapper(type: Wrapper) {
+    gradleVersion = '4.7'
+}
