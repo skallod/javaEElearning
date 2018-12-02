@@ -19,9 +19,19 @@ $(function () {
     });
 });
 $(function () {
+    console.log("function 1");
     var pltk = document.getElementById('plitka');
     var dtls = document.getElementById('details');
+    var user_lk = document.getElementById('user-lk');
     dtls.style.display = "none";
+    var login_name = Cookies.get('user_name');
+    console.log('user_name '+login_name);
+    if(typeof login_name === 'undefined'){
+        console.log('user_name undf');
+        user_lk.style.display = "none";
+    }else{
+        user_lk.style.display = "block";
+    }
     $('#catalogReturn').click(function () {
         pltk.style.display = "block";
         dtls.style.display = "none";
@@ -54,38 +64,38 @@ $(function () {
         //            });
     });
 });
-$(function () {
-    var testj = document.getElementById('prodCode');
-    function loadData(dataUrl, target) {
-        console.log("start");
-        var xhr = new XMLHttpRequest();
-        xhr.overrideMimeType("application/json");
-        xhr.open('GET', dataUrl, true);
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState == 4) {
-                if (xhr.status == 200) {
-                    //parse jsoon data
-                    var products = JSON.parse(xhr.responseText).products;
-                    //var code = products[0].code;
-                    //console.log("code="+code);
-                    console.log("success");
-                    for (var i = 0; i < products.length; i++) {
-                        console.log("code="+products[i].code);
-                        console.log("price="+products[i].price);
-                        testj.innerHTML = products[i].code;
-                    }
-
-
-                } else {
-                    console.log(xhr.statusText);
-                    
-                }
-            }
-        }
-        xhr.send();
-    }
-
-    // Load the countries and states using XHR
-    console.log("before sending");
-    loadData('../../data/products.json', testj);
-});
+//$(function () {
+//    var testj = document.getElementById('prodCode');
+//    function loadData(dataUrl, target) {
+//        console.log("start");
+//        var xhr = new XMLHttpRequest();
+//        xhr.overrideMimeType("application/json");
+//        xhr.open('GET', dataUrl, true);
+//        xhr.onreadystatechange = function () {
+//            if (xhr.readyState == 4) {
+//                if (xhr.status == 200) {
+//                    //parse jsoon data
+//                    var products = JSON.parse(xhr.responseText).products;
+//                    //var code = products[0].code;
+//                    //console.log("code="+code);
+//                    console.log("success");
+//                    for (var i = 0; i < products.length; i++) {
+//                        console.log("code="+products[i].code);
+//                        console.log("price="+products[i].price);
+//                        testj.innerHTML = products[i].code;
+//                    }
+//
+//
+//                } else {
+//                    console.log(xhr.statusText);
+//
+//                }
+//            }
+//        }
+//        xhr.send();
+//    }
+//
+//    // Load the countries and states using XHR
+//    console.log("before sending");
+//    loadData('../../data/products.json', testj);
+//});

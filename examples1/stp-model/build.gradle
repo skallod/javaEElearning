@@ -10,7 +10,7 @@ plugins {
 
 group = 'ru.galuzin'
 version = '1'
-description = "stp model"
+description = "stp domain"
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 

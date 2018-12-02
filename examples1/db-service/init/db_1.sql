@@ -1,17 +1,19 @@
-CREATE DATABASE dbservice encoding 'utf8';
-\c dbservice;
+CREATE DATABASE siteupdb encoding 'utf8';
+CREATE ROLE stpuser LOGIN PASSWORD 'stppass';
+\c "host=localhost port=5432 user=stpuser dbname=siteupdb password=stppass"
 create table accounts(
-    account_uid text not null primary key,
+    account_id int8 primary key not null,
     account_name text not null,
     account_email text unique not null,
     account_pass bytea not null
     );
-create table roles(
-    role_id smallint not null primary key,
-    role_name varchar(15) not null
-    );
+create sequence account_id_seq;
+--create table roles(
+--    role_id smallint not null primary key,
+--    role_name varchar(15) not null
+--    );
 create table user_roles(
-    account_uid text not null references accounts
+    account_id integer not null references accounts
     ,  role_id smallint not null references roles
     ,  primary key( account_uid, role_id ));
 create table version(

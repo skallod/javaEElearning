@@ -1,4 +1,4 @@
-package ru.galuzin.model;
+package ru.galuzin.util;
 
 import lombok.*;
 

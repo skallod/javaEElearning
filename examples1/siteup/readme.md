@@ -8,7 +8,13 @@ Deploy server to VDS :
         setup nginx
         setup tomcat
         setup postgres
+    run db init scripts :
+        ../db-service/init
     set ssh parameters in :
         build.gradle remotes task
     run task
-        gradlew deploy
+        ./gradlew deploy
+
+Tests
+    ./test/java/ru/rearitem AuthTest
+    ./../db-service/ru/galuzin/db_service/DbServiceTest

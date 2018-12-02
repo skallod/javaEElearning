@@ -1,4 +1,4 @@
-package ru.galuzin.model;
+package ru.galuzin.domain;
 
 import java.util.Arrays;
 

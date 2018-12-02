@@ -8,5 +8,5 @@
  */
 
 rootProject.name = 'db-service'
-include ':stp-model'
-project(':stp-model').projectDir = new File(settingsDir, '../stp-model')
+include ':stp-domain'
+project(':stp-domain').projectDir = new File(settingsDir, '../stp-domain')

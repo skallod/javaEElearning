@@ -1,17 +1,8 @@
 package ru.galuzin.payment_system.persistance.dao;
 
 import java.io.Serializable;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Random;
-import java.util.Set;
-import java.util.concurrent.Callable;
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
-import java.util.concurrent.TimeUnit;
+import java.util.*;
+import java.util.concurrent.*;
 
 import org.hibernate.Criteria;
 import org.hibernate.Session;
@@ -132,6 +123,54 @@ public class BasicDAOTest {
 //        ed.getVersions().add(versionData);
 //        basicDAO.addEntity(ed);
 //        basicDAO.addEntity(versionData);
+    }
+
+    @Test
+    public void testSerial() throws InterruptedException, ExecutionException {
+        BasicDAO basicDAO = new BasicDAO();
+        CountDownLatch cdl1 = new CountDownLatch(10);
+        ExecutorService pool = Executors.newFixedThreadPool(10);
+        ArrayList<Future> list = new ArrayList<>();
+        list.add(pool.submit(getRunnable(basicDAO, cdl1)));
+        list.add(pool.submit(getRunnable(basicDAO, cdl1)));
+        list.add(pool.submit(getRunnable(basicDAO, cdl1)));
+        list.add(pool.submit(getRunnable(basicDAO, cdl1)));
+        list.add(pool.submit(getRunnable(basicDAO, cdl1)));
+        list.add(pool.submit(getRunnable(basicDAO, cdl1)));
+        list.add(pool.submit(getRunnable(basicDAO, cdl1)));
+        list.add(pool.submit(getRunnable(basicDAO, cdl1)));
+        list.add(pool.submit(getRunnable(basicDAO, cdl1)));
+        list.add(pool.submit(getRunnable(basicDAO, cdl1)));
+        list.forEach(f-> {
+            try {
+                f.get();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            } catch (ExecutionException e) {
+                e.printStackTrace();
+            }
+        });
+    }
+
+    private Runnable getRunnable(BasicDAO basicDAO, CountDownLatch cdl) {
+        return ()->{
+            Account account = new Account();
+            account.setMoney(33d);
+            basicDAO.addEntity(account);
+            cdl.countDown();
+            try {
+                cdl.await();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+//            Long lastSerial = basicDAO.getLastSerial();
+//            System.err.println("lastSerial = " + lastSerial+" ; "+Thread.currentThread().getName());
+//            if(lastSerial!=account.getAccountID()){
+//                System.err.println("mega error ids not match");
+//            }
+            Account entity = (Account) basicDAO.getEntity(Account.class, account.getAccountID());
+            System.out.println("entity = " + entity);
+        };
     }
 
     @Test

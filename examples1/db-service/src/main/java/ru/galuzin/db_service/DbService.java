@@ -4,8 +4,8 @@ import java.sql.SQLException;
 import java.util.Optional;
 import java.util.Set;
 
-import ru.galuzin.model.Account;
-import ru.galuzin.model.Role;
+import ru.galuzin.domain.Account;
+import ru.galuzin.domain.Role;
 
 public interface DbService {
 
@@ -14,10 +14,10 @@ public interface DbService {
      *
      * @param email
      * @param pass
-     * @return - account uid
+     * @return - account id
      * @throws SQLException
      */
-    Optional<String> isAccountExist(String email, byte[] pass) throws SQLException;
+    Optional<Long> isAccountExist(String email, byte[] pass) throws SQLException;
 
     public boolean isEmailExist(String email) throws SQLException;
     /**
@@ -25,9 +25,9 @@ public interface DbService {
      * @param accountId
      * @return
      */
-    Set<Role> getRoles(String accountId) throws SQLException;
+    Set<Role> getRoles(Long accountId) throws SQLException;
 
-    void saveRole(String accountUid, Role role) throws SQLException;
+    void saveRole(Long accountUid, Role role) throws SQLException;
 
     void saveAccountWithRole(Account account, Role role) throws SQLException;
 

@@ -3,6 +3,7 @@ package ru.galuzin.payment_system.persistance.dao;
 import java.io.Serializable;
 import java.util.List;
 
+import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.slf4j.Logger;
@@ -16,39 +17,46 @@ import ru.galuzin.payment_system.persistance.HibernateSession;
 public class BasicDAO {
     private static final Logger LOG = LoggerFactory.getLogger(BasicDAO.class);
 
-    public Serializable addEntity(Object entity){
+    public Serializable addEntity(Object entity) {
 
         Session sess = HibernateSession.getSessionFactory().openSession();
-        Transaction tx=null;
-        Serializable id=null;
+        System.out.println("sess = " + sess.hashCode());
+        Transaction tx = null;
+        Serializable id = null;
         try {
             tx = sess.beginTransaction();
-            id =sess.save(entity);
+            System.err.println("before save "+Thread.currentThread().getName());
+            id = sess.save(entity);
+            System.err.println("after save "+id+" ; "+Thread.currentThread().getName());
+            Long aLong = lastSerial(sess);
+            System.err.println("last serial "+aLong+" ; "+Thread.currentThread().getName());
+            if(aLong!=((Account)entity).getAccountID()){
+                System.err.println("mega error ids not match");
+            }
             tx.commit();
-        }
-        catch (Exception e) {
-            if (tx!=null) tx.rollback();
+        } catch (Exception e) {
+            if (tx != null) tx.rollback();
             throw new RuntimeException(e);
-        }
-        finally {
+        } finally {
             sess.close();
         }
 
         return id;
     }
-    public void updateEntity(Object entity){
-        updateEntity(entity,false);
+
+    public void updateEntity(Object entity) {
+        updateEntity(entity, false);
     }
 //    public void updateEntity(Object entity, boolean flag){
 //        updateEntity(Object entity, boolean flag){
 //    }
 
-    public void updateEntity(Object entity, boolean flag){
+    public void updateEntity(Object entity, boolean flag) {
         Session sess1 = HibernateSession.getSessionFactory().openSession();
-        Transaction tx1=null;
+        Transaction tx1 = null;
         try {
             tx1 = sess1.beginTransaction();
-            Account acc1 = (Account)entity;
+            Account acc1 = (Account) entity;
 //            System.out.println("acc1.person = " + acc1.person);
 //            System.out.println("acc1.getPerson() = " + acc1.getPerson());
 //            System.out.println("acc1.getPerson().getName() = " + acc1.getPerson().getName());
@@ -61,14 +69,12 @@ public class BasicDAO {
 
             //sess1.update(entity);
             tx1.commit();
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
-            if (tx1!=null) {
+            if (tx1 != null) {
                 tx1.rollback();
             }
-        }
-        finally {
+        } finally {
             if ((tx1 != null) && tx1.isActive()) {
                 try {
                     tx1.rollback();
@@ -81,30 +87,28 @@ public class BasicDAO {
 
     }
 
-    public void deleteEtity(Object etitty){
+    public void deleteEtity(Object etitty) {
 
         Session sess = HibernateSession.getSessionFactory().openSession();
-        Transaction tx=null;
-        Serializable id=null;
+        Transaction tx = null;
+        Serializable id = null;
         try {
             tx = sess.beginTransaction();
             sess.delete(etitty);
             tx.commit();
-        }
-        catch (Exception e) {
-            if (tx!=null) tx.rollback();
-        }
-        finally {
+        } catch (Exception e) {
+            if (tx != null) tx.rollback();
+        } finally {
             sess.close();
         }
 
     }
 
-    public Object getEntity (Class clazz, Serializable entityId){
+    public Object getEntity(Class clazz, Serializable entityId) {
         Session sess1 = HibernateSession.getSessionFactory().openSession();
 //        Session sess2 = HibernateSession.getSessionFactory().openSession();
 //        if(sess1==sess2) System.out.println("EQUALS");
-        Transaction tx1=null;
+        Transaction tx1 = null;
 //        Transaction tx2=null;
         Object entity1;
 //        Object entity2;
@@ -115,36 +119,60 @@ public class BasicDAO {
 //            entity2 = sess2.get(clazz, entityId);
             tx1.commit();
 //            tx2.commit();
-        }
-        catch (Exception e) {
-            if (tx1!=null) tx1.rollback();
+        } catch (Exception e) {
+            if (tx1 != null) tx1.rollback();
 //            if (tx2!=null) tx2.rollback();
             throw new RuntimeException(e);
-        }
-        finally {
+        } finally {
             sess1.close();
 //            sess2.close();
         }
         return entity1;
     }
 
-    public java.util.Collection getAllEntities (Class clazz){
+    public java.util.Collection getAllEntities(Class clazz) {
         Session sess = HibernateSession.getSessionFactory().openSession();
-        Transaction tx=null;
+        Transaction tx = null;
         List entities = null;
         try {
             tx = sess.beginTransaction();
             entities = sess.createCriteria(clazz).list();
             tx.commit();
-        }
-        catch (Exception e) {
-            if (tx!=null) tx.rollback();
+        } catch (Exception e) {
+            if (tx != null) tx.rollback();
             throw new RuntimeException(e);
-        }
-        finally {
+        } finally {
             sess.close();
         }
 
         return entities;
+    }
+
+//    public Long getLastSerial() {
+//        Session sess = HibernateSession.getSessionFactory().openSession();
+//        System.out.println("sess = " + sess.hashCode());
+//        Transaction tx = null;
+//        Long result = null;
+//        try {
+//            tx = sess.beginTransaction();
+//            result = lastSerial(sess, result);
+//            tx.commit();
+//            return result;
+//        } catch (Exception e) {
+//            if (tx != null) tx.rollback();
+//            throw new RuntimeException(e);
+//        } finally {
+//            sess.close();
+//        }
+//    }
+
+    private Long lastSerial(Session sess) {
+        Long result = null;
+        SQLQuery query = sess.createSQLQuery("select lastval();");
+        List<Object> rows = query.list();
+        for (Object row : rows) {
+            result = (Long.parseLong(row.toString()));
+        }
+        return result;
     }
 }

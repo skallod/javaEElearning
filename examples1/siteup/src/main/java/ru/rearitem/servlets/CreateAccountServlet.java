@@ -13,8 +13,8 @@ import java.util.UUID;
 
 import lombok.extern.slf4j.Slf4j;
 import ru.galuzin.db_service.DbService;
-import ru.galuzin.model.Account;
-import ru.galuzin.model.Role;
+import ru.galuzin.domain.Account;
+import ru.galuzin.domain.Role;
 import ru.rearitem.utils.Constants;
 import ru.rearitem.utils.HashUtil;
 import ru.rearitem.utils.ParamsValidator;
@@ -56,7 +56,6 @@ public class CreateAccountServlet extends HttpServlet implements Constants{
                 }
             } else {
                 Account account = new Account(
-                        UUID.randomUUID().toString(),
                         email,
                         name,
                         HashUtil.hash(password.getBytes(StandardCharsets.UTF_8))

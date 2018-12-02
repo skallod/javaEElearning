@@ -18,10 +18,12 @@ $(function () {
                             $("#err-" + key.field).text(key.defaultMessage);
                         });
                     } else{
-                         $("#contents").text(data.text);
+                         var login_obj = data.name;
+                         console.log("nm ",login_obj)
+                         //$("#contents").text(data.text);
+                         Cookies.set('user_name', login_obj);
+                         window.location.href = '/pages/common/catalog.html';
                     }
-                    //todo create cookie
-                    window.location.href = '/pages/common/catalog.html';
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
                     console.log("error", jqXHR, textStatus, errorThrown)
