@@ -1,8 +1,8 @@
-Start server local with undertow and h2 memery mode :  
+# Start server local with undertow and h2 memery mode :  
     ./src/test/ServerTest.main //only backend  
-Static html content :  
+# Static html content :  
     ./html  
-Deploy server to VDS :  
+# Deploy server to VDS :  
     run scripts from ../devops project  
         prepare_ubuntu  
         setup nginx  
@@ -15,7 +15,7 @@ Deploy server to VDS :
     run task  
         ./gradlew deploy  
   
-Tests  
+# Tests  
     ./test/java/ru/rearitem AuthTest  
     ./../db-service/ru/galuzin/db_service/DbServiceTest  
   
