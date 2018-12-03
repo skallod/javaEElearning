@@ -21,29 +21,4 @@ public class LogoutServlet extends HttpServlet {
         log.info("invalidate");
         resp.setStatus(200);
     }
-
-    /*void test(){
-        try {
-            Class<?> aClass = Class.forName("org.postgresql.Driver");
-            log.info("class loaded");
-            try {
-                DriverManager.registerDriver((Driver) aClass.newInstance());
-                try(Connection connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/dbservice", "postgres"
-                        , "postgres");
-                    Statement statement = connection.createStatement();){
-                    ResultSet execute = statement.executeQuery("select * from roles;");
-                    while (execute.next()){
-                        String role = execute.getString("role_name");
-                        log.info("role "+role);
-                    }
-                    execute.close();
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-                log.error("test conn",e);
-            }
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-    }*/
 }

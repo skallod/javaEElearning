@@ -6,10 +6,10 @@ import java.util.Set;
 
 import lombok.extern.slf4j.Slf4j;
 import ru.galuzin.db_service.connection.DataSource;
-import ru.galuzin.db_service.dao.AccountDAOFactory;
+import ru.galuzin.db_service.dao.AccountDAO;
 import ru.galuzin.db_service.dao.AccountDAOService;
-import ru.galuzin.model.Account;
-import ru.galuzin.model.Role;
+import ru.galuzin.domain.Account;
+import ru.galuzin.domain.Role;
 @Slf4j
 public class DbServiceImpl implements DbService{
 
@@ -19,7 +19,7 @@ public class DbServiceImpl implements DbService{
 
     public DbServiceImpl(DataSource dataSource){
         this.dataSource = dataSource;
-        accountDAO = AccountDAOFactory.createAccountDAOService(dataSource/*,preparedExecutor*/);
+        accountDAO = new AccountDAO(dataSource);
     }
 
     @Override
@@ -28,7 +28,7 @@ public class DbServiceImpl implements DbService{
     }
 
     @Override
-    public Optional<String> isAccountExist(String email, byte[] pass) throws SQLException {
+    public Optional<Long> isAccountExist(String email, byte[] pass) throws SQLException {
         return accountDAO.isAccountExist(email,pass);
     }
 
@@ -38,12 +38,12 @@ public class DbServiceImpl implements DbService{
     }
 
     @Override
-    public Set<Role> getRoles(String accountUid) throws SQLException{
+    public Set<Role> getRoles(Long accountUid) throws SQLException{
         return accountDAO.getRoles(accountUid);
     }
 
     @Override
-    public void saveRole(String accountUid, Role role) throws SQLException {
+    public void saveRole(Long accountUid, Role role) throws SQLException {
         accountDAO.saveRole(accountUid,role);
     }
 

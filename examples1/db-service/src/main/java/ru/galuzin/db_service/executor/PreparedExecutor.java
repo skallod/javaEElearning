@@ -4,6 +4,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import lombok.NonNull;
@@ -17,7 +18,7 @@ public class PreparedExecutor{
     public PreparedExecutor() {
     }
 
-    public int execUpdate(@NonNull String update, ExecuteParams prepare, TransactionContext transactionContext) throws SQLException {
+    public int execUpdate(@NonNull String update, PrepareParams prepare, TransactionContext transactionContext) throws SQLException {
         try(PreparedStatement stmt = transactionContext.getConnection().prepareStatement(update)) {
             prepare.accept(stmt);
             int i = stmt.executeUpdate();
@@ -25,18 +26,21 @@ public class PreparedExecutor{
         }
     }
 
-    public <T> List<T> execQuery(String update, ExecuteParams prepare
-            , TResultHandler<T> resultHandler, TransactionContext transactionContext) throws SQLException {
+    public <T> List<T> execQuery(String update, PrepareParams prepare
+            , ResultItemHandler<T> resultHandler, TransactionContext transactionContext) throws SQLException {
         try(PreparedStatement stmt = transactionContext.getConnection().prepareStatement(update)){
             prepare.accept(stmt);
-            ArrayList<T> result = new ArrayList<>();
+            ArrayList<T> result = null;
             try(ResultSet rs = stmt.executeQuery()) {
                 while (rs.next()) {
+                    if(result==null){
+                        result = new ArrayList<>();
+                    }
                     T el = resultHandler.handle(rs);
                     result.add(el);
                 }
             }
-            return result;
+            return result==null?Collections.emptyList():result;
         }
     }
 

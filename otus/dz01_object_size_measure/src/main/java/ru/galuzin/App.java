@@ -2,11 +2,12 @@ package ru.galuzin;
 
 import java.lang.management.ManagementFactory;
 import java.util.ArrayList;
+import java.util.Optional;
 import java.util.function.Supplier;
 
 /**
  * Hello world!
- *
+ * -Xms1024M -Xmx1024M
  */
 public class App 
 {
@@ -26,10 +27,13 @@ public class App
         long refsize = delta(usedmemAfterArrInit, usedmem, size);
         System.out.println("refsize = " + refsize);
         ArrayList<Supplier> suppliers = new ArrayList<Supplier>() {{
-            add(Object::new);
-            add(String::new);//string with pool
-            add(() -> new String(new char[0]));
-            add(MyClass::new);
+//            add(Object::new);//16
+            add(String::new);//24 string with pool
+            add(() -> new String(new char[0]));//40
+            add(MyClass::new);//24
+//            add(()->new ValueHolder<Optional>(Optional.empty()));//16
+//            add(()->new ArrayList<>());//24
+//            add(()->new byte[0]);
         }};
 
         for (Supplier supllier :

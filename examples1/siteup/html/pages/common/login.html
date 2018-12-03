@@ -3,14 +3,20 @@
 <head>
     <meta charset="utf-8">
     <title>Login</title>
+    <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/css/style.css" rel="stylesheet">
 </head>
 <body>
+<div class="container">
 <form id="form" action="/api/login" method="post">
     <label>Email:</label><input type="text" name="email"><br><br>
     <label>Password:</label><input type="password" name="password"><br>
     <input type="submit" value="Login">
 </form>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+</div>
+<script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/js.cookie-2.2.0.min.js"></script>
 <script src="/js/login.js"></script>
 </body>
 </html>

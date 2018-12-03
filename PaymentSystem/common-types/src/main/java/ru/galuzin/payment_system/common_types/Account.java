@@ -48,7 +48,7 @@ public class Account {
 
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name="PERSON",unique = false, nullable = false)
+    @JoinColumn(name="PERSON",unique = false, nullable = true)
     public Person getPerson() {
         return person;
     }

@@ -66,7 +66,7 @@ public class ServerTest {
                 new ServletInfo("userLK", UserLkServlet.class).addMapping("/api/user/lk"),
                 new ServletInfo("adminLK", AdminLkServlet.class).addMapping("/api/admin/lk"),
                 new ServletInfo("asyncTest", AsyncServletTest.class).addMapping("/api/async").setAsyncSupported(true)
-                //new ServletInfo("h2", org.h2.server.web.WebServlet.class).addMapping("/api/h2")
+//                new ServletInfo("h2", org.h2.server.web.WebServlet.class).addMapping("/api/h2")
             );
         DeploymentManager manager = Servlets.defaultContainer().addDeployment(myApp);
         manager.deploy();

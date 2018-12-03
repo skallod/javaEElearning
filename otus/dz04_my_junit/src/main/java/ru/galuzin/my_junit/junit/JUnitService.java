@@ -1,5 +1,7 @@
 package ru.galuzin.my_junit.junit;
 
+import com.sun.org.apache.bcel.internal.util.ClassPath;
+
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.*;
@@ -8,6 +10,10 @@ public class JUnitService {
 
     public static void executeTest(String className) throws Exception {
         Class<?> aClass = Class.forName(className);
+        executeTest(aClass);
+    }
+
+    private static void executeTest(Class<?> aClass) throws Exception {
         ValueHolder<Optional<Method>> beforeMethod = new ValueHolder<>(Optional.empty());
         ValueHolder<List<Method>> testMethodList = new ValueHolder<>(Collections.emptyList());
         ValueHolder<Optional<Method>> afterMethod = new ValueHolder<>(Optional.empty());
@@ -39,5 +45,20 @@ public class JUnitService {
                 throw new RuntimeException(e);
             }
         });
+    }
+
+    public static void executeTestPackage(String pacakgeName)throws Exception {
+        final ClassLoader loader = Thread.currentThread()
+                .getContextClassLoader();
+        System.out.println("loader = " + loader);
+//       for (final ClassPath.ClassInfo info : ClassPath.from(loader)
+//                .getTopLevelClasses()) {
+//
+//            if (info.getName().startsWith(packageName)) {
+//                if(isTestClass(info.getName()))
+//                    runTestsByClassName(info.getName());
+//            }
+//
+//        }
     }
 }

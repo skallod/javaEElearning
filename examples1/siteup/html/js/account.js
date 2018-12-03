@@ -20,7 +20,7 @@ $(function () {
                     } else{
                          $("#contents").text(data.text);
                     }
-                    window.location.href = '/pages/common/catalog.html';
+                    window.location.href = '/pages/common/login.html';
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
                     console.log("error", jqXHR, textStatus, errorThrown)

@@ -11,7 +11,7 @@ import java.util.Optional;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import ru.galuzin.model.Error;
+import ru.galuzin.util.Error;
 
 public class ParamsValidator implements Constants{
 
