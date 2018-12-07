@@ -2,7 +2,7 @@ CREATE DATABASE siteupdb encoding 'utf8';
 CREATE ROLE stpuser LOGIN PASSWORD 'stppass';
 \c "host=localhost port=5432 user=stpuser dbname=siteupdb password=stppass"
 create table accounts(
-    account_id int8 primary key not null,
+    account_id integer primary key not null,
     account_name text not null,
     account_email text unique not null,
     account_pass bytea not null

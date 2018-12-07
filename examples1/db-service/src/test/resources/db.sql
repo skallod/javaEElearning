@@ -1,5 +1,5 @@
 create table if not exists accounts(
-    account_id int8 not null primary key,
+    account_id integer not null primary key,
     account_name varchar not null,
     account_email varchar unique not null,
     account_pass bytea not null

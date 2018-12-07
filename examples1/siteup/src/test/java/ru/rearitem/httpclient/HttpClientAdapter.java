@@ -35,7 +35,10 @@ public class HttpClientAdapter {
     final CookieStore httpCookieStore;
 
     public HttpClientAdapter() {
-        RequestConfig globalConfig = RequestConfig.custom().setSocketTimeout(10_000)
+        RequestConfig globalConfig = RequestConfig.custom()
+                .setSocketTimeout(5_000)
+                .setConnectionRequestTimeout(5_000)
+                .setConnectTimeout(5_000)
                 .setCookieSpec(CookieSpecs.STANDARD).build();
         PoolingHttpClientConnectionManager cm = new PoolingHttpClientConnectionManager();
         cm.setMaxTotal(10);

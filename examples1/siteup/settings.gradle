@@ -1,5 +1,5 @@
 rootProject.name = 'siteup'
-include ':stp-domain'
-project(':stp-domain').projectDir = new File(settingsDir, '../stp-domain')
+include ':stp-model'
+project(':stp-model').projectDir = new File(settingsDir, '../stp-model')
 include ':db-service'
 project(':db-service').projectDir = new File(settingsDir, '../db-service')

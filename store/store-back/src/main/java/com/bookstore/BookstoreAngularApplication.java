@@ -3,6 +3,7 @@ package com.bookstore;
 import java.util.HashSet;
 import java.util.Set;
 
+import com.bookstore.repository.RoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -15,17 +16,29 @@ import com.bookstore.domain.security.UserRole;
 import com.bookstore.service.UserService;
 
 @SpringBootApplication
-public class BookstoreAngularApplication implements CommandLineRunner {
+public class BookstoreAngularApplication /*implements CommandLineRunner*/ {
 	
 	@Autowired
 	private UserService userService;
+
+	@Autowired
+	private RoleRepository roleRepository;
 
 	public static void main(String[] args) {
 		SpringApplication.run(BookstoreAngularApplication.class, args);
 	}
 	
-	@Override
+	//@Override
 	public void run(String... args) throws Exception {
+		Role role1 = new Role();
+		role1.setRoleId(1);
+		role1.setName("ROLE_USER");
+		roleRepository.save(role1);
+		Role role2 = new Role();
+		role2.setRoleId(0);
+		role2.setName("ROLE_ADMIN");
+		roleRepository.save(role2);
+
 		User user1 = new User();
 		user1.setFirstName("John");
 		user1.setLastName("Adams");
@@ -33,9 +46,7 @@ public class BookstoreAngularApplication implements CommandLineRunner {
 		user1.setPassword(SecurityUtility.passwordEncoder().encode("p"));
 		user1.setEmail("JAdams@gmail.com");
 		Set<UserRole> userRoles = new HashSet<>();
-		Role role1 = new Role();
-		role1.setRoleId(1);
-		role1.setName("ROLE_USER");
+
 		userRoles.add(new UserRole(user1, role1));
 		
 		userService.createUser(user1, userRoles);
@@ -48,9 +59,6 @@ public class BookstoreAngularApplication implements CommandLineRunner {
 		user2.setUsername("admin");
 		user2.setPassword(SecurityUtility.passwordEncoder().encode("p"));
 		user2.setEmail("Admin@gmail.com");
-		Role role2 = new Role();
-		role2.setRoleId(0);
-		role2.setName("ROLE_ADMIN");
 		userRoles.add(new UserRole(user2, role2));
 		
 		userService.createUser(user2, userRoles);

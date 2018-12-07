@@ -23,6 +23,7 @@ public class DataSourceTest implements DataSource {
         config.addDataSourceProperty( "prepStmtCacheSize" , "250" );
         config.addDataSourceProperty( "prepStmtCacheSqlLimit" , "2048" );
         ds = new HikariDataSource( config );
+        System.out.println("config = " + config);
     }
 
     @Override

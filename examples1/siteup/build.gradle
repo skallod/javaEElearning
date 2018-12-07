@@ -11,7 +11,7 @@ repositories {
     mavenCentral()
 }
 dependencies {
-    compile project(':stp-domain')
+    compile project(':stp-model')
     compile project(':db-service')
     compile group: 'org.slf4j', name: 'slf4j-api', version:'1.7.13'
     compile group: 'org.slf4j', name: 'slf4j-log4j12', version:'1.7.13'
@@ -66,6 +66,10 @@ task copy(type: Copy, group: "Custom", description: "Copies sources to the dest 
     into("build/libs")
     include("siteup-1.war")
     rename("siteup-1.war","ROOT.war")
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '4.7'
 }
 
 copy.dependsOn build

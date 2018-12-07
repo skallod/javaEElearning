@@ -25,6 +25,7 @@ import org.slf4j.LoggerFactory;
 import ru.galuzin.db_service.DataSourceTest;
 import ru.galuzin.db_service.DbServiceImpl;
 import ru.rearitem.filters.AuthFilter;
+import ru.rearitem.filters.EtagFilter;
 import ru.rearitem.httpclient.HttpClientAdapter;
 import ru.rearitem.servlets.AdminLkServlet;
 import ru.rearitem.servlets.AsyncServletTest;
@@ -56,9 +57,11 @@ public class ServerTest {
             .addFilters(
                     new FilterInfo("userFilter", AuthFilter.class).addInitParam("role","USER"),
                     new FilterInfo("adminFilter", AuthFilter.class).addInitParam("role","ADMIN")
+//                    new FilterInfo("etagFilter", EtagFilter.class)
             )
             .addFilterUrlMapping("userFilter","/api/user/*", DispatcherType.REQUEST)
             .addFilterUrlMapping("adminFilter","/api/admin/*", DispatcherType.REQUEST)
+            //.addFilterUrlMapping("etagFilter","/api/logout", DispatcherType.REQUEST)
             .addServlets(
                 new ServletInfo("login", LoginServlet.class).addMapping("/api/login"),
                 new ServletInfo("logout", LogoutServlet.class).addMapping("/api/logout"),
@@ -84,22 +87,24 @@ public class ServerTest {
     public static void main(String[] args) throws Exception {
         try {
             beforeClass();
-            new Thread(()->{
+            new Thread(() -> {
                 try {
                     ServerSocket serverSocket = new ServerSocket(58089);
                     Socket accept = serverSocket.accept();
                     log.info("accepted");
                     accept.close();
                     serverSocket.close();
-                    stop=true;
+                    stop = true;
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
             }).start();
-            do{
+            do {
                 Thread.sleep(1000);
-            }while (!stop);
+            } while (!stop);
             log.info("main stop");
+        }catch (Exception e){
+            e.printStackTrace();
         }finally {
             afterClass();
         }
