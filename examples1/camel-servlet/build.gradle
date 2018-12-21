@@ -1,0 +1,35 @@
+plugins {
+    id 'java'
+}
+group = 'ru.galuzin.camel_servlet'
+version = '1'
+description = "camel_servlet"
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+repositories {
+    mavenCentral()
+}
+dependencies{
+    compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.25'
+    compile group: 'ch.qos.logback', name: 'logback-core', version: '1.2.3'
+    compile group: 'ch.qos.logback', name: 'logback-classic', version: '1.2.3'
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.9.6'
+    compile group: 'io.undertow', name: 'undertow-core', version: '2.0.13.Final'
+    compile group: 'io.undertow', name: 'undertow-servlet', version: '2.0.13.Final'
+    compile group: 'org.apache.camel', name: 'camel-core', version: '2.23.0'
+    compile group: 'org.apache.camel', name: 'camel-servletlistener', version: '2.23.0'
+    compile group: 'org.apache.camel', name: 'camel-servlet', version: '2.23.0'
+    compile group: 'org.apache.camel', name: 'camel-jetty', version: '2.23.0'
+    compile group: 'org.apache.camel', name: 'camel-netty4-http', version: '2.23.0'
+    compile group: 'org.apache.camel', name: 'camel-jms', version: '2.23.0'
+    compile group: 'org.apache.activemq', name: 'artemis-server', version: '2.6.3'
+    compile group: 'org.apache.activemq', name: 'artemis-jms-server', version: '2.6.3'
+    compile group: 'org.apache.activemq', name: 'artemis-jms-client', version: '2.6.3'
+    compile group: 'io.hawt', name: 'hawtio-embedded', version: '2.3.0'
+    compile group: 'io.hawt', name: 'hawtio-core', version: '2.3.0'
+    
+
+//    compileOnly group: 'javax.servlet', name: 'javax.servlet-api', version: '3.0.1'
+    compileOnly 'org.projectlombok:lombok:1.18.0'
+    annotationProcessor "org.projectlombok:lombok:1.18.0"
+}
