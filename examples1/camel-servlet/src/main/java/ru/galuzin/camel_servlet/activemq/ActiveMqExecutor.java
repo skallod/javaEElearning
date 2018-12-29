@@ -36,6 +36,9 @@ public class ActiveMqExecutor {
                 .setPersistenceEnabled(true)
                 //.setPersistDeliveryCountBeforeDelivery(true)
                 .setJournalDirectory("activemq/persist/journal")
+                .setPagingDirectory("activemq/paging")
+                .setBindingsDirectory("activemq/binding")
+                .setLargeMessagesDirectory("activemq/largemessage")
                 .setSecurityEnabled(false)
                 .addAcceptorConfiguration("invm", "vm://0"));
         server.start();

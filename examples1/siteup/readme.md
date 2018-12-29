@@ -16,6 +16,6 @@
         ./gradlew deploy  
   
 # Tests  
-    ./test/java/ru/rearitem AuthTest  
+    ./test/java/ru/rearitem/AuthTest
     ./../db-service/ru/galuzin/db_service/DbServiceTest  
   

@@ -25,7 +25,6 @@ import org.slf4j.LoggerFactory;
 import ru.galuzin.db_service.DataSourceTest;
 import ru.galuzin.db_service.DbServiceImpl;
 import ru.rearitem.filters.AuthFilter;
-import ru.rearitem.filters.EtagFilter;
 import ru.rearitem.httpclient.HttpClientAdapter;
 import ru.rearitem.servlets.AdminLkServlet;
 import ru.rearitem.servlets.AsyncServletTest;
