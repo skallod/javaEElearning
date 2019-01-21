@@ -32,14 +32,11 @@ public class CamelExecutor {
     public void start(ConnectionFactory cf/*, InitialContext context*/) throws Exception{
         CamelContext camelContext = new DefaultCamelContext();
         //((DefaultCamelContext) camelContext).setJndiContext(context);
-        camelContext.addComponent("activemq",
-                JmsComponent.jmsComponentClientAcknowledge(cf));
+        JmsComponent jmsComponent = JmsComponent.jmsComponentClientAcknowledge(cf);
+        //jmsComponent.setAsyncConsumer(true);
+        camelContext.addComponent("activemq", jmsComponent);
                 //ActiveMQComponent.("tcp://localhost:8161"));
         final InputGenerator inputGenerator = new InputGenerator();
-        JmsConsumer jmsConsumer = new JmsConsumer();
-
-
-
 //        camelContext.addRoutes(new RouteBuilder() {
 //           @Override
 //           public void configure() throws Exception {

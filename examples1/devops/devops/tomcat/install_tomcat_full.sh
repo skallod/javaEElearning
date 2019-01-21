@@ -1,6 +1,10 @@
 sudo apt-get update
 sudo apt-get install default-jdk
 sudo apt-get install unzip
+#First, create a new tomcat group:
+sudo groupadd tomcat
+#Next, create a new tomcat user. We'll make this user a member of the tomcat group, with a home directory of /opt/tomcat (where we will install Tomcat), and with a shell of /bin/false (so nobody can log into the account):
+sudo useradd -s /bin/false -g tomcat -d /opt/tomcat tomcat
 cd /tmp
 #TODO is version of tomcat actual ?
 curl -O http://apache.mirrors.ionfish.org/tomcat/tomcat-8/v8.5.31/bin/apache-tomcat-8.5.31.tar.gz
@@ -23,6 +27,7 @@ Description=Apache Tomcat Web Application Container
 After=network.target
 
 [Service]
+#if daemon itself =forking, if only ctrl+c stop =simple
 Type=forking
 '>/etc/systemd/system/tomcat.service
 
@@ -41,6 +46,7 @@ ExecStart=/opt/tomcat/bin/startup.sh
 ExecStop=/opt/tomcat/bin/shutdown.sh
 User=tomcat
 Group=tomcat
+If you want to make files not be read/write/execute by anyone but the owner, you should use a umask like 077 to turn off those permissions for the group & others.
 UMask=0007
 RestartSec=15
 Restart=always

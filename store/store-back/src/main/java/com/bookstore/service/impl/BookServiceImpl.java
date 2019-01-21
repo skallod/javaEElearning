@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Service;
 
 import com.bookstore.domain.Book;
@@ -31,7 +32,7 @@ public class BookServiceImpl implements BookService{
 	}
 	
 	public Book findOne(Long id) {
-		return bookRepository.findOne(id);
+		return bookRepository.findById(id).get();
 	}
 	
 	public Book save(Book book) {
@@ -51,8 +52,8 @@ public class BookServiceImpl implements BookService{
 		
 		return activeBookList;
 	}
-	
+	@Secured({"ROLE_ADMIN"})
 	public void removeOne(Long id) {
-		bookRepository.delete(id);
+		bookRepository.deleteById(id);
 	}
 }

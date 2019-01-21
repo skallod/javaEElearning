@@ -9,23 +9,30 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.session.web.http.HeaderHttpSessionStrategy;
-import org.springframework.session.web.http.HttpSessionStrategy;
 
 import com.bookstore.service.UserSecurityService;
+import org.springframework.security.crypto.password.NoOpPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+
+import java.security.SecureRandom;
 
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
+
+	private static final String SALT = "salt";
 	
 	@Autowired
 	private Environment env;
 	
 	@Autowired
 	private UserSecurityService userSecurityService;
-	
-	private BCryptPasswordEncoder passwordEncoder() {
-		return SecurityUtility.passwordEncoder();
+
+	@Bean
+	public PasswordEncoder passwordEncoder() {
+		return NoOpPasswordEncoder.getInstance();
+		//return new BCryptPasswordEncoder(12, new SecureRandom(SALT.getBytes()));
+		//return SecurityUtility.passwordEncoder();
 	}
 
 	private static final String[] PUBLIC_MATCHERS = {
@@ -47,8 +54,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		auth.userDetailsService(userSecurityService).passwordEncoder(passwordEncoder());
 	}
 	
-	@Bean
-	public HttpSessionStrategy httpSessionStrategy() {
-		return new HeaderHttpSessionStrategy();
-	}
+//	@Bean
+//	public HttpSessionStrategy httpSessionStrategy() {
+//		return new HeaderHttpSessionStrategy();
+//	}
 }

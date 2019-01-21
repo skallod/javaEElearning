@@ -2,6 +2,7 @@ package com.bookstore.resource;
 
 import java.util.Collections;
 import java.util.Map;
+import java.util.Optional;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -31,7 +32,7 @@ public class LoginResource {
 		System.out.println(remoteHost+":"+portNumber);
 		System.out.println(request.getRemoteAddr());
 		
-		return Collections.singletonMap("token", session.getId());
+		return Collections.singletonMap("token", session!=null?session.getId():null);
 	}
 	
 	@RequestMapping("/checkSession")
@@ -40,8 +41,9 @@ public class LoginResource {
 	}
 	
 	@RequestMapping(value="/user/logout", method=RequestMethod.POST)
-	public ResponseEntity logout(){
+	public ResponseEntity logout(HttpSession session){
 		SecurityContextHolder.clearContext();
+		Optional.ofNullable(session).ifPresent(HttpSession::invalidate);
 		return new ResponseEntity("Logout Successfully!", HttpStatus.OK);
 	}
 }

@@ -9,6 +9,10 @@ import org.apache.activemq.artemis.core.remoting.impl.netty.NettyConnectorFactor
 import org.apache.activemq.artemis.core.server.ActiveMQServer;
 import org.apache.activemq.artemis.core.server.ActiveMQServers;
 import org.apache.activemq.artemis.core.server.Queue;
+import org.apache.activemq.artemis.core.server.impl.AddressInfo;
+import org.apache.activemq.artemis.core.settings.HierarchicalRepository;
+import org.apache.activemq.artemis.core.settings.impl.AddressSettings;
+import org.apache.activemq.artemis.jms.client.ActiveMQConnection;
 import org.apache.activemq.artemis.jms.client.ActiveMQQueue;
 import org.apache.activemq.artemis.jms.server.config.ConnectionFactoryConfiguration;
 import org.apache.activemq.artemis.jms.server.config.JMSConfiguration;
@@ -20,6 +24,7 @@ import org.apache.activemq.artemis.jms.server.embedded.EmbeddedJMS;
 
 import javax.jms.*;
 import javax.naming.InitialContext;
+import java.net.SocketTimeoutException;
 import java.util.Date;
 
 @Slf4j
@@ -40,7 +45,10 @@ public class ActiveMqExecutor {
                 .setBindingsDirectory("activemq/binding")
                 .setLargeMessagesDirectory("activemq/largemessage")
                 .setSecurityEnabled(false)
-                .addAcceptorConfiguration("invm", "vm://0"));
+                .addAcceptorConfiguration("invm", "vm://0"))
+                /*.addAddressInfo(new AddressInfo())*/;
+//        HierarchicalRepository<AddressSettings> addressSettingsRepository = server.getAddressSettingsRepository();
+//        addressSettingsRepository.
         server.start();
 
         //InitialContext initialContext = null;
@@ -48,7 +56,7 @@ public class ActiveMqExecutor {
         initialContext = new InitialContext();
 
         // Step 3. Look-up the JMS queue
-//        ActiveMQQueue queue = (ActiveMQQueue) initialContext.lookup("queue/exampleQueue");
+        ActiveMQQueue queue = (ActiveMQQueue) initialContext.lookup("queue/exampleQueue");
 
         // Step 4. Look-up the JMS connection factory
         ConnectionFactory cf = (ConnectionFactory) initialContext.lookup("ConnectionFactory");
@@ -91,13 +99,15 @@ public class ActiveMqExecutor {
                 ConnectionFactory cf = (ConnectionFactory) initialContext.lookup("ConnectionFactory");
                 ActiveMQQueue queue = (ActiveMQQueue) initialContext.lookup("queue/exampleQueue");
                 try (Connection connection = cf.createConnection()) {
+                    ActiveMQConnection consumerConnection = (ActiveMQConnection)connection;
+                    //consumerConnection.setR
                     connection.start();
 
                     Session session = connection.createSession(false, Session.CLIENT_ACKNOWLEDGE);
                     MessageConsumer messageConsumer = session.createConsumer(queue);
 
                     while (true) {
-                        log.info("ready to receive");
+                        log.debug("ready to receive");
                         TextMessage messageReceived = (TextMessage) messageConsumer.receive(1000);
                         if(messageReceived!=null) {
                             log.info("Received message:" + messageReceived.getText());
@@ -108,6 +118,48 @@ public class ActiveMqExecutor {
                     }
 
                 }
+            } catch (Exception e) {
+                log.error("consumer ", e);
+            }
+        }).start();
+    }
+
+    public void startConsumerNewApi() {
+        // Step 5. Send and receive a message using JMS API
+        new Thread(() -> {
+            try {
+                ConnectionFactory cf = (ConnectionFactory) initialContext.lookup("ConnectionFactory");
+                ActiveMQQueue queue = (ActiveMQQueue) initialContext.lookup("queue/exampleQueue");
+                /*try (*/JMSContext context = cf.createContext(Session.CLIENT_ACKNOWLEDGE);// {
+
+                    context.start();
+                    JMSConsumer messageConsumer = context.createConsumer(queue);
+
+                    //while (true) {
+//                        log.debug("ready to receive");
+                        messageConsumer.setMessageListener(new MessageListener() {
+                            @Override
+                            public void onMessage(Message message) {
+                                TextMessage messageReceived = (TextMessage) message;
+                                if (messageReceived != null) {
+                                    try {
+                                        log.info("Received message:" + messageReceived.getText());
+                                        if(true){
+                                            context.rollback();
+                                            throw new SocketTimeoutException("omit acknowledge");
+                                        }
+                                        Thread.sleep(1000);
+                                        messageReceived.acknowledge();
+                                        log.info("acknoowledged");
+                                    }catch (Exception e){
+                                        log.error("on message",e);
+                                    }
+                                }
+                            }
+                        });
+                    //}
+
+                //}
             } catch (Exception e) {
                 log.error("consumer ", e);
             }

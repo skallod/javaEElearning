@@ -17,26 +17,31 @@ public class AsyncServletTest extends HttpServlet{
     private static final Logger log = LoggerFactory.getLogger(AsyncServletTest.class);
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        AsyncContext ctx = req.startAsync(req, resp);
-        log.info("async start");
-        new Thread(()-> {
-            try {
-                Thread.sleep(2_000);//do any job
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            ctx.start(()->
-            {
-                try {
-                    try(PrintWriter pw = ctx.getResponse().getWriter()) {
-                        pw.write("async finish");
-                    }
-                } catch (Exception e) {
-                    log.error("ctx print fail", e);
-                } finally {
-                    ctx.complete();
-                }
-            });
-        }).start();
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+//        AsyncContext ctx = req.startAsync(req, resp);
+//        log.info("async start");
+//        new Thread(()-> {
+//            try {
+//                Thread.sleep(2_000);//do any job
+//            } catch (InterruptedException e) {
+//                e.printStackTrace();
+//            }
+//            ctx.start(()->
+//            {
+//                try {
+//                    try(PrintWriter pw = ctx.getResponse().getWriter()) {
+//                        pw.write("async finish");
+//                    }
+//                } catch (Exception e) {
+//                    log.error("ctx print fail", e);
+//                } finally {
+//                    ctx.complete();
+//                }
+//            });
+//        }).start();
     }
 }

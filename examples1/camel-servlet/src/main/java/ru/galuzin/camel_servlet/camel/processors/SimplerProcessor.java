@@ -10,7 +10,7 @@ public class SimplerProcessor implements Processor {
     @Override
     public void process(Exchange exchange) throws Exception {
         Message message = exchange.getMessage();
-        log.info("simple message = " + message);
+        log.info("simple message = " + message + " ; "+exchange.getProperty("TRACE_ID"));
         //throw new IllegalArgumentException("***");
     }
 }

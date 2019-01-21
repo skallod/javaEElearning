@@ -14,3 +14,6 @@ apt-get update #update package list
 #update-grub #reload bootlaoder
 ##echo "127.0.0.1 siteup.local" >>/etc/hosts
 #sudo ufw enable
+
+#more /etc/timezone
+#sudo dpkg-reconfigure tzdata

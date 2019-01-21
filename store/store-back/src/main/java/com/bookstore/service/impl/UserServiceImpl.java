@@ -10,8 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.bookstore.domain.User;
-import com.bookstore.domain.security.UserRole;
-import com.bookstore.repository.RoleRepository;
+//import com.bookstore.repository.RoleRepository;
 import com.bookstore.repository.UserRepository;
 import com.bookstore.service.UserService;
 
@@ -23,19 +22,19 @@ public class UserServiceImpl implements UserService{
 	@Autowired
 	private UserRepository userRepository;
 	
-	@Autowired
-	private RoleRepository roleRepository;
+//	@Autowired
+//	private RoleRepository roleRepository;
 	
 	@Transactional
-	public User createUser(User user, Set<UserRole> userRoles) {
-		User localUser = userRepository.findByUsername(user.getUsername());
+	public User createUser(User user/*, Set<UserRole> userRoles*/) {
+		User localUser = userRepository.findByEmail(user.getEmail());
 		if(localUser != null) {
-			LOG.info("User with username {} already exist. Nothing will be done. ", user.getUsername());
+			LOG.info("User with email {} already exist. Nothing will be done. ", user.getEmail());
 		} else {
 
-			roleRepository.findAll().forEach(role -> LOG.info("role name"+role));
+			//roleRepository.findAll().forEach(role -> LOG.info("role name"+role));
 			
-			user.getUserRoles().addAll(userRoles);
+			//user.getUserRoles().addAll(userRoles);
 			
 			localUser = userRepository.save(user);
 		}

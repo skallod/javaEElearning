@@ -2,21 +2,19 @@ package com.bookstore.domain;
 
 import java.io.Serializable;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Transient;
+import javax.persistence.*;
 
 import org.springframework.web.multipart.MultipartFile;
 
 @Entity
+@Table(name = "book", schema = "spring_store", catalog = "")
 public class Book implements Serializable{
-	private static final long serialVersionUID=425345L;
+
+	private static final long serialVersionUID=1L;
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.SEQUENCE,generator = "book_id_seq")
+	@SequenceGenerator(name="book_id_seq",sequenceName="book_id_seq")
 	private Long id;
 	
 	private String title;

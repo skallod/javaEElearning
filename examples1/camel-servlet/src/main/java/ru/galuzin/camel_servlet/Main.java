@@ -17,13 +17,14 @@ public class Main {
         try{
             ActiveMqExecutor activeMqExecutor = new ActiveMqExecutor();
             ConnectionFactory cf = activeMqExecutor.exec();
-//            activeMqExecutor.startProducer();
-//            activeMqExecutor.startConsumer();
+            //activeMqExecutor.startProducer();
+            //activeMqExecutor.startConsumer();
+//            activeMqExecutor.startConsumerNewApi();
             //InitialContext initialContext = activeMqExecutor.getInitialContext();
             CamelExecutor camelExecutor = new CamelExecutor();
             camelExecutor.start(cf/*,initialContext*/);
-            //HawtioExecutor hawtioExecutor = new HawtioExecutor();
-            //hawtioExecutor.exec();
+//            HawtioExecutor hawtioExecutor = new HawtioExecutor();
+//            hawtioExecutor.exec();
         }catch (Exception e){
             log.error("",e);
             throw e;

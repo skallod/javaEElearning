@@ -1,8 +1,10 @@
 package ru.galuzin.camel_servlet.camel.route;
 
 import org.apache.camel.Exchange;
+import org.apache.camel.Expression;
 import org.apache.camel.LoggingLevel;
 import org.apache.camel.builder.DefaultErrorHandlerBuilder;
+import org.apache.camel.builder.ExpressionClause;
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.http.common.HttpOperationFailedException;
 import ru.galuzin.camel_servlet.camel.processors.SimplerProcessor;
@@ -27,20 +29,23 @@ public class FirstRoute extends RouteBuilder {
                 .maximumRedeliveries(0)
                 .redeliveryDelay(10_000)
                 // .logRetryStackTrace(true)
+                .log("Redelivery ${property.TRACE_ID} ${exchangeId}")
                 .logStackTrace(true)
                 .retryAttemptedLogLevel(ERROR));
         onException(IOException.class).maximumRedeliveries(3);
         onException(HttpOperationFailedException.class).onWhen(//EXCEPTION_CAUGHT
                 //header(Exchange.HTTP_RESPONSE_CODE).isEqualTo(504))
-                exceptionMessage().contains("statusCode: 504"))//nginx reverse proxy timeout
+                exceptionMessage().contains("statusCode: 504"))//nginx reverse proxy gateway timeout
+                //exceptionMessage().contains("statusCode: 502"))//nginx reverse proxy bad gateway
                 .maximumRedeliveries(2);
         //ExecutorService executor = Executors.newFixedThreadPool(10);
 
         from("jetty://http://localhost:8889/greeting")
 //                from("jetty://http://localhost:8888/greeting")
-                .convertBodyTo(String.class)
-                .setProperty(TRACE_ID).constant(UUID.randomUUID().toString())
+                .process((exchange)->exchange.setProperty(TRACE_ID,UUID.randomUUID().toString()))
+                //.setProperty(TRACE_ID).simple(UUID.randomUUID().toString())
                 .log("Received a request ${property.TRACE_ID} ${exchangeId}; ${id}; ${body}")
+                .convertBodyTo(String.class)
 
                 //.process(simplerProcessor)
 //                         use wiretap to continue processing the message
@@ -56,11 +61,13 @@ public class FirstRoute extends RouteBuilder {
                 // convert the jetty stream to String so we can safely read it multiple times
                 .convertBodyTo(String.class)
                 .log(ERROR, "Incoming ${property.TRACE_ID} ${exchangeId}; ${id}; ${body}")
+                .process((exchange)->exchange.getIn().setHeader(TRACE_ID,exchange.getProperty(TRACE_ID)))
                 .to("activemq:queue:exampleQueue")
                 .log(ERROR, "aftere queue ${property.TRACE_ID} ${exchangeId}; ${id};");
         //.setBody(simple("Hello, world!"));
         SimplerProcessor simplerProcessor = new SimplerProcessor();
         from("activemq:queue:exampleQueue")
+                .process((exchange)->exchange.setProperty(TRACE_ID,exchange.getIn().getHeader(TRACE_ID)))
                 .log(ERROR, "message processing ${property.TRACE_ID} ${exchangeId}; ${id};${body}")
                 //.setHeader("from", constant("corteos"))
                 //.multicast().parallelProcessing().executorService(executor)
@@ -69,10 +76,10 @@ public class FirstRoute extends RouteBuilder {
                 //.to("direct:update");
                 //.process(simplerProcessor).onException(Exception.class).stop()//.rollback("***Rollback");
                 .log(ERROR, "send via http ${property.TRACE_ID} ${exchangeId}; ${id}; ${body}")
-                .removeHeaders("*")
-                .setHeader(Exchange.HTTP_METHOD, constant("GET")) //netty4-http
-                .to("jetty://http://localhost:55559/api/logout")
-                .log(ERROR, "http was sent");
+                .removeHeaders("*",TRACE_ID)
+                .setHeader(Exchange.HTTP_METHOD, constant("GET"))
+                .to("jetty://http://localhost:58088/api/async")
+                .log(ERROR, "http was sent ${property.TRACE_ID}");
         ;//.onException(NettyHttpOperationFailedException.class).maximumRedeliveries(2);
 //               from("direct:update")
 //                       .log(LoggingLevel.ERROR,"from direct ${body}")
