@@ -1,0 +1,17 @@
+[Unit]
+Description=Unifest enterprise bus
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/unifest/bus
+ExecStart=/opt/unifest/bus/bin/bus prod
+
+User=ebus
+Group=ebus
+UMask=0007
+RestartSec=10
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

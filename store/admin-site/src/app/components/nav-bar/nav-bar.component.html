@@ -1,0 +1,12 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span>Book store</span>
+      <span [hidden]="!loggedIn"><button mat-button>View Book List</button></span>
+      <span [hidden]="!loggedIn"><button mat-button>Add a book</button></span>
+      <span [hidden]="!loggedIn"><button mat-button>Logout</button></span>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+ <button mat-fab color="warn" (click)="toggleDisplay()">Toggle</button>
+
+<!--<md-toolbar class="mat-primary"></md-toolbar>-->
