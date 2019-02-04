@@ -2,7 +2,6 @@ package ru.rearitem;
 
 import javax.servlet.DispatcherType;
 import javax.servlet.SessionTrackingMode;
-import java.io.File;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -10,6 +9,8 @@ import java.util.HashSet;
 
 import io.undertow.Handlers;
 import io.undertow.Undertow;
+import io.undertow.server.HttpHandler;
+import io.undertow.server.HttpServerExchange;
 import io.undertow.server.handlers.PathHandler;
 import io.undertow.server.handlers.resource.FileResourceManager;
 import io.undertow.servlet.Servlets;
@@ -18,6 +19,7 @@ import io.undertow.servlet.api.DeploymentManager;
 import io.undertow.servlet.api.FilterInfo;
 import io.undertow.servlet.api.ServletInfo;
 import io.undertow.servlet.api.ServletSessionConfig;
+import io.undertow.util.Headers;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.slf4j.Logger;
@@ -56,11 +58,9 @@ public class ServerTest {
             .addFilters(
                     new FilterInfo("userFilter", AuthFilter.class).addInitParam("role","USER"),
                     new FilterInfo("adminFilter", AuthFilter.class).addInitParam("role","ADMIN")
-//                    new FilterInfo("etagFilter", EtagFilter.class)
             )
             .addFilterUrlMapping("userFilter","/api/user/*", DispatcherType.REQUEST)
             .addFilterUrlMapping("adminFilter","/api/admin/*", DispatcherType.REQUEST)
-            //.addFilterUrlMapping("etagFilter","/api/logout", DispatcherType.REQUEST)
             .addServlets(
                 new ServletInfo("login", LoginServlet.class).addMapping("/api/login"),
                 new ServletInfo("logout", LogoutServlet.class).addMapping("/api/logout"),
@@ -68,12 +68,19 @@ public class ServerTest {
                 new ServletInfo("userLK", UserLkServlet.class).addMapping("/api/user/lk"),
                 new ServletInfo("adminLK", AdminLkServlet.class).addMapping("/api/admin/lk"),
                 new ServletInfo("asyncTest", AsyncServletTest.class).addMapping("/api/async").setAsyncSupported(true)
-//                new ServletInfo("h2", org.h2.server.web.WebServlet.class).addMapping("/api/h2")
             );
         DeploymentManager manager = Servlets.defaultContainer().addDeployment(myApp);
         manager.deploy();
         PathHandler path = Handlers.path(Handlers.redirect(myApp.getContextPath()))
-                .addPrefixPath(myApp.getContextPath(), manager.start());
+                .addPrefixPath(myApp.getContextPath(), manager.start())
+                .addExactPath("/api2/hello", new HttpHandler() {
+            @Override
+            public void handleRequest(final HttpServerExchange exchange) throws Exception {
+                exchange.getResponseHeaders().put(Headers.CONTENT_TYPE, "text/plain");
+                log.info("hello handler");
+                exchange.getResponseSender().send("Hello World");
+            }
+        });
 
         server = Undertow.builder()
                 .addHttpListener(58088, "localhost")

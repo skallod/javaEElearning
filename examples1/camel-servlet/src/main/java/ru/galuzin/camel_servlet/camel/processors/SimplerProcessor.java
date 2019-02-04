@@ -11,6 +11,9 @@ public class SimplerProcessor implements Processor {
     public void process(Exchange exchange) throws Exception {
         Message message = exchange.getMessage();
         log.info("simple message = " + message + " ; "+exchange.getProperty("TRACE_ID"));
-        //throw new IllegalArgumentException("***");
+        exchange.getIn().setBody("{\"new\":\"body\"}");
+        //log.info(""+body);
+//      work good message acknowleged exchange.setProperty(Exchange.ROUTE_STOP, true);
+//        log.warn("Route stop"+ " ; "+exchange.getProperty("TRACE_ID"));
     }
 }

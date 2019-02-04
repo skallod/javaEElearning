@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.UUID;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,31 +18,28 @@ public class AsyncServletTest extends HttpServlet{
     private static final Logger log = LoggerFactory.getLogger(AsyncServletTest.class);
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-//        AsyncContext ctx = req.startAsync(req, resp);
-//        log.info("async start");
-//        new Thread(()-> {
-//            try {
-//                Thread.sleep(2_000);//do any job
-//            } catch (InterruptedException e) {
-//                e.printStackTrace();
-//            }
-//            ctx.start(()->
-//            {
-//                try {
-//                    try(PrintWriter pw = ctx.getResponse().getWriter()) {
-//                        pw.write("async finish");
-//                    }
-//                } catch (Exception e) {
-//                    log.error("ctx print fail", e);
-//                } finally {
-//                    ctx.complete();
-//                }
-//            });
-//        }).start();
+        String traceID = UUID.randomUUID().toString();
+        log.info("start request "+traceID);
+        AsyncContext ctx = req.startAsync(req, resp);
+        new Thread(()-> {
+            try {
+                Thread.sleep(10_000);//do any job
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            ctx.start(()->
+            {
+                try {
+                    try(PrintWriter pw = ctx.getResponse().getWriter()) {
+                        pw.write("async finish");
+                    }
+                    log.info("response "+traceID);
+                } catch (Exception e) {
+                    log.error("ctx print fail", e);
+                } finally {
+                    ctx.complete();
+                }
+            });
+        }).start();
     }
 }

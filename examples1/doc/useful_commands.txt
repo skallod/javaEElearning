@@ -36,5 +36,5 @@ cat /etc/passwd - посмотреть пользователей и их возможности
 
 ssh -p 20021 -i /c/SSH_keys/privateKey root@89.17.39.53
 
-
+journalctl -f -u ebus - просмотр логов службы
 

@@ -1,5 +1,6 @@
 package ru.galuzin.camel_servlet.camel.route;
 
+import org.apache.camel.Endpoint;
 import org.apache.camel.Exchange;
 import org.apache.camel.Expression;
 import org.apache.camel.LoggingLevel;
@@ -10,76 +11,120 @@ import org.apache.camel.http.common.HttpOperationFailedException;
 import ru.galuzin.camel_servlet.camel.processors.SimplerProcessor;
 
 import java.io.IOException;
+import java.io.InterruptedIOException;
+import java.net.SocketException;
 import java.util.UUID;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 import static org.apache.camel.LoggingLevel.ERROR;
+import static org.apache.camel.LoggingLevel.WARN;
 
 public class FirstRoute extends RouteBuilder {
 
     public static final String TRACE_ID = "TRACE_ID";
+    public static final String UNDELIVERED = "activemq:queue:undelivered";
+    public static final String EXAMPLE_QUEUE = "activemq:queue:exampleQueue";
+    public static final String MESSAGE_BODY = "MESSAGE_BODY";
+    public static final String QUEUE_DEAD_LETTER = "activemq:queue:deadLetter";
 
     @Override
     public void configure() throws Exception {
         //context scope
-        errorHandler(deadLetterChannel("activemq:queue:deadLetter")
+        errorHandler(deadLetterChannel(QUEUE_DEAD_LETTER)
                 //.useOriginalMessage()
                 //.asyncDelayedRedelivery() //have not understand yet
-                .maximumRedeliveries(0)
+                .maximumRedeliveries(5)
                 .redeliveryDelay(10_000)
+                //.logStackTrace(true)
+                .logExhaustedMessageBody(true)
+                .retryAttemptedLogLevel(ERROR)
+        );
                 // .logRetryStackTrace(true)
-                .log("Redelivery ${property.TRACE_ID} ${exchangeId}")
-                .logStackTrace(true)
-                .retryAttemptedLogLevel(ERROR));
-        onException(IOException.class).maximumRedeliveries(3);
-        onException(HttpOperationFailedException.class).onWhen(//EXCEPTION_CAUGHT
-                //header(Exchange.HTTP_RESPONSE_CODE).isEqualTo(504))
-                exceptionMessage().contains("statusCode: 504"))//nginx reverse proxy gateway timeout
-                //exceptionMessage().contains("statusCode: 502"))//nginx reverse proxy bad gateway
-                .maximumRedeliveries(2);
-        //ExecutorService executor = Executors.newFixedThreadPool(10);
+                //.log("Redelivery ${property.TRACE_ID} ${exchangeId}")
+                //.logStackTrace(true)
 
-        from("jetty://http://localhost:8889/greeting")
+        onException(SocketException.class, InterruptedIOException.class)
+                //.handled(true)//excepction не прокинется на producer..
+                //.continued(true)
+                .maximumRedeliveries(5)
+                .redeliveryDelay(10_000)
+                .handled(true)
+//                .process(exchange ->{
+//                    log.warn("test 1");//
+//                    exchange.removeProperty("CamelExceptionCaught");
+//                    exchange.setException(null);
+//                } )//todo remove headers
+                .process(exchange -> {
+                    log.warn("sending to undelivered "+exchange.getIn().getHeader(TRACE_ID));
+                    exchange.getIn().setBody(exchange.getProperty(MESSAGE_BODY));
+                    //exchange.getIn().setHeader(TRACE_ID,exchange.getProperty(TRACE_ID));
+                })
+                //
+                .removeHeaders("*",TRACE_ID)
+                .to(UNDELIVERED)
+        ;
+
+//                //.maximumRedeliveries(3);
+//        onException(HttpOperationFailedException.class).onWhen(//EXCEPTION_CAUGHT
+//                //header(Exchange.HTTP_RESPONSE_CODE).isEqualTo(504))
+//                exceptionMessage().contains("statusCode: 504"))//nginx reverse proxy gateway timeout
+//                //exceptionMessage().contains("statusCode: 502"))//nginx reverse proxy bad gateway
+//                .maximumRedeliveries(2);
+//        onException(HttpOperationFailedException.class).onWhen(
+//                exceptionMessage().contains("statusCode: 502"))//nginx reverse proxy gateway timeout
+//                .maximumRedeliveries(2);
+        from(/*jetty netty4-http*/"netty4-http://http://0.0.0.0:8889/greeting").routeId("http_incoming")
 //                from("jetty://http://localhost:8888/greeting")
-                .process((exchange)->exchange.setProperty(TRACE_ID,UUID.randomUUID().toString()))
-                //.setProperty(TRACE_ID).simple(UUID.randomUUID().toString())
-                .log("Received a request ${property.TRACE_ID} ${exchangeId}; ${id}; ${body}")
                 .convertBodyTo(String.class)
+                .process((exchange)->{
+                    exchange.getIn().setHeader(TRACE_ID,UUID.randomUUID().toString());
+                })
+                //.setProperty(TRACE_ID).simple(UUID.randomUUID().toString())
+                .log("Received a request ${in.header.TRACE_ID}")
+
 
                 //.process(simplerProcessor)
 //                         use wiretap to continue processing the message
 //                 in another thread and let this consumer continue
-                .wireTap("direct:incoming")
+                .removeHeaders("*",TRACE_ID)
+                .inOnly(EXAMPLE_QUEUE)
+                //.wireTap("direct:incoming")
                 // and return an early reply to the waiting caller
-                .log(ERROR, "http response OK ${property.TRACE_ID} ${exchangeId}; ${id};")
+                .log(ERROR, "http response OK ${in.header.TRACE_ID}")
                 .transform().constant("OK");
 
-        ExecutorService executor = Executors.newFixedThreadPool(10);
-        from("direct:incoming").routeId("process")
-//                    .multicast().parallelProcessing().executorService(executor)
-                // convert the jetty stream to String so we can safely read it multiple times
-                .convertBodyTo(String.class)
-                .log(ERROR, "Incoming ${property.TRACE_ID} ${exchangeId}; ${id}; ${body}")
-                .process((exchange)->exchange.getIn().setHeader(TRACE_ID,exchange.getProperty(TRACE_ID)))
-                .to("activemq:queue:exampleQueue")
-                .log(ERROR, "aftere queue ${property.TRACE_ID} ${exchangeId}; ${id};");
+        //ExecutorService executor = Executors.newFixedThreadPool(10);
+//        from("direct:incoming").routeId("process")
+////                    .multicast().parallelProcessing().executorService(executor)
+//                // convert the jetty stream to String so we can safely read it multiple times
+//                .convertBodyTo(String.class)
+//                .log(ERROR, "Incoming ${property.TRACE_ID} ${exchangeId}; ${id}; ${body}")
+//                //.process((exchange)->exchange.getIn().setHeader(TRACE_ID,exchange.getProperty(TRACE_ID)))
+//                .to(EXAMPLE_QUEUE)
+//                .log(ERROR, "aftere queue ${property.TRACE_ID} ${exchangeId}; ${id};");
         //.setBody(simple("Hello, world!"));
         SimplerProcessor simplerProcessor = new SimplerProcessor();
-        from("activemq:queue:exampleQueue")
-                .process((exchange)->exchange.setProperty(TRACE_ID,exchange.getIn().getHeader(TRACE_ID)))
-                .log(ERROR, "message processing ${property.TRACE_ID} ${exchangeId}; ${id};${body}")
+       // Endpoint endpoint = new Endpoint();
+
+        from(EXAMPLE_QUEUE).routeId("from_queue_to_server")//todo processed serial add consumer
+            .process((exchange)->exchange.setProperty(TRACE_ID,exchange.getIn().getHeader(TRACE_ID)))
+            .process(exchange->exchange.setProperty(MESSAGE_BODY,exchange.getIn().getBody()))
+                .log(ERROR, "message processing ${in.header.TRACE_ID} ${exchangeId}; ${id};${body}")
                 //.setHeader("from", constant("corteos"))
                 //.multicast().parallelProcessing().executorService(executor)
-                //.delay(10_000)
+                //.delay(5_000)
                 .process(simplerProcessor)//.rollback("***Rollback");
                 //.to("direct:update");
                 //.process(simplerProcessor).onException(Exception.class).stop()//.rollback("***Rollback");
-                .log(ERROR, "send via http ${property.TRACE_ID} ${exchangeId}; ${id}; ${body}")
+                .log(ERROR, "send via http ${in.header.TRACE_ID} ${exchangeId}; ${id}; ${body}")
                 .removeHeaders("*",TRACE_ID)
                 .setHeader(Exchange.HTTP_METHOD, constant("GET"))
-                .to("jetty://http://localhost:58088/api/async")
-                .log(ERROR, "http was sent ${property.TRACE_ID}");
+                //.doTry()/*58088*/
+//                .inOut("netty4-http://http://localhost:55559/api/async?disconnect=true&keepAlive=false")//?disconnect=true&keepAlive=false")//NettyHttpOperationFailedException/statusCode: 504
+                .to("netty4-http://http://localhost:58088/api/async")
+                .log(ERROR, "http was sent ${property.TRACE_ID} ${out.body}");//todo out.body test
+
         ;//.onException(NettyHttpOperationFailedException.class).maximumRedeliveries(2);
 //               from("direct:update")
 //                       .log(LoggingLevel.ERROR,"from direct ${body}")
@@ -88,11 +133,25 @@ public class FirstRoute extends RouteBuilder {
 //                       .removeHeaders("*")        //netty4-http
 //                       .to("jetty://http://localhost:55559/api/async")
 //               ;
-        from("activemq:queue:deadLetter")
+        from(QUEUE_DEAD_LETTER)
                 //.process(deadLetterProcessor)
-                .log(ERROR,"dead letter processing ${property.TRACE_ID} ${exchangeId}; ${id};")
+//                .log(ERROR,"dead letter processing ${property.TRACE_ID} ${exchangeId}; ${id};")
+//                .process((exchange)->{
+//                    exchange.getIn().setHeader(TRACE_ID,exchange.getProperty(TRACE_ID));
+//                })
                 .to("log:ru.galuzin.camel_servlet.camel?level=ERROR&showCaughtException=true&showStackTrace=true")//showAll,showCaughtException=true
-                .delay(1000);//.rollback("***Rollback");
+                .delay(1000);
+
+        from(UNDELIVERED).routeId("undelivered").autoStartup(true)
+                //.process((exchange)->exchange.setProperty(TRACE_ID,exchange.getIn().getHeader(TRACE_ID)))
+                .log(WARN,"undelivered process ${in.header.TRACE_ID}")
+//                .process((exchange)->{
+//                    exchange.getIn().setHeader(TRACE_ID,exchange.getProperty(TRACE_ID));
+//                })
+                //.delay(1_000)
+                //.to("log:ru.galuzin.camel_servlet.camel?level=WARN");
+                .removeHeaders("*",TRACE_ID)
+                .inOnly(EXAMPLE_QUEUE);//.rollback("***Rollback");
     }
 
 

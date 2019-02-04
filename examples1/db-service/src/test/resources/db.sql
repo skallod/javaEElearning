@@ -4,7 +4,7 @@ create table if not exists accounts(
     account_email varchar unique not null,
     account_pass bytea not null
     );
-create sequence account_id_seq;
+create sequence if not exists account_id_seq;
 --create table if not exists roles(
 --    role_id smallint not null primary key,
 --    role_name varchar(15) not null

@@ -9,9 +9,10 @@ public class HawtioExecutor {
 
     public void exec() throws Exception{
         System.setProperty("hawtio.authenticationEnabled", "false");
-        io.hawt.embedded.Main hawt = new io.hawt.embedded.Main();
-        hawt.setWar(new File(HawtioExecutor.class.getResource("/hawtio-default-2.3.0.war").toURI()).toString());
-        hawt.run();
+//        io.hawt.embedded.Main hawt = new io.hawt.embedded.Main();
+//        hawt.setWar(new File(HawtioExecutor.class.getResource("/hawtio-default-2.3.0.war").toURI()).toString());
+//        //hawt.setOpenUrl();
+//        hawt.run();
     }
 
 }

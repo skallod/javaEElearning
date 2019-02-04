@@ -7,6 +7,7 @@ import org.apache.camel.LoggingLevel;
 import org.apache.camel.builder.DefaultErrorHandlerBuilder;
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.component.jms.JmsComponent;
+import org.apache.camel.component.jms.ReplyToType;
 import org.apache.camel.component.netty4.http.NettyHttpOperationFailedException;
 import org.apache.camel.http.common.HttpOperationFailedException;
 import org.apache.camel.impl.DefaultCamelContext;
@@ -33,7 +34,7 @@ public class CamelExecutor {
         CamelContext camelContext = new DefaultCamelContext();
         //((DefaultCamelContext) camelContext).setJndiContext(context);
         JmsComponent jmsComponent = JmsComponent.jmsComponentClientAcknowledge(cf);
-        //jmsComponent.setAsyncConsumer(true);
+        //jmsComponent.setAsyncConsumer(true);//client acknnowledge work immediatly after consume
         camelContext.addComponent("activemq", jmsComponent);
                 //ActiveMQComponent.("tcp://localhost:8161"));
         final InputGenerator inputGenerator = new InputGenerator();
@@ -51,8 +52,6 @@ public class CamelExecutor {
         SimplerProcessor simplerProcessor = new SimplerProcessor();
         camelContext.addRoutes(new FirstRoute());
 
-        //todo onException test with two routes
-        //todo put message to the end of queue
         //todo error handler root scope
 
         camelContext.start();

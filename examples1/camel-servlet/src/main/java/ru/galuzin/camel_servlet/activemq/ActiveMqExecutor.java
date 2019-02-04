@@ -78,13 +78,38 @@ public class ActiveMqExecutor {
 
                     Session session = connection.createSession(false, Session.CLIENT_ACKNOWLEDGE);
                     MessageProducer producer = session.createProducer(queue);
-
-                    for(int i=0; i<1; i++){
+                    //for(int i=0; i<1; i++){
                         TextMessage message = session.createTextMessage("Hello sent at " + new Date());
                         log.info("Sending message: " + message.getText());
-                        producer.send(message);
+                        //priority >=0 >9
+                        producer.send(message,DeliveryMode.PERSISTENT,5,10_000L);
                         log.info("message was sent");
-                    }
+                    //}
+                }
+            } catch (Exception e) {
+                log.error("producer ", e);
+            }
+        }).start();
+    }
+
+    public void startProducerTransacted() {
+        // Step 5. Send and receive a message using JMS API
+        new Thread(() -> {
+            try {
+                ConnectionFactory cf = (ConnectionFactory) initialContext.lookup("ConnectionFactory");
+                ActiveMQQueue queue = (ActiveMQQueue) initialContext.lookup("queue/exampleQueue");
+                try (Connection connection = cf.createConnection()) {
+                    connection.start();
+
+                    Session session = connection.createSession(false,Session.SESSION_TRANSACTED );
+                    MessageProducer producer = session.createProducer(queue);
+                    //for(int i=0; i<1; i++){
+                        TextMessage message = session.createTextMessage("Hello sent at " + new Date());
+                        log.info("Sending message: " + message.getText());
+                        //priority >=0 >9
+                        producer.send(message,DeliveryMode.PERSISTENT,5,10_000L);
+                        log.info("message was sent");
+                    //}
                 }
             } catch (Exception e) {
                 log.error("producer ", e);
@@ -145,7 +170,7 @@ public class ActiveMqExecutor {
                                     try {
                                         log.info("Received message:" + messageReceived.getText());
                                         if(true){
-                                            context.rollback();
+                                            //context.rollback();
                                             throw new SocketTimeoutException("omit acknowledge");
                                         }
                                         Thread.sleep(1000);
@@ -153,6 +178,52 @@ public class ActiveMqExecutor {
                                         log.info("acknoowledged");
                                     }catch (Exception e){
                                         log.error("on message",e);
+                                        //messageReceived.
+                                        context.recover();
+                                    }
+                                }
+                            }
+                        });
+                    //}
+
+                //}
+            } catch (Exception e) {
+                log.error("consumer ", e);
+            }
+        }).start();
+    }
+
+    public void startConsumerTransacted() {
+        // Step 5. Send and receive a message using JMS API
+        new Thread(() -> {
+            try {
+                ConnectionFactory cf = (ConnectionFactory) initialContext.lookup("ConnectionFactory");
+                ActiveMQQueue queue = (ActiveMQQueue) initialContext.lookup("queue/exampleQueue");
+                /*try (*/JMSContext context = cf.createContext(Session.SESSION_TRANSACTED);// {
+
+                    context.start();
+                    JMSConsumer messageConsumer = context.createConsumer(queue);
+
+                    //while (true) {
+//                        log.debug("ready to receive");
+                        messageConsumer.setMessageListener(new MessageListener() {
+                            @Override
+                            public void onMessage(Message message) {
+                                TextMessage messageReceived = (TextMessage) message;
+                                if (messageReceived != null) {
+                                    try {
+                                        log.info("Received message:" + messageReceived.getText());
+                                        if(true){
+                                            //context.rollback();
+                                            throw new SocketTimeoutException("omit acknowledge");
+                                        }
+                                        Thread.sleep(1000);
+                                        context.commit();
+                                        log.info("commit");
+                                    }catch (Exception e){
+                                        log.error("on message",e);
+                                        //messageReceived.
+                                        context.rollback();
                                     }
                                 }
                             }
