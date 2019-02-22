@@ -1,3 +1,4 @@
+<!--
 <mat-toolbar color="primary">
   <mat-toolbar-row>
     <span>Book store</span>
@@ -8,5 +9,34 @@
 </mat-toolbar>
 
  <button mat-fab color="warn" (click)="toggleDisplay()">Toggle</button>
+-->
+<div class="container">
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item" [hidden]="loggedIn"><a class="nav-link" routerLink="/login">Войти</a></li>
+                <li class="nav-item" [hidden]="!loggedIn"><a class="nav-link" routerLink="/newbook">Добавить книгу</a></li>
+                <li class="nav-item" [hidden]="!loggedIn"><a class="nav-link" href="#">Контакты</a></li>
+                <li class="nav-item" [hidden]="!loggedIn"><a class="nav-link" (click)="logout()">Выйти</a></li>
+                <!--
+                <span>Book store</span>
+                <span [hidden]="!loggedIn"><button>View Book List</button></span>
+                <span [hidden]="!loggedIn"><button>Add a book</button></span>
+                <span [hidden]="!loggedIn"><button>Logout</button></span>
+    -->
+            </ul>
+        </div>
+    </nav>
+</div>
+<!--
+<div class="container">
+    <button color="blue" (click)="toggleDisplay()">Toggle</button>
+</div>
+-->
+
+<!-- <app-login></app-login>-->
 
 <!--<md-toolbar class="mat-primary"></md-toolbar>-->

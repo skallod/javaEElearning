@@ -1,5 +1,7 @@
 package ru.galuzin.concurrent_test;
 
+import ru.galuzin.generics.ValueHolder;
+
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
@@ -9,41 +11,50 @@ import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
 /**
- * grow immediatly,
+ * grow immediatly, but not more than maximumPoolSize
  * @param <T>
  */
 public class ExecutorExt<T> {
+
     BlockingQueue<Callable<T>> queue = new LinkedBlockingQueue<>(10);
-    boolean rejected = false;
-    ExecutorService es = new ThreadPoolExecutor(1, 3, 10, TimeUnit.MINUTES
-            , new SynchronousQueue<Runnable>(), (Runnable r, ThreadPoolExecutor executor)->rejected = true);
+
     Thread processingThread;
-    volatile boolean finish = false;
 
     ExecutorExt(){
         processingThread = new Thread(() ->
         {
+            boolean interrupted = false;
+            ValueHolder<Boolean> rejectedVh = new ValueHolder<>(false);
+            ExecutorService es = new ThreadPoolExecutor(1, 3, 10, TimeUnit.MINUTES
+                    , new SynchronousQueue<Runnable>(), (Runnable r, ThreadPoolExecutor executor)->rejectedVh.setValue(true));
             Callable<T> r = null;
-            do {
-                try {
+            try {
+                do {
                     //System.out.println("before take");
-                    r = queue.take();
-                    //System.out.println("after take");
-                    es.submit(r);
-                    //System.out.println("after submit");
-                    while (rejected && !finish){
-                        TimeUnit.MILLISECONDS.sleep(100);
-                        rejected = false;
+                    try {
+                        r = queue.take();
+                        //System.out.println("after take");
                         es.submit(r);
-                        //System.out.println("another try");
+                        //System.out.println("after submit");
+                        while (rejectedVh.getValue() && !Thread.currentThread().isInterrupted()) {
+                            TimeUnit.MILLISECONDS.sleep(50);
+                            rejectedVh.setValue(false);
+                            es.submit(r);
+                            //System.out.println("another try");
+                        }
+                    } catch (InterruptedException e) {
+                        System.out.println("WARN processing queue interrupted");
+                        interrupted = true;
                     }
-                } catch (InterruptedException e) {
-                    System.out.println("WARN processing queue interrupted");
+                } while (!(interrupted||Thread.currentThread().isInterrupted()));
+            }finally {
+                if(interrupted){
+                    Thread.currentThread().interrupt();
                 }
-            } while (!finish);
+            }
             System.out.println("shutdown");
             es.shutdownNow();
-            if(rejected) {
+            if(rejectedVh.getValue()) {
                 System.out.println("warn lost rejected "+r.toString());
             }
             queue.forEach(qe -> System.out.println("warn lost queue element "+qe.toString()));
@@ -53,7 +64,7 @@ public class ExecutorExt<T> {
         processingThread.start();
     }
 
-    void receive(Callable<T> r){
+    void submit(Callable<T> r){
         try {
             queue.put(r);
         } catch (InterruptedException e) {
@@ -62,7 +73,6 @@ public class ExecutorExt<T> {
     }
 
     void shutdown(){
-        finish=true;
         processingThread.interrupt();
     }
 
@@ -71,12 +81,12 @@ public class ExecutorExt<T> {
         ExecutorExt<Double> ext = new ExecutorExt<>();
         for(int i =0 ;i <12; i++){
             final int idx = i;
-            ext.receive(()->{
+            ext.submit(()->{
                 double v = ThreadInterrupt.longOper();
                 System.out.println("handled = " + idx);
                 return v;
             });
-            System.out.println("received i = " + i);
+            System.out.println("submited i = " + i);
         }
         try {
             TimeUnit.SECONDS.sleep(1);

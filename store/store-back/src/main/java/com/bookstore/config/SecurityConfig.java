@@ -9,6 +9,8 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.session.web.http.HeaderHttpSessionStrategy;
+import org.springframework.session.web.http.HttpSessionStrategy;
 
 import com.bookstore.service.UserSecurityService;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
@@ -54,8 +56,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		auth.userDetailsService(userSecurityService).passwordEncoder(passwordEncoder());
 	}
 	
-//	@Bean
-//	public HttpSessionStrategy httpSessionStrategy() {
-//		return new HeaderHttpSessionStrategy();
-//	}
+	@Bean
+	public HttpSessionStrategy httpSessionStrategy() {
+		return new HeaderHttpSessionStrategy();
+	}
 }

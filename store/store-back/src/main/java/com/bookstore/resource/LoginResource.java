@@ -24,7 +24,7 @@ public class LoginResource {
 	
 	@RequestMapping("/token")
 	public Map<String, String> token(HttpSession session, HttpServletRequest request) {
-		System.out.println(request.getRemoteHost());
+		//System.out.println(request.getRemoteHost());
 		
 		String remoteHost = request.getRemoteHost();
 		int portNumber = request.getRemotePort();
@@ -43,7 +43,7 @@ public class LoginResource {
 	@RequestMapping(value="/user/logout", method=RequestMethod.POST)
 	public ResponseEntity logout(HttpSession session){
 		SecurityContextHolder.clearContext();
-		Optional.ofNullable(session).ifPresent(HttpSession::invalidate);
+		//Optional.ofNullable(session).ifPresent(HttpSession::invalidate);
 		return new ResponseEntity("Logout Successfully!", HttpStatus.OK);
 	}
 }

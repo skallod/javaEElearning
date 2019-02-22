@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -25,6 +26,9 @@ import com.bookstore.service.BookService;
 @RestController
 @RequestMapping("/book")
 public class BookResource {
+
+	@Value("${book.image.path}")
+	private String bookImagePath;
 	
 	@Autowired
 	private BookService bookService;
@@ -45,10 +49,10 @@ public class BookResource {
 			Iterator<String> it = multipartRequest.getFileNames();
 			MultipartFile multipartFile = multipartRequest.getFile(it.next());
 			String fileName = id+".png";
-			
-			
+
 			byte[] bytes = multipartFile.getBytes();
-			BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(new File("src/main/resources/static/image/book/"+fileName)));
+			BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream
+					(new File(bookImagePath+fileName)));
 			stream.write(bytes);
 			stream.close();
 			

@@ -19,10 +19,17 @@ public class TimerTest {
         TimerTask timerTask = new TimerTask() {
             @Override
             public void run() {
-                System.out.println("task 1 start");
+                System.out.println(Thread.currentThread().getId()+" task 1 start");
+            }
+        };
+        TimerTask timerTask2 = new TimerTask() {
+            @Override
+            public void run() {
+                System.out.println(Thread.currentThread().getId()+" task 2 start");
             }
         };
         Timer timer = new Timer(false);
         timer.schedule(timerTask,2000,2000);
+        timer.schedule(timerTask2,1000,1000);
     }
 }
