@@ -1,0 +1,47 @@
+<div class="container">
+    <div [hidden]="bookAdded">
+        <h3 style="margin-top: 50px;">New book Information<span style="font-size:small"> * is required field</span></h3>
+        <form (ngSubmit)="onSubmit()">
+            <div class="row">
+                <div class="col-md-6 order-md-2 mb-4">
+                    <div class="mb-3">
+                        <input type="text" class="form-control" id="title" [(ngModel)]="newBook.author" placeholder="" name="author" placeholder="author *" required>
+                        <div class="invalid-feedback">
+                            Please enter a valid author
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 order-md-1 mb-3">
+
+                    <div class="mb-3">
+                        <!--                    <label for="title">Title</label>-->
+                        <input type="text" class="form-control" id="title" [(ngModel)]="newBook.title" placeholder="" name="title" placeholder="title *" required>
+                        <div class="invalid-feedback">
+                            Please enter a valid title
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="publisher">publisher</label>
+                        <input type="text" class="form-control" id="title" [(ngModel)]="newBook.publisher" placeholder="" name="publisher" required>
+                        <div class="invalid-feedback">
+                            Please enter a valid publisher
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" (change)="uploadImageService.fileChangeEvent($event)" id="bookImage" name="bookImage">
+                            <label class="custom-file-label" for="bookImage" aria-describedby="inputGroupFileAddon02">Choose file</label>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <button type="submit" class="btn btn-primary">Add book</button>
+                        <button style="margin-left: 50px;" routerLink="/" class="btn btn-primary">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div [hidden]="!bookAdded">
+        <h3>Book added successfully</h3>
+    </div>
+</div>

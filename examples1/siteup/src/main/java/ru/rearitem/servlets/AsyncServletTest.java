@@ -17,13 +17,13 @@ import org.slf4j.LoggerFactory;
 public class AsyncServletTest extends HttpServlet{
     private static final Logger log = LoggerFactory.getLogger(AsyncServletTest.class);
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String traceID = UUID.randomUUID().toString();
-        log.info("start request "+traceID);
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String s = req.getReader().readLine();
+        log.info("start request "+s);
         AsyncContext ctx = req.startAsync(req, resp);
         new Thread(()-> {
             try {
-                Thread.sleep(30_000);//do any job
+                Thread.sleep(10_000);//do any job
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -31,9 +31,9 @@ public class AsyncServletTest extends HttpServlet{
             {
                 try {
                     try(PrintWriter pw = ctx.getResponse().getWriter()) {
-                        pw.write("async finish");
+                        pw.write("async finish "+s);
                     }
-                    log.info("response "+traceID);
+                    log.info("response "+s);
                 } catch (Exception e) {
                     log.error("ctx print fail", e);
                 } finally {

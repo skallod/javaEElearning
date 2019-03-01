@@ -7,12 +7,15 @@ import org.apache.camel.LoggingLevel;
 import org.apache.camel.builder.DefaultErrorHandlerBuilder;
 import org.apache.camel.builder.ExpressionClause;
 import org.apache.camel.builder.RouteBuilder;
+import org.apache.camel.component.netty4.http.NettyHttpOperationFailedException;
 import org.apache.camel.http.common.HttpOperationFailedException;
+import org.apache.camel.model.OnExceptionDefinition;
 import ru.galuzin.camel_servlet.camel.processors.SimplerProcessor;
 
 import java.io.IOException;
 import java.io.InterruptedIOException;
 import java.net.SocketException;
+import java.net.SocketTimeoutException;
 import java.util.UUID;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -34,7 +37,7 @@ public class FirstRoute extends RouteBuilder {
         errorHandler(deadLetterChannel(QUEUE_DEAD_LETTER)
                 //.useOriginalMessage()
                 //.asyncDelayedRedelivery() //have not understand yet
-                .maximumRedeliveries(5)
+                .maximumRedeliveries(0)
                 .redeliveryDelay(10_000)
                 //.logStackTrace(true)
                 .logExhaustedMessageBody(true)
@@ -44,26 +47,10 @@ public class FirstRoute extends RouteBuilder {
                 //.log("Redelivery ${property.TRACE_ID} ${exchangeId}")
                 //.logStackTrace(true)
 
-        onException(SocketException.class, InterruptedIOException.class)
-                //.handled(true)//excepction не прокинется на producer..
-                //.continued(true)
-                .maximumRedeliveries(5)
-                .redeliveryDelay(10_000)
-                .handled(true)
-//                .process(exchange ->{
-//                    log.warn("test 1");//
-//                    exchange.removeProperty("CamelExceptionCaught");
-//                    exchange.setException(null);
-//                } )//todo remove headers
-                .process(exchange -> {
-                    log.warn("sending to undelivered "+exchange.getIn().getHeader(TRACE_ID));
-                    exchange.getIn().setBody(exchange.getProperty(MESSAGE_BODY));
-                    //exchange.getIn().setHeader(TRACE_ID,exchange.getProperty(TRACE_ID));
-                })
-                //
-                .removeHeaders("*",TRACE_ID)
-                .to(UNDELIVERED)
-        ;
+        commonErrorHandler(onException(SocketException.class, SocketTimeoutException.class));
+        commonErrorHandler(onException(IOException.class).onWhen(
+                exceptionMessage().contains("хост принудительно разорвал существующее подключение")));
+
 
 //                //.maximumRedeliveries(3);
 //        onException(HttpOperationFailedException.class).onWhen(//EXCEPTION_CAUGHT
@@ -119,11 +106,11 @@ public class FirstRoute extends RouteBuilder {
                 //.process(simplerProcessor).onException(Exception.class).stop()//.rollback("***Rollback");
                 .log(ERROR, "send via http ${in.header.TRACE_ID} ${exchangeId}; ${id}; ${body}")
                 .removeHeaders("*",TRACE_ID)
-                .setHeader(Exchange.HTTP_METHOD, constant("GET"))
+                .setHeader(Exchange.HTTP_METHOD, constant("POST"))
                 //.doTry()/*58088*/
 //                .inOut("netty4-http://http://localhost:55559/api/async?disconnect=true&keepAlive=false")//?disconnect=true&keepAlive=false")//NettyHttpOperationFailedException/statusCode: 504
-                .to("netty4-http://http://localhost:58088/api/async")
-                .log(ERROR, "http was sent ${property.TRACE_ID} ${out.body}");//todo out.body test
+                .inOut("netty4-http://http://localhost:58088/api/async")
+                .log(ERROR, "http was sent ${property.TRACE_ID} ${in.body}");
 
         ;//.onException(NettyHttpOperationFailedException.class).maximumRedeliveries(2);
 //               from("direct:update")
@@ -152,6 +139,26 @@ public class FirstRoute extends RouteBuilder {
                 //.to("log:ru.galuzin.camel_servlet.camel?level=WARN");
                 .removeHeaders("*",TRACE_ID)
                 .inOnly(EXAMPLE_QUEUE);//.rollback("***Rollback");
+    }
+
+    void commonErrorHandler(OnExceptionDefinition def){
+        //.handled(true)//excepction не прокинется на producer..
+        //.continued(true)
+                def.maximumRedeliveries(150)
+                .redeliveryDelay(10_000)
+                //.handled(true).process(exchange ->{
+//                    exchange.removeProperty("CamelExceptionCaught");
+//                    exchange.setException(null);
+                //} )
+                .process(exchange -> {
+                    log.warn("sending to undelivered "+exchange.getIn().getHeader(TRACE_ID));
+                    exchange.getIn().setBody(exchange.getProperty(MESSAGE_BODY));
+                    //exchange.getIn().setHeader(TRACE_ID,exchange.getProperty(TRACE_ID));
+                })
+                //
+                .removeHeaders("*",TRACE_ID)
+                .to(UNDELIVERED)
+        ;
     }
 
 

@@ -13,6 +13,7 @@ import { LoginComponent } from './components/login/login.component';
 import {LoginService} from './services/login.service';
 import { AddNewBookComponent } from './components/add-new-book/add-new-book.component';
 import { AddBookService } from './services/add-book.service';
+import { UploadImageService } from './services/upload-image.service';
 //import {MatButtonModule} from '@angular/material/button';
 //import {MatToolbarModule} from '@angular/material/toolbar';
 
@@ -36,7 +37,8 @@ export class PizzaPartyAppModule { }
   ],
   providers: [
      LoginService,
-      AddBookService
+      AddBookService,
+      UploadImageService
   ],
   bootstrap: [AppComponent]
 })

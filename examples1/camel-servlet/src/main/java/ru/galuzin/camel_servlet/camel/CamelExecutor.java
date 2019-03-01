@@ -16,6 +16,7 @@ import ru.galuzin.camel_servlet.camel.processors.InputGenerator;
 import ru.galuzin.camel_servlet.camel.processors.JmsConsumer;
 import ru.galuzin.camel_servlet.camel.processors.SimplerProcessor;
 import ru.galuzin.camel_servlet.camel.route.FirstRoute;
+import ru.galuzin.camel_servlet.camel.route.SecondRoute;
 
 import javax.jms.ConnectionFactory;
 import javax.naming.InitialContext;
@@ -35,6 +36,7 @@ public class CamelExecutor {
         //((DefaultCamelContext) camelContext).setJndiContext(context);
         JmsComponent jmsComponent = JmsComponent.jmsComponentClientAcknowledge(cf);
         //jmsComponent.setAsyncConsumer(true);//client acknnowledge work immediatly after consume
+        jmsComponent.setConcurrentConsumers(10);
         camelContext.addComponent("activemq", jmsComponent);
                 //ActiveMQComponent.("tcp://localhost:8161"));
         final InputGenerator inputGenerator = new InputGenerator();
@@ -51,6 +53,7 @@ public class CamelExecutor {
 //       });
         SimplerProcessor simplerProcessor = new SimplerProcessor();
         camelContext.addRoutes(new FirstRoute());
+        camelContext.addRoutes(new SecondRoute());
 
         //todo error handler root scope
 
