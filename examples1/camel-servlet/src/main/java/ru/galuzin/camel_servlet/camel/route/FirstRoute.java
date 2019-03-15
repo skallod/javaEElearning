@@ -20,8 +20,7 @@ import java.util.UUID;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-import static org.apache.camel.LoggingLevel.ERROR;
-import static org.apache.camel.LoggingLevel.WARN;
+import static org.apache.camel.LoggingLevel.*;
 
 public class FirstRoute extends RouteBuilder {
 
@@ -109,7 +108,10 @@ public class FirstRoute extends RouteBuilder {
                 .setHeader(Exchange.HTTP_METHOD, constant("POST"))
                 //.doTry()/*58088*/
 //                .inOut("netty4-http://http://localhost:55559/api/async?disconnect=true&keepAlive=false")//?disconnect=true&keepAlive=false")//NettyHttpOperationFailedException/statusCode: 504
+                .delay(20_000)
                 .inOut("netty4-http://http://localhost:58088/api/async")
+                .log(INFO,"after http")
+                .delay(20_000)
                 .log(ERROR, "http was sent ${property.TRACE_ID} ${in.body}");
 
         ;//.onException(NettyHttpOperationFailedException.class).maximumRedeliveries(2);

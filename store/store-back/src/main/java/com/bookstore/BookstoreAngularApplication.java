@@ -32,7 +32,7 @@ public class BookstoreAngularApplication /*implements CommandLineRunner*/ {
 		ConfigurableApplicationContext context = SpringApplication.run(BookstoreAngularApplication.class, args);
 		UserService userService = context.getBean(UserService.class);
 		PasswordEncoder encoder = context.getBean(PasswordEncoder.class);
-		run(userService,encoder);
+		//run(userService,encoder);
 	}
 	
 	//@Override

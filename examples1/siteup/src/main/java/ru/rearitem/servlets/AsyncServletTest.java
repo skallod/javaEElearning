@@ -23,7 +23,7 @@ public class AsyncServletTest extends HttpServlet{
         AsyncContext ctx = req.startAsync(req, resp);
         new Thread(()-> {
             try {
-                Thread.sleep(10_000);//do any job
+                Thread.sleep(1_000);//do any job
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

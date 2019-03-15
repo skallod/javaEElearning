@@ -34,6 +34,7 @@ public class BookServiceImpl implements BookService{
 	public Book findOne(Long id) {
 		return bookRepository.findById(id).get();
 	}
+
 	@Secured({"ROLE_ADMIN"})
 	public Book save(Book book) {
 		return bookRepository.save(book);

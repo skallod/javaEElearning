@@ -1,0 +1,14 @@
+клонировать объект в реляц базе
+begin
+@myid=1;
+insert into parent_table(f1,f2,f3) select f1,f2,f3 from parent table where id=@myid;
+@new_parent_id = last_insert_id();
+insert into child_table (parent_id,n1,n2,n3) select new_parent_id,n1,n2,n3 from child_table where parent_id=@myid;
+end
+
+begin;
+//достать самый болшой номер +1 причем номер это строка и необязательно номер
+@var=select ifnull(max(cast(name as unsigned)),0)+1 from invoces where year(doc_date)=year(?)
+ amd company_id=? for update; //блокирует строки
+ update invoces set name=var where id=?
+commit;
