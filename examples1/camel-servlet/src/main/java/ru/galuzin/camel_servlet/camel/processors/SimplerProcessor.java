@@ -5,7 +5,7 @@ import org.apache.camel.Exchange;
 import org.apache.camel.Message;
 import org.apache.camel.Processor;
 
-@Slf4j
+@Slf4j(topic = "first-route")
 public class SimplerProcessor implements Processor {
     @Override
     public void process(Exchange exchange) throws Exception {

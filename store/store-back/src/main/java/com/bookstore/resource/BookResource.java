@@ -8,7 +8,6 @@ import java.util.Iterator;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.bookstore.service.BookService2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
@@ -32,15 +31,14 @@ public class BookResource {
 	@Value("${book.image.path}")
 	private String bookImagePath;
 	
-	private BookService2 bookService;
+	private BookService bookService;
 
 	@Autowired
-	public BookResource(BookService2 bookService){
+	public BookResource(BookService bookService){
 		this.bookService = bookService;
 	}
 	
 	@RequestMapping (value="/add", method=RequestMethod.POST)
-	@Secured({"ROLE_ADMIN"})
 	public Book addBookPost(@RequestBody Book book) {
 		return bookService.save(book);
 	}

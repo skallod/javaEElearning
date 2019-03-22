@@ -1,5 +1,6 @@
 package ru.galuzin.camel_servlet.camel.route;
 
+import lombok.extern.slf4j.Slf4j;
 import org.apache.camel.Endpoint;
 import org.apache.camel.Exchange;
 import org.apache.camel.Expression;
@@ -21,7 +22,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 import static org.apache.camel.LoggingLevel.*;
-
+@Slf4j(topic="first-route")
 public class FirstRoute extends RouteBuilder {
 
     public static final String TRACE_ID = "TRACE_ID";
@@ -67,7 +68,7 @@ public class FirstRoute extends RouteBuilder {
                     exchange.getIn().setHeader(TRACE_ID,UUID.randomUUID().toString());
                 })
                 //.setProperty(TRACE_ID).simple(UUID.randomUUID().toString())
-                .log("Received a request ${in.header.TRACE_ID}")
+                .log(INFO,log,"Received a request ${in.header.TRACE_ID}")
 
 
                 //.process(simplerProcessor)

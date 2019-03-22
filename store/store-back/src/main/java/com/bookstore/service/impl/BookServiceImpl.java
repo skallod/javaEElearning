@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 
 import com.bookstore.domain.Book;
@@ -35,7 +36,8 @@ public class BookServiceImpl implements BookService{
 		return bookRepository.findById(id).get();
 	}
 
-	@Secured({"ROLE_ADMIN"})
+	//@Secured({"ROLE_ADMIN"})
+	//@PreAuthorize("hasAuthority('ROLE_ADMIN')")
 	public Book save(Book book) {
 		return bookRepository.save(book);
 	}
