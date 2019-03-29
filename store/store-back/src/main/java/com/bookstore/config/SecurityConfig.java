@@ -10,6 +10,7 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.session.web.http.HeaderHttpSessionStrategy;
 import org.springframework.session.web.http.HttpSessionStrategy;
@@ -22,7 +23,7 @@ import java.security.SecureRandom;
 
 @EnableWebSecurity
 @Configuration
-@EnableGlobalMethodSecurity(prePostEnabled = true)
+@EnableGlobalMethodSecurity(prePostEnabled = true,securedEnabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	private static final String SALT = "salt";
@@ -51,12 +52,19 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.csrf().disable().cors().disable()
-			.httpBasic()
-			.and()
-			.authorizeRequests()
+		.httpBasic()
+//				.and()
+//				.rememberMe()
+//				.key("salt")
+//				.tokenValiditySeconds(30)
+//				.and()
+//				.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+		.and()
+		.authorizeRequests()
+		.antMatchers(HttpMethod.POST,"/book/*").hasRole("ADMIN")
+		.antMatchers(HttpMethod.GET,"/book/*").permitAll()
+		.antMatchers(HttpMethod.GET,"/token","/checkSession","/user/logout").authenticated()
 //			.antMatchers(PUBLIC_MATCHERS).permitAll()
-			.antMatchers(HttpMethod.POST,"/book/*").hasRole("ADMIN")
-			.antMatchers(HttpMethod.GET,"/token").authenticated()
 			//.anyRequest().authenticated()
         ;
 		;/*.and()

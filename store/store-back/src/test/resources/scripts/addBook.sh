@@ -1,6 +1,6 @@
 curl -X POST \
   'http://localhost:8181/book/add' \
-  -H 'x-auth-token: da2fed7d-79ca-4c05-905d-469eb32c05a5'\
+  -H 'x-auth-token: f3c0265a-1039-4eec-907a-c6456099d6d1'\
   -H 'cache-control: no-cache' \
   -H 'content-type: application/json' \
   -d '{"author":"fadsfa","title":"fdasdfaf","publisher":"fdadfsa"}'

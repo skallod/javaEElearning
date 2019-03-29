@@ -4,6 +4,7 @@ import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.util.Iterator;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -66,5 +67,10 @@ public class BookResource {
 			e.printStackTrace();
 			return new ResponseEntity("Upload failed!", HttpStatus.BAD_REQUEST);
 		}
+	}
+
+	@RequestMapping (value="/list", method=RequestMethod.GET)
+	public List<Book> getBookList() {
+		return bookService.findAll();
 	}
 }

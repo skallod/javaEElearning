@@ -14,6 +14,8 @@ import {LoginService} from './services/login.service';
 import { AddNewBookComponent } from './components/add-new-book/add-new-book.component';
 import { AddBookService } from './services/add-book.service';
 import { UploadImageService } from './services/upload-image.service';
+import { BookListComponent } from './components/book-list/book-list.component';
+import { GetBookListService } from './services/get-book-list.service';
 //import {MatButtonModule} from '@angular/material/button';
 //import {MatToolbarModule} from '@angular/material/toolbar';
 
@@ -24,7 +26,8 @@ export class PizzaPartyAppModule { }
     AppComponent,
     NavBarComponent,
     LoginComponent,
-    AddNewBookComponent
+    AddNewBookComponent,
+    BookListComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +41,8 @@ export class PizzaPartyAppModule { }
   providers: [
      LoginService,
       AddBookService,
-      UploadImageService
+      UploadImageService,
+      GetBookListService
   ],
   bootstrap: [AppComponent]
 })
