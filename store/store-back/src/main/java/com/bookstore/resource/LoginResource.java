@@ -43,7 +43,7 @@ public class LoginResource {
 	@RequestMapping(value="/user/logout", method=RequestMethod.POST)
 	public ResponseEntity logout(HttpSession session){
 		SecurityContextHolder.clearContext();
-		//Optional.ofNullable(session).ifPresent(HttpSession::invalidate);
+		Optional.ofNullable(session).ifPresent(HttpSession::invalidate);
 		return new ResponseEntity("Logout Successfully!", HttpStatus.OK);
 	}
 }

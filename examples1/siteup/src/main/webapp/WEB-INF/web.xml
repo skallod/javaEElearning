@@ -32,7 +32,7 @@
         </init-param>
     </filter>
     <filter-mapping>
-        <filter-name>adminFilter</filter-name>
+        <filter-name>userFilter</filter-name>
         <url-pattern>/api/user/*</url-pattern>
     </filter-mapping>
 </web-app>

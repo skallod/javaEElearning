@@ -53,27 +53,22 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		http.csrf().disable().cors().disable()
 		.httpBasic()
-//				.and()
-//				.rememberMe()
-//				.key("salt")
-//				.tokenValiditySeconds(30)
-//				.and()
-//				.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+//		.and()
+//			.rememberMe()
+//			.key("salt")
+//			.tokenValiditySeconds(30)
+//		.and()
+//			.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
 		.and()
 		.authorizeRequests()
+				//.antMatchers(PUBLIC_MATCHERS).permitAll()
+				//применяется сверху вниз первый который смэтичлся
 		.antMatchers(HttpMethod.POST,"/book/*").hasRole("ADMIN")
 		.antMatchers(HttpMethod.GET,"/book/*").permitAll()
-		.antMatchers(HttpMethod.GET,"/token","/checkSession","/user/logout").authenticated()
-//			.antMatchers(PUBLIC_MATCHERS).permitAll()
-			//.anyRequest().authenticated()
+		//.antMatchers(HttpMethod.GET,"/token","/checkSession","/user/logout").authenticated()
+				.anyRequest().authenticated()
+		//.and().logout().logoutUrl("/user/logout").invalidateHttpSession(true).clearAuthentication(true)//не заработало
         ;
-		;/*.and()
-				.logout()
-				.invalidateHttpSession(true)
-				.clearAuthentication(true)
-				.logoutUrl("/user/logout");
-				.antMatchers("/")*/
-		/*.antMatchers(PUBLIC_MATCHERS).permitAll().anyRequest().authenticated();*/
 	}
 
 	@Autowired
