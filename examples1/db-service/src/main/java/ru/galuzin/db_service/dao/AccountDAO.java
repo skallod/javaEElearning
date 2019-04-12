@@ -49,7 +49,7 @@ public class AccountDAO implements AccountDAOService{
     }
 
     @Override
-    public Optional<Long>/*todo touple*/ isAccountExist(String email, byte[] pass) throws SQLException {
+    public Optional<Long>/*todo tuple*/ isAccountExist(String email, byte[] pass) throws SQLException {
          List<Long> result = txExecutor.exec((txContext)->{
             return  preparedExecutor.execQuery("select account_id,account_name from accounts " +
                             "where account_email=? and account_pass=? limit 1",

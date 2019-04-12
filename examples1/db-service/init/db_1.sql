@@ -1,7 +1,6 @@
 CREATE DATABASE siteupdb encoding 'utf8';
 CREATE ROLE stpuser LOGIN PASSWORD 'stppass';
 \c "host=localhost port=5432 user=stpuser dbname=siteupdb password=stppass"
---create schema spring_store AUTHORIZATION r2user;
 create table accounts(
     account_id integer primary key not null,
     account_name text not null,
@@ -16,7 +15,7 @@ create sequence account_id_seq;
 create table user_roles(
     account_id integer not null references accounts
     ,  role_id smallint not null--references roles
-    ,  primary key( account_uid, role_id ));
+    ,  primary key( account_id, role_id ));
 create table version(
     version_id smallint not null primary key
     );

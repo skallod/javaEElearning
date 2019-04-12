@@ -1,12 +1,18 @@
-https://github.com/3PillarGlobal/engineering-playbook
-https://github.com/Apress/spring-boot-2-recipes
+## command line args
+
 -Dspring.profiles.active=devpg
---spring.profiles.active=dev
-java -jar h2-1.4.196.jar
-#postgres
+
+## postgres
+
 create user storeuser password 'storepass';
 create schema SPRING_STORE AUTHORIZATION STOREUSER;
-#h2
+
+## h2-console
+
+java -jar h2-1.4.196.jar
+
+## h2
+
 --create user MY_READWRITEUSER password 'MY_READWRITEUSER';
 create user storeuser password 'storepass' admin;
 create schema SPRING_STORE AUTHORIZATION storeuser;
@@ -15,3 +21,8 @@ set schema SPRING_STORE;
 create role STORE_RW_ROLE;
 grant STORE_RW_ROLE to storeuser;
 --grant MY_RW_ROLE to MY_READWRITEUSER;
+
+## git interesting
+
+https://github.com/3PillarGlobal/engineering-playbook
+https://github.com/Apress/spring-boot-2-recipes

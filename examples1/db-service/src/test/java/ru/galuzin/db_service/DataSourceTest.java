@@ -19,8 +19,8 @@ public class DataSourceTest implements DataSource {
 
     public DataSourceTest(){
         config = new HikariConfig();
-        config.setJdbcUrl( "jdbc:h2:./data/testdb" );
-        //config.setJdbcUrl( "jdbc:h2:mem:test");//MODE=PostgreSQL;DB_CLOSE_DELAY=-1;INIT=runscript from 'classpath:/db.sql'" );
+        //config.setJdbcUrl( "jdbc:h2:./data/testdb" );
+        config.setJdbcUrl( "jdbc:h2:mem:test");//MODE=PostgreSQL;DB_CLOSE_DELAY=-1;INIT=runscript from 'classpath:/db.sql'" );
         config.setUsername( "sa" );
         config.setPassword( "" );
         config.setAutoCommit( false );

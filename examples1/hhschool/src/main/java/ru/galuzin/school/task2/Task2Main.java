@@ -25,8 +25,6 @@ public class Task2Main {
     static final int SLOW_VER=2;
     static long iterations=0;
     public static void main(String[] args) {
-//        URL resource = Task2Main.class.getResource("log4j.properties");
-//        PropertyConfigurator.configure(resource);
         simples = loadSimples(11147);
 
         int evristMinPos =maxdelta(simples);
