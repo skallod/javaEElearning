@@ -65,6 +65,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				//применяется сверху вниз первый который смэтичлся
 		.antMatchers(HttpMethod.POST,"/book/*").hasRole("ADMIN")
 		.antMatchers(HttpMethod.GET,"/book/*").permitAll()
+		.antMatchers(HttpMethod.GET,"/image/book/*").permitAll()
+		.antMatchers(HttpMethod.GET,"/static/image/book/*").permitAll()
 		//.antMatchers(HttpMethod.GET,"/token","/checkSession","/user/logout").authenticated()
 				.anyRequest().authenticated()
 		//.and().logout().logoutUrl("/user/logout").invalidateHttpSession(true).clearAuthentication(true)//не заработало

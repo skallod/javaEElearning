@@ -4,8 +4,9 @@
 
 ## postgres
 
-create user storeuser password 'storepass';
-create schema SPRING_STORE AUTHORIZATION STOREUSER;
+create user r2user password 'r2pass';
+create schema SPRING_STORE AUTHORIZATION r2user;
+grant select on spring_store.book_id_seq to r2user;
 
 ## h2-console
 

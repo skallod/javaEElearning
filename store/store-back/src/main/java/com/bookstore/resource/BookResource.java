@@ -13,12 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.annotation.Secured;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
@@ -50,7 +45,7 @@ public class BookResource {
 			HttpServletResponse response, HttpServletRequest request
 			){
 		try {
-			Book book = bookService.findOne(id);
+			//Book book = bookService.findOne(id);
 			MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
 			Iterator<String> it = multipartRequest.getFileNames();
 			MultipartFile multipartFile = multipartRequest.getFile(it.next());
@@ -72,5 +67,10 @@ public class BookResource {
 	@RequestMapping (value="/list", method=RequestMethod.GET)
 	public List<Book> getBookList() {
 		return bookService.findAll();
+	}
+
+	@RequestMapping (value="/{id}", method=RequestMethod.GET)
+	public Book getBook(@PathVariable("id") Long id) {
+		return bookService.findOne(id);
 	}
 }

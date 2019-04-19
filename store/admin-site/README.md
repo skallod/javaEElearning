@@ -27,7 +27,8 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
 
 ## Useful commands
-npm install - install local modules
+npm install - install local modules, also use when add dependency in package.json
 ng serve - start server 4200 port
 ng g component [name] - add component , invoke from components dir
 ng add @angular/material
+ng new - create new project

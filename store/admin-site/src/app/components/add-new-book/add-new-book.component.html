@@ -28,10 +28,24 @@
                         </div>
                     </div>
                     <div class="mb-3">
+<!--
                         <div class="custom-file">
-                            <input type="file" class="custom-file-input" (change)="uploadImageService.fileChangeEvent($event)" id="bookImage" name="bookImage">
+                            <input type="file" class="form-control-file" (change)="uploadImageService.fileChangeEvent($event)" id="bookImage" name="bookImage">
                             <label class="custom-file-label" for="bookImage" aria-describedby="inputGroupFileAddon02">Choose file</label>
                         </div>
+-->
+                        <form>
+  <div class="form-group">
+    <label for="exampleFormControlFile1">Example file input</label>
+    <input type="file" (change)="uploadImageService.fileChangeEvent($event)" class="form-control-file" id="exampleFormControlFile1">
+  </div>
+</form>
+<!--
+                        <div class="form-group">
+    <label for="exampleFormControlFile1">Example file input</label>
+    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+  </div>
+-->
                     </div>
                     <div class="mb-3">
                         <button type="submit" class="btn btn-primary">Add book</button>

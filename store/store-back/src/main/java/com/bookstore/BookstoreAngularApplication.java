@@ -31,12 +31,7 @@ public class BookstoreAngularApplication /*implements CommandLineRunner*/ {
 				encoder.encode("p"));
 		user1.setEmail("JAdams@gmail.com");
 		user1.setRole(Role.USER);
-		//Set<UserRole> userRoles = new HashSet<>();
-		//userRoles.add(new UserRole(user1, role1));
-
 		userService.createUser(user1/*, userRoles*/);
-
-		//userRoles.clear();
 
 		User user2 = new User();
 		user2.setFirstName("Admin");
@@ -46,8 +41,6 @@ public class BookstoreAngularApplication /*implements CommandLineRunner*/ {
 				encoder.encode("p"));
 		user2.setEmail("Admin@gmail.com");
 		user2.setRole(Role.ADMIN);
-		//userRoles.add(new UserRole(user2, role2));
-
 		userService.createUser(user2/*, userRoles*/);
 	}
 	

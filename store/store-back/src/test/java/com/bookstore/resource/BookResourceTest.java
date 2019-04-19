@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.ImportAutoConfiguration;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.http.MediaType;
@@ -42,26 +43,25 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 //@WebAppConfiguration
 
 @RunWith(SpringRunner.class)
-@WebMvcTest(/*value = BookResource.class*/)
-//@AutoConfigureMockMvc(secure = false)
+@SpringBootTest
+//@WebMvcTest(/*value = BookResource.class*/)
+@AutoConfigureMockMvc//(secure = false)
 public class BookResourceTest {
 
     @Autowired
-    private MockMvc bookResource;
-
-    @Autowired
-    private UserService userService;
-
-    @MockBean
-    private BookService bookService;
-
-    @Autowired
-    private WebApplicationContext context;
-
-    @Autowired
-    private Filter springSecurityFilterChain;
-
     private MockMvc mvc;
+
+//    @MockBean
+//    private UserService userService;
+//
+//    @MockBean
+//    private BookService bookService;
+//
+//    @Autowired
+//    private WebApplicationContext context;
+//
+//    @Autowired
+//    private Filter springSecurityFilterChain;
 
     @Before
     public void setup() {
@@ -70,10 +70,10 @@ public class BookResourceTest {
 //        filterChains.
 //        ((FilterChainProxy)springSecurityFilterChain).filterChains.get(0).getFilters()
 //                .removeIf(f->f.getClass().getName().equals(CsrfFilter.class.getName()));
-        mvc = MockMvcBuilders
-                .webAppContextSetup(context)
-                .addFilters(springSecurityFilterChain)
-                .build();
+//        mvc = MockMvcBuilders
+//                .webAppContextSetup(context)
+//                .addFilters(springSecurityFilterChain)
+//                .build();
     }
     @Test
     public void shouldReturn401() throws Exception {
@@ -82,15 +82,32 @@ public class BookResourceTest {
     }
 
     @WithMockUser(
-            username = "admin",
-            password = "admin",
+            username = "user",
+            password = "user",
             authorities = {"ROLE_USER"}
     )
     @Test
     public void shouldForbiddenPostBook() throws Exception {
-        mvc.perform(post("/book/add").with(csrf()).with(
-                user("admin").password("pass").roles("USER"/*,"ADMIN"*/)
-                ).contentType(MediaType.APPLICATION_JSON)
+        mvc.perform(post("/book/add").with(csrf())/*.with(
+                user("admin").password("pass").roles("USER")
+                )*/.contentType(MediaType.APPLICATION_JSON)
+        .content("{\"author\":\"fadsfa\",\"title\":\"fdasdfaf\",\"publisher\":\"fdadfsa\"}")
+        ).andExpect(status().isForbidden()).andDo(res->{
+            String contentAsString = res.getResponse().getContentAsString();
+            System.out.println("contentAsString = " + contentAsString);
+        });
+    }
+
+    @WithMockUser(
+            username = "admin",
+            password = "admin",
+            authorities = {"ROLE_ADMIN"}
+    )
+    @Test
+    public void shouldAddBook() throws Exception {
+        mvc.perform(post("/book/add").with(csrf())/*.with(
+                user("admin").password("pass").roles("USER")
+                )*/.contentType(MediaType.APPLICATION_JSON)
         .content("{\"author\":\"fadsfa\",\"title\":\"fdasdfaf\",\"publisher\":\"fdadfsa\"}")
         ).andExpect(status().isOk()).andDo(res->{
             String contentAsString = res.getResponse().getContentAsString();

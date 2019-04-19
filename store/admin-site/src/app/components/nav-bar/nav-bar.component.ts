@@ -36,6 +36,7 @@ export class NavBarComponent implements OnInit {
         error=>{
           console.log("check session false");
           this.loggedIn = false;
+          this.router.navigate(['/']);
         }
       );
   }

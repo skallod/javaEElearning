@@ -26,6 +26,9 @@ export class UploadImageService {
     
     fileChangeEvent(fileInput: any){
         this.filesToUpload = <Array<File>> fileInput.target.files;
+        for(var i=0; i<this.filesToUpload.length; i++){
+            console.log("file change event "+this.filesToUpload[i].name);
+        }
     }
     
     makeFileRequest(url:string,params:Array<string>,files:Array<File>){
