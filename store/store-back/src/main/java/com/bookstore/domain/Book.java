@@ -31,7 +31,7 @@ public class Book implements Serializable{
 	private double ourPrice;
 	private boolean active=true;
 	
-	@Column(columnDefinition="text")
+	//@Column(columnDefinition="text")
 	private String description;
 	private int inStockNumber;
 	

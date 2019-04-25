@@ -15,8 +15,8 @@ java -jar h2-1.4.196.jar
 ## h2
 
 --create user MY_READWRITEUSER password 'MY_READWRITEUSER';
-create user storeuser password 'storepass' admin;
-create schema SPRING_STORE AUTHORIZATION storeuser;
+create user r2user password 'r2pass' admin;
+create schema SPRING_STORE AUTHORIZATION r2user;
 set schema SPRING_STORE;
 --create role MY_READ_ROLE;
 create role STORE_RW_ROLE;
