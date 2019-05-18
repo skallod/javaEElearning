@@ -1,8 +1,8 @@
 #while true
 #do
 curl -X GET \
-  'http://localhost:8181/token' \
-  -H 'authorization: Basic YWRtaW46cA==' \
+  'http://localhost:8181/api/v1/token' \
+  -H 'authorization: Basic ajpw' \
   -H 'cache-control: no-cache' \
   -H 'content-type: application/x-www-form-urlencoded' \
 #sleep 1

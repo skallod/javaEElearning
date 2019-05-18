@@ -21,7 +21,7 @@ import com.bookstore.domain.Book;
 import com.bookstore.service.BookService;
 
 @RestController
-@RequestMapping("/book")
+@RequestMapping("/api/v1/book")
 public class BookResource {
 
 	@Value("${book.image.path}")
@@ -36,6 +36,11 @@ public class BookResource {
 	
 	@RequestMapping (value="/add", method=RequestMethod.POST)
 	public Book addBookPost(@RequestBody Book book) {
+		return bookService.save(book);
+	}
+
+	@RequestMapping (value="/update", method=RequestMethod.POST)
+	public Book updateBookPost(@RequestBody Book book) {
 		return bookService.save(book);
 	}
 

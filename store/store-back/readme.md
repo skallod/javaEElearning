@@ -5,8 +5,8 @@
 ## postgres
 
 create user r2user password 'r2pass';
-create schema SPRING_STORE AUTHORIZATION r2user;
-grant select on spring_store.book_id_seq to r2user;
+create schema BOOKSTORE AUTHORIZATION r2user;
+grant select on BOOKSTORE.book_id_seq to r2user;
 
 ## h2-console
 
@@ -16,8 +16,8 @@ java -jar h2-1.4.196.jar
 
 --create user MY_READWRITEUSER password 'MY_READWRITEUSER';
 create user r2user password 'r2pass' admin;
-create schema SPRING_STORE AUTHORIZATION r2user;
-set schema SPRING_STORE;
+create schema BOOKSTORE AUTHORIZATION r2user;
+set schema BOOKSTORE;
 --create role MY_READ_ROLE;
 create role STORE_RW_ROLE;
 grant STORE_RW_ROLE to storeuser;

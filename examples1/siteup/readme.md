@@ -1,7 +1,11 @@
 # Start server local with undertow and h2 memery mode :  
     ./src/test/ServerTest.main //only backend  
 # Static html content :  
-    ./html  
+    ./html
+# nginx
+    for local develop
+      edit hosts file add 127.0.0.1 siteup.local
+      run nginx with src/test/resources/nginx.conf
 # Deploy server to VDS :  
     run scripts from ../devops project  
         prepare_ubuntu  

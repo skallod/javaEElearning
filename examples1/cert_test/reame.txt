@@ -4,3 +4,7 @@ keytool -importkeystore -srckeystore SSLCertStore.jks -destkeystore keystore.p12
 openssl pkcs12 -in keystore.p12  -nodes -nocerts -out key.pem
 экспорт сертификата
 openssl pkcs12 -in keystore.p12  -nokeys -out cert.pem
+
+keytool -export -alias arxpr -file arxpr.crt -keystore keystore
+export key with KeyStore soft
+siteup.local pass

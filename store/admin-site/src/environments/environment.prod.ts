@@ -1,3 +1,5 @@
 export const environment = {
-  production: true
+  production: true,
+  baseurl:'http://bookstore.local/api/v1',
+  imageurl:'http://bookstore.local/image/book'
 };

@@ -92,31 +92,34 @@ public class ServerTest {
     public static void main(String[] args) throws Exception {
         try {
             beforeClass();
-            new Thread(() -> {
-                try {
-                    ServerSocket serverSocket = new ServerSocket(58089);
-                    Socket accept = serverSocket.accept();
-                    log.info("accepted");
-                    accept.close();
-                    serverSocket.close();
-                    stop = true;
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }).start();
-            do {
-                Thread.sleep(1000);
-            } while (!stop);
-            log.info("main stop");
+            log.info("server started");
+            Runtime.getRuntime().addShutdownHook(new Thread(()->{
+                afterClass();
+            }));
+//            new Thread(() -> {
+//                try {
+//                    ServerSocket serverSocket = new ServerSocket(58089);
+//                    Socket accept = serverSocket.accept();
+//                    log.info("accepted");
+//                    accept.close();
+//                    serverSocket.close();
+//                    stop = true;
+//                } catch (IOException e) {
+//                    e.printStackTrace();
+//                }
+//            }).start();
+//            do {
+//                Thread.sleep(1000);
+//            } while (!stop);
+//            log.info("main stop");
         }catch (Exception e){
             e.printStackTrace();
-        }finally {
-            afterClass();
         }
     }
 
     @AfterClass
     public static void afterClass(){
+        log.info("after class");
         server.stop();
         dbService.shutdown();
         client.dispose();

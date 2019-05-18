@@ -8,7 +8,7 @@
         <div class="col-md-6 order-md-1 mb-3">
             <div class="mb-3">
 <!--                <input type="text" class="form-control" id="title" [(ngModel)]="newBook.title" placeholder="" name="title" placeholder="title *" required>-->
-               <img [src]="'http://localhost:8181/image/book/'+book.id+'.png'" class="responsive-img"/>
+               <img [src]="env.imageurl+'/'+book.id+'.png'" class="responsive-img"/>
             </div>
             <div class="mb-3">
                 <h3>{{book.publisher}}</h3>
@@ -20,6 +20,9 @@
             </div>
             <div class="mb-3">
                 <h3>{{book.author}}</h3>
+            </div>
+            <div class="mb-3">
+                <h3>{{env.baseurl}}</h3>
             </div>
         </div>
     </div>

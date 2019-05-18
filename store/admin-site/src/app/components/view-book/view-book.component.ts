@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Params,ActivatedRoute,Router} from '@angular/router';
 import {GetBookService} from '../../services/get-book.service';
+import {environment} from '../../../environments/environment';
 import {Book} from '../../models/book';
 
 @Component({
@@ -12,6 +13,7 @@ export class ViewBookComponent implements OnInit {
     
     private book:Book = new Book();
     private bookId:number;
+    env=environment;
 
   constructor(private getBookService:GetBookService ,
                 private route:ActivatedRoute,private router:Router) {}

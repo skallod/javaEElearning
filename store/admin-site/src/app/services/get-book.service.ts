@@ -1,16 +1,19 @@
 import { Injectable } from '@angular/core';
 import { Http,Headers } from '@angular/http';
 import {Book} from '../models/book';
+import {environment} from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GetBookService {
+    
+    env=environment;
 
     constructor(private http:Http) { }
     
     getBook(id:number){
-        let url = "http://localhost:8181/book/"+id;
+        let url = this.env.baseurl+"/book/"+id;
         let headers = new Headers({
             'x-auth-token':localStorage.getItem('xAuthToken'),
             'content-type':'application/json'

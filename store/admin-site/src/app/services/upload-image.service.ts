@@ -1,10 +1,13 @@
 import { Injectable } from '@angular/core';
 import {Http,Headers} from '@angular/http';
+import {environment} from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UploadImageService {
+    
+    env=environment;
     
     filesToUpload: Array<File>;
 
@@ -14,7 +17,7 @@ export class UploadImageService {
     
     upload(bookId:number){
         if(this.filesToUpload.length!==0){
-            this.makeFileRequest("http://localhost:8181/book/add/image?id="+bookId,[],this.filesToUpload).then((result)=>{
+            this.makeFileRequest(this.env.baseurl+"/book/add/image?id="+bookId,[],this.filesToUpload).then((result)=>{
                 console.log(result);
             },(error)=>{
                 console.log(error);

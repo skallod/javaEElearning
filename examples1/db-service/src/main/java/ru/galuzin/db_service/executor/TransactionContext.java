@@ -11,7 +11,9 @@ public class TransactionContext {
 
     private Connection connection;
 
-    //must be package access
+    /**
+     * must be package access
+     */
     TransactionContext(){
     }
 }

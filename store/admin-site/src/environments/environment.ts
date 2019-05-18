@@ -3,7 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+    name:'v1',
+    baseurl:'http://bookstore.local/api/v1',
+    imageurl:'http://bookstore.local/image/book'
 };
 
 /*

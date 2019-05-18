@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.bookstore.service.UserService;
 
 @RestController
+@RequestMapping("/api/v1")
 public class LoginResource {
 	@Autowired
 	private UserService userService;

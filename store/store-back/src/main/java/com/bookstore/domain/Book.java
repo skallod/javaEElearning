@@ -7,7 +7,7 @@ import javax.persistence.*;
 import org.springframework.web.multipart.MultipartFile;
 
 @Entity
-@Table(name = "book", schema = "spring_store", catalog = "")
+@Table(name = "book", schema = "BOOKSTORE", catalog = "")
 public class Book implements Serializable{
 
 	private static final long serialVersionUID=1L;
