@@ -9,7 +9,7 @@ import {Router} from '@angular/router';
 })
 export class NavBarComponent implements OnInit {
     
-    private loggedIn = false;
+    loggedIn = false;
 
   constructor(private loginService:LoginService,private router:Router) { }
     

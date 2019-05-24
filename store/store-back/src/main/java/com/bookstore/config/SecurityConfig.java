@@ -26,7 +26,7 @@ import java.security.SecureRandom;
 @EnableGlobalMethodSecurity(prePostEnabled = true,securedEnabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-	private static final String SALT = "salt";
+	private static final String SALT = "rRkt4)leT7";
 
 	@Autowired
 	private Environment env;
@@ -41,17 +41,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		//return SecurityUtility.passwordEncoder();
 	}
 
-	private static final String[] PUBLIC_MATCHERS = {
-			"/css/*",
-			"/js/*",
-			"/image/*",
-			//"/book/get/**",
-			"/user/*"
-	};
+//	private static final String[] PUBLIC_MATCHERS = {
+//			"/css/*",
+//			"/js/*",
+//			"/user/*"
+//	};
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.csrf().disable().cors().disable()
+		http.csrf().disable()//.cors().disable()
 		.httpBasic()
 //		.and()
 //			.rememberMe()
@@ -65,8 +63,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				//применяется сверху вниз первый который смэтичлся
 		.antMatchers(HttpMethod.POST,"/book/*").hasRole("ADMIN")
 		.antMatchers(HttpMethod.GET,"/book/*").permitAll()
-		.antMatchers(HttpMethod.GET,"/image/book/*").permitAll()
-		.antMatchers(HttpMethod.GET,"/static/image/book/*").permitAll()
+		//moved to nginx .antMatchers(HttpMethod.GET,"/image/book/*").permitAll()
 		//.antMatchers(HttpMethod.GET,"/token","/checkSession","/user/logout").authenticated()
 				.anyRequest().authenticated()
 		//.and().logout().logoutUrl("/user/logout").invalidateHttpSession(true).clearAuthentication(true)//не заработало

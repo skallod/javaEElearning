@@ -3,6 +3,8 @@ package com.bookstore.resource;
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.Iterator;
 import java.util.List;
 
@@ -55,13 +57,12 @@ public class BookResource {
 			Iterator<String> it = multipartRequest.getFileNames();
 			MultipartFile multipartFile = multipartRequest.getFile(it.next());
 			String fileName = id+".png";
-
+			Files.delete(Paths.get(bookImagePath+fileName));
 			byte[] bytes = multipartFile.getBytes();
 			BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream
 					(new File(bookImagePath+fileName)));
 			stream.write(bytes);
 			stream.close();
-			
 			return new ResponseEntity("Upload Success!", HttpStatus.OK);
 		} catch (Exception e) {
 			e.printStackTrace();

@@ -6,10 +6,10 @@
     </div>
 </div>
 -->
-<div class="container">
+<div class="container xs-4 sm-3 mb-2 lg-2 xl-2" style="margin-top: 50px;">
     <div [hidden]="loggedIn">
         <form (ngSubmit)="onSubmit()" class="form-signin">
-            <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+            <h1 class="h3 mb-2 font-weight-normal">Please sign in</h1>
             <label for="inputEmail" class="sr-only">Email address</label>
             <input [(ngModel)]="credential.username" name="username" type="text" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
             <label for="inputPassword" class="sr-only">Password</label>
@@ -23,5 +23,8 @@
 -->
             <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
         </form>
+    </div>
+    <div [hidden]="!loggedIn">
+        <h1>Main page</h1>
     </div>
 </div>

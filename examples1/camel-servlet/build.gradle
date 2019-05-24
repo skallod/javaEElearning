@@ -1,9 +1,8 @@
-plugins {
-    id 'java'
-}
 group = 'ru.galuzin.camel_servlet'
 version = '1'
-description = "camel_servlet"
+apply plugin: 'java'
+apply plugin: 'application'
+mainClassName = 'ru.galuzin.camel_servlet.Main'
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 repositories {

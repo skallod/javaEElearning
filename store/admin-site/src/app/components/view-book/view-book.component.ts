@@ -17,6 +17,10 @@ export class ViewBookComponent implements OnInit {
 
   constructor(private getBookService:GetBookService ,
                 private route:ActivatedRoute,private router:Router) {}
+    
+    onSelect(book:Book){
+        this.router.navigate(['/editBook',this.book.id]).then(s=>location.reload());
+    }
 
   ngOnInit() {
       this.route.params.forEach((params:Params)=>{

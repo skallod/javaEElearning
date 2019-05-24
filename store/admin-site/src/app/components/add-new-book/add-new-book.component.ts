@@ -47,6 +47,8 @@ export class AddNewBookComponent implements OnInit {
     }
 
   ngOnInit() {
+    console.log("new book on init");
+    this.bookAdded = false;
   }
 
 }

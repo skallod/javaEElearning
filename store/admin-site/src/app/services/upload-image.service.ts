@@ -27,6 +27,17 @@ export class UploadImageService {
         }
     }
     
+    modify(bookId:number){
+        console.log("upload modify "+this.filesToUpload);
+        if(this.filesToUpload.length>0){
+           this.makeFileRequest(this.env.baseurl+"/book/add/image?id="+bookId,[],this.filesToUpload).then((result)=>{
+                console.log(result);
+            },(error)=>{
+                console.log(error);
+            });
+        }
+    }
+    
     fileChangeEvent(fileInput: any){
         this.filesToUpload = <Array<File>> fileInput.target.files;
         for(var i=0; i<this.filesToUpload.length; i++){
