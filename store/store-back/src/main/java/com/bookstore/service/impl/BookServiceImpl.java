@@ -61,7 +61,6 @@ public class BookServiceImpl implements BookService{
 		bookRepository.deleteById(id);
 	}
 
-	@Secured({"ROLE_ADMIN"})
 	public void getOne(Long id) {
 		bookRepository.findById(id);
 	}
