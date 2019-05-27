@@ -3,6 +3,7 @@ import {Book} from '../../models/book';
 import {Router} from '@angular/router';
 import {LoginService} from '../../services/login.service';
 import {GetBookListService} from '../../services/get-book-list.service';
+import {RemoveBookService} from '../../services/remove-book.service';
 
 @Component({
   selector: 'app-book-list',
@@ -18,7 +19,7 @@ export class BookListComponent implements OnInit {
     private removeBookList: Book[] = new Array();
 
   constructor(private getBookListService:GetBookListService
-               ,private router:Router) { }
+               ,private router:Router, private removeBookService:RemoveBookService) { }
     
     onSelect(book:Book){
         this.selectedBook = book;
@@ -36,5 +37,16 @@ export class BookListComponent implements OnInit {
       }
       );
   }
+    
+    removeBook(book:Book){
+        //todo invoke modal dialog 
+        console.log("remove book");
+        this.removeBookService.sendBook(book.id).subscribe(
+            res=>{
+                console.log(res);
+                location.reload();
+            },error=>console.log(error)
+        );
+    }
 
 }

@@ -46,6 +46,12 @@ public class BookResource {
 		return bookService.save(book);
 	}
 
+	@RequestMapping (value="/delete", method=RequestMethod.POST)
+	public ResponseEntity deleteBookPost(@RequestBody String bookId) {
+		bookService.removeOne(Long.parseLong(bookId));
+		return new ResponseEntity("Remove success",HttpStatus.OK);
+	}
+
     @RequestMapping(value="/add/image", method=RequestMethod.POST)
 	public ResponseEntity upload(
 			@RequestParam("id") Long id,

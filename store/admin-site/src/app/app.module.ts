@@ -20,6 +20,7 @@ import { UploadImageService } from './services/upload-image.service';
 import { GetBookListService } from './services/get-book-list.service';
 import { GetBookService } from './services/get-book.service';
 import { EditBookService } from './services/edit-book.service';
+import { RemoveBookService } from './services/remove-book.service';
 
 //import {MatButtonModule} from '@angular/material/button';
 //import {MatToolbarModule} from '@angular/material/toolbar';
@@ -51,7 +52,8 @@ export class PizzaPartyAppModule { }
       UploadImageService,
       GetBookListService,
       GetBookService,
-      EditBookService
+      EditBookService,
+      RemoveBookService
   ],
   bootstrap: [AppComponent]
 })
