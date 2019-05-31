@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppRoutingModule } from './app-routing.module';
+//import {MatButtonModule, MatCheckboxModule} from '@angular/material';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
@@ -21,11 +22,7 @@ import { GetBookListService } from './services/get-book-list.service';
 import { GetBookService } from './services/get-book.service';
 import { EditBookService } from './services/edit-book.service';
 import { RemoveBookService } from './services/remove-book.service';
-
-//import {MatButtonModule} from '@angular/material/button';
-//import {MatToolbarModule} from '@angular/material/toolbar';
-
-export class PizzaPartyAppModule { }
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +32,8 @@ export class PizzaPartyAppModule { }
     AddNewBookComponent,
     BookListComponent,
     ViewBookComponent,
-    EditBookComponent
+    EditBookComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

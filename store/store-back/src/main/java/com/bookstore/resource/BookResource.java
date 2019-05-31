@@ -3,6 +3,7 @@ package com.bookstore.resource;
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -12,6 +13,8 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
@@ -26,6 +29,10 @@ import com.bookstore.service.BookService;
 @RestController
 @RequestMapping("/api/v1/book")
 public class BookResource {
+
+	private static final Logger log = LoggerFactory.getLogger(BookResource.class);
+
+	public static final String PNG = ".png";
 
 	@Value("${book.image.path}")
 	private String bookImagePath;
@@ -50,6 +57,13 @@ public class BookResource {
 	@RequestMapping (value="/delete", method=RequestMethod.POST)
 	public ResponseEntity deleteBookPost(@RequestBody String bookId) {
 		bookService.removeOne(Long.parseLong(bookId));
+		String fileName = bookId+ PNG;
+		try {
+			deleteBookImage(fileName);
+		} catch (IOException e) {
+			log.error("delete image",e);
+			return new ResponseEntity("Delete img failed!", HttpStatus.INTERNAL_SERVER_ERROR);
+		}
 		return new ResponseEntity("Remove success",HttpStatus.OK);
 	}
 
@@ -63,11 +77,8 @@ public class BookResource {
 			MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
 			Iterator<String> it = multipartRequest.getFileNames();
 			MultipartFile multipartFile = multipartRequest.getFile(it.next());
-			String fileName = id+".png";
-			Path path = Paths.get(bookImagePath + fileName);
-			if(Files.exists(path)) {
-				Files.delete(path);
-			}
+			String fileName = id+ PNG;
+			deleteBookImage(fileName);
 			byte[] bytes = multipartFile.getBytes();
 			BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream
 					(new File(bookImagePath+fileName)));
@@ -75,8 +86,15 @@ public class BookResource {
 			stream.close();
 			return new ResponseEntity("Upload Success!", HttpStatus.OK);
 		} catch (Exception e) {
-			e.printStackTrace();
+			log.error("upload img",e);
 			return new ResponseEntity("Upload failed!", HttpStatus.BAD_REQUEST);
+		}
+	}
+
+	private void deleteBookImage(String fileName) throws IOException {
+		Path path = Paths.get(bookImagePath + fileName);
+		if(Files.exists(path)) {
+			Files.delete(path);
 		}
 	}
 

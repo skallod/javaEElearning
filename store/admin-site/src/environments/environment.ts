@@ -5,7 +5,9 @@
 export const environment = {
   production: false,
     name:'v1',
+    //baseurl:'http://localhost:8181/api/v1',
     baseurl:'http://bookstore.local/api/v1',
+    //imageurl:'http://localhost:8181/image/book'
     imageurl:'http://bookstore.local/image/book'
 };
 

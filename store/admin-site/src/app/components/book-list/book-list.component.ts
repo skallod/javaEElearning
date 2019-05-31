@@ -25,8 +25,8 @@ export class BookListComponent implements OnInit {
         this.selectedBook = book;
         this.router.navigate(['viewBook',this.selectedBook.id]);
     }
-
-  ngOnInit() {
+    
+    getBookList(){
       this.getBookListService.getBookList().subscribe(
       res=>{
           console.log(res.json());
@@ -35,7 +35,11 @@ export class BookListComponent implements OnInit {
       error=>{
           console.log(error);
       }
-      );
+      );  
+    }
+
+  ngOnInit() {
+      this.getBookList();
   }
     
     removeBook(book:Book){
@@ -44,9 +48,40 @@ export class BookListComponent implements OnInit {
         this.removeBookService.sendBook(book.id).subscribe(
             res=>{
                 console.log(res);
-                location.reload();
+                this.getBookList();
             },error=>console.log(error)
         );
+    }
+    
+    updateRemoveBookList(checked:boolean, book:Book){
+        if(checked){
+            this.removeBookList.push(book);
+        }else{
+            this.removeBookList.splice(this.removeBookList.indexOf(book),1);
+        }
+    }
+    
+    updateSelected(checked: boolean){
+        if(checked){
+            this.allChecked = true;
+            this.removeBookList= this.bookList.slice();
+        }else{
+            this.allChecked = false;
+            this.removeBookList =[];
+        }
+    }
+    
+    removeSelectedBooks(){
+        console.log("remove selected");
+        for(let book of this.removeBookList){
+            this.removeBookService.sendBook(book.id).subscribe(
+                res=>{
+                    console.log(res);
+                    this.getBookList();
+                },error=>console.log(error)
+            );
+        }
+        //this.getBookList();//warn invokes parallel
     }
 
 }
