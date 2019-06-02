@@ -77,9 +77,12 @@ public class BookResource {
 			MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
 			Iterator<String> it = multipartRequest.getFileNames();
 			MultipartFile multipartFile = multipartRequest.getFile(it.next());
+			byte[] bytes = multipartFile.getBytes();
+			if(bytes.length==0){
+				throw new IllegalArgumentException("upload bytes is empty");
+			}
 			String fileName = id+ PNG;
 			deleteBookImage(fileName);
-			byte[] bytes = multipartFile.getBytes();
 			BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream
 					(new File(bookImagePath+fileName)));
 			stream.write(bytes);

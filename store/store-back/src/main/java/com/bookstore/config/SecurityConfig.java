@@ -43,7 +43,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.csrf().disable().cors().disable()
+		http.csrf().disable()
+		.cors().disable()//moved to nginx
 		.httpBasic()
 //		.and()
 //			.rememberMe()
@@ -54,12 +55,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		.and()
 		.authorizeRequests()
 				//.antMatchers(PUBLIC_MATCHERS).permitAll()
-				//применяется сверху вниз первый который смэтичлся
+				//apply from up to bottom
 		.antMatchers(HttpMethod.POST,"/book/*").hasRole("ADMIN")
 		.antMatchers(HttpMethod.GET,"/book/*").permitAll()
 		//moved to nginx .antMatchers(HttpMethod.GET,"/image/book/*").permitAll()
 		//.antMatchers(HttpMethod.GET,"/token","/checkSession","/user/logout").authenticated()
-				.anyRequest().authenticated()
+		.anyRequest().authenticated()
 		//.and().logout().logoutUrl("/user/logout").invalidateHttpSession(true).clearAuthentication(true)//не заработало
         ;
 	}

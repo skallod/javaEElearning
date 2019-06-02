@@ -36,8 +36,7 @@ public class BookServiceImpl implements BookService{
 		return bookRepository.findById(id).get();
 	}
 
-	//@Secured({"ROLE_ADMIN"})
-	//@PreAuthorize("hasAuthority('ROLE_ADMIN')")
+	//@PreAuthorize("hasAuthority('ROLE_ADMIN')")  all auth in url filter
 	public Book save(Book book) {
 		return bookRepository.save(book);
 	}
@@ -56,7 +55,7 @@ public class BookServiceImpl implements BookService{
 		return activeBookList;
 	}
 
-	@Secured({"ROLE_ADMIN"})
+	//@Secured({"ROLE_ADMIN"}) all auth in url filter
 	public void removeOne(Long id) {
 		bookRepository.deleteById(id);
 	}
