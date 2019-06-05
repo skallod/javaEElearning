@@ -11,9 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.bookstore.service.UserService;
 
@@ -23,7 +21,7 @@ public class LoginResource {
 	@Autowired
 	private UserService userService;
 	
-	@RequestMapping("/token")
+	@GetMapping("/token")
 	public Map<String, String> token(HttpSession session, HttpServletRequest request) {
 		//System.out.println(request.getRemoteHost());
 		
@@ -36,12 +34,17 @@ public class LoginResource {
 		return Collections.singletonMap("token", session!=null?session.getId():null);
 	}
 	
-	@RequestMapping("/checkSession")
+	@GetMapping("/checkSession")
 	public ResponseEntity checkSession() {
 		return new ResponseEntity("Session Active!", HttpStatus.OK);
 	}
-	
-	@RequestMapping(value="/user/logout", method=RequestMethod.POST)
+
+	@GetMapping("/checkAdmin")
+	public ResponseEntity checkAdmin() {
+		return new ResponseEntity("Session Active!", HttpStatus.OK);
+	}
+
+	@PostMapping(value="/user/logout")
 	public ResponseEntity logout(HttpSession session){
 		SecurityContextHolder.clearContext();
 		Optional.ofNullable(session).ifPresent(HttpSession::invalidate);

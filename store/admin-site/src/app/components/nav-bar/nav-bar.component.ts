@@ -23,7 +23,6 @@ export class NavBarComponent implements OnInit {
               console.log(error);
           }
       );
-      //this.router.navigate(['/']);
   }
     
   ngOnInit() {

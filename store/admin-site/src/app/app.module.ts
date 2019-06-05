@@ -22,7 +22,6 @@ import { GetBookListService } from './services/get-book-list.service';
 import { GetBookService } from './services/get-book.service';
 import { EditBookService } from './services/edit-book.service';
 import { RemoveBookService } from './services/remove-book.service';
-import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
@@ -32,8 +31,7 @@ import { HomeComponent } from './components/home/home.component';
     AddNewBookComponent,
     BookListComponent,
     ViewBookComponent,
-    EditBookComponent,
-    HomeComponent
+    EditBookComponent
   ],
   imports: [
     BrowserModule,

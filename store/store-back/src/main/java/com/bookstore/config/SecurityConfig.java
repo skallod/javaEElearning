@@ -2,7 +2,6 @@ package com.bookstore.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -17,7 +16,6 @@ import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 @EnableWebSecurity
-@Configuration
 @EnableGlobalMethodSecurity(prePostEnabled = true,securedEnabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
@@ -56,8 +54,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		.authorizeRequests()
 				//.antMatchers(PUBLIC_MATCHERS).permitAll()
 				//apply from up to bottom
-		.antMatchers(HttpMethod.POST,"/book/*").hasRole("ADMIN")
-		.antMatchers(HttpMethod.GET,"/book/*").permitAll()
+		.antMatchers("/api/v1/checkAdmin").hasRole("ADMIN")
+		.antMatchers(HttpMethod.POST,"/api/v1/book/*").hasRole("ADMIN")
+		.antMatchers(HttpMethod.GET,"/api/v1/book/*").permitAll()
 		//moved to nginx .antMatchers(HttpMethod.GET,"/image/book/*").permitAll()
 		//.antMatchers(HttpMethod.GET,"/token","/checkSession","/user/logout").authenticated()
 		.anyRequest().authenticated()
@@ -75,6 +74,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		return new HeaderHttpSessionStrategy();
 	}
 
+// moved to nginx
 //	@Bean
 //	CorsConfigurationSource corsConfigurationSource() {
 //		CorsConfiguration configuration = new CorsConfiguration();

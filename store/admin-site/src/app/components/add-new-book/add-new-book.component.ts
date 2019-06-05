@@ -11,10 +11,10 @@ import {Router} from '@angular/router';
 })
 export class AddNewBookComponent implements OnInit {
     
-    private newBook:Book = new Book();
-    private bookAdded: boolean;
+    newBook:Book = new Book();
+    bookAdded: boolean;
 
-  constructor(private addBookService:AddBookService, private uploadImageService:UploadImageService,private router:Router) { }
+  constructor(private addBookService:AddBookService, public uploadImageService:UploadImageService,private router:Router) { }
     
     onSubmit(){
         this.addBookService.sendBook(this.newBook).subscribe(
@@ -31,7 +31,7 @@ export class AddNewBookComponent implements OnInit {
                 console.log("t5 "+t5);
                 this.uploadImageService.upload(t5);
                 this.bookAdded = true;
-                this.newBook = new Book();
+                this.newBook = new Book();//todo route to view-book
             },
             error=>{
                 console.log(error);

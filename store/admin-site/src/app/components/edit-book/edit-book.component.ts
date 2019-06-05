@@ -13,10 +13,10 @@ import { Params, ActivatedRoute, Router} from '@angular/router';
 export class EditBookComponent implements OnInit {
     
     private bookId: number;
-    private book: Book = new Book();
-    private bookUpdated: boolean;
+    book: Book = new Book();
+    bookUpdated: boolean;
 
-  constructor(private uploadImageService: UploadImageService,
+  constructor(public uploadImageService: UploadImageService,
               private editBookService: EditBookService,
               private getBookService: GetBookService,
               private route: ActivatedRoute,

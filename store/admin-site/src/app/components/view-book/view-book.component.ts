@@ -11,7 +11,7 @@ import {Book} from '../../models/book';
 })
 export class ViewBookComponent implements OnInit {
     
-    private book:Book = new Book();
+    book:Book = new Book();
     private bookId:number;
     env=environment;
 

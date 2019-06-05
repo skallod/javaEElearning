@@ -1,15 +1,3 @@
-<!--
-<mat-toolbar color="primary">
-  <mat-toolbar-row>
-    <span>Book store</span>
-      <span [hidden]="!loggedIn"><button mat-button>View Book List</button></span>
-      <span [hidden]="!loggedIn"><button mat-button>Add a book</button></span>
-      <span [hidden]="!loggedIn"><button mat-button>Logout</button></span>
-  </mat-toolbar-row>
-</mat-toolbar>
-
- <button mat-fab color="warn" (click)="toggleDisplay()">Toggle</button>
--->
 <div class="container">
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
@@ -17,27 +5,22 @@
       </button>
         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
             <ul class="navbar-nav mr-auto">
+<!--            <ul class="navbar-nav navbar-left">-->
                 <li class="nav-item" [hidden]="loggedIn"><a class="nav-link" routerLink="/login">Войти</a></li>
                 <li class="nav-item" [hidden]="!loggedIn"><a class="nav-link" routerLink="/newbook">Добавить</a></li>
                 <li class="nav-item" ><a class="nav-link" href="#">Контакты</a></li>
                 <li class="nav-item" [hidden]="!loggedIn"><a class="nav-link" routerLink="/bookList">Список</a></li>
                 <li class="nav-item" [hidden]="!loggedIn"><a class="nav-link" (click)="logout()">Выйти</a></li>
-                <!--
-                <span>Book store</span>
-                <span [hidden]="!loggedIn"><button>View Book List</button></span>
-                <span [hidden]="!loggedIn"><button>Add a book</button></span>
-                <span [hidden]="!loggedIn"><button>Logout</button></span>
-    -->
+<!--
+                <form (ngSubmit)="onSearchByTitle()" [hidden]="!loggedIn" class="navbar-form">
+                   <div class="form-group">
+                       <input type="text" name="searchByTitle" [(ngModel)]="keyboard" class="form-control" placeholder="Book title"/>
+                   </div>
+                   <button class="btn btn-primary">Search</button>
+                </form>
+-->
             </ul>
         </div>
     </nav>
 </div>
-<!--
-<div class="container">
-    <button color="blue" (click)="toggleDisplay()">Toggle</button>
-</div>
--->
 
-<!-- <app-login></app-login>-->
-
-<!--<md-toolbar class="mat-primary"></md-toolbar>-->

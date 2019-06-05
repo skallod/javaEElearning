@@ -14,7 +14,7 @@ export class BookListComponent implements OnInit {
     
     private selectedBook:Book;
     private checked:boolean;
-    private bookList:Book[];
+    bookList:Book[];
     private allChecked:boolean;
     private removeBookList: Book[] = new Array();
 

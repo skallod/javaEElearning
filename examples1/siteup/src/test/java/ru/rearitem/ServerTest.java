@@ -2,9 +2,6 @@ package ru.rearitem;
 
 import javax.servlet.DispatcherType;
 import javax.servlet.SessionTrackingMode;
-import java.io.IOException;
-import java.net.ServerSocket;
-import java.net.Socket;
 import java.util.HashSet;
 
 import io.undertow.Handlers;
@@ -96,22 +93,6 @@ public class ServerTest {
             Runtime.getRuntime().addShutdownHook(new Thread(()->{
                 afterClass();
             }));
-//            new Thread(() -> {
-//                try {
-//                    ServerSocket serverSocket = new ServerSocket(58089);
-//                    Socket accept = serverSocket.accept();
-//                    log.info("accepted");
-//                    accept.close();
-//                    serverSocket.close();
-//                    stop = true;
-//                } catch (IOException e) {
-//                    e.printStackTrace();
-//                }
-//            }).start();
-//            do {
-//                Thread.sleep(1000);
-//            } while (!stop);
-//            log.info("main stop");
         }catch (Exception e){
             e.printStackTrace();
         }

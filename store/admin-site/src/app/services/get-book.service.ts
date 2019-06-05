@@ -16,6 +16,7 @@ export class GetBookService {
         let url = this.env.baseurl+"/book/"+id;
         let headers = new Headers({
             'x-auth-token':localStorage.getItem('xAuthToken'),
+            'X-Requested-With':'XMLHttpRequest',
             'content-type':'application/json'
         });
         return this.http.get(url,{headers:headers});
