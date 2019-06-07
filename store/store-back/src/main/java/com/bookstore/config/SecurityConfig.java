@@ -54,7 +54,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		.authorizeRequests()
 				//.antMatchers(PUBLIC_MATCHERS).permitAll()
 				//apply from up to bottom
-		.antMatchers("/api/v1/checkAdmin").hasRole("ADMIN")
+		.antMatchers(HttpMethod.GET,"/api/v1/checkAdmin").hasRole("ADMIN")
 		.antMatchers(HttpMethod.POST,"/api/v1/book/*").hasRole("ADMIN")
 		.antMatchers(HttpMethod.GET,"/api/v1/book/*").permitAll()
 		//moved to nginx .antMatchers(HttpMethod.GET,"/image/book/*").permitAll()

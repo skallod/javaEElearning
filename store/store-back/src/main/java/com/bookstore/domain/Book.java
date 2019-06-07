@@ -3,6 +3,8 @@ package com.bookstore.domain;
 import java.io.Serializable;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 import org.springframework.web.multipart.MultipartFile;
 
@@ -16,8 +18,11 @@ public class Book implements Serializable{
 	@GeneratedValue(strategy=GenerationType.SEQUENCE,generator = "book_id_seq")
 	@SequenceGenerator(name="book_id_seq",sequenceName="book_id_seq")
 	private Long id;
-	
+	@NotBlank
+	@Size(max = 255)
 	private String title;
+	@NotBlank
+	@Size(max = 255)
 	private String author;
 	private String publisher;
 	private String publicationDate;

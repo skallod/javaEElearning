@@ -3,6 +3,8 @@ package com.bookstore.domain;
 import com.bookstore.domain.security.Role;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
 
 @Entity
@@ -15,7 +17,11 @@ public class User implements Serializable {
 	@SequenceGenerator(name="user_id_seq",sequenceName="user_id_seq")
 	private Long id;
 	//@Column(name = "username")
+	@NotBlank
+	@Size(max = 255)
 	private String userName;
+	@NotBlank
+	@Size(max = 255)
 	private String password;
 	private Role role;
 	private String firstName;
