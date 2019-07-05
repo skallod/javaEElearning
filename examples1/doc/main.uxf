@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>9</zoom_level>
+  <element>
+    <type>com.baselet.element.old.allinone.ActivityDiagramText</type>
+    <coordinates>
+      <x>63</x>
+      <y>189</y>
+      <w>1037</w>
+      <h>343</h>
+    </coordinates>
+    <panel_attributes>title:start
+Start
+main stream
+Fork
+	+ попытаться написать spring-core app
+	
+	снять дамп, построить флейм \async-profiler по семплам , по allocation
+
+	+ попытаться добиться lock на read commited\если делать update на одной строке то повисает \даже на read commited
+	+ сделать запрос две катировки из таблицы
+
+	доделать сайт из comerc app
+Sync
+End
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
