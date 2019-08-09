@@ -32,6 +32,7 @@ public class CreateAccountServlet extends HttpServlet implements Constants{
 
     @Override
     public void init(ServletConfig config) throws ServletException {
+        super.init(config);
         dbservice = (DbService) config.getServletContext().getAttribute("dbservice");
     }
 

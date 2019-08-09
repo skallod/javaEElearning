@@ -1,5 +1,6 @@
 package ru.rearitem.servlets;
 
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -27,6 +28,14 @@ public class LoginServlet extends HttpServlet implements Constants{
 
     private static final String RESPONSE_JSON = "{\"name\":\"%s\"}";
 
+    private DbService dbservice;
+
+    @Override
+    public void init(ServletConfig config) throws ServletException {
+        super.init(config);
+        dbservice = (DbService) config.getServletContext().getAttribute("dbservice");
+    }
+
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Optional.ofNullable(req.getSession(false)).ifPresent(HttpSession::invalidate);
@@ -35,7 +44,6 @@ public class LoginServlet extends HttpServlet implements Constants{
         }
         String email = req.getParameter("email");
         String password = req.getParameter("password");
-        DbService dbservice = (DbService) req.getServletContext().getAttribute("dbservice");
         try {
             Optional<Long> accountUid = dbservice.isAccountExist(email
                     , HashUtil.hash(password.getBytes(StandardCharsets.UTF_8)));
