@@ -46,3 +46,35 @@ db1=# update currency set value=72 where name='eur' and up='2019-02-24';
 UPDATE 1
 db1=# update currency set value=6 where name='rub';
 ОШИБКА:  обнаружена взаимоблокировка
+
+---------------------- поиск улиц в разном порядке слов
+WITH s AS (
+  SELECT
+    t.id,
+    string_agg(t.street, ' ' ORDER BY t.street) AS street
+  FROM (
+    SELECT
+      row_number() OVER () AS id,
+      regexp_split_to_table(v.street, '\s+') AS street
+    FROM
+      (
+        VALUES
+          ('переулок Кедровый'),
+          ('Кедровый переулок')
+      ) AS v(street)
+    ) AS t
+  GROUP BY
+    t.id
+)
+SELECT
+  s.id, s.street
+FROM
+  s
+WHERE
+  EXISTS (
+    SELECT 1
+    FROM s AS i
+    WHERE
+      i.id < s.id AND
+      i.street = s.street
+  )
