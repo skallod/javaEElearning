@@ -26,7 +26,7 @@ public class LoginResourceTest {
 
     @Test
     public void shouldNotGetToken() throws Exception {
-        accountResource.perform(get("/token")).andDo(res->{
+        accountResource.perform(get("/api/v1/token")).andDo(res->{
             String contentAsString = res.getResponse().getContentAsString();
             System.out.println("contentAsString = " + contentAsString);
         }).andExpect(status().is(401));
@@ -39,7 +39,7 @@ public class LoginResourceTest {
     )
     @Test
     public void shouldGetUserToken() throws Exception {
-        accountResource.perform(get("/token")).andExpect(status().isOk())
+        accountResource.perform(get("/api/v1/token")).andExpect(status().isOk())
                 .andExpect(content().json("{\"token\":\"1\"}"));
     }
 }

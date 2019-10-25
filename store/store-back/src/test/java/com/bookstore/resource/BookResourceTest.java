@@ -77,7 +77,7 @@ public class BookResourceTest {
     }
     @Test
     public void shouldReturn401() throws Exception {
-        mvc.perform(post("/book/add")).andExpect(status().is(401));
+        mvc.perform(post("/api/v1/book/add")).andExpect(status().is(401));
 //        bookResource.perform(post("/book/add").with(csrf())).andExpect(status().is(401));
     }
 
@@ -88,7 +88,7 @@ public class BookResourceTest {
     )
     @Test
     public void shouldForbiddenPostBook() throws Exception {
-        mvc.perform(post("/book/add").with(csrf())/*.with(
+        mvc.perform(post("/api/v1/book/add").with(csrf())/*.with(
                 user("admin").password("pass").roles("USER")
                 )*/.contentType(MediaType.APPLICATION_JSON)
         .content("{\"author\":\"fadsfa\",\"title\":\"fdasdfaf\",\"publisher\":\"fdadfsa\"}")
@@ -105,7 +105,7 @@ public class BookResourceTest {
     )
     @Test
     public void shouldAddBook() throws Exception {
-        mvc.perform(post("/book/add").with(csrf())/*.with(
+        mvc.perform(post("/api/v1/book/add").with(csrf())/*.with(
                 user("admin").password("pass").roles("USER")
                 )*/.contentType(MediaType.APPLICATION_JSON)
         .content("{\"author\":\"fadsfa\",\"title\":\"fdasdfaf\",\"publisher\":\"fdadfsa\"}")
