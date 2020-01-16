@@ -1,0 +1,17 @@
+version: '3.4'
+
+services:
+  app:
+    container_name: thread-work
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 1000M
+        reservations:
+          cpus: '1'
+          memory: 1000M
+    network_mode: host
+    build:
+      context: .
+      dockerfile: ./dockerfile

@@ -1,0 +1,7 @@
+FROM bellsoft/liberica-openjdk-centos:11.0.3
+ENV PROJECT_ROOT /usr/src/app
+WORKDIR $PROJECT_ROOT
+ADD target/thread-work-1-jar-with-dependencies.jar $PROJECT_ROOT
+# COPY ./target/thread-work-1.jar thread-work-1.jar
+CMD java -jar thread-work-1-jar-with-dependencies.jar
+# CMD java -XX:+UseContainerSupport -Xmx5g -Xms5g -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=1026 -Dcom.sun.management.jmxremote.local.only=false -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -jar testJavaAppl.jar
