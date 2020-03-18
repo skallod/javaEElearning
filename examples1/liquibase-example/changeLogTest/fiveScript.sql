@@ -1,0 +1,8 @@
+DECLARE
+  constraint_rexist NUMBER := 0;
+BEGIN
+  SELECT COUNT(*) FROM USER_CONSTRAINTS where TABLE_NAME = 'DATA_TYPE' and owner = 'DEV_USER' and CONSTRAINT_NAME = 'MESSAGE_UID_CONSTRAINT';
+  IF (constraint_exist <> 0) THEN
+    EXECUTE IMMEDIATE 'drop table DATA_TYPE';
+  END IF;
+END;

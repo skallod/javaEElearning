@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet author="galuzin-la" id="init">
+        <comment>Начальное создание базы</comment>
+        <sqlFile path="firstScript.sql" relativeToChangelogFile="true"/>
+    </changeSet>
+
+    <changeSet author="galuzin-la" id="second_script">
+        <comment>Второй скрипт</comment>
+        <sqlFile path="secondScript.sql" relativeToChangelogFile="true"/>
+    </changeSet>
+
+    <changeSet author="galuzin-la" id="third_script">
+        <comment>Третий скрипт</comment>
+        <sqlFile path="thirdScript.sql" relativeToChangelogFile="true"/>
+    </changeSet>
+
+<!--    <changeSet author="galuzin-la" id="forth_script">-->
+<!--        <comment>Четвертый скрипт</comment>-->
+<!--        <sqlFile path="forthScript.sql" relativeToChangelogFile="true"/>-->
+<!--    </changeSet>-->
+
+<!--    <changeSet author="galuzin-la" id="five_script">-->
+<!--        <comment>пятый скрипт</comment>-->
+<!--        <sqlFile path="fiveScript.sql" relativeToChangelogFile="true"/>-->
+<!--    </changeSet>-->
+
+</databaseChangeLog>
