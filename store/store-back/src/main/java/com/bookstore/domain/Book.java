@@ -27,7 +27,7 @@ public class Book implements Serializable{
 	private String publisher;
 	private String publicationDate;
 	private String language;
-	private String category;
+	private Category category = Category.DRAMA;
 	private int numberOfPages;
 	private String format;
 	private String isbn;
@@ -91,11 +91,11 @@ public class Book implements Serializable{
 		this.language = language;
 	}
 
-	public String getCategory() {
+	public Category getCategory() {
 		return category;
 	}
 
-	public void setCategory(String category) {
+	public void setCategory(Category category) {
 		this.category = category;
 	}
 

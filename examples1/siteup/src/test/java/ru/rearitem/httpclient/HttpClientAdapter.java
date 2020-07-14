@@ -20,6 +20,7 @@ import org.apache.http.client.methods.HttpRequestBase;
 import org.apache.http.client.protocol.HttpClientContext;
 import org.apache.http.cookie.Cookie;
 import org.apache.http.entity.ContentType;
+import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.BasicCookieStore;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
@@ -60,6 +61,12 @@ public class HttpClientAdapter {
         return send(httppost);
     }
 
+    public HttpResponse makePostAndSend(String url, String body) throws Exception {
+        HttpPost httppost = new HttpPost(url);
+        httppost.setEntity(new StringEntity(body));
+        return send(httppost);
+    }
+
     public HttpResponse makeGetAndSend(String url) throws Exception {
         HttpGet httpget = new HttpGet(url);
         return send(httpget);
@@ -75,7 +82,9 @@ public class HttpClientAdapter {
         String reasonPhrase = null;
         HttpContext httpContext = new HttpClientContext();
         httpContext.setAttribute(HttpClientContext.COOKIE_STORE, httpCookieStore);
+        long l = System.nanoTime();
         try (CloseableHttpResponse response = httpclient.execute(req,httpContext);) {
+            System.out.println("apache client execute = " + (System.nanoTime()-l));
             StatusLine statusLine = response.getStatusLine();
             statusCode = statusLine.getStatusCode();
             reasonPhrase = statusLine.getReasonPhrase();

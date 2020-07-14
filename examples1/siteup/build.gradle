@@ -27,39 +27,38 @@ dependencies {
     testCompile project (path: ":db-service", configuration: 'testArtifacts')
     testCompile group: 'com.h2database', name: 'h2', version: '1.4.195'
     testCompile group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.5.5'
-
 }
-remotes {
-    webServer {
-        host = '192.168.165.4'
-        user = 'root'
-        identity = file('c:/Dev/Doc/SSH_keys/local_vm/1005')
-    }
-}
-task deploy {
-    doLast {
-        ssh.run {
-            session(remotes.webServer) {
-                remove '/var/www/html'
-                put from: 'html', into: '/var/www'
-                execute 'systemctl stop tomcat'
-                remove '/opt/tomcat/webapps/ROOT'
-                remove '/opt/tomcat/webapps/ROOT.war'
-                put from: 'build/libs/ROOT.war', into: '/opt/tomcat/webapps'
-                execute 'systemctl start tomcat'
-            }
-        }
-    }
-}
-task deployDB {
-    doLast {
-        ssh.run {
-            session(remotes.webServer) {
-                put from: '../db-service/init/db.sql', into: '/tmp'
-            }
-        }
-    }
-}
+//remotes {
+//    webServer {
+//        host = '192.168.165.4'
+//        user = 'root'
+//        identity = file('c:/Dev/Doc/SSH_keys/local_vm/1005')
+//    }
+//}
+//task deploy {
+//    doLast {
+//        ssh.run {
+//            session(remotes.webServer) {
+//                remove '/var/www/html'
+//                put from: 'html', into: '/var/www'
+//                execute 'systemctl stop tomcat'
+//                remove '/opt/tomcat/webapps/ROOT'
+//                remove '/opt/tomcat/webapps/ROOT.war'
+//                put from: 'build/libs/ROOT.war', into: '/opt/tomcat/webapps'
+//                execute 'systemctl start tomcat'
+//            }
+//        }
+//    }
+//}
+//task deployDB {
+//    doLast {
+//        ssh.run {
+//            session(remotes.webServer) {
+//                put from: '../db-service/init/db.sql', into: '/tmp'
+//            }
+//        }
+//    }
+//}
 
 task copy(type: Copy, group: "Custom", description: "Copies sources to the dest directory") {
     from("build/libs")
@@ -72,6 +71,6 @@ task wrapper(type: Wrapper) {
     gradleVersion = '4.7'
 }
 
-copy.dependsOn build
-deploy.dependsOn copy
+//copy.dependsOn build
+//deploy.dependsOn copy
 
